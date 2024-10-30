@@ -25,6 +25,7 @@ SOURCES += \
         MLMODELS/dataset.cpp \
         MLMODELS/mlpproblem.cpp \
         MLMODELS/model.cpp \
+        MLMODELS/rbfproblem.cpp \
         main.cpp
 
 # Default rules for deployment.
@@ -50,4 +51,5 @@ HEADERS += \
     INTERVAL/problem.h \
     MLMODELS/dataset.h \
     MLMODELS/mlpproblem.h \
-    MLMODELS/model.h
+    MLMODELS/model.h \
+    MLMODELS/rbfproblem.h
