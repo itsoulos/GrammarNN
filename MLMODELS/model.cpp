@@ -9,8 +9,7 @@ Model::Model()
     QStringList format;
     format<<"data"<<"csv"<<"arff";
     addParam(Parameter("model_dataformat",format[0],format,"Data format used in datafiles"));
-    modelSeed=1;
-    generator.seed(modelSeed);
+
 }
 
 void    Model::trainModel()
@@ -148,17 +147,6 @@ Dataset     *Model::getTrainDataset()
     return trainDataset;
 }
 
-void    Model::setModelSeed(int seed)
-{
-    modelSeed = seed;
-    generator.seed(modelSeed);
-
-}
-
-int     Model::getModelSeed() const
-{
-    return modelSeed;
-}
 
 Model::~Model()
 {

@@ -2,8 +2,7 @@
 #define MODEL_H
 # include <MLMODELS/dataset.h>
 # include <CORE/parameterlist.h>
-#include <random>
-using namespace std;
+
 
 class Model : public ParameterList
 {
@@ -22,14 +21,7 @@ protected:
      */
     Matrix xall;
 
-    /**
-     * @brief modelSeed, the seed number used in the model initialization.
-     */
-    int     modelSeed;
 
-    mt19937 generator;
-    uniform_int_distribution<> intDistrib;
-    uniform_real_distribution<> doubleDistrib;
 public:
     /**
      * @brief Model, the default constructor
@@ -115,19 +107,7 @@ public:
      * @param classError
      */
     virtual     void  testModel(double &trainError,double &testError,double &classError);
-    /**
-     * @brief setModelSeed, alters the used seed for the random number generator
-     * @param seed
-     */
-    void    setModelSeed(int seed);
-    /**
-     * @brief getModelSeed
-     * @return  the used seed for the random number generator
-     */
-    int     getModelSeed() const;
-    /**
-     * @brief ~Model the used destructor
-     */
+
     virtual ~Model();
 };
 

@@ -23,9 +23,8 @@ SOURCES += \
         INTERVAL/intervalproblem.cpp \
         INTERVAL/problem.cpp \
         MLMODELS/dataset.cpp \
-        MLMODELS/functionalRbf.cc \
+        MLMODELS/mlpproblem.cpp \
         MLMODELS/model.cpp \
-        MLMODELS/nntest.cc \
         main.cpp
 
 # Default rules for deployment.
@@ -50,4 +49,5 @@ HEADERS += \
     INTERVAL/intervalproblem.h \
     INTERVAL/problem.h \
     MLMODELS/dataset.h \
+    MLMODELS/mlpproblem.h \
     MLMODELS/model.h

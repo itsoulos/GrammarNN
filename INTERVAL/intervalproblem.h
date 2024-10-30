@@ -4,12 +4,10 @@
 # include <iostream>
 # include <QJsonObject>
 # include <INTERVAL/interval.h>
-# include <QRandomGenerator>
-using namespace  std;
+#include <random>
+using namespace std;
 typedef vector<double> Data;
 typedef vector<Interval> IntervalData;
-
-extern QRandomGenerator randGen;
 
 class IntervalProblem
 {
@@ -17,6 +15,15 @@ protected:
     int                 dimension;
     IntervalData        margin;
     const int     maxSearchDepth=5;
+
+    /**
+     * @brief modelSeed, the seed number used in the model initialization.
+     */
+    int     modelSeed;
+
+    mt19937 generator;
+    uniform_int_distribution<> intDistrib;
+    uniform_real_distribution<> doubleDistrib;
 public:
     IntervalProblem(int d);
     void                setDimension(int d);
@@ -38,6 +45,23 @@ public:
     void                boundInterval(IntervalData &x);
     void                printData(IntervalData &x);
     double              randomDouble();
+    /**
+     * @brief setModelSeed, alters the used seed for the random number generator
+     * @param seed
+     */
+    void    setModelSeed(int seed);
+    /**
+     * @brief getModelSeed
+     * @return  the used seed for the random number generator
+     */
+    int     getModelSeed() const;
+    virtual Data getSample();
+
+    /**
+     * @brief ~Model the used destructor
+     */
+
+
     virtual             ~IntervalProblem();
 };
 

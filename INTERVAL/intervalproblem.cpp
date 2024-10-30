@@ -1,13 +1,11 @@
 #include "intervalproblem.h"
 # include <QVariant>
-QRandomGenerator randGen;
 
 IntervalProblem::IntervalProblem(int d)
 {
- dimension=d;
- margin.resize((unsigned)d);
- for(unsigned int i=0;i<d;i++)
-     margin[i]=Interval(-100,100);
+    setDimension(d);
+    modelSeed=1;
+    generator.seed(modelSeed);
 }
 
 void    IntervalProblem::setDimension(int d)
@@ -40,7 +38,7 @@ int    IntervalProblem::getDimension() const
 
 double  IntervalProblem::randomDouble()
 {
-    return drand48();//rand()*1.0/RAND_MAX;
+    return doubleDistrib(generator);
 }
 
 bool   IntervalProblem::isPointIn(Data &x) const
@@ -71,12 +69,6 @@ double  IntervalProblem::getVolume() const
 {
     return 0.0;
 }
-
-double randomDouble()
-{
-    return randGen.generateDouble();
-}
-
 
 void    IntervalProblem::printData(IntervalData &x)
 {
@@ -184,6 +176,14 @@ void    IntervalProblem::boundInterval(IntervalData &x)
     }
 }
 
+Data    IntervalProblem::getSample()
+{
+    Data xx;
+    xx.resize(getDimension());
+    for(int i=0;i<(int)xx.size();i++)
+        xx[i]=margin[i].leftValue()+randomDouble()*(margin[i].rightValue()-margin[i].leftValue());
+    return xx;
+}
 
 void    IntervalProblem::init(QJsonObject x)
 {
@@ -203,6 +203,18 @@ void    IntervalProblem::granal(Data &x, Data &g)
 QJsonObject IntervalProblem::done(Data &x)
 {
     return QJsonObject();
+}
+
+void    IntervalProblem::setModelSeed(int seed)
+{
+    modelSeed = seed;
+    generator.seed(modelSeed);
+
+}
+
+int     IntervalProblem::getModelSeed() const
+{
+    return modelSeed;
 }
 
 IntervalProblem::~IntervalProblem()

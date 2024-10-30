@@ -25,7 +25,7 @@ GrammarGenetic::GrammarGenetic(int count,int size,IntervalProblem *p)
     generation = 0;
     drandDat.resize(10 * nsamples*problem->getDimension());
     for (unsigned i = 0; i < drandDat.size();i++) {
-        drandDat[i]=randGen.generateDouble();
+        drandDat[i]=p->randomDouble();
     }
 }
 
@@ -218,7 +218,7 @@ void    GrammarGenetic::Solve()
     generation = 0;
     drandDat.resize(10 * nsamples*problem->getDimension());
     for (unsigned i = 0; i < drandDat.size();i++) {
-        drandDat[i]=randGen.generateDouble();
+        drandDat[i]=problem->randomDouble();
     }
     do
     {
