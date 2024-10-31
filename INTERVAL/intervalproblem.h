@@ -8,7 +8,14 @@
 using namespace std;
 typedef vector<double> Data;
 typedef vector<Interval> IntervalData;
-
+typedef vector<Data> Matrix;
+#define totcal_1 totcal_
+#define units_1 units_
+#define integer long
+#define double double
+//#define real float
+typedef long int ftnlen;
+typedef long int logical;
 class IntervalProblem
 {
 protected:
@@ -45,6 +52,7 @@ public:
     void                boundInterval(IntervalData &x);
     void                printData(IntervalData &x);
     double              randomDouble();
+    bool                getGradientCriterion(Data &x1,Data &x2);
     /**
      * @brief setModelSeed, alters the used seed for the random number generator
      * @param seed
@@ -57,6 +65,7 @@ public:
     int     getModelSeed() const;
     virtual Data getSample();
 
+    double  grms(Data &x);
     /**
      * @brief ~Model the used destructor
      */

@@ -1,5 +1,5 @@
 QT -= gui
-
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++17 console
 CONFIG -= app_bundle
 
@@ -22,10 +22,35 @@ SOURCES += \
         INTERVAL/interval.cpp \
         INTERVAL/intervalproblem.cpp \
         INTERVAL/problem.cpp \
+        METHODS/adam.cpp \
+        METHODS/armijosearch.cpp \
+        METHODS/bfgs.cpp \
+        METHODS/collection.cpp \
+        METHODS/doublebox.cpp \
+        METHODS/editlogger.cpp \
+        METHODS/fibonaccisearch.cpp \
+        METHODS/filelogger.cpp \
+        METHODS/genetic.cpp \
+        METHODS/goldensearch.cpp \
+        METHODS/gradientdescent.cpp \
+        METHODS/ipso.cpp \
+        METHODS/lbfgs.cpp \
+        METHODS/linesearch.cpp \
+        METHODS/logger.cpp \
+        METHODS/mean.cpp \
+        METHODS/optimizer.cpp \
+        METHODS/similarity.cpp \
         MLMODELS/dataset.cpp \
         MLMODELS/mlpproblem.cpp \
         MLMODELS/model.cpp \
         MLMODELS/rbfproblem.cpp \
+        SAMPLER/kmeanssampler.cpp \
+        SAMPLER/maxwellsampler.cpp \
+        SAMPLER/neuralsampler.cpp \
+        SAMPLER/problemsampler.cpp \
+        SAMPLER/rbfsampler.cpp \
+        SAMPLER/triangularsampler.cpp \
+        SAMPLER/uniformsampler.cpp \
         main.cpp
 
 # Default rules for deployment.
@@ -49,7 +74,32 @@ HEADERS += \
     INTERVAL/interval.h \
     INTERVAL/intervalproblem.h \
     INTERVAL/problem.h \
+    METHODS/adam.h \
+    METHODS/armijosearch.h \
+    METHODS/bfgs.h \
+    METHODS/collection.h \
+    METHODS/doublebox.h \
+    METHODS/editlogger.h \
+    METHODS/fibonaccisearch.h \
+    METHODS/filelogger.h \
+    METHODS/genetic.h \
+    METHODS/goldensearch.h \
+    METHODS/gradientdescent.h \
+    METHODS/ipso.h \
+    METHODS/lbfgs.h \
+    METHODS/linesearch.h \
+    METHODS/logger.h \
+    METHODS/mean.h \
+    METHODS/optimizer.h \
+    METHODS/similarity.h \
     MLMODELS/dataset.h \
     MLMODELS/mlpproblem.h \
     MLMODELS/model.h \
-    MLMODELS/rbfproblem.h
+    MLMODELS/rbfproblem.h \
+    SAMPLER/kmeanssampler.h \
+    SAMPLER/maxwellsampler.h \
+    SAMPLER/neuralsampler.h \
+    SAMPLER/problemsampler.h \
+    SAMPLER/rbfsampler.h \
+    SAMPLER/triangularsampler.h \
+    SAMPLER/uniformsampler.h

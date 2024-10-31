@@ -4,6 +4,20 @@ Dataset::Dataset()
 {
     clearPoints();
 }
+
+Dataset::Dataset(IntervalProblem *p,int N)
+{
+    xpoint.resize(N);
+    ypoint.resize(N);
+    for(int i=0;i<N;i++)
+    {
+        xpoint[i].resize(p->getDimension());
+        xpoint[i]=p->getSample();
+        ypoint[i]=p->funmin(xpoint[i]);
+    }
+    makeClassVector();
+}
+
 void    Dataset::makeClassVector()
 {
     classVector.clear();

@@ -212,6 +212,30 @@ void    IntervalProblem::setModelSeed(int seed)
 
 }
 
+double  IntervalProblem::grms(Data &x)
+{
+    Data g;
+    g.resize(x.size());
+    granal(x,g);
+    double sum =0.0;
+    for(int i=0;i<(int)x.size();i++)
+        sum+=g[i]*g[i];
+    return sum;
+}
+
+bool     IntervalProblem::getGradientCriterion(Data &x1,Data &x2)
+{
+    Data g1,g2;
+    g1.resize(x1.size());
+    g2.resize(x2.size());
+    granal(x1,g1);
+    granal(x2,g2);
+    double s=0.0;
+    for(int i=0;i<x1.size();i++)
+        s+=(x1[i]-x2[i])*(g1[i]-g2[i]);
+    return s>=0;
+}
+
 int     IntervalProblem::getModelSeed() const
 {
     return modelSeed;

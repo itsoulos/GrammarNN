@@ -1,6 +1,7 @@
 #ifndef DATASET_H
 #define DATASET_H
 # include <math.h>
+# include <INTERVAL/intervalproblem.h>
 # include <QString>
 # include <QStringList>
 # include <QFile>
@@ -9,8 +10,6 @@
 # include <iostream>
 using namespace std;
 
-typedef vector<double> Data;
-typedef vector<Data> Matrix;
 
 class Dataset
 {
@@ -21,6 +20,7 @@ private:
     void    makeClassVector();
 public:
     Dataset();
+    Dataset(IntervalProblem *p,int N);
     void    loadFromDataFile(QString filename);
     void    loadFromArffFile(QString filename);
     void    loadFromCsvFile(QString filename);
