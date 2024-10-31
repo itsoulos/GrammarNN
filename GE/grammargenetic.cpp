@@ -4,13 +4,33 @@
 GrammarGenetic::GrammarGenetic(int count,int size,IntervalProblem *p)
 {
     problem = p;
-    program = new Cprogram(p->getDimension(),1);
+    program = p!=NULL?new Cprogram(p->getDimension(),1):NULL;
     selection_rate = 0.1;
     mutation_rate  = 0.05;
     gcount = count;
     gsize = size;
-    MAX_RULE = 255;
-    //MAX_RULE = 3 * p->getDimension()/2;
+
+    MAX_RULE = (p==NULL)?255:qMax(3 * p->getDimension()/2,255);
+
+    plist.addParam(Parameter("ggen_count",200,10,500,"Number of chromosomes"));
+    plist.addParam(Parameter("ggen_size",50,10,200,"Chromosome size"));
+    plist.addParam(Parameter("ggen_srate",0.1,0.0,1.0,"Selection rate"));
+    plist.addParam(Parameter("ggen_mrate",0.05,0.0,1.0,"Mutation rate"));
+    plist.addParam(Parameter("ggen_gens",200,10,1000,"Number of generations"));
+    if(problem == NULL)
+         return;
+    setProblem(problem);
+}
+
+void    GrammarGenetic::setProblem(IntervalProblem *p)
+{
+    int count = gcount;
+    int size = gsize;
+    if(problem!=p) problem = p;
+    if(program==NULL)
+        program = new Cprogram(p->getDimension(),1);
+    MAX_RULE = (p==NULL)?255:qMax(3 * p->getDimension()/2,255);
+
     chromosome.resize(count);
     children.resize(count);
     for(int i=0;i<count;i++)
@@ -27,6 +47,16 @@ GrammarGenetic::GrammarGenetic(int count,int size,IntervalProblem *p)
     for (unsigned i = 0; i < drandDat.size();i++) {
         drandDat[i]=p->randomDouble();
     }
+}
+
+void    GrammarGenetic::setParam(QString name,QString value,QString help)
+{
+    plist.setParam(name,value,help);
+}
+
+ParameterList GrammarGenetic::getParameterList() const
+{
+    return plist;
 }
 
 void    GrammarGenetic::setSelectionRate(double r)
@@ -187,6 +217,7 @@ void    GrammarGenetic::mutate()
 
 void    GrammarGenetic::nextGeneration()
 {
+    if(problem==NULL) return;
     if(generation) mutate();
     calcFitnessArray();
     select();
@@ -216,10 +247,13 @@ void    GrammarGenetic::nextGeneration()
 void    GrammarGenetic::Solve()
 {
     generation = 0;
-    drandDat.resize(10 * nsamples*problem->getDimension());
-    for (unsigned i = 0; i < drandDat.size();i++) {
-        drandDat[i]=problem->randomDouble();
-    }
+    setSelectionRate(plist.getParam("ggen_srate").getValue().toDouble());
+    setMutationRate(plist.getParam("ggen_mrate").getValue().toDouble());
+    maxGenerations = plist.getParam("ggen_gens").getValue().toInt();
+    gcount = plist.getParam("ggen_count").getValue().toInt();
+    gsize = plist.getParam("ggen_size").getValue().toInt();
+    if(problem!=NULL) setProblem(problem);
+
     do
     {
         nextGeneration();

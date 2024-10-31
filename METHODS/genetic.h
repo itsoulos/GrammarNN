@@ -58,6 +58,7 @@ public:
     void    Mutate();
     void    LocalSearch(int pos);
     void    setBest(Data &xx,double y);
+    void    getBest(Data &x,double &y);
     double deltaIter(int iter,double y);
     virtual ~Genetic();
 };

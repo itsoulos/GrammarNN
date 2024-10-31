@@ -9,7 +9,7 @@ Genetic::Genetic()
     addParam(Parameter("gen_lrate",0.005,0.0,1.0,"Localsearch rate"));
     addParam(Parameter("gen_tsize",8,2,20,"Tournament size"));
     QStringList gen_selection;
-    gen_selection<<"roulette"<<"tournament";
+    gen_selection<<"tournament"<<"roulette";
     addParam(Parameter("gen_selection",gen_selection[0],
                        gen_selection,
                        "Selection method. Available values roulette,tournament"));
@@ -32,6 +32,11 @@ Genetic::Genetic()
     addParam(Parameter("gen_lsearchgens",20,0,100,"Generations for local search"));
     }
 
+void    Genetic::getBest(Data &x,double &y)
+{
+    x = bestx;
+    y = besty;
+}
 
 void    Genetic::setBest(Data &xx,double y)
 {
@@ -557,6 +562,8 @@ void    Genetic::Mutate()
 void    Genetic::done()
 {
     fitnessArray[0]=localSearch(population[0]);
+    bestx = population[0];
+    besty = fitnessArray[0];
     if(getParam("opt_debug").getValue()=="yes" )
         methodLogger->printMessage(QString::asprintf("GENETIC. terminate: %lf ",fitnessArray[0]));
 }

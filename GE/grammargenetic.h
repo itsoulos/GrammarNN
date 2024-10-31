@@ -3,6 +3,7 @@
 # include <INTERVAL/intervalproblem.h>
 # include <QVariant>
 # include <GE/cprogram.h>
+# include <CORE/parameterlist.h>
 typedef vector<int> IDATA;
 
 
@@ -15,7 +16,7 @@ private:
     vector<IDATA> children;
     IntervalData fitnessArray;
     Cprogram *program;
-    const int nsamples=200;
+    const int nsamples=50;
     int     getParent();
     double selection_rate;
     double mutation_rate;
@@ -29,8 +30,11 @@ private:
     int gsize;
     Data drandDat;
     int MAX_RULE;
+    ParameterList plist;
 public:
     GrammarGenetic(int count,int size,IntervalProblem *p);
+    void    setProblem(IntervalProblem *p);
+    void    setParam(QString name,QString value,QString help="");
     Interval fitness(IDATA &genome);
     void    setSelectionRate(double r);
     void    setMutationRate(double r);
@@ -40,9 +44,10 @@ public:
     int     getMaxGenerations() const;
     void    nextGeneration();
     void    Solve();
-    void getBest(IntervalData &x,Interval &y);
-    Data getBestPoint();
-    void localSearch(int pos);
+    void    getBest(IntervalData &x,Interval &y);
+    Data    getBestPoint();
+    void    localSearch(int pos);
+    ParameterList getParameterList() const;
     ~GrammarGenetic();
 };
 

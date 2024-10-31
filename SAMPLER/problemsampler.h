@@ -1,7 +1,7 @@
 #ifndef PROBLEMSAMPLER_H
 #define PROBLEMSAMPLER_H
 
-# include "INTERVAL/intervalproblem.h""
+# include "INTERVAL/intervalproblem.h"
 
 typedef vector<Data> Matrix;
 

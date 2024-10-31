@@ -71,6 +71,8 @@ void    MlpProblem::initWeights()
 
 void    MlpProblem::initModel()
 {
+    usebound_flag = getParam("mlp_usebound").getValue()=="false"?false:true;
+    viollimit  = getParam("mlp_boundlimit").getValue().toDouble();
     initWeights();
 }
 void    MlpProblem::init(QJsonObject &pt)
@@ -95,8 +97,7 @@ void    MlpProblem::init(QJsonObject &pt)
     {
         setParam("mlp_initmethod",pt["mlp_initmethod"].toString());
     }
-    usebound_flag = getParam("mlp_usebound").getValue()=="false"?false:true;
-    viollimit  = getParam("mlp_boundlimit").getValue().toDouble();
+
     loadTrainSet();
     loadTestSet();
     initWeights();
