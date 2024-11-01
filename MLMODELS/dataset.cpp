@@ -23,8 +23,16 @@ void    Dataset::makeClassVector()
     classVector.clear();
     for(int i=0;i<(int)ypoint.size();i++)
     {
-        double dclass=estimateClass(ypoint[i]);
-        if(dclass<=-1e+8)
+        int imin = -1;
+        for(int j=0;j<classVector.size();j++)
+        {
+            if(fabs(classVector[j]-ypoint[i])<1e-6)
+            {
+                imin = j;
+                break;
+            }
+        }
+        if(imin==-1)
             classVector.push_back(ypoint[i]);
     }
 }

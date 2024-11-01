@@ -1,5 +1,7 @@
 #include "mlpproblem.h"
 # include <QDebug>
+#pragma GCC optimize("-Ofast")
+
 MlpProblem::MlpProblem()
     :IntervalProblem(1)
 {
@@ -125,13 +127,12 @@ double MlpProblem::funmin(Data &x)
 
 }
 
-/** edo epistrefoume tin paragogo tis
- *  synartisis funmin(x) os pros x**/
-Data    MlpProblem::gradient(Data &x)
+
+void    MlpProblem::granal(Data &x,Data &g)
 {
-    Data g;
+
     weight = x;
-    g.resize(weight.size());
+
     if(usebound_flag)
     {
         /** Maybe use autodiff here??**/
@@ -145,7 +146,7 @@ Data    MlpProblem::gradient(Data &x)
                 g[i]=(v1-v2)/(2.0 * eps);
                 x[i]+=eps;
             }
-        return g;
+
     }
     for(int i=0;i<g.size();i++)
         g[i]=0.0;
@@ -157,12 +158,15 @@ Data    MlpProblem::gradient(Data &x)
         for(int j=0;j<g.size();j++)	g[j]+=gtemp[j]*per;
     }
     for(int j=0;j<x.size();j++) g[j]*=2.0;
-    return g;
+
 }
 
 double  MlpProblem::sig(double x)
 {
-    return 1.0/(1.0+exp(-x));
+    if(fastExpFlag && x>=10.0) return 1.0;
+    if(fastExpFlag && x<=-10.0) return 0.0;
+    double fx=1.0/(1.0+exp(-x));
+    return fx;
 }
 
 double  MlpProblem::sigder(double x)
@@ -201,7 +205,7 @@ double  MlpProblem::getOutput(Data  &x)
 
         }
         arg+=weight[(d+2)*i-1];
-	    if(fabs(arg)>=viollimit)
+        if(fabs(arg)>=viollimit)
 	    {
 		    violcount++;
 	    }

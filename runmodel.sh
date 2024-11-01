@@ -25,7 +25,7 @@ SAMPLER=uniform
 # TERMINATION: The termination method used. Available values: maxiters, doublebox, similarity
 TERMINATION=maxiters
 
-OPTPARAMS="--opt_debug=yes --opt_localsearch=$LOCAL --opt_sampler=$SAMPLER --opt_termination=$TERMINATION"
+OPTPARAMS="--opt_debug=no --opt_localsearch=$LOCAL --opt_sampler=$SAMPLER --opt_termination=$TERMINATION"
 if [ $MODEL = "Mlp" ]
 then
 ###NEURAL NETWORK PARAMS
@@ -44,5 +44,6 @@ then
 fi
 
 
+MAINPARAMS="--gnn_iters=1 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL"
 ## Execute the program
- $PROGRAM $OPTPARAMS $MODELPARAMS --opt_debug=yes --gnn_seed=1 --gnn_iters=1
+ $PROGRAM $MAINPARAMS $OPTPARAMS $MODELPARAMS

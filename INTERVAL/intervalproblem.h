@@ -31,6 +31,8 @@ protected:
     mt19937 generator;
     uniform_int_distribution<> intDistrib;
     uniform_real_distribution<> doubleDistrib;
+    Data lastX;
+    double lastY;
 public:
     IntervalProblem(int d);
     void                setDimension(int d);
@@ -71,6 +73,7 @@ public:
      */
 
 
+    void    getLastValues(Data &x,double &y);
     virtual             ~IntervalProblem();
 };
 

@@ -47,6 +47,7 @@ void    Genetic::setBest(Data &xx,double y)
 
 void    Genetic::init()
 {
+    terminationMethod = getParam("opt_termination").getValue();
     chromosomeCount=getParam("gen_count").getValue().toInt();
     maxGenerations=getParam("gen_maxiters").getValue().toInt();
     selectionRate=getParam("gen_srate").getValue().toDouble();
@@ -115,6 +116,7 @@ void    Genetic::showDebug()
 {
     double besty;
     besty = fitnessArray[0];
+    qDebug()<<"Opt debug "<<getParam("opt_debug").getValue();
      if(getParam("opt_debug").getValue()=="yes")
         methodLogger->printMessage(
             QString::asprintf("GENETIC. GENERATION=%4d BEST VALUE=%20.10lg",

@@ -12,16 +12,22 @@
 
 
 GrammarGenetic *gen=NULL;
-QVector<Parameter> mainParams;
 QVector<Optimizer*> method;
 QStringList methodName;
 Model *selectedModel = NULL;
 QStringList modelName;
 QVector<Model*> model;
+QString selectedMethodName ="";
+Optimizer *selectedMethod = NULL;
 QString selectedTrainFile = "";
 QString selectedTestFile = "";
 QString selectedModelName = "";
 IntervalData bestMargin;
+ParameterList mainParamList;
+double average_train_error = 0.0;
+double average_test_error  = 0.0;
+double average_class_error = 0.0;
+int gnn_iters = 0;
 
 void    loadMethods()
 {
@@ -60,11 +66,11 @@ void    unloadModels()
 
 void makeMainParams()
 {
-    mainParams<<Parameter("help","","Show help screen");
-    mainParams<<Parameter("gnn_method",methodName[0],methodName,"Used Optimization method");
-    mainParams<<Parameter("gnn_model",modelName[0],modelName,"Model name. Values: mlp,rbf");
-    mainParams<<Parameter("gnn_seed",1,0,100,"Random Seed");
-    mainParams<<Parameter("gnn_iters",1,1,100,"Number of iterations");
+    mainParamList.addParam(Parameter("help","","Show help screen"));
+    mainParamList.addParam(Parameter("gnn_method",methodName[0],methodName,"Used Optimization method"));
+    mainParamList.addParam(Parameter("gnn_model",modelName[0],modelName,"Model name. Values: mlp,rbf"));
+    mainParamList.addParam(Parameter("gnn_seed",1,0,100,"Random Seed"));
+    mainParamList.addParam(Parameter("gnn_iters",1,1,100,"Number of iterations"));
 }
 
 void init()
@@ -107,8 +113,8 @@ void error(QString message)
 void    printHelp()
 {
     qDebug().noquote()<<"MAIN PARAMETERS\n=================================================";
-    for(int i=0;i<mainParams.size();i++)
-        printOption(mainParams[i]);
+    for(int i=0;i<mainParamList.countParameters();i++)
+        printOption(mainParamList.getParam(i));
     for(int i=0;i<method.size();i++)
     {
         qDebug().noquote()<<"METHOD :"<<methodName[i]<<"PARAMETERS\n=================================================";
@@ -159,14 +165,10 @@ void parseCmdLine(QStringList args)
         }
         bool foundParameter = false;
         //check in mainParams
-        for(int i=0;i<mainParams.size();i++)
+        if(mainParamList.contains(name))
         {
-            if(mainParams[i].getName()==name)
-            {
-                mainParams[i].setValue(value);
-                foundParameter=true;
-                break;
-            }
+            mainParamList.setParam(name,value);
+            foundParameter=true;
         }
         if(foundParameter) continue;
         //check in methods
@@ -178,7 +180,6 @@ void parseCmdLine(QStringList args)
                 pt.setParam(name,value);
                 method[j]->setParam(name,value);
                 foundParameter= true;
-                break;
             }
         }
         if(foundParameter) continue;
@@ -229,14 +230,8 @@ void    runFirstPhase()
 
 void    loadDataFiles()
 {
-    for(int i=0;i<mainParams.size();i++)
-    {
-        if(mainParams[i].getName()=="gnn_model")
-        {
-            selectedModelName=mainParams[i].getValue();
-            break;
-        }
-    }
+    selectedModelName = mainParamList.getParam("gnn_model").getValue();
+
 
     for(int i=0;i<modelName.size();i++)
     {
@@ -262,18 +257,62 @@ void    loadDataFiles()
     selectedModel->loadTrainSet();
     selectedModel->loadTestSet();
     selectedModel->initModel();
+    selectedModel->disableFastExp();
 }
 
 void    runSecondPhase()
 {
+    selectedModel->enableFastExp();
+    selectedModel->initModel();
     gen->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
     gen->Solve();
+    Interval yy;
+    gen->getBest(bestMargin,yy);
+    qDebug()<<"PHASE 2. Best interval located: "<<"[ "<<
+              yy.leftValue()<<","<<yy.rightValue()<<"]";
+    dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);
 }
 
+
+
+void makeReport()
+{
+    qDebug().noquote() <<"Selected Model:         "<<selectedModelName;
+    qDebug()<<qSetRealNumberPrecision( 10 ) <<"Average training error: "<<average_train_error/gnn_iters;
+    qDebug()<<qSetRealNumberPrecision( 10 ) <<"Average testing  error: "<<average_test_error/gnn_iters;
+    qDebug()<<qSetRealNumberPrecision( 10 ) <<"Average class    error: "<<average_class_error/gnn_iters;
+}
 
 void    runThirdPhase()
 {
     //evaluate the new margins
+    selectedModel->disableFastExp();
+    gnn_iters = mainParamList.getParam("gnn_iters").getValue().toInt();
+    selectedMethodName = mainParamList.getParam("gnn_method").getValue();
+
+    qDebug().noquote()<<"Running method "<<selectedMethodName;
+    for(int i=0;i<methodName.size();i++)
+    {
+        if(methodName[i]==selectedMethodName)
+        {
+            selectedMethod = method[i];
+            break;
+        }
+    }
+
+    for(int ik=1;ik<=gnn_iters;ik++)
+    {
+        //train model
+        selectedMethod->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
+        selectedModel->initModel();
+        selectedMethod->solve();
+        double tr=0.0,tt=0.0,tc=0.0;
+        selectedModel->testModel(tr,tt,tc);
+        average_train_error+=tr;
+        average_test_error+=tt;
+        average_class_error+=tc;
+    }
+    makeReport();
 }
 
 void    run()

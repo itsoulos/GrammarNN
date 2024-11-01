@@ -9,7 +9,7 @@ Model::Model()
     QStringList format;
     format<<"data"<<"csv"<<"arff";
     addParam(Parameter("model_dataformat",format[0],format,"Data format used in datafiles"));
-
+    fastExpFlag = true;
 }
 
 void    Model::trainModel()
@@ -106,6 +106,17 @@ double  Model::getTrainError()
     }
     return error;
 }
+
+
+void    Model::enableFastExp()
+{
+    fastExpFlag = true;
+}
+void    Model::disableFastExp()
+{
+    fastExpFlag = false;
+}
+
 /** kanei oti kai i getTrainError() alla gia to test set **/
 double  Model::getTestError(Dataset *test)
 {

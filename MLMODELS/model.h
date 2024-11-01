@@ -20,7 +20,7 @@ protected:
      * @brief xall, all the training data
      */
     Matrix xall;
-
+    bool fastExpFlag=false;
 
 public:
     /**
@@ -108,6 +108,8 @@ public:
      */
     virtual     void  testModel(double &trainError,double &testError,double &classError);
 
+    void    enableFastExp();
+    void    disableFastExp();
     virtual ~Model();
 };
 

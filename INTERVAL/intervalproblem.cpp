@@ -6,6 +6,8 @@ IntervalProblem::IntervalProblem(int d)
     setDimension(d);
     modelSeed=1;
     generator.seed(modelSeed);
+    lastX.resize(d);
+    lastY =1e+100;
 }
 
 void    IntervalProblem::setDimension(int d)
@@ -14,6 +16,9 @@ void    IntervalProblem::setDimension(int d)
     margin.resize((unsigned)d);
     for(unsigned int i=0;i<d;i++)
         margin[i]=Interval(-100,100);
+
+    lastX.resize(d);
+    lastY =1e+100;
 }
 
 void    IntervalProblem::setParameter(QString name,QVariant value)
@@ -212,6 +217,11 @@ void    IntervalProblem::setModelSeed(int seed)
 
 }
 
+void    IntervalProblem::getLastValues(Data &x,double &y)
+{
+    x = lastX;
+    y = lastY;
+}
 double  IntervalProblem::grms(Data &x)
 {
     Data g;

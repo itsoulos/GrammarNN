@@ -27,13 +27,7 @@ public:
      * @return
      */
     double  funmin(Data &x);
-    /**
-     * @brief gradient => einai i paragogos tis synartisis sfalmatos
-     * os pros tis parametrous x.
-     * @param x
-     * @return
-     */
-    Data    gradient(Data &x);
+    virtual void        granal(Data &x,Data &g);
     /**
      * @brief sig, einai i sigmoidis synartisi gia eisodo x.
      * @param x

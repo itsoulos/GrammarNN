@@ -223,6 +223,7 @@ void    GrammarGenetic::nextGeneration()
     select();
     crossover();
     ++generation;
+    if(generation%50==0)
     printf("Generation=%4d Best Value=[%20.10lg,%20.10lg]\n",
            generation,fitnessArray[0].leftValue(),
             fitnessArray[0].rightValue());
