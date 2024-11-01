@@ -116,7 +116,6 @@ void    Genetic::showDebug()
 {
     double besty;
     besty = fitnessArray[0];
-    qDebug()<<"Opt debug "<<getParam("opt_debug").getValue();
      if(getParam("opt_debug").getValue()=="yes")
         methodLogger->printMessage(
             QString::asprintf("GENETIC. GENERATION=%4d BEST VALUE=%20.10lg",

@@ -33,7 +33,10 @@ void    Dataset::makeClassVector()
             }
         }
         if(imin==-1)
+        {
+
             classVector.push_back(ypoint[i]);
+        }
     }
 }
 
@@ -218,6 +221,7 @@ double  Dataset::estimateClass(double value)
             minIndex = i;
         }
     }
+
     return classVector[minIndex];
 }
 

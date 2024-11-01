@@ -99,9 +99,6 @@ double  Model::getTrainError()
         Data xx = xall[i];
         double yy = trainDataset->getYpoint(i);
         double per = getOutput(xx);
-        if(fabs(per)>=1e+10) return 1e+100;
-        if(isnan(per)) return 1e+100;
-        if(isinf(per)) return 1e+100;
         error+= (per-yy)*(per-yy);
     }
     return error;
@@ -138,11 +135,10 @@ double  Model::getClassTestError(Dataset *test)
     for(int i=0;i<test->count();i++)
     {
         Data xx = test->getXpoint(i);
-        double realClass = test->getClass(i);
+        double realClass = test->getYpoint(i);
         double per = getOutput(xx);
-        double estClass = test->getClass(per);
-        /** an apexei i pragmatiki klasi apo tin ypologismeni
-         *  pano apo 10^-5, tote exoume sfalma **/
+        double estClass = test->estimateClass(per);
+
         error+= (fabs(estClass - realClass)>1e-5);
     }
     /** to metatrepoume se pososto **/

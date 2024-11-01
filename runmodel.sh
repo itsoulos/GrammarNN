@@ -10,7 +10,7 @@ PROGRAM=./GrammarNN
 DATAFILE=$1
 
 ## MODEL: The name of the used model. Available values: Mlp, Rbf
-MODEL=Mlp
+MODEL=Rbf
 
 ## METHOD: The name of the used training method, when the Grammar Genetic finishes. 
 #          Avalaible values: Bfgs, Adam, Gradient, Lbfgs, Genetic, Pso
@@ -40,10 +40,11 @@ then
 	MODELPARAMS="--mlp_nodes=10 --mlp_leftmargin=-10 --mlp_rightmargin=10 --mlp_initmethod=smallvalues --model_trainfile=$DATAPATH/$1.train --model_testfile=$DATAPATH/$1.test --mlp_usebound=false --mlp_boundlimit=10.0"
 elif [ $MODEL = "Rbf" ]
 then
-	MODELPARAMS="--opt_method=$METHOD --mlp_nodes=10 --mlp_leftmargin=-10 --mlp_rightmargin=10 --mlp_initmethod=smallvalues --model_trainfile=$DATAPATH/$1.train --model_testfile=$DATAPATH/$1.test --mlp_usebound=false --mlpboundlimit=10.0"
+###RBF NETWORK PARAMS
+	MODELPARAMS="--rbf_nodes=5 --rbf_factor=3 --model_trainfile=$DATAPATH/$1.train --model_testfile=$DATAPATH/$1.test"
 fi
 
 
 MAINPARAMS="--gnn_iters=1 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL"
 ## Execute the program
- $PROGRAM $MAINPARAMS $OPTPARAMS $MODELPARAMS
+$PROGRAM $MAINPARAMS $OPTPARAMS $MODELPARAMS

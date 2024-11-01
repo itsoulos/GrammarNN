@@ -67,6 +67,7 @@ void    MlpProblem::initWeights()
       {
           m[i]=Interval(leftMargin,rightMargin);
       }
+      setMargins(m);
       weight.resize(k);
 
 }

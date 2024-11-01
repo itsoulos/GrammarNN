@@ -36,7 +36,7 @@ public:
     void    getParameters(Data &x);
     virtual void initModel();
     virtual double  funmin(Data &x);
-    virtual Data    gradient(Data &x);
+    virtual void        granal(Data &x,Data &g);
     double  getOutput(Data &x);
     void    runKmeans(vector<Data> &point, int K,vector<Data> &centers,
                                 Data &variances);

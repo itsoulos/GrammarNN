@@ -190,7 +190,6 @@ void parseCmdLine(QStringList args)
            {
                model[j]->setParam(name,value);
                foundParameter = true;
-               break;
            }
         }
         if(foundParameter) continue;
@@ -212,7 +211,7 @@ void    runFirstPhase()
 {
     //phase 1. Run a small genetic algorithm to identify the most promising
     Genetic gd;
-    gd.setParam("opt_debug","no");
+    gd.setParam("opt_debug","yes");
     gd.setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
     gd.solve();
     Data xx;

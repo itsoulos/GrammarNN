@@ -6,7 +6,7 @@ using namespace std;
 RbfProblem::RbfProblem()
     :IntervalProblem(1)
 {
-    addParam(Parameter("rbf_nodes","1","Number of rbf nodes"));
+    addParam(Parameter("rbf_nodes","10","Number of rbf nodes"));
     addParam(Parameter("rbf_factor","3.0","Rbf Scale factor"));
     trainA.resize(0);
 }
@@ -50,10 +50,13 @@ double  RbfProblem::getSecondDerivative(Data &x,int pos)
 double  RbfProblem::gaussian(Data &x,Data &center,double variance)
 {
     double arg = getDistance(x,center);
-    arg = (arg * arg)/(variance * variance);
-  //  if(isnan(arg) || isinf(arg)) return 0.0;
- //   if(arg>10) return 0.0;
-    return exp(-arg);
+    double dv = (arg * arg)/(variance * variance);
+    if(fastExpFlag)
+    {
+        if(isnan(dv) || isinf(dv)) return 0.0;
+        //if(dv>10) return 0.0;
+    }
+    return exp(-dv);
 }
 
 void    RbfProblem::setParameters(Data &x)
@@ -62,12 +65,15 @@ void    RbfProblem::setParameters(Data &x)
     int nodes        = getParam("rbf_nodes").getValue().toInt();
     int d = trainDataset==NULL?1:trainDataset->dimension();
 
+    if(weight.size()!=nodes)
+    {
     weight.resize(nodes);
     centers.resize(nodes);
     for(int i=0;i<centers.size();i++)
         centers[i].resize(d);
     variances.resize(nodes);
     lastGaussianValues.resize(nodes);
+    }
     for(int i=0;i<nodes;i++)
     {
         for(int j=0;j<d;j++)
@@ -129,18 +135,9 @@ double  RbfProblem::funmin(Data &x)
     return f;
 }
 
-static double dmax(double a,double b)
+void        RbfProblem::granal(Data &x,Data &g)
 {
-    return a>b?a:b;
-}
-
-Data    RbfProblem::gradient(Data &x)
-{
-    Data g;
     setParameters(x);
-    g.resize(x.size());
-    
-
    for(int i=0;i<g.size();i++)
         g[i]=0.0;
     Data gtemp ;
@@ -177,13 +174,13 @@ Data    RbfProblem::gradient(Data &x)
     }
     for(int j=0;j<x.size();j++) g[j]*=2.0;
 
-    return g;
+    return ;
 
     Data g2;
     g2.resize(dimension);
     for(int i=0;i<dimension;i++)
     {
-        double eps=pow(1e-18,1.0/3.0)*dmax(1.0,fabs(x[i]));
+        double eps=pow(1e-18,1.0/3.0)*qMax(1.0,fabs(x[i]));
         x[i]+=eps;
         double v1=funmin(x);
         x[i]-=2.0 *eps;
@@ -203,19 +200,27 @@ Data    RbfProblem::gradient(Data &x)
         }
         x[i]+=eps;
     }
-    return g;
+    return ;
+
+}
+
+static double dmax(double a,double b)
+{
+    return a>b?a:b;
 }
 
 double  RbfProblem::getOutput(Data &x)
 {
     int nodes = weight.size();
     double sum = 0.0;
-    if(error_flag) return 1e+100;
+    //if(error_flag) return 1e+100;
     for(int i=0;i<nodes;i++)
     {
         double val = gaussian(x,centers[i],variances[i]);
         lastGaussianValues[i]=val;
         sum+=weight[i]*val;
+       // printf("Node %d Weight: %lf val: %lf\n",
+         //      i,weight[i],val);
     }
     return sum;
 }
@@ -352,15 +357,17 @@ void  RbfProblem::runKmeans(vector<Data> &point, int K,vector<Data> &centers,
     for(int i=0;i<variances.size();i++)
         {
             if(teamElements[i]==0)
-                variances[i]=sqrt(variances[i]);
+                variances[i]=0.0001;//sqrt(variances[i]);
             else
-
-        variances[i]=sqrt(variances[i]/teamElements[i]);
-            if(variances[i]<1e-6 || isnan(variances[i]) || isinf(variances[i]))
-                variances[i]=0.0001;
+                variances[i]=sqrt(variances[i]/teamElements[i]);
+        if(variances[i]<1e-6 ||
+                std::isnan(variances[i]) ||
+                std::isinf(variances[i]))
+                    variances[i]=0.0001;
+        printf("Variances[%d]=%lf \n",i,variances[i]);
     }
 
-    double var_diag = 0.0;
+   /* double var_diag = 0.0;
     for(int i=0;i<variances.size();i++)
     {
         var_diag+=variances[i];
@@ -369,7 +376,7 @@ void  RbfProblem::runKmeans(vector<Data> &point, int K,vector<Data> &centers,
     for(int i=0;i<variances.size();i++)
         variances[i]=var_diag;
 
-
+    */
 }
 
 void    RbfProblem::initModel()
@@ -388,11 +395,8 @@ void    RbfProblem::initModel()
     //kmeans to estimate the range of margins
     vector<Data> xpoint = trainDataset->getAllXpoint();
     runKmeans(xpoint,nodes,centers,variances);
-    double scale_factor = 3.0;
-    if(contains("rbf_factor"))
-    {
-        scale_factor = getParam("rbf_factor").getValue().toDouble();
-    }
+    double scale_factor = getParam("rbf_factor").getValue().toDouble();
+
     int icount = 0;
     for(int i=0;i<nodes;i++)
     {
@@ -406,15 +410,13 @@ void    RbfProblem::initModel()
     double dmin=1e+100,dmax=0;
     for(int i=0;i<nodes;i++)
     {
-        if(isnan(variances[i]) || isinf(variances[i]))
-            variances[i]=0.001;
-
-            dmax += variances[i];
+        dmax += variances[i];
     }
+    dmax/=nodes;
     for(int i=0;i<nodes;i++)
     {
         double a,b;
-        a= 0.01;//-scale_factor *dmax;
+        a= 0.001;//-scale_factor *dmax;
         b= scale_factor * dmax;
         if(b<a)
         {
@@ -423,12 +425,14 @@ void    RbfProblem::initModel()
             a=t;
         }
         if(b<0.001) b=0.001;
+        printf("New interval %lf %lf \n",a,b);
         m[icount++]=Interval(a,b);
     }
     for(int i=0;i<nodes;i++)
     {
         m[icount++]=Interval(-scale_factor * 10.0, scale_factor*10.0);
     }
+    setMargins(m);
 
 }
 void    RbfProblem::init(QJsonObject &px)
