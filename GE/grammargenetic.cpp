@@ -103,31 +103,36 @@ Interval  GrammarGenetic::fitness(IDATA &genome)
     Data trialx;
     trialx.resize(problem->getDimension());
 
+    problem->setModelSeed(1);
+    problem->setMargins(newMargin);
     for(int k=1;k<=nsamples;k++)
     {
 
+            trialx=problem->getSample();
+								   /*
         for(int i=0;i<(int)trialx.size();i++)
         {
 
 
+		
             trialx[i]=newMargin[i].leftValue()+
                     (newMargin[i].rightValue()-newMargin[i].leftValue())*drandDat[(k-1)*problem->getDimension()+i];
-        }
+        }*/
         double fx= problem->funmin(trialx);
         if(k==1 || fx>maxy) maxy=fx;
         if(k==1 || fx<miny) miny=fx;
     }
+    problem->setMargins(oldMargin);
     return Interval(miny,maxy);
 }
 
 void    GrammarGenetic::calcFitnessArray()
 {
-	double dmin=1e+100;
     for(int i=0;i<gcount;i++)
     {
         fitnessArray[i]=fitness(chromosome[i]);
-	if(fitnessArray[i].leftValue()<dmin)
-		dmin=fitnessArray[i].leftValue();
+	if(rand()*1.0/RAND_MAX<=0.001)
+		localSearch(i);
     }
 }
 
@@ -223,18 +228,19 @@ void    GrammarGenetic::nextGeneration()
     select();
     crossover();
     ++generation;
-    if(generation%50==0)
+    if(generation%20==0)
     printf("Generation=%4d Best Value=[%20.10lg,%20.10lg]\n",
            generation,fitnessArray[0].leftValue(),
             fitnessArray[0].rightValue());
-   /*if(generation%5==0)
+    /*
+   if(generation%5==0)
     {
         IntervalData xpoint;
         Interval ypoint;
         getBest(xpoint,ypoint);
         problem->setMargins(xpoint);
-    }*/
-  /* 
+    }
+   
     if(generation%20==0)
     {
         int count = 10;
@@ -254,6 +260,11 @@ void    GrammarGenetic::Solve()
     gcount = plist.getParam("ggen_count").getValue().toInt();
     gsize = plist.getParam("ggen_size").getValue().toInt();
     if(problem!=NULL) setProblem(problem);
+    else
+    {
+	    delete problem;
+	    setProblem(problem);
+    }
 
     do
     {

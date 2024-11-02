@@ -194,6 +194,7 @@ void parseCmdLine(QStringList args)
         }
         if(foundParameter) continue;
         //check in genetic
+	printf("Check in genetic \n");
         ParameterList pg = gen->getParameterList();
         if(pg.contains(name))
         {
@@ -222,9 +223,8 @@ void    runFirstPhase()
     bestMargin.resize(xx.size());
     for(int i=0;i<(int)xx.size();i++)
     {
-        bestMargin[i]=Interval(-xx[i],xx[i]);
+        bestMargin[i]=Interval(-2.0 * fabs(xx[i]), 2.0*fabs(xx[i]));
     }
-    dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);
 }
 
 void    loadDataFiles()
@@ -263,6 +263,7 @@ void    runSecondPhase()
 {
     selectedModel->enableFastExp();
     selectedModel->initModel();
+    dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);
     gen->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
     gen->Solve();
     Interval yy;
@@ -307,6 +308,7 @@ void    runThirdPhase()
         selectedMethod->solve();
         double tr=0.0,tt=0.0,tc=0.0;
         selectedModel->testModel(tr,tt,tc);
+	printf("OPT RUN[%d]= %lf %lf %lf \n",ik,tr,tt,tc);
         average_train_error+=tr;
         average_test_error+=tt;
         average_class_error+=tc;

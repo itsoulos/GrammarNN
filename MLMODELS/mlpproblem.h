@@ -10,6 +10,7 @@ class MlpProblem : public IntervalProblem, public Model
 private:
 	int violcount,sigcount;
 	double viollimit;
+	bool initializedBounds = false;
     bool usebound_flag=false;
 
     /** weight=> einai oi parametroi tou neuronikou, to dianysma w **/

@@ -6,7 +6,7 @@ Genetic::Genetic()
     addParam(Parameter("gen_maxiters",200,10,2000,"Maximum number of generations"));
     addParam(Parameter("gen_srate",0.10,0.0,1.0,"Selection rate"));
     addParam(Parameter("gen_mrate",0.05,0.0,1.0,"Mutation rate"));
-    addParam(Parameter("gen_lrate",0.005,0.0,1.0,"Localsearch rate"));
+    addParam(Parameter("gen_lrate",0.000,0.0,1.0,"Localsearch rate"));
     addParam(Parameter("gen_tsize",8,2,20,"Tournament size"));
     QStringList gen_selection;
     gen_selection<<"tournament"<<"roulette";
@@ -116,7 +116,7 @@ void    Genetic::showDebug()
 {
     double besty;
     besty = fitnessArray[0];
-     if(getParam("opt_debug").getValue()=="yes")
+     if(generation%50==0 && getParam("opt_debug").getValue()=="yes")
         methodLogger->printMessage(
             QString::asprintf("GENETIC. GENERATION=%4d BEST VALUE=%20.10lg",
                                generation,besty));

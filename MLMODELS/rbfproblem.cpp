@@ -54,7 +54,7 @@ double  RbfProblem::gaussian(Data &x,Data &center,double variance)
     if(fastExpFlag)
     {
         if(isnan(dv) || isinf(dv)) return 0.0;
-        //if(dv>10) return 0.0;
+        if(dv>10) return 0.0;
     }
     return exp(-dv);
 }
@@ -364,10 +364,9 @@ void  RbfProblem::runKmeans(vector<Data> &point, int K,vector<Data> &centers,
                 std::isnan(variances[i]) ||
                 std::isinf(variances[i]))
                     variances[i]=0.0001;
-        printf("Variances[%d]=%lf \n",i,variances[i]);
     }
 
-   /* double var_diag = 0.0;
+   double var_diag = 0.0;
     for(int i=0;i<variances.size();i++)
     {
         var_diag+=variances[i];
@@ -376,7 +375,7 @@ void  RbfProblem::runKmeans(vector<Data> &point, int K,vector<Data> &centers,
     for(int i=0;i<variances.size();i++)
         variances[i]=var_diag;
 
-    */
+
 }
 
 void    RbfProblem::initModel()
@@ -417,7 +416,7 @@ void    RbfProblem::initModel()
     {
         double a,b;
         a= 0.001;//-scale_factor *dmax;
-        b= scale_factor * dmax;
+        b= scale_factor * variances[i];
         if(b<a)
         {
             double t = b;
@@ -425,7 +424,6 @@ void    RbfProblem::initModel()
             a=t;
         }
         if(b<0.001) b=0.001;
-        printf("New interval %lf %lf \n",a,b);
         m[icount++]=Interval(a,b);
     }
     for(int i=0;i<nodes;i++)

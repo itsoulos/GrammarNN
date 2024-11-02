@@ -27,13 +27,21 @@ Data    MlpProblem::getSample()
       double rightMargin = getParam("mlp_rightmargin").getValue().toDouble();
       QString initmethod = getParam("mlp_initmethod").getValue();
 
+      IntervalData mm = getMargins();
       if(initmethod == "smallvalues")
       {
-          double a = -1;
-          double b =  1;
+	     
           for(int i=0;i<dimension;i++)
           {
-              xx[i]=a+(b-a)*randomDouble();
+		  double a = mm[i].leftValue();
+		  double b = mm[i].rightValue();
+		  
+		  double width = (b-a);
+		  double center = a+width/2;
+		  a = center - width/20;
+		  b = center + width/20;
+		  xx[i]=a+(b-a)*randomDouble();
+//		  printf("new value in %lf %lf \n",a,b);
           }
       }
       else
@@ -58,17 +66,20 @@ void    MlpProblem::initWeights()
 {
       int nodes = getParam("mlp_nodes").getValue().toInt();
       int k = (trainDataset->dimension()+2)*nodes;
-      setDimension(k);
-      IntervalData m;
-      m.resize(k);
-      double leftMargin = getParam("mlp_leftmargin").getValue().toDouble();
-      double rightMargin = getParam("mlp_rightmargin").getValue().toDouble();
-      for(int i=0;i<k;i++)
+      if(getDimension()!=k)
       {
-          m[i]=Interval(leftMargin,rightMargin);
+      	setDimension(k);
+      	IntervalData m;
+      	m.resize(k);
+      	double leftMargin = getParam("mlp_leftmargin").getValue().toDouble();
+      	double rightMargin = getParam("mlp_rightmargin").getValue().toDouble();
+      	for(int i=0;i<k;i++)
+      	{
+         	 m[i]=Interval(leftMargin,rightMargin);
+      	}
+      	setMargins(m);
+      	weight.resize(k);
       }
-      setMargins(m);
-      weight.resize(k);
 
 }
 
