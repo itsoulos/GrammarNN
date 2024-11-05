@@ -60,7 +60,7 @@ MAINPARAMS="--gnn_iters=10 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL"
 ## ggen_srate:  The selection rate for the Grammar Genetic
 ## ggen_mrate:  The mutation rate for the Grammar Genetic
 ## ggen_gens:   The maximum number of allowed generations for Grammar Genetic
-GENPARAMS="--ggen_count=500 --ggen_size=100 --ggen_srate=0.1 --ggen_mrate=0.05 --ggen_gens=50"
+GENPARAMS="--ggen_count=500 --ggen_size=100 --ggen_srate=0.1 --ggen_mrate=0.05 --ggen_gens=200"
 
 ## Execute the program
 $PROGRAM $GENPARAMS $MAINPARAMS $OPTPARAMS $MODELPARAMS
