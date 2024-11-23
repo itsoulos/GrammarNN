@@ -1,5 +1,5 @@
-#LyX 2.4 created this file. For more info see https://www.lyx.org/
-\lyxformat 620
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -128,7 +128,7 @@
 \end_preamble
 \options journal,article,submit,pdftex,moreauthors
 \use_default_options false
-\maintain_unincluded_children no
+\maintain_unincluded_children false
 \begin_local_layout
 #Adds an endnote inset, in addition to footnotes. You will need to add
 #\printendnotes in TeX-code where you want the endnotes to appear.
@@ -161,9 +161,7 @@ End
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_roman_osf false
-\font_sans_osf false
-\font_typewriter_osf false
+\font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -197,9 +195,7 @@ End
 \suppress_date false
 \justification true
 \use_refstyle 0
-\use_formatted_ref 0
 \use_minted 0
-\use_lineno 0
 \index Index
 \shortcut idx
 \color #008000
@@ -215,16 +211,11 @@ End
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tablestyle default
 \tracking_changes false
 \output_changes false
-\change_bars false
-\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
-\docbook_table_output 0
-\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
@@ -243,8 +234,7 @@ Ioannis G.
 \begin_inset Formula $^{1,*}$
 \end_inset
 
-,
- Vasileios Charilogis
+, Vasileios Charilogis
 \begin_inset Formula $^{2}$
 \end_inset
 
@@ -253,15 +243,11 @@ Ioannis G.
 
 \begin_layout Author Names for PDF
 Ioannis G.
- Tsoulos,
- Vasileios Charilogis
+ Tsoulos, Vasileios Charilogis
 \end_layout
 
 \begin_layout Author Names for Citation
-Tsoulos,
- I.G.;
- Charilogis,
- V.
+Tsoulos, I.G.; Charilogis, V.
 \end_layout
 
 \begin_layout Address
@@ -272,10 +258,8 @@ Tsoulos,
 \begin_inset space \quad{}
 \end_inset
 
-Department of Informatics and Telecommunications,
- University of Ioannina,
- Greece;
- itsoulos@uoi.gr
+Department of Informatics and Telecommunications, University of Ioannina,
+ Greece; itsoulos@uoi.gr
 \begin_inset Newline newline
 \end_inset
 
@@ -287,82 +271,1271 @@ Department of Informatics and Telecommunications,
 \begin_inset space \quad{}
 \end_inset
 
-Department of Informatics and Telecommunications,
- University of Ioannina,
- Greece;
- v.charilog@uoi.gr
+Department of Informatics and Telecommunications, University of Ioannina,
+ Greece; v.charilog@uoi.gr
 \end_layout
 
 \begin_layout Corresponding Author
-Correspondence:
- itsoulos@uoi.gr
+Correspondence: itsoulos@uoi.gr
 \end_layout
 
 \begin_layout Abstract
-Artificial neural networks are parametric machine learning models that have been applied successfully to an extended series of classification and regression problems found in the recent literature.
- For the effective identification of the parameters of the artificial neural networks,
- a series of optimization techniques have been proposed in the relevant literature,
- which,
- although they present good results in many cases,
- either the optimization method used is not efficient and the training error of the network is trapped in sub-optimal values,
- or the neural network exhibits the phenomenon of over-training which means that it has poor results when applied to data that was not present during the training.
- This paper proposes an innovative technique for constructing the weights of artificial neural networks based on appropriate BNF grammars,
- used in the evolutionary process of Grammatical Evolution.
- The new procedure locates an interval of values for the parameters of the artificial neural network,
- and the optimization method effectively locates the network parameters within this interval.
- The new technique was applied to a wide range of data classification and adaptation problems covering a number of scientific areas and the experimental results were more than promising.
+Artificial neural networks are parametric machine learning models that have
+ been applied successfully to an extended series of classification and regressio
+n problems found in the recent literature.
+ For the effective identification of the parameters of the artificial neural
+ networks, a series of optimization techniques have been proposed in the
+ relevant literature, which, although they present good results in many
+ cases, either the optimization method used is not efficient and the training
+ error of the network is trapped in sub-optimal values, or the neural network
+ exhibits the phenomenon of over-training which means that it has poor results
+ when applied to data that was not present during the training.
+ This paper proposes an innovative technique for constructing the weights
+ of artificial neural networks based on appropriate BNF grammars, used in
+ the evolutionary process of Grammatical Evolution.
+ The new procedure locates an interval of values for the parameters of the
+ artificial neural network, and the optimization method effectively locates
+ the network parameters within this interval.
+ The new technique was applied to a wide range of data classification and
+ adaptation problems covering a number of scientific areas and the experimental
+ results were more than promising.
 \end_layout
 
 \begin_layout Keywords
-Neural networks;
- Genetic algorithms;
- Grammatical Evolution;
- Evolutionary algorithms
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-clearpage
-\end_layout
-
-\end_inset
-
- 
+Neural networks; Genetic algorithms; Grammatical Evolution; Evolutionary
+ algorithms
 \end_layout
 
 \begin_layout Section
 Introduction
 \end_layout
 
+\begin_layout Standard
+Many real world problems can be formulated as classification or regression
+ problems and subsequently the can be tackled my machine learning models.
+ Such problems occur in physics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "physics-ml1,physics_ml2"
+literal "false"
+
+\end_inset
+
+, chemistry 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "chemistry_ml1,chemistry_ml2"
+literal "false"
+
+\end_inset
+
+, economics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "econ_ml1,econ_ml2"
+literal "false"
+
+\end_inset
+
+, medicine 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "med_ml1,med_ml2"
+literal "false"
+
+\end_inset
+
+ etc.
+ A typical representative of machine learning models with widespread use
+ due to their remarkable adaptation capabilities are artificial neural networks
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn1,nn2"
+literal "false"
+
+\end_inset
+
+.
+ This model has been successfully applied on a wide series of practical
+ problems, such as image processing 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_image"
+literal "false"
+
+\end_inset
+
+, time series forecasting 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn-times"
+literal "false"
+
+\end_inset
+
+, forecast of solar irradiance 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_solar"
+literal "false"
+
+\end_inset
+
+, medical diagnosis 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_medical"
+literal "false"
+
+\end_inset
+
+, solutions of differential equations 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnde1,nnde2"
+literal "false"
+
+\end_inset
+
+, agriculture problems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnagr1,nnagr2"
+literal "false"
+
+\end_inset
+
+ etc.
+ 
+\end_layout
+
+\begin_layout Standard
+Typically, a neural networks is expressed as
+\series bold
+ 
+\series default
+a function 
+\begin_inset Formula $N(\overrightarrow{x},\overrightarrow{w})$
+\end_inset
+
+, provided that the vector 
+\series bold
+
+\begin_inset Formula $\overrightarrow{x}$
+\end_inset
+
+ 
+\series default
+represents the input vector or pattern for the neural network and the vector
+ 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ stands for the set of parameters of the network, that should be calculated.
+ The vector 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ is also called weight vector.
+ The adaptation of the parameter vector 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ is performed by minimizing the so-called training error, which is defined
+ as:
+\begin_inset Formula 
+\begin{equation}
+E\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\sum_{i=1}^{M}\left(N\left(\overrightarrow{x}_{i},\overrightarrow{w}\right)-y_{i}\right)^{2}\label{eq:eq1}
+\end{equation}
+
+\end_inset
+
+In equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the set 
+\begin_inset Formula $\left(\overrightarrow{x_{i}},y_{i}\right),\ i=1,...,M$
+\end_inset
+
+
+\series bold
+ 
+\series default
+represents the train set of the neural network, where the values 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ are considered as the expected outputs for the 
+\begin_inset Formula $\overrightarrow{x_{i}}$
+\end_inset
+
+ patterns.
+ Various methods have been proposed in the relevant literature to train
+ neural networks, such as the Back Propagation method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bpnn"
+literal "false"
+
+\end_inset
+
+, the RPROP method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rpropnn-1"
+literal "false"
+
+\end_inset
+
+, the Adam optimization method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Adam"
+literal "false"
+
+\end_inset
+
+ etc.
+ Also, a series of modern approaches have also been incorporated to train
+ neural networks, such as the Quasi Newton methods 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "quasinn"
+literal "false"
+
+\end_inset
+
+, the Tabu Search method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "tabunn"
+literal "false"
+
+\end_inset
+
+, Simulated Annealing 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_ann1"
+literal "false"
+
+\end_inset
+
+, genetic Algorithms 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "geneticnn"
+literal "false"
+
+\end_inset
+
+, Particle Swarm Optimization (PSO) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psonn"
+literal "false"
+
+\end_inset
+
+, Differential Evolution 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "weight_de1"
+literal "false"
+
+\end_inset
+
+, Ant Colony Optimization 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_aco"
+literal "false"
+
+\end_inset
+
+.
+ Recently, Askarzadeh et al suggested the Bird Mating Optimizer (BMO) 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "weight_bmo"
+literal "false"
+
+\end_inset
+
+as the training algorithm for a series of benchmark datasets.
+ Benardos et al suggested the application of a genetic algorithm to obtain
+ the best architecture of a neural network, in order to efficiently train
+ a neural network 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "weight_arch"
+literal "false"
+
+\end_inset
+
+.
+ Karaboga introduced the usage of the Artificial Bee Colony (ABC) algorithm
+ on training artificial neural networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "weight_abc"
+literal "false"
+
+\end_inset
+
+.
+ Among other, Chen at al 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnhybrid2"
+literal "false"
+
+\end_inset
+
+ has proposed a hybrid method that combines particle swarm optimization
+ and Cuckoo Search 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "csmethod"
+literal "false"
+
+\end_inset
+
+ to optimize the weight vector.
+ 
+\end_layout
+
+\begin_layout Standard
+A
+\series bold
+lso, init methods ...
+ bound methods??
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The Rest of this article is organized as follows:
+\end_layout
+
 \begin_layout Section
 Materials and Methods
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Materials-and-Methods"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Grammatical Evolution 
+\end_layout
+
+\begin_layout Subsection
+The proposed method
 \end_layout
 
 \begin_layout Section
 Results
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Results"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The new training procedure for the construction of weights of neural networks
+ was tested on a wide series of classification and regression datasets,
+ found in the recent literature and in the following websites:
+\end_layout
+
+\begin_layout Enumerate
+The UCI website, 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://archive.ics.uci.edu/
+\end_layout
+
+\end_inset
+
+(accessed on 24 November 2024)
+\begin_inset CommandInset citation
+LatexCommand citep
+key "uci"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The Keel website, 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://sci2s.ugr.es/keel/datasets.php
+\end_layout
+
+\end_inset
+
+(accessed on 24 November 2024)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Keel"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The Statlib URL 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+ftp://lib.stat.cmu.edu/datasets/index.html 
+\end_layout
+
+\end_inset
+
+(accessed on 24 November 2024).
+ 
+\end_layout
+
+\begin_layout Subsection
+Datasets 
+\end_layout
+
+\begin_layout Standard
+The following classification datasets were incorporated in the conducted
+ experiments:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Alcohol
+\series default
+.
+ This dataset is related to experiments on alcohol consumption 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "alcohol"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Australian
+\series default
+, related to economic risk in bank transactions 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "australian"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Bands
+\series default
+, related to printing problems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bands"
+literal "false"
+
+\end_inset
+
+, with two distinct classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Cleveland
+\series default
+, a medical dataset studied in many research papers 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "cleveland1,cleveland2"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Circular
+\series default
+ dataset, which is an artificial dataset.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Dermatology
+\series default
+, a medical dataset related to dermatology problems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "dermatology"
+literal "false"
+
+\end_inset
+
+ with 6 classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ecoli
+\series default
+, that is related to issues about proteins 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ecoli"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Haberman
+\series default
+, a medical dataset used in the detection of breast cancer.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Hayes-roth
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "hayes-roth"
+literal "false"
+
+\end_inset
+
+, a dataset with 3 classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Heart
+\series default
+, a medical dataset about heart diseases 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "heart"
+literal "false"
+
+\end_inset
+
+ with two classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+HeartAttack
+\series default
+, a medical dataset related to the presence of heart diseases, with two
+ classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Hepatitis
+\series default
+, a dataset used for to detect the presence of hepatitis.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Housevotes
+\series default
+, that uses data from the Congressional voting in USA 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "housevotes"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ionosphere
+\series default
+, that used data from various measurements in the ionosphere 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ion1,ion2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Liverdisorder
+\series default
+, which is a medical dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "liver,liver1"
+literal "false"
+
+\end_inset
+
+ with two classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Lymography
+\series default
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lymography"
+literal "false"
+
+\end_inset
+
+, which is a dataset with four distinct classes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Magic
+\series default
+, this dataset contains data from simulation regarding gamma particles 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "magic"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mammographic
+\series default
+, a medical dataset used for the detection of  breast cancer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "mammographic"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Page Blocks 
+\series default
+dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "pageblocks"
+literal "false"
+
+\end_inset
+
+, which is incorporated for the detection of page layout in documents.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Parkinsons
+\series default
+, a dataset used to detect the presence of Parkinson's disease 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "parkinsons1,parkinsons2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Pima
+\series default
+, a medical dataset that used to detect the presence of diabetes
+\begin_inset CommandInset citation
+LatexCommand citep
+key "pima"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Phoneme
+\series default
+, where the purpose of this dataset is to distinguish between nasal and
+ oral sounds.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Popfailures
+\series default
+, a dataset related to climate measurements 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "popfailures"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Regions2
+\series default
+, used detect issues in the liver from various liver biopsy images 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "regions2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Ring
+\series default
+, a dataset related to some multivariate normal distributions.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Saheart
+\series default
+, used to detect the presence of some heart diseases.
+\begin_inset CommandInset citation
+LatexCommand citep
+key "saheart"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Segment
+\series default
+ dataset 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "segment"
+literal "false"
+
+\end_inset
+
+, which is used for image processing .
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Statheart
+\series default
+, a medical dataset about heart diseases.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Spambase
+\series default
+, a dataset used for the detection of spam emails.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Spiral
+\series default
+, which is an artificial dataset.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Student
+\series default
+, a dataset related to some experiments in schools 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "student"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Tae
+\series default
+, this dataset is related to evaluations of teaching performance.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Transfusion
+\series default
+, which is a medical dataset 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "transfusion"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Wdbc
+\series default
+, a medical dataset related to the detection of breast cancer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "wdbc1,wdbc2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Wine
+\series default
+, a dataset related to the quality of wines 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "wine1,wine2"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+EEG
+\series default
+ dataset, which is a medical dataset related to EEG measurements
+\begin_inset CommandInset citation
+LatexCommand citep
+key "eeg1,eeg2"
+literal "false"
+
+\end_inset
+
+.
+ From the original dataset the following cases were obtained: Z_F_S, ZO_NF_S,
+ Z_O_N_F_S and ZONF_S.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Zoo
+\series default
+, that used to predict the class of some animals 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "zoo"
+literal "false"
+
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Standard
+Also the following regression datasets were used in the conducted experiments:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Abalone
+\series default
+, a dataset regarding the prediction of the age of abalones 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "abalone"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Airfoil
+\series default
+, a dataset derived from NASA 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "airfoil"
+literal "false"
+
+\end_inset
+
+ with 5 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Auto
+\series default
+, a dataset used for the prediction of fuel consumption in cars.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+BK
+\series default
+, related to basketball games.
+ The dataset has 4 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+BL
+\series default
+, a dataset used in some electricity experiments and it contains 7 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Baseball
+\series default
+, a dataset with 16 features used for the estimation of the income of baseball
+ players.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Concrete
+\series default
+, a dataset with 8 features and it was used in civil engineering 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "concrete"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+DEE
+\series default
+, a dataset with 6 features, used in the prediction of electricity prices.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+EU
+\series default
+, a dataset originated in the STATLIB website.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+FA
+\series default
+, that contains related to body fat.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Friedman
+\series default
+, a synthetic dataset used in various benchmarks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "friedman"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+FY, 
+\series default
+this dataset used to measure the longevity of fruit flies.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+HO
+\series default
+, a dataset founded in the STATLIB repository with 13 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Housing
+\series default
+, used to predict the price of houses 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "housing"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Laser
+\series default
+, which is a dataset with 4 features and it has been used in various laser
+ experiments.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+LW
+\series default
+, a dataset with 9 features used to measure the weight of babes.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Mortgage
+\series default
+, an economic dataset with 15 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Plastic
+\series default
+, a dataset related to the detection of pressure on plastics.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+PL
+\series default
+, a dataset with 2 features founded in the STATLIB repository.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+RealEstate, 
+\series default
+a dataset found in the STATLIB website with 5 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Quake
+\series default
+, a dataset used in earthquake measurements with 3 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+SN
+\series default
+, a dataset that provides experimental measurements related to trellising
+ and pruning, with 11 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Stock
+\series default
+, a dataset with 9 features for the prediction of the prices of various
+ stocks.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Treasury
+\series default
+, an economic dataset with 15 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+TZ
+\series default
+, derived from the STATLIB website and it has 60 features.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+VE
+\series default
+ dataset, derived from the STALIB repository.
+\end_layout
+
+\begin_layout Subsection
+Experimental results
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+WRITE SOME TEXT HERE AND ADD TABLE WITH SETTINGS
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float table
 placement H
-alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\series bold
-Experimental results using the original training method and the proposed one for the classification datasets.
+Experimental results for the classification datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expClass"
@@ -380,9 +1553,8 @@ name "tab:expClass"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="44" columns="6">
+<lyxtabular version="3" rows="44" columns="5">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -425,20 +1597,11 @@ GENETIC
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-GNN_G1
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-GNN_G2
+GNN
 \end_layout
 
 \end_inset
@@ -481,20 +1644,11 @@ ALCOHOL
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-16.63%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-15.92%
+16.63%
 \end_layout
 
 \end_inset
@@ -537,20 +1691,11 @@ AUSTRALIAN
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-14.69%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-17.53%
+14.69%
 \end_layout
 
 \end_inset
@@ -593,20 +1738,11 @@ BALANCE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-7.98%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-7.95%
+7.98%
 \end_layout
 
 \end_inset
@@ -649,20 +1785,11 @@ BANDS
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-34.38%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-36.01%
+34.38%
 \end_layout
 
 \end_inset
@@ -705,20 +1832,11 @@ CLEVELAND
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-44.89%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-42.62%
+44.89%
 \end_layout
 
 \end_inset
@@ -761,20 +1879,11 @@ CIRCULAR
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.68%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.77%
+4.68%
 \end_layout
 
 \end_inset
@@ -817,20 +1926,11 @@ DERMATOLOGY
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-11.79%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-11.44%
+11.79%
 \end_layout
 
 \end_inset
@@ -873,20 +1973,11 @@ ECOLI
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-51.42%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-50.60%
+51.42%
 \end_layout
 
 \end_inset
@@ -929,20 +2020,11 @@ HABERMAN
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-27.01%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-27.37%
+27.01%
 \end_layout
 
 \end_inset
@@ -985,20 +2067,11 @@ HAYES-ROTH
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-34.99%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-34.77%
+34.99%
 \end_layout
 
 \end_inset
@@ -1037,15 +2110,6 @@ HEART
 
 \begin_layout Plain Layout
 28.34%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-14.83%
 \end_layout
 
 \end_inset
@@ -1097,20 +2161,11 @@ HEARTATTACK
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-19.23%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-19.87%
+19.23%
 \end_layout
 
 \end_inset
@@ -1153,20 +2208,11 @@ HEPATITIS
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-56.67%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-59.58%
+56.67%
 \end_layout
 
 \end_inset
@@ -1209,20 +2255,11 @@ HOUSEVOTES
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6.23%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-6.29%
+6.23%
 \end_layout
 
 \end_inset
@@ -1265,20 +2302,11 @@ IONOSPHERE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-15.71%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.35%
+15.71%
 \end_layout
 
 \end_inset
@@ -1321,20 +2349,11 @@ LIVERDISORDER
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-31.89%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-31.38%
+31.89%
 \end_layout
 
 \end_inset
@@ -1377,20 +2396,11 @@ LYMOGRAPHY
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-19.26%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-20.31%
+19.26%
 \end_layout
 
 \end_inset
@@ -1433,20 +2443,11 @@ MAGIC
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-15.67%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+15.67%
 \end_layout
 
 \end_inset
@@ -1489,20 +2490,11 @@ MAMMOGRAPHIC
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-16.33%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.41%
+16.33%
 \end_layout
 
 \end_inset
@@ -1545,20 +2537,11 @@ PARKINSONS
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-11.53%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-11.30%
+11.53%
 \end_layout
 
 \end_inset
@@ -1601,20 +2584,11 @@ PAGE BLOCKS
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-7.66%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+7.66%
 \end_layout
 
 \end_inset
@@ -1657,20 +2631,11 @@ PHONEME
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-16.59%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+16.59%
 \end_layout
 
 \end_inset
@@ -1713,20 +2678,11 @@ PIMA
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-25.81%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-25.06%
+25.81%
 \end_layout
 
 \end_inset
@@ -1769,20 +2725,11 @@ POPFAILURES
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-5.25%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-5.11%
+5.25%
 \end_layout
 
 \end_inset
@@ -1825,20 +2772,11 @@ REGIONS2
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-29.24%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-32.21%
+29.24%
 \end_layout
 
 \end_inset
@@ -1881,20 +2819,11 @@ RING
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-21.68%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-20.86%
+21.68%
 \end_layout
 
 \end_inset
@@ -1937,20 +2866,11 @@ SAHEART
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-29.92%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-30.72%
+29.92%
 \end_layout
 
 \end_inset
@@ -1993,20 +2913,11 @@ SEGMENT
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-31.21%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-29.87%
+31.21%
 \end_layout
 
 \end_inset
@@ -2049,20 +2960,11 @@ SONAR
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-22.80%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-22.85%
+22.80%
 \end_layout
 
 \end_inset
@@ -2105,20 +3007,11 @@ SPAMBASE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6.17%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+6.17%
 \end_layout
 
 \end_inset
@@ -2161,20 +3054,11 @@ SPIRAL
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-41.97%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-42.66%
+41.97%
 \end_layout
 
 \end_inset
@@ -2217,20 +3101,11 @@ STATHEART
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-18.20%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-18.49%
+18.20%
 \end_layout
 
 \end_inset
@@ -2273,20 +3148,11 @@ STUDENT
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.98%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.57%
+4.98%
 \end_layout
 
 \end_inset
@@ -2329,20 +3195,11 @@ TAE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-48.89%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-49.96%
+48.89%
 \end_layout
 
 \end_inset
@@ -2385,20 +3242,11 @@ TRANSFUSION
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-23.34%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.54%
+23.34%
 \end_layout
 
 \end_inset
@@ -2441,20 +3289,11 @@ WDBC
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-3.70%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.17%
+3.70%
 \end_layout
 
 \end_inset
@@ -2497,20 +3336,11 @@ WINE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-9.14%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-9.57%
+9.14%
 \end_layout
 
 \end_inset
@@ -2553,20 +3383,11 @@ Z_F_S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8.35%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-8.62%
+8.35%
 \end_layout
 
 \end_inset
@@ -2609,20 +3430,11 @@ Z_O_N_F_S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-60.83%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-60.88%
+60.83%
 \end_layout
 
 \end_inset
@@ -2665,20 +3477,11 @@ ZO_NF_S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6.29%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-6.90%
+6.29%
 \end_layout
 
 \end_inset
@@ -2721,20 +3524,11 @@ ZONF_S
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2.77%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-2.51%
+2.77%
 \end_layout
 
 \end_inset
@@ -2777,15 +3571,6 @@ ZOO
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-6.03%
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -2813,6 +3598,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+36.91%
 \end_layout
 
 \end_inset
@@ -2822,6 +3609,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+34.19%
 \end_layout
 
 \end_inset
@@ -2831,15 +3620,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
+\series bold
+27.11%
 \end_layout
 
 \end_inset
@@ -2849,6 +3631,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+21.11%
 \end_layout
 
 \end_inset
@@ -2866,16 +3650,15 @@ AVERAGE
 
 \begin_inset Float table
 placement H
-alignment document
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results using the original train method and the proposed one for a series of regression datasets.
+Experimental results for the series of regression datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:expRegression"
@@ -2893,9 +3676,8 @@ name "tab:expRegression"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="29" columns="6">
+<lyxtabular version="3" rows="29" columns="5">
 <features tabularvalignment="middle">
-<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2938,20 +3720,11 @@ GENETIC
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-GNN_G1
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-GNN_G2
+GNN
 \end_layout
 
 \end_inset
@@ -2994,20 +3767,11 @@ ABALONE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-4.32
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-4.45
+4.32
 \end_layout
 
 \end_inset
@@ -3046,15 +3810,6 @@ AIRFOIL
 
 \begin_layout Plain Layout
 0.003
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.001
 \end_layout
 
 \end_inset
@@ -3106,20 +3861,11 @@ AUTO
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-8.69
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+8.69
 \end_layout
 
 \end_inset
@@ -3162,20 +3908,11 @@ BK
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.039
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.082
+0.039
 \end_layout
 
 \end_inset
@@ -3218,20 +3955,11 @@ BL
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.013
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.008
+0.013
 \end_layout
 
 \end_inset
@@ -3274,20 +4002,11 @@ BASEBALL
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-47.25
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-46.42
+47.25
 \end_layout
 
 \end_inset
@@ -3326,15 +4045,6 @@ CONCRETE
 
 \begin_layout Plain Layout
 0.0099
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.004
 \end_layout
 
 \end_inset
@@ -3386,20 +4096,11 @@ DEE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.212
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.219
+0.212
 \end_layout
 
 \end_inset
@@ -3442,20 +4143,11 @@ EU
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-148.76
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-131.31
+148.76
 \end_layout
 
 \end_inset
@@ -3498,20 +4190,11 @@ FA
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.097
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.097
 \end_layout
 
 \end_inset
@@ -3554,20 +4237,11 @@ FRIEDMAN
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-1.573
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+1.573
 \end_layout
 
 \end_inset
@@ -3610,20 +4284,11 @@ FY
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.121
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.167
+0.121
 \end_layout
 
 \end_inset
@@ -3666,20 +4331,11 @@ HO
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.05
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.012
+0.05
 \end_layout
 
 \end_inset
@@ -3722,20 +4378,11 @@ HOUSING
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-14.79
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-15.43
+14.79
 \end_layout
 
 \end_inset
@@ -3778,20 +4425,11 @@ LASER
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.0029
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0037
+0.0029
 \end_layout
 
 \end_inset
@@ -3834,20 +4472,11 @@ LW
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.313
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.171
+0.313
 \end_layout
 
 \end_inset
@@ -3890,20 +4519,11 @@ MORTGAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.0222
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0161
+0.0222
 \end_layout
 
 \end_inset
@@ -3946,20 +4566,11 @@ PLASTIC
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2.186
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2.186
 \end_layout
 
 \end_inset
@@ -4002,20 +4613,11 @@ PY
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.111
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+0.111
 \end_layout
 
 \end_inset
@@ -4058,20 +4660,11 @@ PL
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.0205
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0218
+0.0205
 \end_layout
 
 \end_inset
@@ -4114,20 +4707,11 @@ REALESTATE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-70.928
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-69.729
+70.928
 \end_layout
 
 \end_inset
@@ -4157,15 +4741,6 @@ QUAKE
 
 \begin_layout Plain Layout
 0.42
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.04
 \end_layout
 
 \end_inset
@@ -4226,20 +4801,11 @@ SN
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.025
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.0255
+0.025
 \end_layout
 
 \end_inset
@@ -4282,20 +4848,11 @@ STOCK
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-2.986
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+2.986
 \end_layout
 
 \end_inset
@@ -4338,20 +4895,11 @@ TREASURY
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.0633
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.056
+0.0633
 \end_layout
 
 \end_inset
@@ -4394,20 +4942,11 @@ TZ
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.652
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.631
+0.652
 \end_layout
 
 \end_inset
@@ -4450,20 +4989,11 @@ VE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-0.0493
-\end_layout
-
-\end_inset
-</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.042
+0.0493
 \end_layout
 
 \end_inset
@@ -4514,22 +5044,13 @@ AVERAGE
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 
 \series bold
 11.234
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
@@ -4544,11 +5065,316 @@ AVERAGE
 
 \end_inset
 
+The table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expClass"
+plural "false"
+caps "false"
+noprefix "false"
 
+\end_inset
+
+ illustrates the performance of four neural network training methods—ADAM,
+ BFGS, GENETIC, and GNN—across a variety of datasets.
+ Lower error rates indicate better performance, and based on the average
+ error rates, GNN emerges as the most effective method, with an average
+ error rate of 21.1%.
+ It is followed by GENETIC, with an average error of 27.1%, while BFGS and
+ ADAM exhibit higher error rates, with averages of 34.1% and 36.9%, respectively.
+ Delving deeper, GNN consistently outperforms the other methods across many
+ datasets, achieving notably low error rates.
+ For example, it records an error of just 2.77% on the ZONF_S dataset and
+ 6.17% on SPAMBASE, demonstrating its robustness even in challenging cases.
+ GENETIC also delivers competitive performance, with low error rates in
+ datasets such as SPIRAL (48.66%) and Z_O_N_F_S (64.81%).
+ However, in some datasets, like SPAMBASE (6.37%), its performance does not
+ match that of GNN.
+ BFGS, while less effective on average compared to GNN and GENETIC, excels
+ in specific datasets.
+ For instance, it achieves remarkably low error rates on CLEVELAND (77.55%)
+ and SEGMENT (68.97%), outperforming other methods in these cases.
+ However, its overall performance is less consistent across the full spectrum
+ of datasets.
+ ADAM, despite its stability and lack of significant deviations, has the
+ highest average error rate (36.9%) among the methods.
+ It does not significantly outperform in any particular dataset.
+ For instance, in the HEPATITIS dataset, it records an error of 68.13%, which
+ is notably higher than GNN’s (56.67%) and GENETIC’s (62.12%).
+ In summary, GNN stands out as the most effective method, achieving the
+ lowest average error rate and excelling across diverse datasets.
+ GENETIC ranks as the second-best option, demonstrating stable performance
+ with relatively low error rates.
+ BFGS, while generally less competitive, performs exceptionally well in
+ certain datasets, making it suitable for specific applications.
+ Finally, ADAM, although consistent, is the least competitive overall, with
+ higher average error rates compared to the other methods.
+\end_layout
+
+\begin_layout Standard
+The table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:expRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ presents the regression error achieved by four training methods—ADAM, BFGS,
+ GENETIC, and GNN—on a variety of datasets.
+ Lower error values indicate better performance.
+ A comparison of the methods reveals that GNN consistently delivers the
+ lowest regression error on average, making it the most effective overall.
+ GENETIC follows with relatively competitive results, while BFGS and ADAM
+ exhibit higher error rates across most datasets.
+ A closer look at the results shows that GNN achieves remarkable performance
+ on several datasets.
+ For instance, in the AIRFOIL dataset, it records the lowest error of 0.001,
+ outperforming all other methods.
+ Similarly, it achieves an error of just 0.004 in CONCRETE, 0.013 in BL, and
+ 0.0222 in MORTGAGE, demonstrating its strong capability across various scenarios.
+ The GENETIC method also performs well in certain datasets, such as AUTO
+ (12.18) and PLASTIC (2.791), though it falls short of GNN in most cases.
+ BFGS exhibits decent performance in specific datasets but is generally
+ less effective than GNN and GENETIC.
+ For example, in FRIEDMAN, it achieves a competitive error of 1.263, but
+ it struggles in datasets such as STOCK (302.43) and BASEBALL (119.63).
+ ADAM, while consistent in its results, records the highest errors in many
+ cases, such as REALESTATE (186.778) and EU (604.253), indicating weaker performan
+ce relative to the other methods.
+ Overall, the results highlight the superiority of GNN, which not only achieves
+ the lowest regression error on average but also demonstrates robustness
+ and reliability across a wide range of datasets.
+ GENETIC ranks as the second-best approach, delivering solid performance
+ in key datasets.
+ BFGS, while showing potential in certain tasks, is less competitive on
+ average, and ADAM, despite its consistency, struggles to match the effectivenes
+s of the other methods in reducing regression error.
+ 
+\end_layout
+
+\begin_layout Standard
+The statistical comparison between the used methods for the classification
+ datasets is depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ while for the regression datasets is graphically outlined in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename stat1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison between the used methods for the classification datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename stat2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison between the used methods for the regression datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ highlights significant differences between the methods ADAM, BFGS, GENETIC,
+ and GNN in terms of error.
+ The Kruskal-Wallis test, which is used to assess whether there are overall
+ differences among more than two groups, yielded a p-value of 0.00017.
+ This extremely small value, which is below the standard significance level
+ , indicates that at least one method differs significantly from the others.
+ Based on this result, it was necessary to perform pairwise comparisons
+ to determine which methods exhibit statistically significant differences
+ from each other.
+ The comparison between ADAM and BFGS resulted in a p-value of 0.17, which
+ is above the significance threshold.
+ This suggests that there is no statistically significant difference between
+ these two methods, and their performance in terms of error is comparable.
+ In contrast, the comparison between ADAM and GENETIC yielded a p-value
+ of 9.9e-07, a very small value that indicates a statistically significant
+ difference, with GENETIC outperforming ADAM.
+ Similarly, the comparison of ADAM with GNN produced a p-value of 2.1e-10,
+ demonstrating a significant difference and showing that GNN performs better
+ than ADAM.
+ The comparison between BFGS and GENETIC yielded a p-value of 8.6e-05, highlighti
+ng that GENETIC is significantly superior to BFGS.
+ Furthermore, the comparison of BFGS with GNN resulted in a p-value of 1.7e-07,
+ which shows that GNN is clearly better than BFGS.
+ Finally, the comparison between GENETIC and GNN yielded a p-value of 1.9e-06,
+ indicating a statistically significant difference, with GNN outperforming
+ GENETIC.
+ In summary, the results reveal a clear hierarchy in the performance of
+ the methods.
+ GNN emerges as the method with the lowest mean error, showing statistically
+ significant superiority over all other methods.
+ GENETIC ranks second, as it significantly outperforms ADAM and BFGS but
+ falls short of GNN.
+ On the other hand, ADAM and BFGS do not exhibit a statistically significant
+ difference from each other and appear to be on the same level, with higher
+ errors compared to the other two methods.
+ These results underscore the clear advantage of GNN over the other methods
+ for the given problem.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ explores potential differences between the methods ADAM, BFGS, GENETIC,
+ and GNN regarding regression error.
+ The Kruskal-Wallis test, a non-parametric method used to assess whether
+ there are overall differences among more than two groups, produced a p-value
+ of 0.067.
+ While this value is slightly above the standard significance threshold
+ , it is very close, suggesting that there may be underlying differences
+ between the methods worth further investigation.
+ Pairwise comparisons revealed additional insights.
+ The comparison between ADAM and BFGS yielded a p-value of 0.25, which is
+ well above the significance threshold, indicating no significant difference
+ between these methods.
+ However, the comparison between ADAM and GENETIC resulted in a p-value
+ of 0.077, which, while not strictly significant, is notably close to the
+ 0.05 threshold, hinting at a potential difference.
+ Similarly, the comparison of ADAM with GNN produced a p-value of 0.059,
+ again close to the significance level, suggesting a possible distinction
+ between these methods.
+ The comparison between BFGS and GENETIC yielded a p-value of 0.063, further
+ emphasizing a borderline result that approaches significance.
+ For BFGS versus GNN, the p-value was 0.049, just below the 0.05 threshold,
+ indicating a statistically significant difference, with GNN showing better
+ performance.
+ Finally, the comparison between GENETIC and GNN resulted in a p-value of
+ 0.06, which, although slightly above the significance level, remains close
+ enough to warrant attention.
+ In summary, while the overall Kruskal-Wallis test did not reach the conventiona
+l significance level, the p-values from the pairwise comparisons suggest
+ that certain methods, particularly GNN, may exhibit better performance
+ compared to others.
+ These borderline p-values, close to the 0.05 threshold, highlight the potential
+ for meaningful differences, particularly between GNN and other methods,
+ and suggest the need for further investigation or larger sample sizes to
+ confirm these trends.
 \end_layout
 
 \begin_layout Section
 Conclusions
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Conclusions"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+WRITE SOME TEXT HERE
 \end_layout
 
 \begin_layout Author Contributions
@@ -4556,9 +5382,8 @@ I.G.T.
  and V.C.
  conceived the idea and methodology.
  I.G.T.
- performed the experiments,
- employing several datasets,
- and provided the comparative experiments.
+ performed the experiments, employing several datasets, and provided the
+ comparative experiments.
  V.C.
  performed the statistical analysis.
  All authors prepared the manuscript.
@@ -4582,11 +5407,11 @@ Not applicable.
 \end_layout
 
 \begin_layout Acknowledgments
-This research has been financed by the European Union :
- Next Generation EU through the Program Greece 2.0 National Recovery and Resilience Plan ,
- under the call RESEARCH – CREATE – INNOVATE,
- project name “iCREW:
- Intelligent small craft simulator for advanced crew training using Virtual Reality techniques" (project code:TAEDK-06195).
+This research has been financed by the European Union : Next Generation
+ EU through the Program Greece 2.0 National Recovery and Resilience Plan
+ , under the call RESEARCH – CREATE – INNOVATE, project name “iCREW: Intelligent
+ small craft simulator for advanced crew training using Virtual Reality
+ techniques" (project code:TAEDK-06195).
 \end_layout
 
 \begin_layout Conflicts of Interest
@@ -4614,92 +5439,1469 @@ References
 \labelwidthstring 999
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Author1(year)"
-key "ref-journal"
+label "(2006)"
+key "physics-ml1"
 literal "false"
 
 \end_inset
 
- Autho
+ M.
+ Mjahed, The use of clustering techniques for the classification of high
+ energy physics data, Nuclear Instruments and Methods in Physics Research
+ Section A: Accelerators, Spectrometers, Detectors and Associated Equipment
+ 
+\series bold
+559
+\series default
+, pp.
+ 199-202, 2006.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end_layout
-
-\begin_layout Plain Layout
-
-%% for journal Sci
-\end_layout
-
-\begin_layout Plain Layout
-
-%
-\backslash
-reviewreports{
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-%Reviewer 1 comments and authors' response
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-%Reviewer 2 comments and authors' response
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-%Reviewer 3 comments and authors' response
-\end_layout
-
-\begin_layout Plain Layout
-
-%}
-\end_layout
-
-\begin_layout Plain Layout
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end_layout
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "physics_ml2"
+literal "false"
 
 \end_inset
 
-
+M Andrews, M Paulini, S Gleyzer, B Poczos, End-to-End Event Classification
+ of High-Energy Physics Data, Journal of Physics: Conference Series 
+\series bold
+1085
+\series default
+, 2018.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-PublishersNote{}
-\end_layout
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "chemistry_ml1"
+literal "false"
 
 \end_inset
 
+P.
+ He, C.J.
+ Xu, Y.Z.
+ Liang, K.T.
+ Fang, Improving the classification accuracy in chemistry via boosting technique
+, Chemometrics and Intelligent Laboratory Systems 70, pp.
+ 39-46, 2004.
+\end_layout
 
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "chemistry_ml2"
+literal "false"
+
+\end_inset
+
+J.A.
+ Aguiar, M.L.
+ Gong, T.Tasdizen, Crystallographic prediction from diffraction and chemistry
+ data for higher throughput classification using machine learning, Computational
+ Materials Science 
+\series bold
+173
+\series default
+, 109409, 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "econ_ml1"
+literal "false"
+
+\end_inset
+
+I.
+ Kaastra, M.
+ Boyd, Designing a neural network for forecasting financial and economic
+ time series, Neurocomputing 
+\series bold
+10
+\series default
+, pp.
+ 215-236, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "econ_ml2"
+literal "false"
+
+\end_inset
+
+R.
+ Hafezi, J.
+ Shahrabi, E.
+ Hadavandi, A bat-neural network multi-agent system (BNNMAS) for stock price
+ prediction: Case study of DAX stock price, Applied Soft Computing 
+\series bold
+29
+\series default
+, pp.
+ 196-210, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "med_ml1"
+literal "false"
+
+\end_inset
+
+S.S.
+ Yadav, S.M.
+ Jadhav, Deep convolutional neural network based medical image classification
+ for disease diagnosis.
+ J Big Data 
+\series bold
+6
+\series default
+, 113, 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "med_ml2"
+literal "false"
+
+\end_inset
+
+L.
+ Qing, W.
+ Linhong , D.
+ Xuehai, A Novel Neural Network-Based Method for Medical Text Classification,
+ Future Internet 
+\series bold
+11
+\series default
+, 255, 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn1"
+literal "true"
+
+\end_inset
+
+C.
+ Bishop, Neural Networks for Pattern Recognition, Oxford University Press,
+ 1995.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn2"
+literal "true"
+
+\end_inset
+
+G.
+ Cybenko, Approximation by superpositions of a sigmoidal function, Mathematics
+ of Control Signals and Systems 
+\series bold
+2
+\series default
+, pp.
+ 303-314, 1989.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_image"
+literal "false"
+
+\end_inset
+
+M.
+ Egmont-Petersen, D.
+ de Ridder, H.
+ Handels, Image processing with neural networks—a review, Pattern recognition
+ 
+\series bold
+35
+\series default
+, pp.
+ 2279-2301, 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn-times"
+literal "false"
+
+\end_inset
+
+M.
+ Khashei, M.
+ Bijari, An artificial neural network (p,d,q) model for timeseries forecasting,
+ Expert Systems with Applications 
+\series bold
+37
+\series default
+, pp.
+ 479-489, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_solar"
+literal "false"
+
+\end_inset
+
+A.
+ Mellit, A.
+ Massi Pavan, A 24-h forecast of solar irradiance using artificial neural
+ network: Application for performance prediction of a grid-connected PV
+ plant at Trieste, Italy, Solar Energy 
+\series bold
+84
+\series default
+, pp.
+ 807-821, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_medical"
+literal "false"
+
+\end_inset
+
+F.
+ Amato, A.
+ López, E.
+ María Peña-Méndez, P.
+ Vaňhara,A.
+ Hampl, J.
+ Havel, Artificial neural networks in medical diagnosis, Journal of Applied
+ Biomedicine 
+\series bold
+11
+\series default
+, pp.
+ 47-58, 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnde1"
+literal "false"
+
+\end_inset
+
+Y.
+ Shirvany, M.
+ Hayati, R.
+ Moradian, Multilayer perceptron neural networks with novel unsupervised
+ training method for numerical solution of the partial differential equations,
+ Applied Soft Computing 
+\series bold
+9
+\series default
+, pp.
+ 20-29, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnde2"
+literal "false"
+
+\end_inset
+
+A.
+ Malek, R.
+ Shekari Beidokhti, Numerical solution for high order differential equations
+ using a hybrid neural network—Optimization method, Applied Mathematics
+ and Computation 
+\series bold
+183
+\series default
+, pp.
+ 260-271, 2006.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnagr1"
+literal "false"
+
+\end_inset
+
+A.
+ Topuz, Predicting moisture content of agricultural products using artificial
+ neural networks, Advances in Engineering Software 
+\series bold
+41
+\series default
+, pp.
+ 464-470, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnagr2"
+literal "false"
+
+\end_inset
+
+A.
+ Escamilla-García, G.M.
+ Soto-Zarazúa, M.
+ Toledano-Ayala, E.
+ Rivas-Araiza, A.
+ Gastélum-Barrios, Abraham,Applications of Artificial Neural Networks in
+ Greenhouse Technology and Overview for Smart Agriculture Development, Applied
+ Sciences 
+\series bold
+10
+\series default
+, Article number 3835, 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bpnn"
+literal "false"
+
+\end_inset
+
+D.E.
+ Rumelhart, G.E.
+ Hinton and R.J.
+ Williams, Learning representations by back-propagating errors, Nature 
+\series bold
+323
+\series default
+, pp.
+ 533 - 536 , 1986.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn-1"
+literal "false"
+
+\end_inset
+
+M.
+ Riedmiller and H.
+ Braun, A Direct Adaptive Method for Faster Backpropagation Learning: The
+ RPROP algorithm, Proc.
+ of the IEEE Intl.
+ Conf.
+ on Neural Networks, San Francisco, CA, pp.
+ 586–591, 1993.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Adam"
+literal "false"
+
+\end_inset
+
+D.
+ P.
+ Kingma, J.
+ L.
+ Ba, ADAM: a method for stochastic optimization, in: Proceedings of the
+ 3rd International Conference on Learning Representations (ICLR 2015), pp.
+ 1–15, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "quasinn"
+literal "false"
+
+\end_inset
+
+B.
+ Robitaille and B.
+ Marcos and M.
+ Veillette and G.
+ Payre, Modified quasi-Newton methods for training neural networks, Computers
+ & Chemical Engineering 
+\series bold
+20
+\series default
+, pp.
+ 1133-1140, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tabunn"
+literal "false"
+
+\end_inset
+
+R.S.
+ Sexton, B.
+ Alidaee, R.E.
+ Dorsey, J.D.
+ Johnson, Global optimization for artificial neural networks: A tabu search
+ application.
+ European Journal of Operational Research 
+\series bold
+106
+\series default
+, pp.
+ 570-584, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_ann1"
+literal "false"
+
+\end_inset
+
+A.
+ Yamazaki, M.
+ C.
+ P.
+ de Souto,T.
+ B.
+ Ludermir, Optimization of neural network weights and architectures for
+ odor recognition using simulated annealing, In: Proceedings of the 2002
+ International Joint Conference on Neural Networks.
+ IJCNN'02 
+\series bold
+1
+\series default
+, pp.
+ 547-552 , 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geneticnn"
+literal "false"
+
+\end_inset
+
+F.
+ H.
+ F.
+ Leung, H.
+ K.
+ Lam, S.
+ H.
+ Ling and P.
+ K.
+ S.
+ Tam, Tuning of the structure and parameters of a neural network using an
+ improved genetic algorithm, IEEE Transactions on Neural Networks 
+\series bold
+14
+\series default
+, pp.
+ 79-88, 2003
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psonn"
+literal "false"
+
+\end_inset
+
+C.
+ Zhang, H.
+ Shao and Y.
+ Li, Particle swarm optimization for evolving artificial neural network,
+ IEEE International Conference on Systems, Man, and Cybernetics, , pp.
+ 2487-2490, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_de1"
+literal "false"
+
+\end_inset
+
+J.
+ lonen, J.K.
+ Kamarainen, J.
+ Lampinen, Differential Evolution Training Algorithm for Feed-Forward Neural
+ Networks, Neural Processing Letters 
+\series bold
+17
+\series default
+, pp.
+ 93–105, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_aco"
+literal "false"
+
+\end_inset
+
+K.M.
+ Salama, A.M.
+ Abdelbar, Learning neural network structures with ant colony algorithms,
+ Swarm Intell 
+\series bold
+9
+\series default
+, pp.
+ 229–265, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_bmo"
+literal "false"
+
+\end_inset
+
+A.
+ Askarzadeh, A.
+ Rezazadeh, Artificial neural network training using a new efficient optimizatio
+n algorithm, Applied Soft Computing 
+\series bold
+13
+\series default
+, pp.
+ 1206-1213, 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_arch"
+literal "false"
+
+\end_inset
+
+P.G.
+ Benardos, G.-C.
+ Vosniakos, Optimizing feedforward artificial neural network architecture,
+ Engineering Applications of Artificial Intelligence 
+\series bold
+20
+\series default
+, pp.
+ 365-382, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_abc"
+literal "false"
+
+\end_inset
+
+D.
+ Karaboga and B.
+ Akay, "Artificial Bee Colony (ABC) Algorithm on Training Artificial Neural
+ Networks," 2007 IEEE 15th Signal Processing and Communications Applications,
+ Eskisehir, Turkey, 2007, pp.
+ 1-4, doi: 10.1109/SIU.2007.4298679.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnhybrid2"
+literal "false"
+
+\end_inset
+
+J.F.
+ Chen, Q.H.
+ Do,H.N.
+ Hsieh, Training Artificial Neural Networks by a Hybrid PSO-CS Algorithm,
+ Algorithms 
+\series bold
+8
+\series default
+, pp.
+ 292-308, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "csmethod"
+literal "false"
+
+\end_inset
+
+X.S.
+ Yang, S.
+ Deb, Engineering Optimisation by Cuckoo Search, Int.
+ J.
+ Math.
+ Model.
+ Numer.
+ Optim.
+ 
+\series bold
+1
+\series default
+, 330–343, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1989)"
+key "uci"
+literal "false"
+
+\end_inset
+
+ M.
+ Kelly, R.
+ Longjohn, K.
+ Nottingham, The UCI Machine Learning Repository, https://archive.ics.uci.edu.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Keel"
+literal "false"
+
+\end_inset
+
+J.
+ Alcalá-Fdez, A.
+ Fernandez, J.
+ Luengo, J.
+ Derrac, S.
+ García, L.
+ Sánchez, F.
+ Herrera.
+ KEEL Data-Mining Software Tool: Data Set Repository, Integration of Algorithms
+ and Experimental Analysis Framework.
+ Journal of Multiple-Valued Logic and Soft Computing 17, pp.
+ 255-287, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Tzimourta(2018)"
+key "alcohol"
+literal "false"
+
+\end_inset
+
+Tzimourta, K.D.; Tsoulos, I.; Bilero, I.T.; Tzallas, A.T.; Tsipouras, M.G.; Giannakeas,
+ N.
+ Direct Assessment of Alcohol Consumption in Mental State Using Brain Computer
+ Interfaces and Grammatical Evolution.
+ Inventions 2018, 3, 51.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Quinlan(2018)"
+key "australian"
+literal "false"
+
+\end_inset
+
+J.R.
+ Quinlan, Simplifying Decision Trees.
+ International Journal of Man-Machine Studies 
+\series bold
+27
+\series default
+, pp.
+ 221-234, 1987.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "Evans(1994)"
+key "bands"
+literal "false"
+
+\end_inset
+
+B.
+ Evans, D.
+ Fisher, Overcoming process delays with decision tree induction.
+ IEEE Expert 
+\series bold
+9
+\series default
+, pp.
+ 60-66, 1994.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2004)"
+key "cleveland1"
+literal "false"
+
+\end_inset
+
+Z.H.
+ Zhou,Y.
+ Jiang, NeC4.5: neural ensemble based C4.5," in IEEE Transactions on Knowledge
+ and Data Engineering 
+\series bold
+16
+\series default
+, pp.
+ 770-773, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "cleveland2"
+literal "false"
+
+\end_inset
+
+R.
+ Setiono , W.K.
+ Leow, FERNN: An Algorithm for Fast Extraction of Rules from Neural Networks,
+ Applied Intelligence 
+\series bold
+12
+\series default
+, pp.
+ 15-25, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1998)"
+key "dermatology"
+literal "false"
+
+\end_inset
+
+G.
+ Demiroz, H.A.
+ Govenir, N.
+ Ilter, Learning Differential Diagnosis of Eryhemato-Squamous Diseases using
+ Voting Feature Intervals, Artificial Intelligence in Medicine.
+ 
+\series bold
+13
+\series default
+, pp.
+ 147–165, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1996)"
+key "ecoli"
+literal "false"
+
+\end_inset
+
+P.
+ Horton, K.Nakai, A Probabilistic Classification System for Predicting the
+ Cellular Localization Sites of Proteins, In: Proceedings of International
+ Conference on Intelligent Systems for Molecular Biology 
+\series bold
+4
+\series default
+, pp.
+ 109-15, 1996.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1977)"
+key "hayes-roth"
+literal "false"
+
+\end_inset
+
+B.
+ Hayes-Roth, B., F.
+ Hayes-Roth.
+ Concept learning and the recognition and classification of exemplars.
+ Journal of Verbal Learning and Verbal Behavior 
+\series bold
+16
+\series default
+, pp.
+ 321-338, 1977.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1997)"
+key "heart"
+literal "false"
+
+\end_inset
+
+I.
+ Kononenko, E.
+ Šimec, M.
+ Robnik-Šikonja, Overcoming the Myopia of Inductive Learning Algorithms
+ with RELIEFF, Applied Intelligence 
+\series bold
+7
+\series default
+, pp.
+ 39–55, 1997
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "housevotes"
+literal "false"
+
+\end_inset
+
+R.M.
+ French, N.
+ Chater, Using noise to compute error surfaces in connectionist networks:
+ a novel means of reducing catastrophic forgetting, Neural Comput.
+ 
+\series bold
+14
+\series default
+, pp.
+ 1755-1769, 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2004)"
+key "ion1"
+literal "false"
+
+\end_inset
+
+J.G.
+ Dy , C.E.
+ Brodley, Feature Selection for Unsupervised Learning, The Journal of Machine
+ Learning Research 
+\series bold
+5
+\series default
+, pp 845–889, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ion2"
+literal "false"
+
+\end_inset
+
+S.
+ J.
+ Perantonis, V.
+ Virvilis, Input Feature Extraction for Multilayered Perceptrons Using Supervise
+d Principal Component Analysis, Neural Processing Letters 
+\series bold
+10
+\series default
+, pp 243–252, 1999.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "liver"
+literal "false"
+
+\end_inset
+
+ J.
+ Garcke, M.
+ Griebel, Classification with sparse grids using simplicial basis functions,
+ Intell.
+ Data Anal.
+ 
+\series bold
+6
+\series default
+, pp.
+ 483-502, 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "liver1"
+literal "false"
+
+\end_inset
+
+J.
+ Mcdermott, R.S.
+ Forsyth, Diagnosing a disorder in a classification benchmark, Pattern Recogniti
+on Letters 
+\series bold
+73
+\series default
+, pp.
+ 41-43, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "lymography"
+literal "false"
+
+\end_inset
+
+G.
+ Cestnik, I.
+ Konenenko, I.
+ Bratko, Assistant-86: A Knowledge-Elicitation Tool for Sophisticated Users.
+ In: Bratko, I.
+ and Lavrac, N., Eds., Progress in Machine Learning, Sigma Press, Wilmslow,
+ pp.
+ 31-45, 1987.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2002)"
+key "magic"
+literal "false"
+
+\end_inset
+
+Heck, D., Knapp, J., Capdevielle, J.
+ N., Schatz, G., & Thouw, T.
+ (1998).
+ CORSIKA: A Monte Carlo code to simulate extensive air showers.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "mammographic"
+literal "false"
+
+\end_inset
+
+M.
+ Elter, R.
+ Schulz-Wendtland, T.
+ Wittenberg, The prediction of breast cancer biopsy outcomes using two CAD
+ approaches that both emphasize an intelligible decision process, Med Phys.
+ 
+\series bold
+34
+\series default
+, pp.
+ 4164-72, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "parkinsons1"
+literal "false"
+
+\end_inset
+
+M.A.
+ Little, P.E.
+ McSharry, S.J Roberts et al, Exploiting Nonlinear Recurrence and Fractal
+ Scaling Properties for Voice Disorder Detection.
+ BioMed Eng OnLine 
+\series bold
+6
+\series default
+, 23, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "parkinsons2"
+literal "false"
+
+\end_inset
+
+M.A.
+ Little, P.E.
+ McSharry, E.J.
+ Hunter, J.
+ Spielman, L.O.
+ Ramig, Suitability of dysphonia measurements for telemonitoring of Parkinson's
+ disease.
+ IEEE Trans Biomed Eng.
+ 
+\series bold
+56
+\series default
+, pp.
+ 1015-1022, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "pima"
+literal "false"
+
+\end_inset
+
+J.W.
+ Smith, J.E.
+ Everhart, W.C.
+ Dickson, W.C.
+ Knowler, R.S.
+ Johannes, Using the ADAP learning algorithm to forecast the onset of diabetes
+ mellitus, In: Proceedings of the Symposium on Computer Applications and
+ Medical Care IEEE Computer Society Press, pp.261-265, 1988.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "pageblocks"
+literal "false"
+
+\end_inset
+
+F.
+ Esposito F., D.
+ Malerba, G.
+ Semeraro, Multistrategy Learning for Document Recognition, Applied Artificial
+ Intelligence 
+\series bold
+8
+\series default
+, pp.
+ 33-84, 1994.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "popfailures"
+literal "false"
+
+\end_inset
+
+D.D.
+ Lucas, R.
+ Klein, J.
+ Tannahill, D.
+ Ivanova, S.
+ Brandon, D.
+ Domyancic, Y.
+ Zhang, Failure analysis of parameter-induced simulation crashes in climate
+ models, Geoscientific Model Development 
+\series bold
+6
+\series default
+, pp.
+ 1157-1171, 2013.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "regions2"
+literal "false"
+
+\end_inset
+
+N.
+ Giannakeas, M.G.
+ Tsipouras, A.T.
+ Tzallas, K.
+ Kyriakidi, Z.E.
+ Tsianou, P.
+ Manousou, A.
+ Hall, E.C.
+ Karvounis, V.
+ Tsianos, E.
+ Tsianos, A clustering based method for collagen proportional area extraction
+ in liver biopsy images (2015) Proceedings of the Annual International Conferenc
+e of the IEEE Engineering in Medicine and Biology Society, EMBS, 2015-November,
+ art.
+ no.
+ 7319047, pp.
+ 3097-3100.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "saheart"
+literal "false"
+
+\end_inset
+
+T.
+ Hastie, R.
+ Tibshirani, Non-parametric logistic and proportional odds regression, JRSS-C
+ (Applied Statistics) 
+\series bold
+36
+\series default
+, pp.
+ 260–276, 1987.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "segment"
+literal "false"
+
+\end_inset
+
+M.
+ Dash, H.
+ Liu, P.
+ Scheuermann, K.
+ L.
+ Tan, Fast hierarchical clustering and its validation, Data & Knowledge
+ Engineering 
+\series bold
+44
+\series default
+, pp 109–138, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "student"
+literal "false"
+
+\end_inset
+
+P.
+ Cortez, A.
+ M.
+ Gonçalves Silva, Using data mining to predict secondary school student
+ performance, In Proceedings of 5th FUture BUsiness TEChnology Conference
+ (FUBUTEC 2008) (pp.
+ 5–12).
+ EUROSIS-ETI, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "transfusion"
+literal "false"
+
+\end_inset
+
+I-Cheng Yeh, King-Jang Yang, Tao-Ming Ting, Knowledge discovery on RFM model
+ using Bernoulli sequence, Expert Systems with Applications 
+\series bold
+36
+\series default
+, pp.
+ 5866-5871, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "wdbc1"
+literal "false"
+
+\end_inset
+
+Jeyasingh, S., & Veluchamy, M.
+ (2017).
+ Modified bat algorithm for feature selection with the wisconsin diagnosis
+ breast cancer (WDBC) dataset.
+ Asian Pacific journal of cancer prevention: APJCP, 18(5), 1257.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "wdbc2"
+literal "false"
+
+\end_inset
+
+Alshayeji, M.
+ H., Ellethy, H., & Gupta, R.
+ (2022).
+ Computer-aided detection of breast cancer on the Wisconsin dataset: An
+ artificial neural networks approach.
+ Biomedical signal processing and control, 71, 103141.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "wine1"
+literal "false"
+
+\end_inset
+
+M.
+ Raymer, T.E.
+ Doom, L.A.
+ Kuhn, W.F.
+ Punch, Knowledge discovery in medical and biological datasets using a hybrid
+ Bayes classifier/evolutionary algorithm.
+ IEEE transactions on systems, man, and cybernetics.
+ Part B, Cybernetics : a publication of the IEEE Systems, Man, and Cybernetics
+ Society, 
+\series bold
+33
+\series default
+ , pp.
+ 802-813, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "wine2"
+literal "false"
+
+\end_inset
+
+P.
+ Zhong, M.
+ Fukushima, Regularized nonsmooth Newton method for multi-class support
+ vector machines, Optimization Methods and Software 
+\series bold
+22
+\series default
+, pp.
+ 225-236, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "eeg1"
+literal "false"
+
+\end_inset
+
+R.
+ G.
+ Andrzejak, K.
+ Lehnertz, F.Mormann, C.
+ Rieke, P.
+ David, and C.
+ E.
+ Elger, “Indications of nonlinear deterministic and finite-dimensional structure
+s in time series of brain electrical activity: dependence on recording region
+ and brain state,” Physical Review E, vol.
+ 64, no.
+ 6, Article ID 061907, 8 pages, 2001.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "eeg2"
+literal "true"
+
+\end_inset
+
+A.
+ T.
+ Tzallas, M.
+ G.
+ Tsipouras, and D.
+ I.
+ Fotiadis, “Automatic Seizure Detection Based on Time-Frequency Analysis
+ and Artificial Neural Networks,” Computational Intelligence and Neuroscience,
+ vol.
+ 2007, Article ID 80510, 13 pages, 2007.
+ doi:10.1155/2007/80510
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "zoo"
+literal "false"
+
+\end_inset
+
+M.
+ Koivisto, K.
+ Sood, Exact Bayesian Structure Discovery in Bayesian Networks, The Journal
+ of Machine Learning Research
+\series bold
+ 5
+\series default
+, pp.
+ 549–573, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "abalone"
+literal "false"
+
+\end_inset
+
+Nash, W.J.; Sellers, T.L.; Talbot, S.R.; Cawthor, A.J.; Ford, W.B.
+ The Population Biology of Abalone (_Haliotis_ species) in Tasmania.
+ I.
+ Blacklip Abalone (_H.
+ rubra_) from the North Coast and Islands of Bass Strait, Sea Fisheries
+ Division; Technical Report No.
+ 48; Department of Primary Industry and Fisheries, Tasmania: Hobart, Australia,
+ 1994; ISSN 1034-3288
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "airfoil"
+literal "false"
+
+\end_inset
+
+Brooks, T.F.; Pope, D.S.; Marcolini, A.M.
+ Airfoil Self-Noise and Prediction.
+ Technical Report, NASA RP-1218.
+ July 1989.
+ Available online: https://ntrs.nasa.gov/citations/19890016302 (accessed on
+ 14 November 2024).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "concrete"
+literal "false"
+
+\end_inset
+
+I.Cheng Yeh, Modeling of strength of high performance concrete using artificial
+ neural networks, Cement and Concrete Research.
+ 
+\series bold
+28
+\series default
+, pp.
+ 1797-1808, 1998.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "friedman"
+literal "false"
+
+\end_inset
+
+Friedman, J.
+ (1991): Multivariate Adaptative Regression Splines.
+ Annals of Statistics, 19:1, 1--141.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2007)"
+key "housing"
+literal "false"
+
+\end_inset
+
+D.
+ Harrison and D.L.
+ Rubinfeld, Hedonic prices and the demand for clean ai, J.
+ Environ.
+ Economics & Management 
+\series bold
+5
+\series default
+, pp.
+ 81-102, 1978.
 \end_layout
 
 \begin_layout End Whole Page
