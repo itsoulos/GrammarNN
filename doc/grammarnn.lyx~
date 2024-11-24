@@ -610,19 +610,240 @@ literal "false"
 \end_inset
 
  to optimize the weight vector.
+ Also, due to the widespread application of parallel programming techniques
+ a series of papers that exploit such methods are published recently regarding
+ the training of neural networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnpar1,nnpar2,nnpar3"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Another important aspect of the research conducted on artificial neural
+ networks is the initialization techniques used, which play an important
+ role in the final result that these networks have.
+ Such initialization methods include the usage of decision trees
+\series bold
+ 
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nninit1"
+literal "false"
+
+\end_inset
+
+,
+\series bold
+ 
+\series default
+incorporation of the Cauchy's inequality 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_init2"
+literal "false"
+
+\end_inset
+
+, application of discriminant learning 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "weight_init3"
+literal "false"
+
+\end_inset
+
+, usage of genetic algorithms 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nninit2"
+literal "false"
+
+\end_inset
+
+ etc.
+ Also recently, Sodhi et al proposed the an interval based weight initialization
+ method for neural networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nninit_interval"
+literal "false"
+
+\end_inset
+
+.
+ An overview of the methods used for weight initialization can be found
+ in the work of Sousa 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nninit_overview"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+However, the most important problem that can be caused by the use of different
+ initialization and/or training techniques for artificial neural networks
+ is the phenomenon of overtraining of these networks, where the network
+ has poor performance on patterns that were not used in the training of
+ the network.
+ This problem was tackled in the recent bibliography by a series of methods,
+ such as the weight sharing technique
+\series bold
+ 
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnsharing1"
+literal "true"
+
+\end_inset
+
+, weight pruning techniques that can reduce the number of weights
+\series bold
+ 
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnprunning1,nnprunning2,nnprunning3"
+literal "true"
+
+\end_inset
+
+, the dropout method 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nndrop1"
+literal "false"
+
+\end_inset
+
+, weight decaying 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nndecay1,nndecay2"
+literal "false"
+
+\end_inset
+
+,
+\series bold
+ 
+\series default
+the Sarprop technique 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "sarprop"
+literal "false"
+
+\end_inset
+
+
+\series bold
+, 
+\series default
+positive correlation methods 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnpositive"
+literal "false"
+
+\end_inset
+
+
+\series bold
+ 
+\series default
+etc.
  
 \end_layout
 
 \begin_layout Standard
-A
-\series bold
-lso, 
+This paper proposes an innovative process for training artificial neural
+ networks, which consists of three individual stages.
+ During the execution of the first stage, an initial estimate of the value
+ interval of the artificial neural network parameters is made using a smart
+ global optimization technique, such as Genetic Algorithms 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gen_review"
+literal "false"
+
+\end_inset
+
+.
+ The generated result of the first stage is used in the next phase of the
+ algorithm, where a process using Grammatical Evolution 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "mainge"
+literal "false"
+
+\end_inset
+
+ is used to more efficiently identify the value interval of the parameters
+ of the artificial neural network.
+ In this phase, the value intervals for the network parameters are constructed
+ using a Backus–Naur (BNF) grammar 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "bnf1"
+literal "false"
+
+\end_inset
+
+.
+ In the last stage of the proposed method, the parameters accompanying the
+ artificial neural networks are initialized within the optimal value interval
+ of the previous process and an optimization algorithm is used to effectively
+ train the network within this interval.
+ 
 \end_layout
 
 \begin_layout Standard
+The remaining of this article is organized as follows: in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Materials-and-Methods"
+plural "false"
+caps "false"
+noprefix "false"
 
-\series bold
-The Rest of this article is organized as follows:
+\end_inset
+
+ the proposed method is discussed in detail, in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Results"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ the used datasets as well as the conducted experiments are discussed and
+ finally in section 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Conclusions"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ some conclusions are presented.
 \end_layout
 
 \begin_layout Section
@@ -636,12 +857,555 @@ name "sec:Materials-and-Methods"
 
 \end_layout
 
+\begin_layout Standard
+This section presents the basic principles of Grammatical Evolution and
+ then the proposed 3-stage weight adjustment process.
+ 
+\end_layout
+
 \begin_layout Subsection
 Grammatical Evolution 
 \end_layout
 
+\begin_layout Standard
+Grammatical Evolution is an evolutionary algorithm, where the chromosomes
+ are vectors of positive integer values.
+ Each chromosome is a series of production rules from the underlying BNF
+ grammar and it can be used to construct valid programs in the target language.
+ During the recent years, Grammatical Evolution was applied in a wide range
+ of problems from different areas, such as music synthesis 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_music"
+literal "false"
+
+\end_inset
+
+, video games 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ge_pacman,ge_supermario"
+literal "false"
+
+\end_inset
+
+, design of fractal curves 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_fractal"
+literal "false"
+
+\end_inset
+
+, constant creation 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_constant"
+literal "false"
+
+\end_inset
+
+, robotics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_robot,ge_robotics"
+literal "false"
+
+\end_inset
+
+, modeling glycemia in humans 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_glykemia"
+literal "false"
+
+\end_inset
+
+, Wikipedia taxonomies 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_wikipedia"
+literal "false"
+
+\end_inset
+
+, economics 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "ge_trading"
+literal "false"
+
+\end_inset
+
+ etc.
+ The grammars used in the Grammatical Evolution procedure are expressed
+ as sets 
+\begin_inset Formula $G=\left(N,T,S,P\right)$
+\end_inset
+
+ where
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $N$
+\end_inset
+
+ represents the set of non-terminal symbols included in the grammar.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $T$
+\end_inset
+
+ stands for the set of terminal symbols.
+ Every non - terminal symbol is replaced by a series of terminal symbols
+ withe the application of the associated production rules.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $S$
+\end_inset
+
+ is a non - terminal symbol, that stands for the start symbol of the grammar.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $P$
+\end_inset
+
+ is the set of production rules that are used to create terminal symbols
+ from non - terminal symbols.
+ 
+\end_layout
+
+\begin_layout Standard
+For every chromosome, Grammatical Evolution starts from the symbol 
+\begin_inset Formula $S$
+\end_inset
+
+ and through a series of steps it produces valid programs with terminal
+ symbols by substituting non-terminal symbols with the right hand of the
+ selected production rule.
+ The selection of the production rule is accomplished in two steps:
+\end_layout
+
+\begin_layout Itemize
+Obtain the next element from the under - processing chromosome.
+ Denote this element with 
+\begin_inset Formula $V$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The next rule is selected according to: Rule = V mod 
+\begin_inset Formula $N_{R}$
+\end_inset
+
+.
+ The number 
+\begin_inset Formula $N_{R}$
+\end_inset
+
+ represents the total number of production rules for the non – terminal
+ symbol that is under consideration.
+\end_layout
+
 \begin_layout Subsection
 The proposed method
+\end_layout
+
+\begin_layout Subsubsection
+The first phase of the method 
+\end_layout
+
+\begin_layout Standard
+At the beginning of the process, an initial estimate of the range of values
+ for the parameters of the artificial neural network must be made.
+ This estimate should also reflect the specificities of each data set to
+ be processed and therefore arbitrary values cannot be used.
+ For this reason, an optimization procedure is used to train the neural
+ network.
+ The final result of this process can be used as a good estimate of the
+ range of values for these parameters.
+ In the current work, the global optimization method of Genetic Algorithm
+ was used as the training procedure of the first phase.
+ This method was chosen because of its great flexibility, its many applications
+ in many scientific fields, and its ability to be parallelized.
+ The form of neural networks used here was also proposed in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnc"
+literal "false"
+
+\end_inset
+
+ and it is defined as follows:
+\begin_inset Formula 
+\begin{equation}
+N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1)}\sigma\left(\sum_{j=1}^{d}x_{j}w_{(d+2)i-(d+1)+j}+w_{(d+2)i}\right)\label{eq:nn}
+\end{equation}
+
+\end_inset
+
+In the previous equation the symbol 
+\begin_inset Formula $H$
+\end_inset
+
+ denotes the number of processing units and the value 
+\begin_inset Formula $d$
+\end_inset
+
+ represents the the dimension of the input pattern 
+\begin_inset Formula $\overrightarrow{x}$
+\end_inset
+
+.
+ The function
+\begin_inset Formula $\ \sigma(x)$
+\end_inset
+
+ represents the sigmoid function defined as: 
+\begin_inset Formula 
+\begin{equation}
+\sigma(x)=\frac{1}{1+\exp(-x)}\label{eq:sig}
+\end{equation}
+
+\end_inset
+
+Each chromosome in this genetic algorithm represents a possible set of parameter
+s for the artificial neural network and during optimization the training
+ error is minimized, as captured in equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ The main steps of this procedure have as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialization step
+\series default
+.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Define
+\series default
+ as 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ the number of chromosomes and as 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ the maximum number of generations allowed before termination.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Define
+\series default
+ as 
+\begin_inset Formula $p_{s}$
+\end_inset
+
+ the selection rate with 
+\begin_inset Formula $p_{s}\le$
+\end_inset
+
+1
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Define
+\series default
+ as 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+ the mutation rate with 
+\begin_inset Formula $p_{m}\le$
+\end_inset
+
+1
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=0$
+\end_inset
+
+, the generation number.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Genetic operations step
+\series default
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "enu:Genetic-operations-step."
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fitness calculation.
+ For every chromosome 
+\begin_inset Formula $c_{i},\ i=1,\ldots,N_{c}$
+\end_inset
+
+ create the corresponding neural network 
+\begin_inset Formula $N\left(c_{i},x\right)$
+\end_inset
+
+ and set the corresponding fitness value with the following formula:
+\begin_inset Formula 
+\[
+f_{i}=\sum_{j=1}^{M}\left(N\left(c_{i},x_{j}\right)-y_{j}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Application of selection.
+ 
+\series bold
+Initially, the chromosomes are sorted according to their fitness values.
+ The first 
+\begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
+\end_inset
+
+ chromosomes with the lowest fitness values are copied to the next generation.
+ The remaining chromosomes are substituted by chromosomes produced by the
+ crossover procedure.
+ During the selection process, for every new offspring, two chromosomes
+ are selected as parents from the population using well - known procedure
+ of tournament selection.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Application of crossover.
+ 
+\series bold
+For each pair 
+\begin_inset Formula $(z,w)$
+\end_inset
+
+ of selected parents, two chromosomes 
+\begin_inset Formula $\tilde{z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tilde{w}$
+\end_inset
+
+ are constructed using the following equations:
+\begin_inset Formula 
+\begin{eqnarray}
+\tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
+\tilde{w_{i}} & = & a_{i}w_{i}+\left(1-a_{i}\right)z_{i}\label{eq:crossover_ali-1}
+\end{eqnarray}
+
+\end_inset
+
+Where 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ is random number with the property 
+\begin_inset Formula $a_{i}\in[-0.5,1.5]$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "kaelo"
+literal "true"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Application of mutation.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Termination check
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Set 
+\begin_inset Formula $k=k+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $k\le N_{g}$
+\end_inset
+
+ goto step 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "enu:Genetic-operations-step."
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Finalization step
+\series default
+.
+\end_layout
+
+\begin_layout Subsubsection
+The second phase of the method
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout LyX-Code
+S::=<expr>   (0) 
+\end_layout
+
+\begin_layout LyX-Code
+<expr> ::=  (<xlist> , <lcommand>,<rcommand>)  (0)             
+\end_layout
+
+\begin_layout LyX-Code
+           |<expr>,<expr>                (1)
+\end_layout
+
+\begin_layout LyX-Code
+<xlist>::=x1    (0)              
+\end_layout
+
+\begin_layout LyX-Code
+           | x2 (1)              
+\end_layout
+
+\begin_layout LyX-Code
+           ………             
+\end_layout
+
+\begin_layout LyX-Code
+           | xn (n)
+\end_layout
+
+\begin_layout LyX-Code
+<left_command>  ::= NOTHING (0)             
+\end_layout
+
+\begin_layout LyX-Code
+           |        EXPAND  (1)
+\end_layout
+
+\begin_layout LyX-Code
+           |        DIVIDE  (2)
+\end_layout
+
+\begin_layout LyX-Code
+<right_command> ::= NOTHING (0)
+\end_layout
+
+\begin_layout LyX-Code
+           |        EXPAND  (1)
+\end_layout
+
+\begin_layout LyX-Code
+           |        DIVIDE  (2)
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+BNF grammar used in the current work.
+ The value 
+\begin_inset Formula $n$
+\end_inset
+
+ stands for the number of total parameters in the neural network.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:BNF-grammar-of"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\series bold
+(MENTION LOCAL SEARCH)
+\end_layout
+
+\begin_layout Subsubsection
+The final phase of the method
 \end_layout
 
 \begin_layout Section
@@ -5373,7 +6137,13 @@ name "sec:Conclusions"
 \begin_layout Standard
 
 \series bold
-WRITE SOME TEXT HERE
+(WRITE SOME TEXT HERE)
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(MENTION PARALLEL PROCESSING TO SPEED UP THE METHOD)
 \end_layout
 
 \begin_layout Author Contributions
@@ -6078,6 +6848,603 @@ X.S.
 1
 \series default
 , 330–343, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnpar1"
+literal "false"
+
+\end_inset
+
+S.
+ Scanzio, S.
+ Cumani, R.
+ Gemello, F.
+ Mana, P.
+ Laface, Parallel implementation of Artificial Neural Network training for
+ speech recognition, Pattern Recognition Letters 
+\series bold
+31
+\series default
+, pp.
+ 1302-1309, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnpar2"
+literal "false"
+
+\end_inset
+
+X.
+ Sierra-Canto, F.
+ Madera-Ramirez and V.
+ Uc-Cetina, "Parallel Training of a Back-Propagation Neural Network Using
+ CUDA," 2010 Ninth International Conference on Machine Learning and Applications
+, Washington, DC, USA, 2010, pp.
+ 307-312, doi: 10.1109/ICMLA.2010.52.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnpar3"
+literal "false"
+
+\end_inset
+
+F.
+ Åström, R.
+ Koker, A parallel neural network approach to prediction of Parkinson’s
+ Disease, Expert Systems with Applications 
+\series bold
+38
+\series default
+, , pp.
+ 12470-12474, 2011.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nninit1"
+literal "false"
+
+\end_inset
+
+I.
+ Ivanova, M.
+ Kubat, Initialization of neural networks by means of decision trees, Knowledge-
+Based Systems 
+\series bold
+8
+\series default
+, pp.
+ 333-344, 1995.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_init2"
+literal "false"
+
+\end_inset
+
+J.Y.F.
+ Yam, T.W.S.
+ Chow, A weight initialization method for improving training speed in feedforwar
+d neural network, Neurocomputing 
+\series bold
+30
+\series default
+, pp.
+ 219-232, 2000.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "weight_init3"
+literal "false"
+
+\end_inset
+
+K.
+ Chumachenko, A.
+ Iosifidis, M.
+ Gabbouj, Feedforward neural networks initialization based on discriminant
+ learning, Neural Networks 
+\series bold
+146
+\series default
+, pp.
+ 220-229, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nninit2"
+literal "false"
+
+\end_inset
+
+F.
+ Itano, M.
+ A.
+ de Abreu de Sousa, E.
+ Del-Moral-Hernandez, Extending MLP ANN hyper-parameters Optimization by
+ using Genetic Algorithm, In: 2018 International Joint Conference on Neural
+ Networks (IJCNN), Rio de Janeiro, Brazil, 2018, pp.
+ 1-8, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nninit_interval"
+literal "false"
+
+\end_inset
+
+S.S.
+ Sodhi, P.
+ Chandra, Interval based Weight Initialization Method for Sigmoidal Feedforward
+ Artificial Neural Networks, AASRI Procedia 
+\series bold
+6
+\series default
+, pp.
+ 19-25, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nninit_overview"
+literal "false"
+
+\end_inset
+
+C.
+ A.
+ R.
+ de Sousa, "An overview on weight initialization methods for feedforward
+ neural networks," 2016 International Joint Conference on Neural Networks
+ (IJCNN), Vancouver, BC, Canada, 2016, pp.
+ 52-59, doi: 10.1109/IJCNN.2016.7727180.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnsharing1"
+literal "true"
+
+\end_inset
+
+S.J.
+ Nowlan and G.E.
+ Hinton, Simplifying neural networks by soft weight sharing, Neural Computation
+ 4, pp.
+ 473-493, 1992.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnprunning1"
+literal "true"
+
+\end_inset
+
+S.J.
+ Hanson and L.Y.
+ Pratt, Comparing biases for minimal network construction with back propagation,
+ In D.S.
+ Touretzky (Ed.), Advances in Neural Information Processing Systems, Volume
+ 1, pp.
+ 177-185, San Mateo, CA: Morgan Kaufmann, 1989.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnprunning2"
+literal "true"
+
+\end_inset
+
+M.C.
+ Mozer and P.
+ Smolensky, Skeletonization: a technique for trimming the fat from a network
+ via relevance assesment.
+ In D.S.
+ Touretzky (Ed.), Advances in Neural Processing Systems, Volume 1, pp.
+ 107-115, San Mateo CA: Morgan Kaufmann, 1989.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnprunning3"
+literal "false"
+
+\end_inset
+
+M.
+ Augasta and T.
+ Kathirvalavakumar, Pruning algorithms of neural networks — a comparative
+ study, Central European Journal of Computer Science, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nndrop1"
+literal "false"
+
+\end_inset
+
+Nitish Srivastava, G E Hinton, Alex Krizhevsky, Ilya Sutskever, Ruslan R
+ Salakhutdinov, Dropout: a simple way to prevent neural networks from overfittin
+g, Journal of Machine Learning Research 
+\series bold
+15
+\series default
+, pp.
+ 1929-1958, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nndecay1"
+literal "false"
+
+\end_inset
+
+A.
+ Gupta, S.M.
+ Lam, Weight decay backpropagation for noisy data, Neural Networks 
+\series bold
+11
+\series default
+, pp.
+ 1127-1138, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nndecay2"
+literal "false"
+
+\end_inset
+
+M.
+ Carvalho and T.
+ B.
+ Ludermir, Particle Swarm Optimization of Feed-Forward Neural Networks with
+ Weight Decay, 2006 Sixth International Conference on Hybrid Intelligent
+ Systems (HIS'06), Rio de Janeiro, Brazil, 2006, pp.
+ 5-5.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "sarprop"
+literal "false"
+
+\end_inset
+
+N.K.
+ Treadgold, T.D.
+ Gedeon, Simulated annealing and weight decay in adaptive learning: the
+ SARPROP algorithm, IEEE Trans.
+ on Neural Networks 9, pp.
+ 662-668, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnpositive"
+literal "true"
+
+\end_inset
+
+M.D.
+ Shahjahan, M.
+ Kazuyuki, Neural network training algorithm with possitive correlation,
+ IEEE Trans.
+ Inf & Syst.
+ 
+\series bold
+88
+\series default
+, pp.
+ 2399-2409, 2005.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gen_review"
+literal "false"
+
+\end_inset
+
+Mirjalili, S., & Mirjalili, S.
+ (2019).
+ Genetic algorithm.
+ Evolutionary algorithms and neural networks: theory and applications, 43-55.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "mainge"
+literal "true"
+
+\end_inset
+
+M.
+ O’Neill, C.
+ Ryan, Grammatical evolution, IEEE Trans.
+ Evol.
+ Comput.
+ 
+\series bold
+5,
+\series default
+pp.
+ 349–358, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bnf1"
+literal "false"
+
+\end_inset
+
+J.
+ W.
+ Backus.
+ The Syntax and Semantics of the Proposed International Algebraic Language
+ of the Zurich ACM-GAMM Conference.
+ Proceedings of the International Conference on Information Processing,
+ UNESCO, 1959, pp.125-132.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "ge_music"
+literal "false"
+
+\end_inset
+
+A.O.
+ Puente, R.
+ S.
+ Alfonso, M.
+ A.
+ Moreno, Automatic composition of music by means of grammatical evolution,
+ In: APL '02: Proceedings of the 2002 conference on APL: array processing
+ languages: lore, problems, and applications July 2002 Pages 148–155.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1991)"
+key "ge_pacman"
+literal "false"
+
+\end_inset
+
+E.
+ Galván-López, J.M.
+ Swafford, M.
+ O’Neill, A.
+ Brabazon, Evolving a Ms.
+ PacMan Controller Using Grammatical Evolution.
+ In: , et al.
+ Applications of Evolutionary Computation.
+ EvoApplications 2010.
+ Lecture Notes in Computer Science, vol 6024.
+ Springer, Berlin, Heidelberg, 2010.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_supermario"
+literal "false"
+
+\end_inset
+
+N.
+ Shaker, M.
+ Nicolau, G.
+ N.
+ Yannakakis, J.
+ Togelius, M.
+ O'Neill, Evolving levels for Super Mario Bros using grammatical evolution,
+ 2012 IEEE Conference on Computational Intelligence and Games (CIG), 2012,
+ pp.
+ 304-31.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_fractal"
+literal "false"
+
+\end_inset
+
+A.
+ Ortega, A.
+ A.
+ Dalhoum, M.
+ Alfonseca, Grammatical evolution to design fractal curves with a given
+ dimension, IBM Journal of Research and Development 
+\series bold
+47
+\series default
+, pp.
+ 483-493, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_constant"
+literal "false"
+
+\end_inset
+
+I.
+ Dempsey, M.O' Neill, A.
+ Brabazon, Constant creation in grammatical evolution, International Journal
+ of Innovative Computing and Applications 
+\series bold
+1
+\series default
+ , pp 23–38, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_robot"
+literal "false"
+
+\end_inset
+
+R.
+ Burbidge, J.
+ H.
+ Walker and M.
+ S.
+ Wilson, "Grammatical evolution of a robot controller," 2009 IEEE/RSJ Internatio
+nal Conference on Intelligent Robots and Systems, St.
+ Louis, MO, USA, 2009, pp.
+ 357-362, doi: 10.1109/IROS.2009.5354411.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_robotics"
+literal "false"
+
+\end_inset
+
+Peabody, C., & Seitzer, J.
+ (2015, March).
+ GEF: a self-programming robot using grammatical evolution.
+ In Proceedings of the AAAI Conference on Artificial Intelligence (Vol.
+ 29, No.
+ 1).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_glykemia"
+literal "false"
+
+\end_inset
+
+J.
+ I.
+ Hidalgo, J.
+ M.
+ Colmenar, J.L.
+ Risco-Martin, A.
+ Cuesta-Infante, E.
+ Maqueda, M.
+ Botella, J.A.
+ Rubio, Modeling glycemia in humans by means of Grammatical Evolution, Applied
+ Soft Computing 
+\series bold
+20
+\series default
+, pp.
+ 40-53, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_wikipedia"
+literal "false"
+
+\end_inset
+
+L.
+ Araujo, J.
+ Martinez-Romo, A.
+ Duque, Discovering taxonomies in Wikipedia by means of grammatical evolution.
+ Soft Comput 
+\series bold
+22
+\series default
+, pp.
+ 2907–2919, 2018.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "ge_trading"
+literal "false"
+
+\end_inset
+
+C.
+ Martín, D.
+ Quintana, P.
+ Isasi, Grammatical Evolution-based ensembles for algorithmic trading, Applied
+ Soft Computing 
+\series bold
+84
+\series default
+, 105713, 2019.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnc"
+literal "false"
+
+\end_inset
+
+I.G.
+ Tsoulos, D.
+ Gavrilis, E.
+ Glavas, Neural network construction and training using grammatical evolution,
+ Neurocomputing 
+\series bold
+72
+\series default
+, pp.
+ 269-277, 2008.
 \end_layout
 
 \begin_layout Bibliography
