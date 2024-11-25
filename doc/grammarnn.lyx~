@@ -1062,6 +1062,15 @@ In the previous equation the symbol
 \end_inset
 
 .
+ As a consequence the size of vector 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ is 
+\begin_inset Formula $n=(d+2)H$
+\end_inset
+
+.
  The function
 \begin_inset Formula $\ \sigma(x)$
 \end_inset
@@ -1129,7 +1138,7 @@ Define
 \begin_inset Formula $p_{s}\le$
 \end_inset
 
-1
+1.
 \end_layout
 
 \begin_layout Enumerate
@@ -1145,7 +1154,19 @@ Define
 \begin_inset Formula $p_{m}\le$
 \end_inset
 
-1
+1.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ randomly the chromosomes 
+\begin_inset Formula $g_{i},\ i=1,\ldots,N_{c}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -1200,39 +1221,33 @@ f_{i}=\sum_{j=1}^{M}\left(N\left(c_{i},x_{j}\right)-y_{j}\right)^{2}
 
 \begin_layout Enumerate
 Application of selection.
- 
-\series bold
-Initially, the chromosomes are sorted according to their fitness values.
- The first 
+ The chromosomes and the corresponding fitness values are sorted according
+ to the fitness and the best 
 \begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
 \end_inset
 
- chromosomes with the lowest fitness values are copied to the next generation.
- The remaining chromosomes are substituted by chromosomes produced by the
- crossover procedure.
- During the selection process, for every new offspring, two chromosomes
- are selected as parents from the population using well - known procedure
- of tournament selection.
+ of them are copied intact to the next generation.
+
+\series bold
+ 
+\series default
+The rest of the chromosomes are replaced by new chromosomes produced during
+ the crossover and the mutation procedure.
  
 \end_layout
 
 \begin_layout Enumerate
 Application of crossover.
- 
-\series bold
-For each pair 
+ During this process, for every pair of constructed chromosomes 
+\begin_inset Formula $\left(\tilde{z},\tilde{w}\right)$
+\end_inset
+
+ two chromosomes 
 \begin_inset Formula $(z,w)$
 \end_inset
 
- of selected parents, two chromosomes 
-\begin_inset Formula $\tilde{z}$
-\end_inset
-
- and 
-\begin_inset Formula $\tilde{w}$
-\end_inset
-
- are constructed using the following equations:
+ are selected from the current population using tournament selection.
+ The construction of the new chromosomes is performed using the following:
 \begin_inset Formula 
 \begin{eqnarray}
 \tilde{z_{i}} & = & a_{i}z_{i}+\left(1-a_{i}\right)w_{i}\nonumber \\
@@ -1241,11 +1256,11 @@ For each pair
 
 \end_inset
 
-Where 
+The values 
 \begin_inset Formula $a_{i}$
 \end_inset
 
- is random number with the property 
+ are random numbers with 
 \begin_inset Formula $a_{i}\in[-0.5,1.5]$
 \end_inset
 
@@ -1263,6 +1278,16 @@ literal "true"
 
 \begin_layout Enumerate
 Application of mutation.
+ For every element of each chromosomes a random number 
+\begin_inset Formula $r\in[0,1]$
+\end_inset
+
+ is drawn.
+ This element is altered randomly when 
+\begin_inset Formula $r\le p_{m}$
+\end_inset
+
+.
 \end_layout
 
 \end_deeper
@@ -1310,8 +1335,93 @@ Finalization step
 .
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Select
+\series default
+ the chromosome 
+\begin_inset Formula $g^{*}$
+\end_inset
+
+ with the lowest fitness value from the population.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Define
+\series default
+ the vectors 
+\begin_inset Formula $\overrightarrow{L},\overrightarrow{R}$
+\end_inset
+
+ with the properties
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+L_{i} & = & -F\left|g_{i}^{*}\right|\\
+R_{i} & = & F\left|g_{i}^{*}\right|
+\end{array},\ i=1,\ldots,n
+\]
+
+\end_inset
+
+The parameter 
+\begin_inset Formula $F$
+\end_inset
+
+ is a positive number with the property 
+\begin_inset Formula $F\ge1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The final outcome of the first phase is the vectors 
+\begin_inset Formula $\overrightarrow{L}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overrightarrow{R}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Subsubsection
 The second phase of the method
+\end_layout
+
+\begin_layout Standard
+In the second phase of the proposed methodology, an attempt is made to estimate
+ the optimal value intervals of the artificial neural network parameters.
+ This phase initiates from the final outcome of the previous phase, the
+ vectors 
+\begin_inset Formula $\overrightarrow{L}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overrightarrow{R}$
+\end_inset
+
+.
+ The estimation of the optimal value intervals is performed through Grammatical
+ Evolution, that utilizes the grammar shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:BNF-grammar-of"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1319,18 +1429,18 @@ The second phase of the method
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout LyX-Code
 S::=<expr>   (0) 
 \end_layout
 
 \begin_layout LyX-Code
-<expr> ::=  (<xlist> , <lcommand>,<rcommand>)  (0)             
+<expr> ::=  (<xlist> , <command>,<command>)  (0)             
 \end_layout
 
 \begin_layout LyX-Code
-           |<expr>,<expr>                (1)
+           |<expr>,<expr>                    (1)
 \end_layout
 
 \begin_layout LyX-Code
@@ -1346,43 +1456,47 @@ S::=<expr>   (0)
 \end_layout
 
 \begin_layout LyX-Code
-           | xn (n)
+           | xd (d)
 \end_layout
 
 \begin_layout LyX-Code
-<left_command>  ::= NOTHING (0)             
+<command>  ::= NOTHING (0)             
 \end_layout
 
 \begin_layout LyX-Code
-           |        EXPAND  (1)
+           |        SHRINK  (1)
 \end_layout
 
 \begin_layout LyX-Code
-           |        DIVIDE  (2)
+           |        EXPAND  (2)
 \end_layout
 
 \begin_layout LyX-Code
-<right_command> ::= NOTHING (0)
+           |        SHRINK_EXPAND (3)
 \end_layout
 
 \begin_layout LyX-Code
-           |        EXPAND  (1)
+           |        EXPAND_SHRINK (4)
 \end_layout
 
 \begin_layout LyX-Code
-           |        DIVIDE  (2)
+           |        SHRINK_SHRINK (5)
+\end_layout
+
+\begin_layout LyX-Code
+           |        EXPAND_EXPAND (6)
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-BNF grammar used in the current work.
- The value 
-\begin_inset Formula $n$
-\end_inset
-
- stands for the number of total parameters in the neural network.
+BNF grammar used in the implemented work.
+ The numbers in parentheses denote the sequence number of the current production
+ rule and they are used during the Grammatical Evolution procedure in order
+ to produce valid programs.
+ Symbols enclosed in < > are considered non - terminal symbols of the grammar.
+ The parameter d denotes the dimension of the input pattern.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:BNF-grammar-of"
@@ -1399,13 +1513,85 @@ name "fig:BNF-grammar-of"
 
 \end_inset
 
- 
+ This grammar proposes a series of commands the will be applied to the bounds
+ of the parameters of the neural networks.
+ These commands are:
+\end_layout
+
+\begin_layout Enumerate
+NOTHING.
+\end_layout
+
+\begin_layout Enumerate
+SHRINK.
+\end_layout
+
+\begin_layout Enumerate
+EXPAND.
+\end_layout
+
+\begin_layout Enumerate
+SHRINK_EXPAND.
+\end_layout
+
+\begin_layout Enumerate
+EXPAND_SHRINK.
+\end_layout
+
+\begin_layout Standard
+
 \series bold
+As a complete example consider a neural network with 
+\begin_inset Formula $H=2$
+\end_inset
+
+ hidden nodes and the dimension of the objective problem is set to 
+\begin_inset Formula $d=2$
+\end_inset
+
+.
+ Hence, the total number of parameters in the neural network is 
+\begin_inset Formula $n=(d+2)H=8$
+\end_inset
+
+.
+ Also, for reasons of simplicity, we consider that the initial range of
+ values for all parameters of the artificial neural network is the interval
+ [-2,2] and is denotes as a the set of intervals
+\begin_inset Formula 
+\begin{equation}
+I_{N}=\left\{ \left[-2,2\right],\left[-2,2\right],\left[-2,2\right],\left[-2,2\right],\left[-2,2\right],\left[-2,2\right],\left[-2,2\right],\left[-2,2\right]\right\} \label{eq:in_original}
+\end{equation}
+
+\end_inset
+
+ and consider also the chromosome 
+\begin_inset Formula 
+\[
+x=\left[9,8,6,4,15,9,16,23,7\right]
+\]
+
+\end_inset
+
+ The steps to produce the final program 
+\begin_inset Formula 
+\[
+p_{\mbox{test}}=(x7,\mbox{EXPAND},\mbox{NOTHING}),(x1,\mbox{DIVIDE},\mbox{EXPAND})
+\]
+
+\end_inset
+
 (MENTION LOCAL SEARCH)
 \end_layout
 
 \begin_layout Subsubsection
 The final phase of the method
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(MENTION PROPOSED INITIALIZATION PROCEDURE)
 \end_layout
 
 \begin_layout Section
@@ -7445,6 +7631,25 @@ I.G.
 \series default
 , pp.
  269-277, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "kaelo"
+literal "true"
+
+\end_inset
+
+P.
+ Kaelo, M.M.
+ Ali, Integrated crossover rules in real coded genetic algorithms, European
+ Journal of Operational Research 
+\series bold
+176
+\series default
+, pp.
+ 60-76, 2007.
 \end_layout
 
 \begin_layout Bibliography
