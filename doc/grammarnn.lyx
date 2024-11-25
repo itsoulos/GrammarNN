@@ -1399,7 +1399,8 @@ The second phase of the method
 
 \begin_layout Standard
 In the second phase of the proposed methodology, an attempt is made to estimate
- the optimal value intervals of the artificial neural network parameters.
+ the optimal value intervals (bounds) of the artificial neural network parameter
+s.
  This phase initiates from the final outcome of the previous phase, the
  vectors 
 \begin_inset Formula $\overrightarrow{L}$
@@ -1456,7 +1457,7 @@ S::=<expr>   (0)
 \end_layout
 
 \begin_layout LyX-Code
-           | xd (d)
+           | xn (n-1)
 \end_layout
 
 \begin_layout LyX-Code
@@ -1496,7 +1497,7 @@ BNF grammar used in the implemented work.
  rule and they are used during the Grammatical Evolution procedure in order
  to produce valid programs.
  Symbols enclosed in < > are considered non - terminal symbols of the grammar.
- The parameter d denotes the dimension of the input pattern.
+ The parameter n denotes the number of parameters for the used neural network.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:BNF-grammar-of"
@@ -1520,76 +1521,523 @@ name "fig:BNF-grammar-of"
 
 \begin_layout Enumerate
 NOTHING.
+ Using this command does not change the limits of the corresponding parameter.
+ 
 \end_layout
 
 \begin_layout Enumerate
 SHRINK.
+ With this command, the corresponding bound is reduced by 50%.
 \end_layout
 
 \begin_layout Enumerate
 EXPAND.
+ Activating this command results in the corresponding bound being expanded
+ by 50%.
+ 
 \end_layout
 
 \begin_layout Enumerate
 SHRINK_EXPAND.
+ This command firstly reduces the corresponding bound by 50% and afterwards
+ this bound is expanded by 50%.
 \end_layout
 
 \begin_layout Enumerate
 EXPAND_SHRINK.
+ This command firstly expands by 50% the corresponding bound and subsequently
+ this bound is reduced by 50%.
+ 
 \end_layout
 
 \begin_layout Enumerate
 SHRINK_SHRINK.
+ The execution of this command shrinks the corresponding bound two times.
 \end_layout
 
 \begin_layout Enumerate
 EXPAND_EXPAND.
+ This command expands the corresponding bound two times.
+\end_layout
+
+\begin_layout Standard
+As a full working example consider a neural network with 
+\begin_inset Formula $H=2$
+\end_inset
+
+ processing nodes and the consider also the dimension of the input patterns
+ to be 
+\begin_inset Formula $d=2$
+\end_inset
+
+.
+ The total number of variables for the neural network is calculated as 
+\begin_inset Formula $n=(d+2)H=8$
+\end_inset
+
+.
+ Also, we consider that the initial values of bounds are 
+\begin_inset Formula $\overrightarrow{L}=(-2,-4,-1,0,-4,-2,-1,-2)$
+\end_inset
+
+ and 
+\begin_inset Formula $\overrightarrow{R}=(2,4,1,0,4,2,1,2)$
+\end_inset
+
+.
+ Also, consider the chromosome
 \end_layout
 
 \begin_layout Standard
 
 \series bold
-As a complete example consider a neural network with 
-\begin_inset Formula $H=2$
-\end_inset
-
- hidden nodes and the dimension of the objective problem is set to 
-\begin_inset Formula $d=2$
-\end_inset
-
-.
- Hence, the total number of parameters in the neural network is 
-\begin_inset Formula $n=(d+2)H=8$
-\end_inset
-
-.
- Also, for reasons of simplicity, we consider that the initial range of
- values for all parameters of the artificial neural network is the interval
- [-2,2] and is denotes as a the set of intervals
-\begin_inset Formula 
-\begin{equation}
-I_{N}=\left\{ \left[-2,2\right],\left[-2,2\right],\left[-2,2\right],\left[-2,2\right],\left[-2,2\right],\left[-2,2\right],\left[-2,2\right],\left[-2,2\right]\right\} \label{eq:in_original}
-\end{equation}
-
-\end_inset
-
- and consider also the chromosome 
 \begin_inset Formula 
 \[
-x=\left[9,8,6,4,15,9,16,23,7\right]
+g=\left[10,15,2,9,16,4,15,19,21\right]
 \]
 
 \end_inset
 
- The steps to produce the final program 
+
+\series default
+The production steps for this example are shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Production-steps-for"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Production steps for the example considered here.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Production-steps-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+\begin_inset Tabular
+<lyxtabular version="3" rows="10" columns="3">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+CHROMOSOME
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+ACTION
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+EXPRESSION
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+10,15,2,9,16,4,15,19,21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+10 mod 2=0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+<expr>,<expr>
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+15,2,9,16,4,15,19,21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+15 mod 2 =1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+(<xlist>,<command>,<command>),<expr>
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2,9,16,4,15,19,21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+2%8=2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+(x3,<command>,<command>),<expr>
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+9,16,4,15,19,21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+9%7=2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+(x3,EXPAND,<command>),<expr>
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+16,4,15,19,21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+16%7=2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+(x3,EXPAND,EXPAND),<expr>
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+4,15,19,21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+4%2=0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+(x3,EXPAND,EXPAND),(<xlist>,<command>,<command>)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+15,19,21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+15%8=7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+(x3,EXPAND,EXPAND),(x8,<command>,<command>)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+19,21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+19%7=5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+(x3,EXPAND,EXPAND),(x8,SHRINK_EXPAND,<command>)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+21
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+21%7=0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size footnotesize
+(x3,EXPAND,EXPAND),(x8,SHRINK_EXPAND,NOTHING)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The final outcome of these steps is the expression 
 \begin_inset Formula 
 \[
-p_{\mbox{test}}=(x7,\mbox{EXPAND},\mbox{NOTHING}),(x1,\mbox{DIVIDE},\mbox{EXPAND})
+p=\left(x_{3},\mbox{EXPAND},\mbox{EXPAND}\right),\left(x8,\mbox{SHRINK\_EXPAND},\mbox{NOTHING}\right)
 \]
 
 \end_inset
 
-(MENTION LOCAL SEARCH)
+After the application of the program 
+\begin_inset Formula $p$
+\end_inset
+
+ to the vectors 
+\begin_inset Formula $\overrightarrow{L}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overrightarrow{R}$
+\end_inset
+
+ the following vectors will be created: 
+\begin_inset Formula $\overrightarrow{L}=(-2,-4,-2,0,-4,-2,-1,-1),\overrightarrow{R}=(2,4,2,0,4,2,1,2).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(ALGORITHM,MENTION LOCAL SEARCH)
 \end_layout
 
 \begin_layout Subsubsection
@@ -6337,7 +6785,9 @@ name "sec:Conclusions"
 \begin_layout Standard
 
 \series bold
-(MENTION PARALLEL PROCESSING TO SPEED UP THE METHOD)
+(MENTION PARALLEL PROCESSING TO SPEED UP THE METHOD)(NA EPITRAPEI STIN METHODO
+ NA KANEI EXPAND KAI SHRINK ME KYMAINOMENA POSOSTA KAI OXI MONO ME 50%)(MORE
+ EFFICIENT LOCAL SEARCH METHODS IN SECOND PHASE)
 \end_layout
 
 \begin_layout Author Contributions
