@@ -812,6 +812,39 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
+The method proposed here is quite general and can be applied to other neural
+ network architectures, such as recurrent neural networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rnn1"
+literal "false"
+
+\end_inset
+
+ or convolutional neural networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "cnn1"
+literal "false"
+
+\end_inset
+
+.
+ The only requirement for the method to be applicable to such architectures
+ is that the parameters of the corresponding machine learning models are
+ available and that the initial value range for these parameters is known.
+\end_layout
+
+\begin_layout Standard
+Furthermore, from a technical point of view, the method can be applied to
+ models that have a huge number of parameters without any technical limitation,
+ however, it will be necessary to use large-sized chromosomes in the Grammatical
+ Evolution process, in order to make the process of finding the most reliable
+ value interval for the parameters of the machine learning model in question
+ more efficient.
+\end_layout
+
+\begin_layout Standard
 The remaining of this article is organized as follows: in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -1076,6 +1109,9 @@ In the previous equation the symbol
 \end_inset
 
  represents the sigmoid function defined as: 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
 \sigma(x)=\frac{1}{1+\exp(-x)}\label{eq:sig}
@@ -1083,6 +1119,16 @@ In the previous equation the symbol
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+VASILIS SHOULD ADD A FIGURE HERE!!!
+\end_layout
+
+\begin_layout Standard
 Each chromosome in this genetic algorithm represents a possible set of parameter
 s for the artificial neural network and during optimization the training
  error is minimized, as captured in equation 
@@ -1430,7 +1476,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout LyX-Code
 S::=<expr>   (0) 
@@ -1625,7 +1671,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2037,7 +2083,91 @@ After the application of the program
 \begin_inset Formula $\overrightarrow{L}=(-2,-4,-2,0,-4,-2,-1,-1),\overrightarrow{R}=(2,4,2,0,4,2,1,2).$
 \end_inset
 
- The algorithm used in this phase is a variation of the genetic algorithm,
+ The analytical form for this example is the neural network defined as:
+\begin_inset Formula 
+\[
+N\left(\overrightarrow{x},\overrightarrow{w}\right)=w_{1}\sigma\left(x_{1}w_{2}+x_{2}w_{3}+w_{4}\right)+w_{5}\sigma\left(x_{1}w_{6}+x_{2}w_{7}+w+w_{8}\right)
+\]
+
+\end_inset
+
+For this specific example, the following applies to each variable of the
+ artificial neural network: 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{1}\in[-2,2]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{2}\in[-4,4]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{3}\in[-2,2]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{4}\in[0,0]$
+\end_inset
+
+.
+ This variable can be considered as fixed to 0.0
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{5}\in[-4,4]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{6}\in[-2,2]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{7}\in[-1,1]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x_{8}\in[-1,2]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Furthermore, the method can significantly limit the value ranges of the
+ artificial neural network parameters or even set some of them to zero.
+ In this way, the method can indirectly construct the structure of the neural
+ network.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+VASILIS ADD SCHME FOR THE ABOVE NETOWORK WITHOUT THE W4 variable.
+\end_layout
+
+\begin_layout Standard
+The algorithm used in this phase is a variation of the genetic algorithm,
  that incorporates the Grammatical Evolution procedure to create programs
  that will be applied on the bounds of the neural network parameters.
  The process used in this phase is a genetic algorithm, where the chromosomes
@@ -2062,7 +2192,7 @@ noprefix "false"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -2528,6 +2658,8 @@ Application of mutation.
 \end_inset
 
 .
+ During this procedure a random integer value is selected and it replaces
+ the chosen element of the under processing chromosome.
 \end_layout
 
 \end_deeper
@@ -2727,10 +2859,6 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -2889,6 +3017,17 @@ End For
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The purpose of this phase of the algorithm is to identify the most promising
+ range of values for the parameters of the artificial neural network through
+ the application of partitioning rules.
+ Furthermore, the above procedure will significantly reduce the local minima
+ contained in the error function, since the initial search space will be
+ significantly limited to only those regions that may contain the global
+ minimum or approximations thereof.
+ 
 \end_layout
 
 \begin_layout Subsubsection
@@ -3052,6 +3191,7 @@ Application of crossover.
  from the current population will be selected through tournament selection.
  The new chromosomes will be formed with a process similar with this of
  the crossover procedure of the first stage of the current work.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -3061,6 +3201,7 @@ Application of mutation.
 \end_inset
 
 .
+ 
 \end_layout
 
 \end_deeper
@@ -4413,6 +4554,35 @@ noprefix "false"
 \series bold
  
 \series default
+The classification error is defined as:
+\begin_inset Formula 
+\begin{equation}
+E_{C}\left(M(x)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(M\left(x_{i}\right)\right)-y_{i}\right)}{N}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $M(x)$
+\end_inset
+
+ denotes the underlying machine learning model and set 
+\begin_inset Formula $T$
+\end_inset
+
+ stands for the train dataset.
+
+\series bold
+ 
+\series default
+Also, the regression error is defined as: 
+\begin_inset Formula 
+\begin{equation}
+E_{R}\left(M(x)\right)=\frac{\sum_{i=1}^{N}\left(M\left(x_{i}\right)-y_{i}\right)^{2}}{N}
+\end{equation}
+
+\end_inset
+
 The following applies to these tables:
 \end_layout
 
@@ -4531,7 +4701,7 @@ The row denoted as AVERAGE represents the average classification or regression
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7454,7 +7624,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10813,6 +10983,48 @@ M.
 \series default
 pp.
  349–358, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rnn1"
+literal "false"
+
+\end_inset
+
+M.
+ Lukoševičius, H.
+ Jaeger, Reservoir computing approaches to recurrent neural network training,
+ Computer science review 
+\series bold
+3
+\series default
+, pp.
+ 127-149, 2009.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "cnn1"
+literal "false"
+
+\end_inset
+
+J.
+ Gu, Z.
+ Wang, J.
+ Kuen, L.
+ Ma, A.
+ Shahroudy, B.
+ Shuai, T.
+ Chen, Recent advances in convolutional neural networks, Pattern recognition
+\series bold
+ 77
+\series default
+, pp.
+ 354-377, 2018.
 \end_layout
 
 \begin_layout Bibliography
