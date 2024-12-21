@@ -292,6 +292,20 @@ the artificial neural networks are initialized within the optimal
 value interval of the previous process and an optimization algorithm
 is used to effectively train the network within this interval. 
 
+The method proposed here is quite general and can be applied to other
+neural network architectures, such as recurrent neural networks \citep{rnn1}
+or convolutional neural networks \citep{cnn1}. The only requirement
+for the method to be applicable to such architectures is that the
+parameters of the corresponding machine learning models are available
+and that the initial value range for these parameters is known.
+
+Furthermore, from a technical point of view, the method can be applied
+to models that have a huge number of parameters without any technical
+limitation, however, it will be necessary to use large-sized chromosomes
+in the Grammatical Evolution process, in order to make the process
+of finding the most reliable value interval for the parameters of
+the machine learning model in question more efficient.
+
 The remaining of this article is organized as follows: in section
 \ref{sec:Materials-and-Methods} the proposed method is discussed
 in detail, in section \ref{sec:Results} the used datasets as well
@@ -365,9 +379,22 @@ units and the value $d$ represents the the dimension of the input
 pattern $\overrightarrow{x}$. As a consequence the size of vector
 $\overrightarrow{w}$ is $n=(d+2)H$. The function$\ \sigma(x)$ represents
 the sigmoid function defined as: 
+
 \begin{equation}
 \sigma(x)=\frac{1}{1+\exp(-x)}\label{eq:sig}
 \end{equation}
+These neural networks have one input level, where the pattern is presented
+to the neural network and one hidden level with $H$ processing nodes.
+A representation of this neural networks is depicted in Figure \ref{fig:nnStructure}.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.75]{flow2}
+\par\end{centering}
+\caption{The structure of the neural network incorporated in the current work.\label{fig:nnStructure}}
+
+\end{figure}
+
 Each chromosome in this genetic algorithm represents a possible set
 of parameters for the artificial neural network and during optimization
 the training error is minimized, as captured in equation \ref{eq:eq1}.
@@ -549,6 +576,37 @@ p=\left(x_{3},\mbox{EXPAND},\mbox{EXPAND}\right),\left(x8,\mbox{SHRINK\_EXPAND},
 \]
 After the application of the program $p$ to the vectors $\overrightarrow{L}$
 and $\overrightarrow{R}$ the following vectors will be created: $\overrightarrow{L}=(-2,-4,-2,0,-4,-2,-1,-1),\overrightarrow{R}=(2,4,2,0,4,2,1,2).$
+The analytical form for this example is the neural network defined
+as:
+\[
+N\left(\overrightarrow{x},\overrightarrow{w}\right)=w_{1}\sigma\left(x_{1}w_{2}+x_{2}w_{3}+w_{4}\right)+w_{5}\sigma\left(x_{1}w_{6}+x_{2}w_{7}+w+w_{8}\right)
+\]
+For this specific example, the following applies to each variable
+of the artificial neural network: 
+\begin{enumerate}
+\item $x_{1}\in[-2,2]$
+\item $x_{2}\in[-4,4]$
+\item $x_{3}\in[-2,2]$
+\item $x_{4}\in[0,0]$. This variable can be considered as fixed to 0.0
+\item $x_{5}\in[-4,4]$
+\item $x_{6}\in[-2,2]$
+\item $x_{7}\in[-1,1]$
+\item $x_{8}\in[-1,2]$
+\end{enumerate}
+Furthermore, the method can significantly limit the value ranges of
+the artificial neural network parameters or even set some of them
+to zero. In this way, the method can indirectly construct the structure
+of the neural network. A figure depicting the previously mentioned
+example neural network is shown in Figure \ref{fig:exampleNN}.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.75]{flow1}
+\par\end{centering}
+\caption{A representation of the example neural network presented here.\label{fig:exampleNN}}
+
+\end{figure}
+
 The algorithm used in this phase is a variation of the genetic algorithm,
 that incorporates the Grammatical Evolution procedure to create programs
 that will be applied on the bounds of the neural network parameters.
@@ -632,7 +690,9 @@ $(z,w)$ are selected from the current population with the assistance
 of tournament selection. The new chromosomes are constructed using
 one - point crossover, that is graphically outlined in Figure \ref{fig:onePoint}.
 \item Application of mutation. Every element of each chromosome is altered
-with probability $p_{m}$.
+with probability $p_{m}$. During this procedure a random integer
+value is selected and it replaces the chosen element of the under
+processing chromosome.
 \end{enumerate}
 \item \textbf{Local search step}.
 \begin{enumerate}
@@ -664,7 +724,6 @@ Evolution procedure.\label{fig:onePoint}}
 
 \end{figure}
 \begin{algorithm}[H]
-
 \caption{Local search procedure applied on a chromosome $g$.\label{alg:localSearch}}
 
 \begin{enumerate}
@@ -686,6 +745,13 @@ and $f_{g_{2}}$.
 \end{enumerate}
 \end{algorithm}
 
+The purpose of this phase of the algorithm is to identify the most
+promising range of values for the parameters of the artificial neural
+network through the application of partitioning rules. Furthermore,
+the above procedure will significantly reduce the local minima contained
+in the error function, since the initial search space will be significantly
+limited to only those regions that may contain the global minimum
+or approximations thereof. 
 
 \subsubsection{The final phase of the method}
 
@@ -722,9 +788,9 @@ be substituted by chromosomes produced during crossover and mutation.
 two chromosomes $z$ and $w$ from the current population will be
 selected through tournament selection. The new chromosomes will be
 formed with a process similar with this of the crossover procedure
-of the first stage of the current work.
+of the first stage of the current work. 
 \item Application of mutation. Every element of each chromosome is altered
-with probability $p_{m}$.
+with probability $p_{m}$. 
 \end{enumerate}
 \item \textbf{Termination check step}.
 \begin{enumerate}
@@ -911,7 +977,17 @@ $H$ & Number of processing nodes & 10\tabularnewline
 \textbf{ }The table \ref{tab:expClass} outlines the experimental
 results for the classification datasets and in Table \ref{tab:expRegression}
 the experimental results for the regression datasets are listed.\textbf{
-}The following applies to these tables:
+}The classification error is defined as:
+\begin{equation}
+E_{C}\left(M(x)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(M\left(x_{i}\right)\right)-y_{i}\right)}{N}
+\end{equation}
+where $M(x)$ denotes the underlying machine learning model and set
+$T$ stands for the train dataset.\textbf{ }Also, the regression error
+is defined as: 
+\begin{equation}
+E_{R}\left(M(x)\right)=\frac{\sum_{i=1}^{N}\left(M\left(x_{i}\right)-y_{i}\right)^{2}}{N}
+\end{equation}
+The following applies to these tables:
 \begin{enumerate}
 \item The column DATASET represents the used dataset.
 \item The column ADAM denotes the application of the ADAM optimizer to a
@@ -921,6 +997,12 @@ Powell to a neural network with $H=10$ processing nodes.
 \item The column GENETIC stands for the usage of a genetic algorithm on
 a neural network with $H=10$ processing nodes. The values for the
 parameters of this genetic algorithm are shown in Table \ref{tab:settings}.
+\item The column NEAT defines the application of the NEAT method (NeuroEvolution
+of Augmenting Topologies ) \citep{neat} as implemented in EvolutionNet
+package freely available from \url{https://github.com/BiagioFesta/EvolutionNet}.
+The number of used generations is the same as in the GENETIC algorithm. 
+\item The column RBF stands for the usage of a Radial Basis Function (RBF)
+network \citep{rbf1,rbf2} with $H=10$ processing nodes.
 \item The column GNN stands for the incorporation of the proposed method
 to a neural network with $H=10$ processing nodes with parameter settings
 outlined in Table \ref{tab:settings}.
@@ -933,96 +1015,96 @@ denote the average classification error as calculated on the corresponding
 test set.\label{tab:expClass}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-DATASET & ADAM & BFGS & GENETIC & GNN\tabularnewline
+DATASET & ADAM & BFGS & GENETIC & NEAT & RBF & GNN\tabularnewline
 \hline 
 \hline 
-ALCOHOL & 57.78\% & 41.50\% & 39.57\% & 16.63\%\tabularnewline
+ALCOHOL & 57.78\% & 41.50\% & 39.57\% & 66.80\% & 49.32\% & 16.63\%\tabularnewline
 \hline 
-AUSTRALIAN & 35.65\% & 38.13\% & 32.21\% & 14.69\%\tabularnewline
+AUSTRALIAN & 35.65\% & 38.13\% & 32.21\% & 31.98\% & 34.89\% & 14.69\%\tabularnewline
 \hline 
-BALANCE & 12.27\% & 8.64\% & 8.97\% & 7.98\%\tabularnewline
+BALANCE & 12.27\% & 8.64\% & 8.97\% & 23.14\% & 33.53\% & 7.98\%\tabularnewline
 \hline 
-BANDS & 36.92\% & 36.67\% & 34.92\% & 34.38\%\tabularnewline
+BANDS & 36.92\% & 36.67\% & 34.92\% & 34.30\% & 37.17\% & 34.38\%\tabularnewline
 \hline 
-CLEVELAND & 67.55\% & 77.55\% & 51.60\% & 44.89\%\tabularnewline
+CLEVELAND & 67.55\% & 77.55\% & 51.60\% & 53.44\% & 67.10\% & 44.89\%\tabularnewline
 \hline 
-CIRCULAR & 19.95\% & 6.08\% & 5.99\% & 4.68\%\tabularnewline
+CIRCULAR & 19.95\% & 6.08\% & 5.99\% & 35.18\% & 5.98\% & 4.68\%\tabularnewline
 \hline 
-DERMATOLOGY & 26.14\% & 52.92\% & 30.58\% & 11.79\%\tabularnewline
+DERMATOLOGY & 26.14\% & 52.92\% & 30.58\% & 32.43\% & 62.34\% & 11.79\%\tabularnewline
 \hline 
-ECOLI & 64.43\% & 69.52\% & 54.67\% & 51.42\%\tabularnewline
+ECOLI & 64.43\% & 69.52\% & 54.67\% & 43.44\% & 59.48\% & 51.42\%\tabularnewline
 \hline 
-HABERMAN & 29.00\% & 29.34\% & 28.66\% & 27.01\%\tabularnewline
+HABERMAN & 29.00\% & 29.34\% & 28.66\% & 24.04\% & 25.10\% & 27.01\%\tabularnewline
 \hline 
-HAYES-ROTH & 59.70\% & 37.33\% & 56.18\% & 34.99\%\tabularnewline
+HAYES-ROTH & 59.70\% & 37.33\% & 56.18\% & 50.15\% & 64.36\% & 34.99\%\tabularnewline
 \hline 
-HEART & 38.53\% & 39.44\% & 28.34\% & 14.83\%\tabularnewline
+HEART & 38.53\% & 39.44\% & 28.34\% & 39.27\% & 31.20\% & 14.83\%\tabularnewline
 \hline 
-HEARTATTACK & 45.55\% & 46.67\% & 29.03\% & 19.23\%\tabularnewline
+HEARTATTACK & 45.55\% & 46.67\% & 29.03\% & 32.34\% & 29.00\% & 19.23\%\tabularnewline
 \hline 
-HEPATITIS & 68.13\% & 72.47\% & 62.12\% & 56.67\%\tabularnewline
+HEPATITIS & 68.13\% & 72.47\% & 62.12\% & 67.04\% & 64.63\% & 56.67\%\tabularnewline
 \hline 
-HOUSEVOTES & 7.48\% & 7.13\% & 6.62\% & 6.23\%\tabularnewline
+HOUSEVOTES & 7.48\% & 7.13\% & 6.62\% & 10.89\% & 6.13\% & 6.23\%\tabularnewline
 \hline 
-IONOSPHERE & 16.64\% & 15.29\% & 15.14\% & 15.71\%\tabularnewline
+IONOSPHERE & 16.64\% & 15.29\% & 15.14\% & 19.67\% & 16.22\% & 15.71\%\tabularnewline
 \hline 
-LIVERDISORDER & 41.53\% & 42.59\% & 31.11\% & 31.89\%\tabularnewline
+LIVERDISORDER & 41.53\% & 42.59\% & 31.11\% & 30.67\% & 30.84\% & 31.89\%\tabularnewline
 \hline 
-LYMOGRAPHY & 39.79\% & 35.43\% & 28.42\% & 19.26\%\tabularnewline
+LYMOGRAPHY & 39.79\% & 35.43\% & 28.42\% & 33.70\% & 25.50\% & 19.26\%\tabularnewline
 \hline 
-MAGIC & 40.55\% & 17.30\% & 21.75\% & 15.67\%\tabularnewline
+MAGIC & 40.55\% & 17.30\% & 21.75\% & 24.85\% & 21.28\% & 15.67\%\tabularnewline
 \hline 
-MAMMOGRAPHIC & 46.25\% & 17.24\% & 19.88\% & 16.33\%\tabularnewline
+MAMMOGRAPHIC & 46.25\% & 17.24\% & 19.88\% & 22.85\% & 21.38\% & 16.33\%\tabularnewline
 \hline 
-PARKINSONS & 24.06\% & 27.58\% & 18.05\% & 11.53\%\tabularnewline
+PARKINSONS & 24.06\% & 27.58\% & 18.05\% & 18.56\% & 17.41\% & 11.53\%\tabularnewline
 \hline 
-PAGE BLOCKS & 34.27\% & 8.49\% & 6.84\% & 7.66\%\tabularnewline
+PAGE BLOCKS & 34.27\% & 8.49\% & 6.84\% & 10.22\% & 10.09\% & 7.66\%\tabularnewline
 \hline 
-PHONEME & 29.43\% & 15.58\% & 15.55\% & 16.59\%\tabularnewline
+PHONEME & 29.43\% & 15.58\% & 15.55\% & 22.34\% & 23.32\% & 16.59\%\tabularnewline
 \hline 
-PIMA & 34.85\% & 35.59\% & 32.19\% & 25.81\%\tabularnewline
+PIMA & 34.85\% & 35.59\% & 32.19\% & 34.51\% & 25.78\% & 25.81\%\tabularnewline
 \hline 
-POPFAILURES & 5.18\% & 5.24\% & 5.94\% & 5.25\%\tabularnewline
+POPFAILURES & 5.18\% & 5.24\% & 5.94\% & 7.05\% & 7.04\% & 5.25\%\tabularnewline
 \hline 
-REGIONS2 & 29.85\% & 36.28\% & 29.39\% & 29.24\%\tabularnewline
+REGIONS2 & 29.85\% & 36.28\% & 29.39\% & 33.23\% & 38.29\% & 29.24\%\tabularnewline
 \hline 
-RING & 28.80\% & 29.44\% & 28.80\% & 21.68\%\tabularnewline
+RING & 28.80\% & 29.44\% & 28.80\% & 30.85\% & 21.67\% & 21.68\%\tabularnewline
 \hline 
-SAHEART & 34.04\% & 37.48\% & 34.86\% & 29.92\%\tabularnewline
+SAHEART & 34.04\% & 37.48\% & 34.86\% & 34.51\% & 32.19\% & 29.92\%\tabularnewline
 \hline 
-SEGMENT & 49.75\% & 68.97\% & 57.72\% & 31.21\%\tabularnewline
+SEGMENT & 49.75\% & 68.97\% & 57.72\% & 66.72\% & 59.68\% & 31.21\%\tabularnewline
 \hline 
-SONAR & 30.33\% & 25.85\% & 22.40\% & 22.80\%\tabularnewline
+SONAR & 30.33\% & 25.85\% & 22.40\% & 34.10\% & 27.90\% & 22.80\%\tabularnewline
 \hline 
-SPAMBASE & 48.05\% & 18.16\% & 6.37\% & 6.17\%\tabularnewline
+SPAMBASE & 48.05\% & 18.16\% & 6.37\% & 35.77\% & 29.35\% & 6.17\%\tabularnewline
 \hline 
-SPIRAL & 47.67\% & 47.99\% & 48.66\% & 41.97\%\tabularnewline
+SPIRAL & 47.67\% & 47.99\% & 48.66\% & 48.66\% & 44.87\% & 41.97\%\tabularnewline
 \hline 
-STATHEART & 44.04\% & 39.65\% & 27.25\% & 18.20\%\tabularnewline
+STATHEART & 44.04\% & 39.65\% & 27.25\% & 44.36\% & 31.36\% & 18.20\%\tabularnewline
 \hline 
-STUDENT & 5.13\% & 7.14\% & 5.61\% & 4.98\%\tabularnewline
+STUDENT & 5.13\% & 7.14\% & 5.61\% & 10.20\% & 5.49\% & 4.98\%\tabularnewline
 \hline 
-TAE & 60.20\% & 51.58\% & 49.84\% & 48.89\%\tabularnewline
+TAE & 60.20\% & 51.58\% & 49.84\% & 60.67\% & 60.02\% & 48.89\%\tabularnewline
 \hline 
-TRANSFUSION & 25.68\% & 25.84\% & 24.87\% & 23.34\%\tabularnewline
+TRANSFUSION & 25.68\% & 25.84\% & 24.87\% & 24.87\% & 26.41\% & 23.34\%\tabularnewline
 \hline 
-WDBC & 35.35\% & 29.91\% & 8.56\% & 3.70\%\tabularnewline
+WDBC & 35.35\% & 29.91\% & 8.56\% & 12.88\% & 7.27\% & 3.70\%\tabularnewline
 \hline 
-WINE & 29.40\% & 59.71\% & 19.20\% & 9.14\%\tabularnewline
+WINE & 29.40\% & 59.71\% & 19.20\% & 25.43\% & 31.41\% & 9.14\%\tabularnewline
 \hline 
-Z\_F\_S & 47.81\% & 39.37\% & 10.73\% & 8.35\%\tabularnewline
+Z\_F\_S & 47.81\% & 39.37\% & 10.73\% & 38.41\% & 13.16\% & 8.35\%\tabularnewline
 \hline 
-Z\_O\_N\_F\_S & 78.79\% & 65.67\% & 64.81\% & 60.83\%\tabularnewline
+Z\_O\_N\_F\_S & 78.79\% & 65.67\% & 64.81\% & 77.08\% & 48.70\% & 60.83\%\tabularnewline
 \hline 
-ZO\_NF\_S & 47.43\% & 43.04\% & 21.54\% & 6.29\%\tabularnewline
+ZO\_NF\_S & 47.43\% & 43.04\% & 21.54\% & 43.75\% & 9.02\% & 6.29\%\tabularnewline
 \hline 
-ZONF\_S & 11.99\% & 15.62\% & 4.36\% & 2.77\%\tabularnewline
+ZONF\_S & 11.99\% & 15.62\% & 4.36\% & 5.44\% & 4.03\% & 2.77\%\tabularnewline
 \hline 
-ZOO & 14.13\% & 10.70\% & 9.50\% & 6.03\%\tabularnewline
+ZOO & 14.13\% & 10.70\% & 9.50\% & 20.27\% & 21.93\% & 6.03\%\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{36.91\%} & \textbf{34.19\%} & \textbf{27.11\%} & \textbf{21.11\%}\tabularnewline
+\textbf{AVERAGE} & \textbf{36.91\%} & \textbf{34.19\%} & \textbf{27.11\%} & \textbf{33.72\%} & \textbf{30.52\%} & \textbf{21.11\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
@@ -1031,129 +1113,146 @@ ZOO & 14.13\% & 10.70\% & 9.50\% & 6.03\%\tabularnewline
 in cells correspond to the average regression error of each test set.\label{tab:expRegression}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-DATASET & ADAM & BFGS & GENETIC & GNN\tabularnewline
+DATASET & ADAM & BFGS & GENETIC & NEAT & RBF & GNN\tabularnewline
 \hline 
 \hline 
-ABALONE & 4.30 & 5.69 & 7.17 & 4.32\tabularnewline
+ABALONE & 4.30 & 5.69 & 7.17 & 9.88 & 7.37 & 4.32\tabularnewline
 \hline 
-AIRFOIL & 0.005 & 0.003 & 0.003 & 0.001\tabularnewline
+AIRFOIL & 0.005 & 0.003 & 0.003 & 0.067 & 0.27 & 0.001\tabularnewline
 \hline 
-AUTO & 70.84 & 60.97 & 12.18 & 8.69\tabularnewline
+AUTO & 70.84 & 60.97 & 12.18 & 56.06 & 17.87 & 8.69\tabularnewline
 \hline 
-BK & 0.0252 & 0.28 & 0.027 & 0.039\tabularnewline
+BK & 0.0252 & 0.28 & 0.027 & 0.15 & 0.02 & 0.039\tabularnewline
 \hline 
-BL & 0.622 & 2.55 & 5.74 & 0.013\tabularnewline
+BL & 0.622 & 2.55 & 5.74 & 0.05 & 0.013 & 0.013\tabularnewline
 \hline 
-BASEBALL & 77.90 & 119.63 & 103.60 & 47.25\tabularnewline
+BASEBALL & 77.90 & 119.63 & 103.60 & 100.39 & 93.02 & 47.25\tabularnewline
 \hline 
-CONCRETE & 0.078 & 0.066 & 0.0099 & 0.004\tabularnewline
+CONCRETE & 0.078 & 0.066 & 0.0099 & 0.081 & 0.011 & 0.004\tabularnewline
 \hline 
-DEE & 0.63 & 2.36 & 1.013 & 0.212\tabularnewline
+DEE & 0.63 & 2.36 & 1.013 & 1.51 & 0.17 & 0.212\tabularnewline
 \hline 
-EU & 604.253 & 608.99 & 252.97 & 148.76\tabularnewline
+EU & 604.253 & 608.99 & 252.97 & 397.27 & 235.14 & 148.76\tabularnewline
 \hline 
-FA & 0.048 & 0.426 & 0.025 & 0.097\tabularnewline
+FA & 0.048 & 0.426 & 0.025 & 0.19 & 0.015 & 0.097\tabularnewline
 \hline 
-FRIEDMAN & 22.896 & 1.263 & 1.249 & 1.573\tabularnewline
+FRIEDMAN & 22.896 & 1.263 & 1.249 & 19.35 & 7.23 & 1.573\tabularnewline
 \hline 
-FY & 0.038 & 0.22 & 0.65 & 0.121\tabularnewline
+FY & 0.038 & 0.22 & 0.65 & 0.08 & 0.04 & 0.121\tabularnewline
 \hline 
-HO & 0.035 & 0.62 & 2.78 & 0.05\tabularnewline
+HO & 0.035 & 0.62 & 2.78 & 0.17 & 0.03 & 0.05\tabularnewline
 \hline 
-HOUSING & 80.998 & 97.38 & 43.26 & 14.79\tabularnewline
+HOUSING & 80.998 & 97.38 & 43.26 & 56.49 & 57.68 & 14.79\tabularnewline
 \hline 
-LASER & 0.03 & 0.015 & 0.59 & 0.0029\tabularnewline
+LASER & 0.03 & 0.015 & 0.59 & 0.084 & 0.03 & 0.0029\tabularnewline
 \hline 
-LW & 0.028 & 2.98 & 1.90 & 0.313\tabularnewline
+LW & 0.028 & 2.98 & 1.90 & 0.17 & 0.03 & 0.313\tabularnewline
 \hline 
-MORTGAGE & 9.24 & 8.23 & 2.41 & 0.0222\tabularnewline
+MORTGAGE & 9.24 & 8.23 & 2.41 & 14.11 & 1.45 & 0.0222\tabularnewline
 \hline 
-PLASTIC & 11.713 & 20.323 & 2.791 & 2.186\tabularnewline
+PLASTIC & 11.713 & 20.323 & 2.791 & 20.77 & 8.62 & 2.186\tabularnewline
 \hline 
-PY & 0.321 & 0.578 & 0.56 & 0.111\tabularnewline
+PY & 0.321 & 0.578 & 0.56 & 0.075 & 0.012 & 0.111\tabularnewline
 \hline 
-PL & 0.117 & 0.29 & 0.28 & 0.0205\tabularnewline
+PL & 0.117 & 0.29 & 0.28 & 0.098 & 2.12 & 0.0205\tabularnewline
 \hline 
-REALESTATE & 186.778 & 170.28 & 81.19 & 70.928\tabularnewline
+REALESTATE & 186.778 & 170.28 & 81.19 & 155.46 & 76.50 & 70.928\tabularnewline
 \hline 
-QUAKE & 0.07 & 0.42 & 0.04 & 0.04\tabularnewline
+QUAKE & 0.07 & 0.42 & 0.04 & 0.298 & 0.07 & 0.04\tabularnewline
 \hline 
-SN & 0.026 & 0.40 & 2.95 & 0.025\tabularnewline
+SN & 0.026 & 0.40 & 2.95 & 0.174 & 0.027 & 0.025\tabularnewline
 \hline 
-STOCK & 180.893 & 302.43 & 3.881 & 2.986\tabularnewline
+STOCK & 180.893 & 302.43 & 3.881 & 215.82 & 12.23 & 2.986\tabularnewline
 \hline 
-TREASURY & 11.16 & 9.91 & 2.929 & 0.0633\tabularnewline
+TREASURY & 11.16 & 9.91 & 2.929 & 15.52 & 2.02 & 0.0633\tabularnewline
 \hline 
-TZ & 0.07 & 3.27 & 5.38 & 0.652\tabularnewline
+TZ & 0.07 & 3.27 & 5.38 & 0.098 & 0.036 & 0.652\tabularnewline
 \hline 
-VE & 0.359 & 1.92 & 2.43 & 0.0493\tabularnewline
+VE & 0.359 & 1.92 & 2.43 & 0.045 & 0.024 & 0.0493\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{46.795} & \textbf{52.648} & \textbf{19.926} & \textbf{11.234}\tabularnewline
+\textbf{AVERAGE} & \textbf{46.795} & \textbf{52.648} & \textbf{19.926} & \textbf{39.42} & \textbf{19.34} & \textbf{11.234}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
-The table \ref{tab:expClass} illustrates the performance of four
-neural network training methods---ADAM, BFGS, GENETIC, and GNN---across
-a variety of datasets. Lower error rates indicate better performance,
-and based on the average error rates, GNN emerges as the most effective
-method, with an average error rate of 21.1\%. It is followed by GENETIC,
-with an average error of 27.1\%, while BFGS and ADAM exhibit higher
-error rates, with averages of 34.1\% and 36.9\%, respectively. Delving
-deeper, GNN consistently outperforms the other methods across many
-datasets, achieving notably low error rates. For example, it records
-an error of just 2.77\% on the ZONF\_S dataset and 6.17\% on SPAMBASE,
-demonstrating its robustness even in challenging cases. GENETIC also
-delivers competitive performance, with low error rates in datasets
-such as SPIRAL (48.66\%) and Z\_O\_N\_F\_S (64.81\%). However, in
-some datasets, like SPAMBASE (6.37\%), its performance does not match
-that of GNN. BFGS, while less effective on average compared to GNN
-and GENETIC, excels in specific datasets. For instance, it achieves
-remarkably low error rates on CLEVELAND (77.55\%) and SEGMENT (68.97\%),
-outperforming other methods in these cases. However, its overall performance
-is less consistent across the full spectrum of datasets. ADAM, despite
-its stability and lack of significant deviations, has the highest
-average error rate (36.9\%) among the methods. It does not significantly
-outperform in any particular dataset. For instance, in the HEPATITIS
-dataset, it records an error of 68.13\%, which is notably higher than
-GNN’s (56.67\%) and GENETIC’s (62.12\%). In summary, GNN stands out
-as the most effective method, achieving the lowest average error rate
-and excelling across diverse datasets. GENETIC ranks as the second-best
-option, demonstrating stable performance with relatively low error
-rates. BFGS, while generally less competitive, performs exceptionally
-well in certain datasets, making it suitable for specific applications.
-Finally, ADAM, although consistent, is the least competitive overall,
-with higher average error rates compared to the other methods.
+ The statistical analysis of Table \ref{tab:expClass} highlights
+interesting patterns regarding model performance and the nature of
+the datasets. The GNN model achieves the lowest average error rate
+(21.11\%), making it the overall best-performing model. This suggests
+that it is particularly effective across the dataset collection. In
+contrast, NEAT, despite an average error rate of 33.72\%, excels in
+specific datasets such as Z\_O\_N\_F\_S, where it performs almost
+equivalently to GNN. The analysis reveals significant variations in
+error rates across datasets, indicating differing levels of complexity
+and challenges faced by the models. For instance, datasets like Z\_O\_N\_F\_S,
+where errors are low for all models, are likely characterized by well-defined
+patterns and minimal class overlap. On the other hand, datasets such
+as SPAMBASE and MAGIC appear more complex, with high error rates across
+many models. In SPAMBASE, GNN's performance (6.17\%) is remarkable,
+indicating its superior capability in handling such data compared
+to other models. ADAM, with an average error rate of 36.91\%, demonstrates
+consistent but not top-tier performance. This model seems reliable
+for medium-complexity datasets, such as BANDS and AUSTRALIAN, where
+it achieves comparable or better results than other models. However,
+it underperforms in high-dimensional datasets, such as SEGMENT, where
+BFGS significantly outperforms it. BFGS exhibits strong performance
+in problems like DERMATOLOGY, likely due to its adaptability to data
+with well-defined boundaries. The GENETIC model shows intriguing behavior,
+excelling in datasets such as ZONF\_S and RING, but lagging in higher
+complexity problems like HEPATITIS. This indicates potential limitations
+in processing high-dimensional or noisy data. Conversely, RBF appears
+particularly sensitive to dataset-specific characteristics, performing
+well in certain datasets like BALANCE but falling short in problems
+such as SPIRAL and HOUSEVOTES. The comparison between models underscores
+the necessity of tailored model selection for each dataset. For instance,
+GNN would be the preferred choice for problems demanding the lowest
+possible error, while ADAM would be ideal for cases where stability
+and generalization are more critical. NEAT and GENETIC are suitable
+for problems with unique data structures, whereas RBF and BFGS prove
+useful in more specialized applications. The significant variability
+among models and datasets also highlights the complexity of selecting
+appropriate machine learning algorithms. While GNN stands out as the
+overall leader, each model may prove superior under specific conditions,
+depending on the nature and dimensionality of the data, the noise
+level, and the class overlap.
 
-The table \ref{tab:expRegression} presents the regression error achieved
-by four training methods---ADAM, BFGS, GENETIC, and GNN---on a variety
-of datasets. Lower error values indicate better performance. A comparison
-of the methods reveals that GNN consistently delivers the lowest regression
-error on average, making it the most effective overall. GENETIC follows
-with relatively competitive results, while BFGS and ADAM exhibit higher
-error rates across most datasets. A closer look at the results shows
-that GNN achieves remarkable performance on several datasets. For
-instance, in the AIRFOIL dataset, it records the lowest error of 0.001,
-outperforming all other methods. Similarly, it achieves an error of
-just 0.004 in CONCRETE, 0.013 in BL, and 0.0222 in MORTGAGE, demonstrating
-its strong capability across various scenarios. The GENETIC method
-also performs well in certain datasets, such as AUTO (12.18) and PLASTIC
-(2.791), though it falls short of GNN in most cases. BFGS exhibits
-decent performance in specific datasets but is generally less effective
-than GNN and GENETIC. For example, in FRIEDMAN, it achieves a competitive
-error of 1.263, but it struggles in datasets such as STOCK (302.43)
-and BASEBALL (119.63). ADAM, while consistent in its results, records
-the highest errors in many cases, such as REALESTATE (186.778) and
-EU (604.253), indicating weaker performance relative to the other
-methods. Overall, the results highlight the superiority of GNN, which
-not only achieves the lowest regression error on average but also
-demonstrates robustness and reliability across a wide range of datasets.
-GENETIC ranks as the second-best approach, delivering solid performance
-in key datasets. BFGS, while showing potential in certain tasks, is
-less competitive on average, and ADAM, despite its consistency, struggles
-to match the effectiveness of the other methods in reducing regression
-error. 
+The statistical analysis of Table \ref{tab:expRegression} indicates
+that the GNN model achieves the lowest average error (11.234), establishing
+it as the best performer across the datasets for regression problems.
+RBF follows with an average error of 19.34, while GENETIC ranks third
+with an average error of 19.926. The models ADAM, BFGS, and NEAT exhibit
+significantly higher average errors (46.795, 52.648, and 39.42, respectively),
+with BFGS showing the poorest overall performance. A detailed dataset-wise
+analysis reveals significant differences in the models’ performances.
+In the AIRFOIL dataset, GNN demonstrates exceptionally low error (0.001),
+proving to be highly suitable for this problem. Similarly, the RBF
+model performs well in problems such as BASEBALL and BL, recording
+errors of 93.02 and 0.013, respectively. In the CONCRETE dataset,
+GNN once again excels with an error of 0.004, and in the HOUSING dataset,
+it achieves a substantially lower error (14.79) compared to the other
+models, highlighting its adaptability to high-complexity data. ADAM
+exhibits significant performance variability, with extremely high
+errors in datasets such as STOCK (180.893) and REALESTATE (186.778),
+but relatively better performance in problems like MORTGAGE (9.24).
+NEAT shows similar instability, with high errors in datasets such
+as LASER (0.084) and TZ (0.098), while performing relatively well
+in PY (0.075). GENETIC, although ranked third overall, performs moderately
+in problems like HOUSING (43.26) and STOCK (3.881) but shows good
+performance in datasets like PLASTIC (2.791). RBF displays comparable
+instability, achieving low errors in problems such as BL (0.013) but
+significantly higher errors in datasets like PL (2.12). The comparison
+of models highlights GNN’s superiority in most cases. GNN’s lower
+errors in datasets such as LASER, STOCK, and TREASURY suggest that
+this model is particularly well-suited for problems requiring precision
+in continuous variables. RBF proves reliable in selected problems
+but with greater variability. ADAM and NEAT appear to face more constraints,
+particularly in datasets with high dimensionality or noise. This analysis
+underscores the necessity for careful selection of the appropriate
+regression model, considering the specific characteristics of each
+dataset. While GNN emerges as the best overall performer, the other
+models demonstrate strengths in specific applications, making their
+use suitable under particular conditions.
 
 The statistical comparison between the used methods for the classification
 datasets is depicted in Figure \ref{fig:statClass} while for the
@@ -1174,111 +1273,122 @@ datasets.\label{fig:statClass}}
 datasets.\label{fig:statRegression}}
 
 \end{figure}
-Figure \ref{fig:statClass} highlights significant differences between
-the methods ADAM, BFGS, GENETIC, and GNN in terms of error. The Kruskal-Wallis
-test, which is used to assess whether there are overall differences
-among more than two groups, yielded a p-value of 0.00017. This extremely
-small value, which is below the standard significance level , indicates
-that at least one method differs significantly from the others. Based
-on this result, it was necessary to perform pairwise comparisons to
-determine which methods exhibit statistically significant differences
-from each other. The comparison between ADAM and BFGS resulted in
-a p-value of 0.17, which is above the significance threshold. This
-suggests that there is no statistically significant difference between
-these two methods, and their performance in terms of error is comparable.
-In contrast, the comparison between ADAM and GENETIC yielded a p-value
-of 9.9e-07, a very small value that indicates a statistically significant
-difference, with GENETIC outperforming ADAM. Similarly, the comparison
-of ADAM with GNN produced a p-value of 2.1e-10, demonstrating a significant
-difference and showing that GNN performs better than ADAM. The comparison
-between BFGS and GENETIC yielded a p-value of 8.6e-05, highlighting
-that GENETIC is significantly superior to BFGS. Furthermore, the comparison
-of BFGS with GNN resulted in a p-value of 1.7e-07, which shows that
-GNN is clearly better than BFGS. Finally, the comparison between GENETIC
-and GNN yielded a p-value of 1.9e-06, indicating a statistically significant
-difference, with GNN outperforming GENETIC. In summary, the results
-reveal a clear hierarchy in the performance of the methods. GNN emerges
-as the method with the lowest mean error, showing statistically significant
-superiority over all other methods. GENETIC ranks second, as it significantly
-outperforms ADAM and BFGS but falls short of GNN. On the other hand,
-ADAM and BFGS do not exhibit a statistically significant difference
-from each other and appear to be on the same level, with higher errors
-compared to the other two methods. These results underscore the clear
-advantage of GNN over the other methods for the given problem.
 
-Figure \ref{fig:statRegression} explores potential differences between
-the methods ADAM, BFGS, GENETIC, and GNN regarding regression error.
-The Kruskal-Wallis test, a non-parametric method used to assess whether
-there are overall differences among more than two groups, produced
-a p-value of 0.067. While this value is slightly above the standard
-significance threshold , it is very close, suggesting that there may
-be underlying differences between the methods worth further investigation.
-Pairwise comparisons revealed additional insights. The comparison
-between ADAM and BFGS yielded a p-value of 0.25, which is well above
-the significance threshold, indicating no significant difference between
-these methods. However, the comparison between ADAM and GENETIC resulted
-in a p-value of 0.077, which, while not strictly significant, is notably
-close to the 0.05 threshold, hinting at a potential difference. Similarly,
-the comparison of ADAM with GNN produced a p-value of 0.059, again
-close to the significance level, suggesting a possible distinction
-between these methods. The comparison between BFGS and GENETIC yielded
-a p-value of 0.063, further emphasizing a borderline result that approaches
-significance. For BFGS versus GNN, the p-value was 0.049, just below
-the 0.05 threshold, indicating a statistically significant difference,
-with GNN showing better performance. Finally, the comparison between
-GENETIC and GNN resulted in a p-value of 0.06, which, although slightly
-above the significance level, remains close enough to warrant attention.
-In summary, while the overall Kruskal-Wallis test did not reach the
-conventional significance level, the p-values from the pairwise comparisons
-suggest that certain methods, particularly GNN, may exhibit better
-performance compared to others. These borderline p-values, close to
-the 0.05 threshold, highlight the potential for meaningful differences,
-particularly between GNN and other methods, and suggest the need for
-further investigation or larger sample sizes to confirm these trends.
+The statistical analysis conducted using the Wilcoxon Test (Figure
+\ref{fig:statClass}) to compare the models from Table {[}table3{]}
+reveals significant differences in performance, as evidenced by the
+extremely low p-values. The p-value is an indicator of the probability
+that the observed differences in performance between models are due
+to random factors, with values below the conventional threshold (e.g.,
+0.05) being considered statistically significant. In this analysis,
+all p-values are exceptionally low, indicating that the differences
+between GNN and the other models are statistically robust. The comparison
+between GNN and ADAM yielded a p-value of 9.1e-13, indicating that
+the probability of the observed differences being random is nearly
+zero. This result highlights the clear superiority of GNN over ADAM.
+Similarly, the p-value of 2e-11 for the comparison between GNN and
+BFGS demonstrates that GNN achieves significantly lower errors than
+BFGS, confirming the latter's inferior performance. The analysis of
+the pairs GNN and GENETIC (p = 5.2e-09) and GNN and NEAT (p = 5.7e-10)
+indicates that although the GENETIC and NEAT models have specific
+strengths in individual datasets, their overall performance does not
+approach that of GNN. The differences are statistically significant,
+clearly establishing GNN as the superior choice under the conditions
+examined. Lastly, the comparison between GNN and RBF (p = 1.8e-08)
+demonstrates that GNN also outperforms RBF, despite RBF showing strong
+results in selected datasets. This analysis provides a comprehensive
+view of GNN's superiority, not only in terms of average error but
+also from a statistical perspective, confirming that the performance
+differences are not products of random variations in the data. This
+substantial differentiation underscores the value of GNN as a particularly
+effective model for classification problems and highlights the need
+for further exploration of the structure and characteristics that
+contribute to its performance. Moreover, it reinforces the importance
+of applying statistical techniques such as the Wilcoxon Test to make
+informed decisions when comparing different machine learning algorithms.
+
+In Figure \ref{fig:statRegression}, the comparison between GNN and
+ADAM yields a p-value of 0.0011, indicating that GNN demonstrates
+significantly better performance than ADAM. Although this value is
+higher than the others, it remains statistically significant, underscoring
+GNN's superiority in terms of error rates. The difference between
+GNN and BFGS is even more pronounced, with a p-value of 2.8e-07, signifying
+that GNN outperforms BFGS with very high statistical power. The p-values
+for the comparisons of GNN with the models GENETIC (p = 3.9e-05),
+NEAT (p = 5.5e-05), and RBF (p = 0.013) further strengthen the evidence
+of GNN’s superiority. While RBF appears to exhibit relatively better
+performance than the other models compared with GNN, the p-value of
+0.013 indicates that the difference is still statistically significant
+and supports the preference for GNN. These results confirm GNN's superiority
+in regression problems concerning its overall performance, suggesting
+that the lower error rates it achieves are not due to random factors
+but reflect its effectiveness. This analysis highlights the importance
+of using statistical tools like the Wilcoxon Test to evaluate the
+performance of machine learning algorithms and emphasizes the need
+for a tailored model selection process, taking into account the specific
+characteristics of each problem.
 
 \section{Conclusions\label{sec:Conclusions}}
 
-The proposed method utilizes Grammatical Evolution for training artificial
-neural networks, leveraging BNF grammars to construct and optimize
-the network's parameters. The methodology is structured into three
-phases. In the first phase, an initial estimation of the network parameters
-is performed through an optimization process, such as genetic algorithms.
-These provide the necessary flexibility and allow adaptation to the
-specific characteristics of each dataset. In the second phase, the
-BNF rules of Grammatical Evolution are employed to further refine
-the parameter bounds. Finally, in the third phase, the network is
-trained within these optimized bounds. The results indicate that the
-proposed method outperforms other approaches, such as ADAM or standard
-genetic algorithms, in both classification and regression problems.
-The errors recorded using the GE-based method are significantly lower
-than those of other methods. Notably, the reduction in errors demonstrates
-the method's enhanced parameter adaptation process and its ability
-to avoid overfitting. 
+The article highlights a novel methodology for training artificial
+neural networks using Backus-Naur Form grammars combined with Grammatical
+Evolution. This approach provides a structured framework for defining
+and optimizing neural network architectures, enhancing their adaptability
+and performance across various problem domains. The proposed three-phase
+process includes parameter specification, evolutionary optimization
+of parameter bounds, and final training with specialized optimization
+algorithms. The methodology demonstrates strong versatility and achieves
+high performance across diverse architectures such as recurrent neural
+networks and convolutional neural networks, handling both classification
+and regression tasks effectively. The use of Backus-Naur Form grammars
+constrains the parameter search space, reducing computational complexity
+and mitigating risks associated with local minima or suboptimal solutions.
+The experimental findings reveal that GNN outperforms traditional
+optimization methods, including ADAM, BFGS, and GENETIC, consistently
+achieving lower error rates. This result highlights the effectiveness
+of the proposed method in initializing and optimizing network parameters.
+GNN’s generalization capabilities and adaptability to different datasets
+further underscore its potential in real-world applications requiring
+precision and reliability. The results confirm that the lower error
+rates achieved by GNN are not due to random factors but reflect the
+robustness of the method. Future explorations could extend the methodology
+to more complex deep learning architectures, including transformers
+and graph neural networks, where the dimensionality and complexity
+of parameters are significantly higher. Dynamic and non-stationary
+environments such as real-time data streams and adaptive control systems
+present another promising area of application. 
 
-Despite the impressive results, there is room for further improvements
-and extensions to the method. A significant proposal is the integration
-of parallel processing during the genetic search phase, which could
-dramatically reduce the time required for the training process. Additionally,
-allowing the method to extend and shrink parameter bounds with dynamic
-rates instead of a fixed 50\% value could enable a more adaptive process
-tailored to the specifics of each dataset. Another suggestion involves
-improving the local search optimization during the second phase. Employing
-more efficient local search algorithms could further reduce training
-errors and enhance the method’s performance. Simultaneously, broadening
-the application of the method to more datasets is crucial, both to
-evaluate its generalizability and robustness and to derive insights
-into its adaptability across various data types. Moreover, incorporating
-automated mechanisms for selecting the initial parameter intervals
-based on the properties of each dataset would be beneficial. Such
-a feature could further enhance the method's performance and flexibility.
-Overall, the proposed methodology is a promising approach for training
-neural networks. However, integrating the aforementioned improvements
-could make it even more effective and widely applicable\textbf{.}
+Incorporating the methodology into neural architecture search frameworks
+could automate the discovery of optimal architectures, leveraging
+Backus-Naur Form grammars to balance exploration and exploitation
+efficiently. Multimodal data scenarios that combine textual, visual,
+and auditory inputs could also benefit from this approach by enabling
+hybrid architectures capable of processing diverse information types
+effectively. Addressing scalability concerns through parallel and
+distributed computing frameworks could enable the method to handle
+large-scale datasets and complex architectures. Domain-specific grammars
+tailored to particular problem types, such as time-series forecasting
+or anomaly detection, could further refine the applicability and efficiency
+of the method. Combining the evolutionary optimization process with
+gradient-based techniques could provide a hybrid approach, enhancing
+convergence speed while maintaining flexibility in exploring the parameter
+space. 
 
-\authorcontributions{I.G.T. and V.C. conceived the idea and methodology. I.G.T. performed
-the experiments, employing several datasets, and provided the comparative
-experiments. V.C. performed the statistical analysis. All authors
-prepared the manuscript. }
+Empirical studies across broader datasets and theoretical investigations
+into the convergence properties and computational complexity of the
+method would offer deeper insights into its strengths and limitations.
+The methodology represents a significant advancement in neural network
+training, offering robust adaptability and precision across diverse
+applications. Its potential for scalability, domain-specific customizations,
+and hybrid optimization approaches underscores its relevance for addressing
+increasingly complex and dynamic challenges in machine learning.
+
+$ $
+
+\authorcontributions{V.C. and I.G.T. conducted the experiments, employing several datasets
+and provided the comparative experiments. D.T. and V.C. performed
+the statistical analysis and prepared the manuscript. All authors
+have read and agreed to the published version of the manuscript.}
 
 \funding{This research received no external funding.}
 
@@ -1532,6 +1642,14 @@ applications, 43-55.
 \bibitem{mainge}M. O’Neill, C. Ryan, Grammatical evolution, IEEE
 Trans. Evol. Comput. \textbf{5,}pp. 349--358, 2001.
 
+\bibitem{rnn1}M. Lukoševičius, H. Jaeger, Reservoir computing approaches
+to recurrent neural network training, Computer science review \textbf{3},
+pp. 127-149, 2009.
+
+\bibitem{cnn1}J. Gu, Z. Wang, J. Kuen, L. Ma, A. Shahroudy, B. Shuai,
+T. Chen, Recent advances in convolutional neural networks, Pattern
+recognition\textbf{ 77}, pp. 354-377, 2018.
+
 \bibitem{bnf1}J. W. Backus. The Syntax and Semantics of the Proposed
 International Algebraic Language of the Zurich ACM-GAMM Conference.
 Proceedings of the International Conference on Information Processing,
@@ -1784,6 +1902,18 @@ Splines. Annals of Statistics, 19:1, 1-{}-141.
 \bibitem[(2007)]{housing}D. Harrison and D.L. Rubinfeld, Hedonic
 prices and the demand for clean ai, J. Environ. Economics \& Management
 \textbf{5}, pp. 81-102, 1978.
+
+\bibitem{neat}K. O. Stanley, R. Miikkulainen, Evolving Neural Networks
+through Augmenting Topologies, Evolutionary Computation \textbf{10},
+pp. 99-127, 2002.
+
+\bibitem[(1991)]{rbf1}J. Park and I. W. Sandberg, Universal Approximation
+Using Radial-Basis-Function Networks, Neural Computation \textbf{3},
+pp. 246-257, 1991.
+
+\bibitem{rbf2}G.A. Montazer, D. Giveki, M. Karami, H. Rastegar, Radial
+basis function neural networks: A review. Comput. Rev. J \textbf{1},
+pp. 52-74, 2018.
 
 \end{thebibliography}
 

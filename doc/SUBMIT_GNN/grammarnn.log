@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.11.23)  26 NOV 2024 13:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.12.10)  21 DEC 2024 12:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1382,11 +1382,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 201--201
 
 Package marginnote Info: xpos seems to be 167.01753pt on input line 201.
 Package epstopdf Info: Source file: <Definitions/logo-mdpi.eps>
-(epstopdf)                    date: 2024-03-20 19:13:44
+(epstopdf)                    date: 2024-12-10 08:06:38
 (epstopdf)                    size: 563678 bytes
 (epstopdf)             Output file: <Definitions/logo-mdpi-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2024-11-17 18:51:34
+(epstopdf)                    date: 2024-12-10 08:06:38
 (epstopdf)                    size: 13161 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-mdpi-eps-
 converted-to.pdf Definitions/logo-mdpi.eps>
@@ -1446,8 +1446,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [3]
+<flow2.png, id=229, 344.7279pt x 298.4751pt>
+File: flow2.png Graphic file (type png)
+<use flow2.png>
+Package pdftex.def Info: flow2.png  used on input line 392.
+(pdftex.def)             Requested size: 258.54529pt x 223.85577pt.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
+
+[4 <./flow2.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
-46.
+73.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
@@ -1464,19 +1479,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[4]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
-
 [5]
-Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 561.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1486,24 +1489,41 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [6]
+<flow1.png, id=286, 286.1892pt x 254.3904pt>
+File: flow1.png Graphic file (type png)
+<use flow1.png>
+Package pdftex.def Info: flow1.png  used on input line 604.
+(pdftex.def)             Requested size: 214.64136pt x 190.79233pt.
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 619.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
+
+[7 <./flow1.png>]
 Package epstopdf Info: Source file: <onepoint_crossover.eps>
-(epstopdf)                    date: 2024-11-17 17:10:49
+(epstopdf)                    date: 2024-12-10 08:06:38
 (epstopdf)                    size: 121541 bytes
 (epstopdf)             Output file: <onepoint_crossover-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-11-26 13:56:26
+(epstopdf)                    date: 2024-12-10 08:06:38
 (epstopdf)                    size: 23537 bytes
 (epstopdf)             Command: <repstopdf --outfile=onepoint_crossover-eps-con
 verted-to.pdf onepoint_crossover.eps>
-(epstopdf)             \includegraphics on input line 660.
+(epstopdf)             \includegraphics on input line 720.
 Package epstopdf Info: Output file is already uptodate.
-<onepoint_crossover-eps-converted-to.pdf, id=297, 817.0525pt x 271.0125pt>
+<onepoint_crossover-eps-converted-to.pdf, id=318, 817.0525pt x 271.0125pt>
 File: onepoint_crossover-eps-converted-to.pdf Graphic file (type pdf)
 <use onepoint_crossover-eps-converted-to.pdf>
 Package pdftex.def Info: onepoint_crossover-eps-converted-to.pdf  used on input
- line 660.
+ line 720.
 (pdftex.def)             Requested size: 408.52525pt x 135.5059pt.
 
-Overfull \hbox (14.17003pt too wide) in paragraph at lines 660--661
+Overfull \hbox (14.17003pt too wide) in paragraph at lines 720--721
  [][] 
  []
 
@@ -1515,7 +1535,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[7]
+[8]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1524,156 +1544,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[8 <./onepoint_crossover-eps-converted-to.pdf>]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 782--782
-[]\T1/ppl/m/n/10 (-20) 10.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 784--784
-[]\T1/ppl/m/n/10 (-20) 11.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 786--786
-[]\T1/ppl/m/n/10 (-20) 12.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 787--787
-[]\T1/ppl/m/n/10 (-20) 13.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 789--789
-[]\T1/ppl/m/n/10 (-20) 14.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 791--791
-[]\T1/ppl/m/n/10 (-20) 15.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 793--793
-[]\T1/ppl/m/n/10 (-20) 16.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 795--795
-[]\T1/ppl/m/n/10 (-20) 17.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 797--797
-[]\T1/ppl/m/n/10 (-20) 18.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 799--799
-[]\T1/ppl/m/n/10 (-20) 19.  
- []
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
-
-[9]
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 801--801
-[]\T1/ppl/m/n/10 (-20) 20.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 803--803
-[]\T1/ppl/m/n/10 (-20) 21.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 805--805
-[]\T1/ppl/m/n/10 (-20) 22.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 807--807
-[]\T1/ppl/m/n/10 (-20) 23.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 808--808
-[]\T1/ppl/m/n/10 (-20) 24.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 810--810
-[]\T1/ppl/m/n/10 (-20) 25.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 811--811
-[]\T1/ppl/m/n/10 (-20) 26.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 812--812
-[]\T1/ppl/m/n/10 (-20) 27.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 814--814
-[]\T1/ppl/m/n/10 (-20) 28.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 815--815
-[]\T1/ppl/m/n/10 (-20) 29.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 816--816
-[]\T1/ppl/m/n/10 (-20) 30.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 817--817
-[]\T1/ppl/m/n/10 (-20) 31.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 819--819
-[]\T1/ppl/m/n/10 (-20) 32.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 820--820
-[]\T1/ppl/m/n/10 (-20) 33.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 821--821
-[]\T1/ppl/m/n/10 (-20) 34.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 823--823
-[]\T1/ppl/m/n/10 (-20) 35.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 824--824
-[]\T1/ppl/m/n/10 (-20) 36.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 827--827
-[]\T1/ppl/m/n/10 (-20) 37.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 849--849
+[9 <./onepoint_crossover-eps-converted-to.pdf>]
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 848--848
 []\T1/ppl/m/n/10 (-20) 10.  
  []
 
@@ -1693,71 +1565,6 @@ Overfull \hbox (2.49998pt too wide) in paragraph at lines 853--853
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 854--854
-[]\T1/ppl/m/n/10 (-20) 14.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 855--855
-[]\T1/ppl/m/n/10 (-20) 15.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 857--857
-[]\T1/ppl/m/n/10 (-20) 16.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 859--859
-[]\T1/ppl/m/n/10 (-20) 17.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 860--860
-[]\T1/ppl/m/n/10 (-20) 18.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 862--862
-[]\T1/ppl/m/n/10 (-20) 19.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 863--863
-[]\T1/ppl/m/n/10 (-20) 20.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 865--865
-[]\T1/ppl/m/n/10 (-20) 21.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 866--866
-[]\T1/ppl/m/n/10 (-20) 22.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 868--868
-[]\T1/ppl/m/n/10 (-20) 23.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 870--870
-[]\T1/ppl/m/n/10 (-20) 24.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 871--871
-[]\T1/ppl/m/n/10 (-20) 25.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 872--872
-[]\T1/ppl/m/n/10 (-20) 26.  
- []
-
-
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
 (fancyhdr)                \setlength{\headheight}{16.18796pt}.
@@ -1766,6 +1573,190 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [10]
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 855--855
+[]\T1/ppl/m/n/10 (-20) 14.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 857--857
+[]\T1/ppl/m/n/10 (-20) 15.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 859--859
+[]\T1/ppl/m/n/10 (-20) 16.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 861--861
+[]\T1/ppl/m/n/10 (-20) 17.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 863--863
+[]\T1/ppl/m/n/10 (-20) 18.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 865--865
+[]\T1/ppl/m/n/10 (-20) 19.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 867--867
+[]\T1/ppl/m/n/10 (-20) 20.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 869--869
+[]\T1/ppl/m/n/10 (-20) 21.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 871--871
+[]\T1/ppl/m/n/10 (-20) 22.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 873--873
+[]\T1/ppl/m/n/10 (-20) 23.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 874--874
+[]\T1/ppl/m/n/10 (-20) 24.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 876--876
+[]\T1/ppl/m/n/10 (-20) 25.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 877--877
+[]\T1/ppl/m/n/10 (-20) 26.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 878--878
+[]\T1/ppl/m/n/10 (-20) 27.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 880--880
+[]\T1/ppl/m/n/10 (-20) 28.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 881--881
+[]\T1/ppl/m/n/10 (-20) 29.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 882--882
+[]\T1/ppl/m/n/10 (-20) 30.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 883--883
+[]\T1/ppl/m/n/10 (-20) 31.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 885--885
+[]\T1/ppl/m/n/10 (-20) 32.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 886--886
+[]\T1/ppl/m/n/10 (-20) 33.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 887--887
+[]\T1/ppl/m/n/10 (-20) 34.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 889--889
+[]\T1/ppl/m/n/10 (-20) 35.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 890--890
+[]\T1/ppl/m/n/10 (-20) 36.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 893--893
+[]\T1/ppl/m/n/10 (-20) 37.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 915--915
+[]\T1/ppl/m/n/10 (-20) 10.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 916--916
+[]\T1/ppl/m/n/10 (-20) 11.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 918--918
+[]\T1/ppl/m/n/10 (-20) 12.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 919--919
+[]\T1/ppl/m/n/10 (-20) 13.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 920--920
+[]\T1/ppl/m/n/10 (-20) 14.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 921--921
+[]\T1/ppl/m/n/10 (-20) 15.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 923--923
+[]\T1/ppl/m/n/10 (-20) 16.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 925--925
+[]\T1/ppl/m/n/10 (-20) 17.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 926--926
+[]\T1/ppl/m/n/10 (-20) 18.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 928--928
+[]\T1/ppl/m/n/10 (-20) 19.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 929--929
+[]\T1/ppl/m/n/10 (-20) 20.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 931--931
+[]\T1/ppl/m/n/10 (-20) 21.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 932--932
+[]\T1/ppl/m/n/10 (-20) 22.  
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1775,6 +1766,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [11]
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 934--934
+[]\T1/ppl/m/n/10 (-20) 23.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 936--936
+[]\T1/ppl/m/n/10 (-20) 24.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 937--937
+[]\T1/ppl/m/n/10 (-20) 25.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 938--938
+[]\T1/ppl/m/n/10 (-20) 26.  
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1793,15 +1803,24 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [13]
-<stat1.png, id=551, 505.89pt x 505.89pt>
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
+
+[14]
+<stat1.png, id=588, 505.89pt x 505.89pt>
 File: stat1.png Graphic file (type png)
 <use stat1.png>
-Package pdftex.def Info: stat1.png  used on input line 1163.
+Package pdftex.def Info: stat1.png  used on input line 1262.
 (pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
-<stat2.png, id=552, 505.89pt x 505.89pt>
+<stat2.png, id=589, 505.89pt x 505.89pt>
 File: stat2.png Graphic file (type png)
 <use stat2.png>
-Package pdftex.def Info: stat2.png  used on input line 1171.
+Package pdftex.def Info: stat2.png  used on input line 1270.
 (pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
 
 
@@ -1812,7 +1831,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[14 <./stat1.png>]
+[15]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1821,16 +1840,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[15 <./stat2.png>]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
-
-[16]
+[16 <./stat1.png (PNG copy)> <./stat2.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1857,7 +1867,25 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[19] 
+[19]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
+
+[20]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
+
+[21] 
 AED: lastpage setting LastPage
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1867,18 +1895,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[20] (./grammarnn.aux)
+[22] (./grammarnn.aux)
 Package rerunfilecheck Info: File `grammarnn.out' has not changed.
 (rerunfilecheck)             Checksum: 83C7BB9E1FE2D358159A1620773B892A;1807.
  ) 
 Here is how much of TeX's memory you used:
- 34420 strings out of 477975
- 642816 string characters out of 5839280
- 1895330 words of memory out of 5000000
- 53153 multiletter control sequences out of 15000+600000
- 580787 words of font info for 428 fonts, out of 8000000 for 9000
+ 34495 strings out of 477975
+ 643671 string characters out of 5839280
+ 1909330 words of memory out of 5000000
+ 53192 multiletter control sequences out of 15000+600000
+ 581360 words of font info for 438 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 123i,20n,120p,4340b,1039s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 123i,20n,120p,4340b,1075s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/sheridan/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.
 600pk> </home/sheridan/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0
 800.375pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/shar
@@ -1891,10 +1919,10 @@ e1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/upl
 b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on grammarnn.pdf (20 pages, 449081 bytes).
+Output written on grammarnn.pdf (22 pages, 736796 bytes).
 PDF statistics:
- 766 PDF objects out of 1000 (max. 8388607)
- 650 compressed objects within 7 object streams
- 315 named destinations out of 1000 (max. 500000)
- 90753 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 809 PDF objects out of 1000 (max. 8388607)
+ 688 compressed objects within 7 object streams
+ 336 named destinations out of 1000 (max. 500000)
+ 90763 words of extra memory for PDF output out of 106986 (max. 10000000)
 

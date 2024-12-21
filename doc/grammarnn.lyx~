@@ -1119,13 +1119,62 @@ In the previous equation the symbol
 
 \end_inset
 
+These neural networks have one input level, where the pattern is presented
+ to the neural network and one hidden level with 
+\begin_inset Formula $H$
+\end_inset
 
+ processing nodes.
+ A representation of this neural networks is depicted in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:nnStructure"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
-\series bold
-VASILIS SHOULD ADD A FIGURE HERE!!!
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The structure of the neural network incorporated in the current work.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:nnStructure"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2157,7 +2206,64 @@ Furthermore, the method can significantly limit the value ranges of the
  artificial neural network parameters or even set some of them to zero.
  In this way, the method can indirectly construct the structure of the neural
  network.
- 
+ A figure depicting the previously mentioned example neural network is shown
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:exampleNN"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename flow1.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A representation of the example neural network presented here.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:exampleNN"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4695,7 +4801,7 @@ The row denoted as AVERAGE represents the average classification or regression
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7618,7 +7724,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -9561,7 +9667,7 @@ AVERAGE
 
 \end_inset
 
-The table 
+ The statistical analysis of Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expClass"
@@ -9571,44 +9677,53 @@ noprefix "false"
 
 \end_inset
 
- illustrates the performance of four neural network training methods—ADAM,
- BFGS, GENETIC, and GNN—across a variety of datasets.
- Lower error rates indicate better performance, and based on the average
- error rates, GNN emerges as the most effective method, with an average
- error rate of 21.1%.
- It is followed by GENETIC, with an average error of 27.1%, while BFGS and
- ADAM exhibit higher error rates, with averages of 34.1% and 36.9%, respectively.
- Delving deeper, GNN consistently outperforms the other methods across many
- datasets, achieving notably low error rates.
- For example, it records an error of just 2.77% on the ZONF_S dataset and
- 6.17% on SPAMBASE, demonstrating its robustness even in challenging cases.
- GENETIC also delivers competitive performance, with low error rates in
- datasets such as SPIRAL (48.66%) and Z_O_N_F_S (64.81%).
- However, in some datasets, like SPAMBASE (6.37%), its performance does not
- match that of GNN.
- BFGS, while less effective on average compared to GNN and GENETIC, excels
- in specific datasets.
- For instance, it achieves remarkably low error rates on CLEVELAND (77.55%)
- and SEGMENT (68.97%), outperforming other methods in these cases.
- However, its overall performance is less consistent across the full spectrum
- of datasets.
- ADAM, despite its stability and lack of significant deviations, has the
- highest average error rate (36.9%) among the methods.
- It does not significantly outperform in any particular dataset.
- For instance, in the HEPATITIS dataset, it records an error of 68.13%, which
- is notably higher than GNN’s (56.67%) and GENETIC’s (62.12%).
- In summary, GNN stands out as the most effective method, achieving the
- lowest average error rate and excelling across diverse datasets.
- GENETIC ranks as the second-best option, demonstrating stable performance
- with relatively low error rates.
- BFGS, while generally less competitive, performs exceptionally well in
- certain datasets, making it suitable for specific applications.
- Finally, ADAM, although consistent, is the least competitive overall, with
- higher average error rates compared to the other methods.
+ highlights interesting patterns regarding model performance and the nature
+ of the datasets.
+ The GNN model achieves the lowest average error rate (21.11%), making it
+ the overall best-performing model.
+ This suggests that it is particularly effective across the dataset collection.
+ In contrast, NEAT, despite an average error rate of 33.72%, excels in specific
+ datasets such as Z_O_N_F_S, where it performs almost equivalently to GNN.
+ The analysis reveals significant variations in error rates across datasets,
+ indicating differing levels of complexity and challenges faced by the models.
+ For instance, datasets like Z_O_N_F_S, where errors are low for all models,
+ are likely characterized by well-defined patterns and minimal class overlap.
+ On the other hand, datasets such as SPAMBASE and MAGIC appear more complex,
+ with high error rates across many models.
+ In SPAMBASE, GNN's performance (6.17%) is remarkable, indicating its superior
+ capability in handling such data compared to other models.
+ ADAM, with an average error rate of 36.91%, demonstrates consistent but
+ not top-tier performance.
+ This model seems reliable for medium-complexity datasets, such as BANDS
+ and AUSTRALIAN, where it achieves comparable or better results than other
+ models.
+ However, it underperforms in high-dimensional datasets, such as SEGMENT,
+ where BFGS significantly outperforms it.
+ BFGS exhibits strong performance in problems like DERMATOLOGY, likely due
+ to its adaptability to data with well-defined boundaries.
+ The GENETIC model shows intriguing behavior, excelling in datasets such
+ as ZONF_S and RING, but lagging in higher complexity problems like HEPATITIS.
+ This indicates potential limitations in processing high-dimensional or
+ noisy data.
+ Conversely, RBF appears particularly sensitive to dataset-specific characterist
+ics, performing well in certain datasets like BALANCE but falling short
+ in problems such as SPIRAL and HOUSEVOTES.
+ The comparison between models underscores the necessity of tailored model
+ selection for each dataset.
+ For instance, GNN would be the preferred choice for problems demanding
+ the lowest possible error, while ADAM would be ideal for cases where stability
+ and generalization are more critical.
+ NEAT and GENETIC are suitable for problems with unique data structures,
+ whereas RBF and BFGS prove useful in more specialized applications.
+ The significant variability among models and datasets also highlights the
+ complexity of selecting appropriate machine learning algorithms.
+ While GNN stands out as the overall leader, each model may prove superior
+ under specific conditions, depending on the nature and dimensionality of
+ the data, the noise level, and the class overlap.
 \end_layout
 
 \begin_layout Standard
-The table 
+The statistical analysis of Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expRegression"
@@ -9618,37 +9733,46 @@ noprefix "false"
 
 \end_inset
 
- presents the regression error achieved by four training methods—ADAM, BFGS,
- GENETIC, and GNN—on a variety of datasets.
- Lower error values indicate better performance.
- A comparison of the methods reveals that GNN consistently delivers the
- lowest regression error on average, making it the most effective overall.
- GENETIC follows with relatively competitive results, while BFGS and ADAM
- exhibit higher error rates across most datasets.
- A closer look at the results shows that GNN achieves remarkable performance
- on several datasets.
- For instance, in the AIRFOIL dataset, it records the lowest error of 0.001,
- outperforming all other methods.
- Similarly, it achieves an error of just 0.004 in CONCRETE, 0.013 in BL, and
- 0.0222 in MORTGAGE, demonstrating its strong capability across various scenarios.
- The GENETIC method also performs well in certain datasets, such as AUTO
- (12.18) and PLASTIC (2.791), though it falls short of GNN in most cases.
- BFGS exhibits decent performance in specific datasets but is generally
- less effective than GNN and GENETIC.
- For example, in FRIEDMAN, it achieves a competitive error of 1.263, but
- it struggles in datasets such as STOCK (302.43) and BASEBALL (119.63).
- ADAM, while consistent in its results, records the highest errors in many
- cases, such as REALESTATE (186.778) and EU (604.253), indicating weaker performan
-ce relative to the other methods.
- Overall, the results highlight the superiority of GNN, which not only achieves
- the lowest regression error on average but also demonstrates robustness
- and reliability across a wide range of datasets.
- GENETIC ranks as the second-best approach, delivering solid performance
- in key datasets.
- BFGS, while showing potential in certain tasks, is less competitive on
- average, and ADAM, despite its consistency, struggles to match the effectivenes
-s of the other methods in reducing regression error.
- 
+ indicates that the GNN model achieves the lowest average error (11.234),
+ establishing it as the best performer across the datasets for regression
+ problems.
+ RBF follows with an average error of 19.34, while GENETIC ranks third with
+ an average error of 19.926.
+ The models ADAM, BFGS, and NEAT exhibit significantly higher average errors
+ (46.795, 52.648, and 39.42, respectively), with BFGS showing the poorest overall
+ performance.
+ A detailed dataset-wise analysis reveals significant differences in the
+ models’ performances.
+ In the AIRFOIL dataset, GNN demonstrates exceptionally low error (0.001),
+ proving to be highly suitable for this problem.
+ Similarly, the RBF model performs well in problems such as BASEBALL and
+ BL, recording errors of 93.02 and 0.013, respectively.
+ In the CONCRETE dataset, GNN once again excels with an error of 0.004, and
+ in the HOUSING dataset, it achieves a substantially lower error (14.79)
+ compared to the other models, highlighting its adaptability to high-complexity
+ data.
+ ADAM exhibits significant performance variability, with extremely high
+ errors in datasets such as STOCK (180.893) and REALESTATE (186.778), but
+ relatively better performance in problems like MORTGAGE (9.24).
+ NEAT shows similar instability, with high errors in datasets such as LASER
+ (0.084) and TZ (0.098), while performing relatively well in PY (0.075).
+ GENETIC, although ranked third overall, performs moderately in problems
+ like HOUSING (43.26) and STOCK (3.881) but shows good performance in datasets
+ like PLASTIC (2.791).
+ RBF displays comparable instability, achieving low errors in problems such
+ as BL (0.013) but significantly higher errors in datasets like PL (2.12).
+ The comparison of models highlights GNN’s superiority in most cases.
+ GNN’s lower errors in datasets such as LASER, STOCK, and TREASURY suggest
+ that this model is particularly well-suited for problems requiring precision
+ in continuous variables.
+ RBF proves reliable in selected problems but with greater variability.
+ ADAM and NEAT appear to face more constraints, particularly in datasets
+ with high dimensionality or noise.
+ This analysis underscores the necessity for careful selection of the appropriat
+e regression model, considering the specific characteristics of each dataset.
+ While GNN emerges as the best overall performer, the other models demonstrate
+ strengths in specific applications, making their use suitable under particular
+ conditions.
 \end_layout
 
 \begin_layout Standard
@@ -9760,7 +9884,11 @@ name "fig:statRegression"
 
 \end_inset
 
-Figure 
+
+\end_layout
+
+\begin_layout Standard
+The statistical analysis conducted using the Wilcoxon Test (Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statClass"
@@ -9770,47 +9898,44 @@ noprefix "false"
 
 \end_inset
 
- highlights significant differences between the methods ADAM, BFGS, GENETIC,
- and GNN in terms of error.
- The Kruskal-Wallis test, which is used to assess whether there are overall
- differences among more than two groups, yielded a p-value of 0.00017.
- This extremely small value, which is below the standard significance level
- , indicates that at least one method differs significantly from the others.
- Based on this result, it was necessary to perform pairwise comparisons
- to determine which methods exhibit statistically significant differences
- from each other.
- The comparison between ADAM and BFGS resulted in a p-value of 0.17, which
- is above the significance threshold.
- This suggests that there is no statistically significant difference between
- these two methods, and their performance in terms of error is comparable.
- In contrast, the comparison between ADAM and GENETIC yielded a p-value
- of 9.9e-07, a very small value that indicates a statistically significant
- difference, with GENETIC outperforming ADAM.
- Similarly, the comparison of ADAM with GNN produced a p-value of 2.1e-10,
- demonstrating a significant difference and showing that GNN performs better
- than ADAM.
- The comparison between BFGS and GENETIC yielded a p-value of 8.6e-05, highlighti
-ng that GENETIC is significantly superior to BFGS.
- Furthermore, the comparison of BFGS with GNN resulted in a p-value of 1.7e-07,
- which shows that GNN is clearly better than BFGS.
- Finally, the comparison between GENETIC and GNN yielded a p-value of 1.9e-06,
- indicating a statistically significant difference, with GNN outperforming
- GENETIC.
- In summary, the results reveal a clear hierarchy in the performance of
- the methods.
- GNN emerges as the method with the lowest mean error, showing statistically
- significant superiority over all other methods.
- GENETIC ranks second, as it significantly outperforms ADAM and BFGS but
- falls short of GNN.
- On the other hand, ADAM and BFGS do not exhibit a statistically significant
- difference from each other and appear to be on the same level, with higher
- errors compared to the other two methods.
- These results underscore the clear advantage of GNN over the other methods
- for the given problem.
+) to compare the models from Table [table3] reveals significant differences
+ in performance, as evidenced by the extremely low p-values.
+ The p-value is an indicator of the probability that the observed differences
+ in performance between models are due to random factors, with values below
+ the conventional threshold (e.g., 0.05) being considered statistically significant.
+ In this analysis, all p-values are exceptionally low, indicating that the
+ differences between GNN and the other models are statistically robust.
+ The comparison between GNN and ADAM yielded a p-value of 9.1e-13, indicating
+ that the probability of the observed differences being random is nearly
+ zero.
+ This result highlights the clear superiority of GNN over ADAM.
+ Similarly, the p-value of 2e-11 for the comparison between GNN and BFGS
+ demonstrates that GNN achieves significantly lower errors than BFGS, confirming
+ the latter's inferior performance.
+ The analysis of the pairs GNN and GENETIC (p = 5.2e-09) and GNN and NEAT
+ (p = 5.7e-10) indicates that although the GENETIC and NEAT models have specific
+ strengths in individual datasets, their overall performance does not approach
+ that of GNN.
+ The differences are statistically significant, clearly establishing GNN
+ as the superior choice under the conditions examined.
+ Lastly, the comparison between GNN and RBF (p = 1.8e-08) demonstrates that
+ GNN also outperforms RBF, despite RBF showing strong results in selected
+ datasets.
+ This analysis provides a comprehensive view of GNN's superiority, not only
+ in terms of average error but also from a statistical perspective, confirming
+ that the performance differences are not products of random variations
+ in the data.
+ This substantial differentiation underscores the value of GNN as a particularly
+ effective model for classification problems and highlights the need for
+ further exploration of the structure and characteristics that contribute
+ to its performance.
+ Moreover, it reinforces the importance of applying statistical techniques
+ such as the Wilcoxon Test to make informed decisions when comparing different
+ machine learning algorithms.
 \end_layout
 
 \begin_layout Standard
-Figure 
+In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statRegression"
@@ -9820,40 +9945,26 @@ noprefix "false"
 
 \end_inset
 
- explores potential differences between the methods ADAM, BFGS, GENETIC,
- and GNN regarding regression error.
- The Kruskal-Wallis test, a non-parametric method used to assess whether
- there are overall differences among more than two groups, produced a p-value
- of 0.067.
- While this value is slightly above the standard significance threshold
- , it is very close, suggesting that there may be underlying differences
- between the methods worth further investigation.
- Pairwise comparisons revealed additional insights.
- The comparison between ADAM and BFGS yielded a p-value of 0.25, which is
- well above the significance threshold, indicating no significant difference
- between these methods.
- However, the comparison between ADAM and GENETIC resulted in a p-value
- of 0.077, which, while not strictly significant, is notably close to the
- 0.05 threshold, hinting at a potential difference.
- Similarly, the comparison of ADAM with GNN produced a p-value of 0.059,
- again close to the significance level, suggesting a possible distinction
- between these methods.
- The comparison between BFGS and GENETIC yielded a p-value of 0.063, further
- emphasizing a borderline result that approaches significance.
- For BFGS versus GNN, the p-value was 0.049, just below the 0.05 threshold,
- indicating a statistically significant difference, with GNN showing better
- performance.
- Finally, the comparison between GENETIC and GNN resulted in a p-value of
- 0.06, which, although slightly above the significance level, remains close
- enough to warrant attention.
- In summary, while the overall Kruskal-Wallis test did not reach the conventiona
-l significance level, the p-values from the pairwise comparisons suggest
- that certain methods, particularly GNN, may exhibit better performance
- compared to others.
- These borderline p-values, close to the 0.05 threshold, highlight the potential
- for meaningful differences, particularly between GNN and other methods,
- and suggest the need for further investigation or larger sample sizes to
- confirm these trends.
+, the comparison between GNN and ADAM yields a p-value of 0.0011, indicating
+ that GNN demonstrates significantly better performance than ADAM.
+ Although this value is higher than the others, it remains statistically
+ significant, underscoring GNN's superiority in terms of error rates.
+ The difference between GNN and BFGS is even more pronounced, with a p-value
+ of 2.8e-07, signifying that GNN outperforms BFGS with very high statistical
+ power.
+ The p-values for the comparisons of GNN with the models GENETIC (p = 3.9e-05),
+ NEAT (p = 5.5e-05), and RBF (p = 0.013) further strengthen the evidence of
+ GNN’s superiority.
+ While RBF appears to exhibit relatively better performance than the other
+ models compared with GNN, the p-value of 0.013 indicates that the difference
+ is still statistically significant and supports the preference for GNN.
+ These results confirm GNN's superiority in regression problems concerning
+ its overall performance, suggesting that the lower error rates it achieves
+ are not due to random factors but reflect its effectiveness.
+ This analysis highlights the importance of using statistical tools like
+ the Wilcoxon Test to evaluate the performance of machine learning algorithms
+ and emphasizes the need for a tailored model selection process, taking
+ into account the specific characteristics of each problem.
 \end_layout
 
 \begin_layout Section
@@ -9868,66 +9979,85 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-The proposed method utilizes Grammatical Evolution for training artificial
- neural networks, leveraging BNF grammars to construct and optimize the
- network's parameters.
- The methodology is structured into three phases.
- In the first phase, an initial estimation of the network parameters is
- performed through an optimization process, such as genetic algorithms.
- These provide the necessary flexibility and allow adaptation to the specific
- characteristics of each dataset.
- In the second phase, the BNF rules of Grammatical Evolution are employed
- to further refine the parameter bounds.
- Finally, in the third phase, the network is trained within these optimized
- bounds.
- The results indicate that the proposed method outperforms other approaches,
- such as ADAM or standard genetic algorithms, in both classification and
- regression problems.
- The errors recorded using the GE-based method are significantly lower than
- those of other methods.
- Notably, the reduction in errors demonstrates the method's enhanced parameter
- adaptation process and its ability to avoid overfitting.
+The article highlights a novel methodology for training artificial neural
+ networks using Backus-Naur Form grammars combined with Grammatical Evolution.
+ This approach provides a structured framework for defining and optimizing
+ neural network architectures, enhancing their adaptability and performance
+ across various problem domains.
+ The proposed three-phase process includes parameter specification, evolutionary
+ optimization of parameter bounds, and final training with specialized optimizat
+ion algorithms.
+ The methodology demonstrates strong versatility and achieves high performance
+ across diverse architectures such as recurrent neural networks and convolutiona
+l neural networks, handling both classification and regression tasks effectively.
+ The use of Backus-Naur Form grammars constrains the parameter search space,
+ reducing computational complexity and mitigating risks associated with
+ local minima or suboptimal solutions.
+ The experimental findings reveal that GNN outperforms traditional optimization
+ methods, including ADAM, BFGS, and GENETIC, consistently achieving lower
+ error rates.
+ This result highlights the effectiveness of the proposed method in initializing
+ and optimizing network parameters.
+ GNN’s generalization capabilities and adaptability to different datasets
+ further underscore its potential in real-world applications requiring precision
+ and reliability.
+ The results confirm that the lower error rates achieved by GNN are not
+ due to random factors but reflect the robustness of the method.
+ Future explorations could extend the methodology to more complex deep learning
+ architectures, including transformers and graph neural networks, where
+ the dimensionality and complexity of parameters are significantly higher.
+ Dynamic and non-stationary environments such as real-time data streams
+ and adaptive control systems present another promising area of application.
  
 \end_layout
 
 \begin_layout Standard
-Despite the impressive results, there is room for further improvements and
- extensions to the method.
- A significant proposal is the integration of parallel processing during
- the genetic search phase, which could dramatically reduce the time required
- for the training process.
- Additionally, allowing the method to extend and shrink parameter bounds
- with dynamic rates instead of a fixed 50% value could enable a more adaptive
- process tailored to the specifics of each dataset.
- Another suggestion involves improving the local search optimization during
- the second phase.
- Employing more efficient local search algorithms could further reduce training
- errors and enhance the method’s performance.
- Simultaneously, broadening the application of the method to more datasets
- is crucial, both to evaluate its generalizability and robustness and to
- derive insights into its adaptability across various data types.
- Moreover, incorporating automated mechanisms for selecting the initial
- parameter intervals based on the properties of each dataset would be beneficial.
- Such a feature could further enhance the method's performance and flexibility.
- Overall, the proposed methodology is a promising approach for training
- neural networks.
- However, integrating the aforementioned improvements could make it even
- more effective and widely applicable
-\series bold
-.
+Incorporating the methodology into neural architecture search frameworks
+ could automate the discovery of optimal architectures, leveraging Backus-Naur
+ Form grammars to balance exploration and exploitation efficiently.
+ Multimodal data scenarios that combine textual, visual, and auditory inputs
+ could also benefit from this approach by enabling hybrid architectures
+ capable of processing diverse information types effectively.
+ Addressing scalability concerns through parallel and distributed computing
+ frameworks could enable the method to handle large-scale datasets and complex
+ architectures.
+ Domain-specific grammars tailored to particular problem types, such as
+ time-series forecasting or anomaly detection, could further refine the
+ applicability and efficiency of the method.
+ Combining the evolutionary optimization process with gradient-based techniques
+ could provide a hybrid approach, enhancing convergence speed while maintaining
+ flexibility in exploring the parameter space.
+ 
+\end_layout
+
+\begin_layout Standard
+Empirical studies across broader datasets and theoretical investigations
+ into the convergence properties and computational complexity of the method
+ would offer deeper insights into its strengths and limitations.
+ The methodology represents a significant advancement in neural network
+ training, offering robust adaptability and precision across diverse application
+s.
+ Its potential for scalability, domain-specific customizations, and hybrid
+ optimization approaches underscores its relevance for addressing increasingly
+ complex and dynamic challenges in machine learning.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $ $
+\end_inset
+
+
 \end_layout
 
 \begin_layout Author Contributions
-I.G.T.
- and V.C.
- conceived the idea and methodology.
- I.G.T.
- performed the experiments, employing several datasets, and provided the
+V.C.
+ and I.G.T.
+ conducted the experiments, employing several datasets and provided the
  comparative experiments.
- V.C.
- performed the statistical analysis.
- All authors prepared the manuscript.
- 
+ D.T.
+ and V.C.
+ performed the statistical analysis and prepared the manuscript.
+ All authors have read and agreed to the published version of the manuscript.
 \end_layout
 
 \begin_layout Funding
