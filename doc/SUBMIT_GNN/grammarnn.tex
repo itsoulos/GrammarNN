@@ -2,6 +2,7 @@
 %% Do not edit unless you really know what you are doing.
 \documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi}
 \usepackage[utf8]{inputenc}
+\usepackage{xcolor}
 \usepackage{float}
 \usepackage{url}
 \usepackage{amsmath}
@@ -39,8 +40,8 @@ a series of optimization techniques have been proposed in the relevant
 literature, which, although they present good results in many cases,
 either the optimization method used is not efficient and the training
 error of the network is trapped in sub-optimal values, or the neural
-network exhibits the phenomenon of over-training which means that
-it has poor results when applied to data that was not present during
+network exhibits the phenomenon of overfitting which means that it
+has poor results when applied to data that was not present during
 the training. This paper proposes an innovative technique for constructing
 the weights of artificial neural networks based on appropriate BNF
 grammars, used in the evolutionary process of Grammatical Evolution.
@@ -266,7 +267,7 @@ in the work of Sousa \citep{nninit_overview}.
 
 However, the most important problem that can be caused by the use
 of different initialization and/or training techniques for artificial
-neural networks is the phenomenon of overtraining of these networks,
+neural networks is the phenomenon of overfitting of these networks,
 where the network has poor performance on patterns that were not used
 in the training of the network. This problem was tackled in the recent
 bibliography by a series of methods, such as the weight sharing technique\textbf{
@@ -292,19 +293,21 @@ the artificial neural networks are initialized within the optimal
 value interval of the previous process and an optimization algorithm
 is used to effectively train the network within this interval. 
 
-The method proposed here is quite general and can be applied to other
-neural network architectures, such as recurrent neural networks \citep{rnn1}
-or convolutional neural networks \citep{cnn1}. The only requirement
-for the method to be applicable to such architectures is that the
-parameters of the corresponding machine learning models are available
-and that the initial value range for these parameters is known.
+\textcolor{brown}{The method proposed here is quite general and can
+be applied to other neural network architectures, such as recurrent
+neural networks \citep{rnn1} or convolutional neural networks \citep{cnn1}.
+The only requirement for the method to be applicable to such architectures
+is that the parameters of the corresponding machine learning models
+are available and that the initial value range for these parameters
+is known.}
 
-Furthermore, from a technical point of view, the method can be applied
-to models that have a huge number of parameters without any technical
-limitation, however, it will be necessary to use large-sized chromosomes
-in the Grammatical Evolution process, in order to make the process
-of finding the most reliable value interval for the parameters of
-the machine learning model in question more efficient.
+\textcolor{brown}{Furthermore, from a technical point of view, the
+method can be applied to models that have a huge number of parameters
+without any technical limitation, however, it will be necessary to
+use large-sized chromosomes in the Grammatical Evolution process,
+in order to make the process of finding the most reliable value interval
+for the parameters of the machine learning model in question more
+efficient.}
 
 The remaining of this article is organized as follows: in section
 \ref{sec:Materials-and-Methods} the proposed method is discussed
@@ -385,7 +388,8 @@ the sigmoid function defined as:
 \end{equation}
 These neural networks have one input level, where the pattern is presented
 to the neural network and one hidden level with $H$ processing nodes.
-A representation of this neural networks is depicted in Figure \ref{fig:nnStructure}.
+\textcolor{brown}{A representation of this neural networks is depicted
+in Figure \ref{fig:nnStructure}.}
 
 \begin{figure}[H]
 \begin{centering}
@@ -581,23 +585,24 @@ as:
 \[
 N\left(\overrightarrow{x},\overrightarrow{w}\right)=w_{1}\sigma\left(x_{1}w_{2}+x_{2}w_{3}+w_{4}\right)+w_{5}\sigma\left(x_{1}w_{6}+x_{2}w_{7}+w+w_{8}\right)
 \]
-For this specific example, the following applies to each variable
-of the artificial neural network: 
+\textcolor{brown}{For this specific example, the following applies
+to each variable of the artificial neural network: }
 \begin{enumerate}
-\item $x_{1}\in[-2,2]$
-\item $x_{2}\in[-4,4]$
-\item $x_{3}\in[-2,2]$
-\item $x_{4}\in[0,0]$. This variable can be considered as fixed to 0.0
-\item $x_{5}\in[-4,4]$
-\item $x_{6}\in[-2,2]$
-\item $x_{7}\in[-1,1]$
-\item $x_{8}\in[-1,2]$
+\item \textcolor{brown}{$x_{1}\in[-2,2]$}
+\item \textcolor{brown}{$x_{2}\in[-4,4]$}
+\item \textcolor{brown}{$x_{3}\in[-2,2]$}
+\item \textcolor{brown}{$x_{4}\in[0,0]$. This variable can be considered
+as fixed to 0.0}
+\item \textcolor{brown}{$x_{5}\in[-4,4]$}
+\item \textcolor{brown}{$x_{6}\in[-2,2]$}
+\item \textcolor{brown}{$x_{7}\in[-1,1]$}
+\item \textcolor{brown}{$x_{8}\in[-1,2]$}
 \end{enumerate}
-Furthermore, the method can significantly limit the value ranges of
-the artificial neural network parameters or even set some of them
-to zero. In this way, the method can indirectly construct the structure
-of the neural network. A figure depicting the previously mentioned
-example neural network is shown in Figure \ref{fig:exampleNN}.
+\textcolor{brown}{Furthermore, the method can significantly limit
+the value ranges of the artificial neural network parameters or even
+set some of them to zero. In this way, the method can indirectly construct
+the structure of the neural network. A figure depicting the previously
+mentioned example neural network is shown in Figure \ref{fig:exampleNN}.}
 
 \begin{figure}[H]
 \begin{centering}
@@ -808,7 +813,19 @@ f^{*}=\sum_{j=1}^{M}\left(N\left(g_{i}^{*},x_{j}\right)-y_{j}\right)^{2}
 using a local search procedure. In the proposed method the BFGS variant
 of Powell \citep{powell} was used.
 \end{enumerate}
+%
 \end{enumerate}
+\textcolor{brown}{The steps of the overall algorithm are outlined
+graphically in Figure \ref{fig:flow}.}
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{datagram}
+\par\end{centering}
+\caption{The steps of the proposed algorthm as a flowchart.\label{fig:flow}}
+
+\end{figure}
+
 
 \section{Results\label{sec:Results}}
 
@@ -893,6 +910,103 @@ ZO\_NF\_S, Z\_O\_N\_F\_S and ZONF\_S.
 \item \textbf{Zoo}, that used to predict the class of some animals \citep{zoo}
 .
 \end{enumerate}
+\textcolor{brown}{The number of classes for each used dataset are
+shown in Table \ref{tab:The-classification-datasets}.}
+\begin{table}[H]
+\caption{The column DATASET denotes the number of the dataset and the Number
+of Classes represent the distinct number of classes.\label{tab:The-classification-datasets}}
+
+\centering{}%
+\begin{tabular}{|c|c|}
+\hline 
+DATASET & Number of Classes\tabularnewline
+\hline 
+\hline 
+ALCOHOL & 4\tabularnewline
+\hline 
+APPENDICITIS & 2\tabularnewline
+\hline 
+AUSTRALIAN & 2\tabularnewline
+\hline 
+BANDS & 2\tabularnewline
+\hline 
+CLEVELAND & 5\tabularnewline
+\hline 
+CIRCULAR & 2\tabularnewline
+\hline 
+DERMATOLOGY & 6\tabularnewline
+\hline 
+ECOLI & 8\tabularnewline
+\hline 
+HABERMAN & 2\tabularnewline
+\hline 
+HEARTATTACK & 2\tabularnewline
+\hline 
+HAYES ROTH & 3\tabularnewline
+\hline 
+HEART & 2\tabularnewline
+\hline 
+HEPATITIS & 20\tabularnewline
+\hline 
+HOUSEVOTES & 2\tabularnewline
+\hline 
+IONOSPHERE & 2\tabularnewline
+\hline 
+LIVERDISORDER & 2\tabularnewline
+\hline 
+LYMOGRAPHY & 4\tabularnewline
+\hline 
+MAGIC & 2\tabularnewline
+\hline 
+MAMMOGRAPHIC & 2\tabularnewline
+\hline 
+PAGE BLOCKS & 5\tabularnewline
+\hline 
+PARKINSONS & 2\tabularnewline
+\hline 
+PIMA & 2\tabularnewline
+\hline 
+PHONEME & 2\tabularnewline
+\hline 
+POPFAILURES & 2\tabularnewline
+\hline 
+RING & 2\tabularnewline
+\hline 
+SPIRAL & 2\tabularnewline
+\hline 
+REGIONS2 & 5\tabularnewline
+\hline 
+SAHEART & 2\tabularnewline
+\hline 
+SEGMENT & 7\tabularnewline
+\hline 
+STATHEART & 2\tabularnewline
+\hline 
+SPAMBASE & 2\tabularnewline
+\hline 
+SPIRAL & 2\tabularnewline
+\hline 
+STUDENT & 2\tabularnewline
+\hline 
+TAE & 3\tabularnewline
+\hline 
+TRANSFUSION & 2\tabularnewline
+\hline 
+WDBC & 2\tabularnewline
+\hline 
+WINE & 3\tabularnewline
+\hline 
+Z\_F\_S & 3\tabularnewline
+\hline 
+ZO\_NF\_S & 3\tabularnewline
+\hline 
+ZONF\_S & 2\tabularnewline
+\hline 
+ZOO & 7\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
 Also the following regression datasets were used in the conducted
 experiments:
 \begin{enumerate}
@@ -937,6 +1051,72 @@ prices of various stocks.
 \item \textbf{TZ}, derived from the STATLIB website and it has 60 features.
 \item \textbf{VE} dataset, derived from the STALIB repository.
 \end{enumerate}
+\textcolor{brown}{The number of features for each regression dataset
+incorporated in the current work are shown in Table \ref{tab:The-regression-datasets}.}
+\begin{table}[H]
+\caption{The regression datasets used in the experiments. The column DATASET
+denotes the used dataset and the column FEATURES the number of features
+in this dataset.\label{tab:The-regression-datasets}}
+
+\centering{}%
+\begin{tabular}{|c|c|}
+\hline 
+DATASET & FEATURES\tabularnewline
+\hline 
+\hline 
+ABALONE & 8\tabularnewline
+\hline 
+AIRFOIL & 5\tabularnewline
+\hline 
+AUTO & 5\tabularnewline
+\hline 
+BASEBALL & 16\tabularnewline
+\hline 
+BK & 4\tabularnewline
+\hline 
+BL & 7\tabularnewline
+\hline 
+CONCRETE & 8\tabularnewline
+\hline 
+DEE & 6\tabularnewline
+\hline 
+EU & 2\tabularnewline
+\hline 
+FA & 18\tabularnewline
+\hline 
+FRIEDMAN & 5\tabularnewline
+\hline 
+HO & 13\tabularnewline
+\hline 
+HOUSING & 13\tabularnewline
+\hline 
+LASER & 4\tabularnewline
+\hline 
+LW & 9\tabularnewline
+\hline 
+MORTGAGE & 15\tabularnewline
+\hline 
+PLASTIC & 2\tabularnewline
+\hline 
+PL & 2\tabularnewline
+\hline 
+REALESTATE & 5\tabularnewline
+\hline 
+QUAKE & 3\tabularnewline
+\hline 
+SN & 11\tabularnewline
+\hline 
+STOCK & 9\tabularnewline
+\hline 
+TREASURY & 15\tabularnewline
+\hline 
+TZ & 60\tabularnewline
+\hline 
+VE & 7\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
 
 \subsection{Experimental results}
 
@@ -977,17 +1157,17 @@ $H$ & Number of processing nodes & 10\tabularnewline
 \textbf{ }The table \ref{tab:expClass} outlines the experimental
 results for the classification datasets and in Table \ref{tab:expRegression}
 the experimental results for the regression datasets are listed.\textbf{
-}The classification error is defined as:
+}\textcolor{brown}{The classification error is defined as:
 \begin{equation}
 E_{C}\left(M(x)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(M\left(x_{i}\right)\right)-y_{i}\right)}{N}
 \end{equation}
 where $M(x)$ denotes the underlying machine learning model and set
-$T$ stands for the train dataset.\textbf{ }Also, the regression error
-is defined as: 
+$T$ stands for the train dataset.}\textbf{\textcolor{brown}{{} }}\textcolor{brown}{Also,
+the regression error is defined as: 
 \begin{equation}
 E_{R}\left(M(x)\right)=\frac{\sum_{i=1}^{N}\left(M\left(x_{i}\right)-y_{i}\right)^{2}}{N}
 \end{equation}
-The following applies to these tables:
+}The following applies to these tables:
 \begin{enumerate}
 \item The column DATASET represents the used dataset.
 \item The column ADAM denotes the application of the ADAM optimizer to a
@@ -997,12 +1177,13 @@ Powell to a neural network with $H=10$ processing nodes.
 \item The column GENETIC stands for the usage of a genetic algorithm on
 a neural network with $H=10$ processing nodes. The values for the
 parameters of this genetic algorithm are shown in Table \ref{tab:settings}.
-\item The column NEAT defines the application of the NEAT method (NeuroEvolution
-of Augmenting Topologies ) \citep{neat} as implemented in EvolutionNet
-package freely available from \url{https://github.com/BiagioFesta/EvolutionNet}.
-The number of used generations is the same as in the GENETIC algorithm. 
-\item The column RBF stands for the usage of a Radial Basis Function (RBF)
-network \citep{rbf1,rbf2} with $H=10$ processing nodes.
+\item \textcolor{brown}{The column NEAT defines the application of the NEAT
+method (NeuroEvolution of Augmenting Topologies ) \citep{neat} as
+implemented in EvolutionNet package freely available from \url{https://github.com/BiagioFesta/EvolutionNet}.
+The number of used generations is the same as in the GENETIC algorithm. }
+\item \textcolor{brown}{The column RBF stands for the usage of a Radial
+Basis Function (RBF) network \citep{rbf1,rbf2} with $H=10$ processing
+nodes.}
 \item The column GNN stands for the incorporation of the proposed method
 to a neural network with $H=10$ processing nodes with parameter settings
 outlined in Table \ref{tab:settings}.
@@ -1176,15 +1357,15 @@ VE & 0.359 & 1.92 & 2.43 & 0.045 & 0.024 & 0.0493\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
- The statistical analysis of Table \ref{tab:expClass} highlights
-interesting patterns regarding model performance and the nature of
-the datasets. The GNN model achieves the lowest average error rate
-(21.11\%), making it the overall best-performing model. This suggests
-that it is particularly effective across the dataset collection. In
-contrast, NEAT, despite an average error rate of 33.72\%, excels in
-specific datasets such as Z\_O\_N\_F\_S, where it performs almost
-equivalently to GNN. The analysis reveals significant variations in
-error rates across datasets, indicating differing levels of complexity
+ \textcolor{brown}{The statistical analysis of Table \ref{tab:expClass}
+highlights interesting patterns regarding model performance and the
+nature of the datasets. The GNN model achieves the lowest average
+error rate (21.11\%), making it the overall best-performing model.
+This suggests that it is particularly effective across the dataset
+collection. In contrast, NEAT, despite an average error rate of 33.72\%,
+excels in specific datasets such as Z\_O\_N\_F\_S, where it performs
+almost equivalently to GNN. The analysis reveals significant variations
+in error rates across datasets, indicating differing levels of complexity
 and challenges faced by the models. For instance, datasets like Z\_O\_N\_F\_S,
 where errors are low for all models, are likely characterized by well-defined
 patterns and minimal class overlap. On the other hand, datasets such
@@ -1215,48 +1396,49 @@ among models and datasets also highlights the complexity of selecting
 appropriate machine learning algorithms. While GNN stands out as the
 overall leader, each model may prove superior under specific conditions,
 depending on the nature and dimensionality of the data, the noise
-level, and the class overlap.
+level, and the class overlap.}
 
-The statistical analysis of Table \ref{tab:expRegression} indicates
-that the GNN model achieves the lowest average error (11.234), establishing
-it as the best performer across the datasets for regression problems.
-RBF follows with an average error of 19.34, while GENETIC ranks third
-with an average error of 19.926. The models ADAM, BFGS, and NEAT exhibit
-significantly higher average errors (46.795, 52.648, and 39.42, respectively),
-with BFGS showing the poorest overall performance. A detailed dataset-wise
-analysis reveals significant differences in the models’ performances.
-In the AIRFOIL dataset, GNN demonstrates exceptionally low error (0.001),
-proving to be highly suitable for this problem. Similarly, the RBF
-model performs well in problems such as BASEBALL and BL, recording
-errors of 93.02 and 0.013, respectively. In the CONCRETE dataset,
-GNN once again excels with an error of 0.004, and in the HOUSING dataset,
-it achieves a substantially lower error (14.79) compared to the other
-models, highlighting its adaptability to high-complexity data. ADAM
-exhibits significant performance variability, with extremely high
-errors in datasets such as STOCK (180.893) and REALESTATE (186.778),
-but relatively better performance in problems like MORTGAGE (9.24).
-NEAT shows similar instability, with high errors in datasets such
-as LASER (0.084) and TZ (0.098), while performing relatively well
-in PY (0.075). GENETIC, although ranked third overall, performs moderately
-in problems like HOUSING (43.26) and STOCK (3.881) but shows good
-performance in datasets like PLASTIC (2.791). RBF displays comparable
-instability, achieving low errors in problems such as BL (0.013) but
-significantly higher errors in datasets like PL (2.12). The comparison
-of models highlights GNN’s superiority in most cases. GNN’s lower
-errors in datasets such as LASER, STOCK, and TREASURY suggest that
-this model is particularly well-suited for problems requiring precision
-in continuous variables. RBF proves reliable in selected problems
-but with greater variability. ADAM and NEAT appear to face more constraints,
-particularly in datasets with high dimensionality or noise. This analysis
-underscores the necessity for careful selection of the appropriate
-regression model, considering the specific characteristics of each
-dataset. While GNN emerges as the best overall performer, the other
-models demonstrate strengths in specific applications, making their
-use suitable under particular conditions.
+\textcolor{brown}{The statistical analysis of Table \ref{tab:expRegression}
+indicates that the GNN model achieves the lowest average error (11.234),
+establishing it as the best performer across the datasets for regression
+problems. RBF follows with an average error of 19.34, while GENETIC
+ranks third with an average error of 19.926. The models ADAM, BFGS,
+and NEAT exhibit significantly higher average errors (46.795, 52.648,
+and 39.42, respectively), with BFGS showing the poorest overall performance.
+A detailed dataset-wise analysis reveals significant differences in
+the models’ performances. In the AIRFOIL dataset, GNN demonstrates
+exceptionally low error (0.001), proving to be highly suitable for
+this problem. Similarly, the RBF model performs well in problems such
+as BASEBALL and BL, recording errors of 93.02 and 0.013, respectively.
+In the CONCRETE dataset, GNN once again excels with an error of 0.004,
+and in the HOUSING dataset, it achieves a substantially lower error
+(14.79) compared to the other models, highlighting its adaptability
+to high-complexity data. ADAM exhibits significant performance variability,
+with extremely high errors in datasets such as STOCK (180.893) and
+REALESTATE (186.778), but relatively better performance in problems
+like MORTGAGE (9.24). NEAT shows similar instability, with high errors
+in datasets such as LASER (0.084) and TZ (0.098), while performing
+relatively well in PY (0.075). GENETIC, although ranked third overall,
+performs moderately in problems like HOUSING (43.26) and STOCK (3.881)
+but shows good performance in datasets like PLASTIC (2.791). RBF displays
+comparable instability, achieving low errors in problems such as BL
+(0.013) but significantly higher errors in datasets like PL (2.12).
+The comparison of models highlights GNN’s superiority in most cases.
+GNN’s lower errors in datasets such as LASER, STOCK, and TREASURY
+suggest that this model is particularly well-suited for problems requiring
+precision in continuous variables. RBF proves reliable in selected
+problems but with greater variability. ADAM and NEAT appear to face
+more constraints, particularly in datasets with high dimensionality
+or noise. This analysis underscores the necessity for careful selection
+of the appropriate regression model, considering the specific characteristics
+of each dataset. While GNN emerges as the best overall performer,
+the other models demonstrate strengths in specific applications, making
+their use suitable under particular conditions.}
 
-The statistical comparison between the used methods for the classification
-datasets is depicted in Figure \ref{fig:statClass} while for the
-regression datasets is graphically outlined in Figure \ref{fig:statRegression}.
+\textcolor{brown}{The statistical comparison between the used methods
+for the classification datasets is depicted in Figure \ref{fig:statClass}
+while for the regression datasets is graphically outlined in Figure
+\ref{fig:statRegression}.} 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[scale=0.5]{stat1}
@@ -1274,25 +1456,25 @@ datasets.\label{fig:statRegression}}
 
 \end{figure}
 
-The statistical analysis conducted using the Wilcoxon Test (Figure
-\ref{fig:statClass}) to compare the models from Table {[}table3{]}
-reveals significant differences in performance, as evidenced by the
-extremely low p-values. The p-value is an indicator of the probability
-that the observed differences in performance between models are due
-to random factors, with values below the conventional threshold (e.g.,
-0.05) being considered statistically significant. In this analysis,
-all p-values are exceptionally low, indicating that the differences
-between GNN and the other models are statistically robust. The comparison
-between GNN and ADAM yielded a p-value of 9.1e-13, indicating that
-the probability of the observed differences being random is nearly
-zero. This result highlights the clear superiority of GNN over ADAM.
-Similarly, the p-value of 2e-11 for the comparison between GNN and
-BFGS demonstrates that GNN achieves significantly lower errors than
-BFGS, confirming the latter's inferior performance. The analysis of
-the pairs GNN and GENETIC (p = 5.2e-09) and GNN and NEAT (p = 5.7e-10)
-indicates that although the GENETIC and NEAT models have specific
-strengths in individual datasets, their overall performance does not
-approach that of GNN. The differences are statistically significant,
+\textcolor{brown}{The statistical analysis conducted using the Wilcoxon
+Test (Figure \ref{fig:statClass}) to compare the models from Table
+\ref{tab:expClass} reveals significant differences in performance,
+as evidenced by the extremely low p-values. The p-value is an indicator
+of the probability that the observed differences in performance between
+models are due to random factors, with values below the conventional
+threshold (e.g., 0.05) being considered statistically significant.
+In this analysis, all p-values are exceptionally low, indicating that
+the differences between GNN and the other models are statistically
+robust. The comparison between GNN and ADAM yielded a p-value of 9.1e-13,
+indicating that the probability of the observed differences being
+random is nearly zero. This result highlights the clear superiority
+of GNN over ADAM. Similarly, the p-value of 2e-11 for the comparison
+between GNN and BFGS demonstrates that GNN achieves significantly
+lower errors than BFGS, confirming the latter's inferior performance.
+The analysis of the pairs GNN and GENETIC (p = 5.2e-09) and GNN and
+NEAT (p = 5.7e-10) indicates that although the GENETIC and NEAT models
+have specific strengths in individual datasets, their overall performance
+does not approach that of GNN. The differences are statistically significant,
 clearly establishing GNN as the superior choice under the conditions
 examined. Lastly, the comparison between GNN and RBF (p = 1.8e-08)
 demonstrates that GNN also outperforms RBF, despite RBF showing strong
@@ -1305,20 +1487,20 @@ effective model for classification problems and highlights the need
 for further exploration of the structure and characteristics that
 contribute to its performance. Moreover, it reinforces the importance
 of applying statistical techniques such as the Wilcoxon Test to make
-informed decisions when comparing different machine learning algorithms.
+informed decisions when comparing different machine learning algorithms.}
 
-In Figure \ref{fig:statRegression}, the comparison between GNN and
-ADAM yields a p-value of 0.0011, indicating that GNN demonstrates
-significantly better performance than ADAM. Although this value is
-higher than the others, it remains statistically significant, underscoring
-GNN's superiority in terms of error rates. The difference between
-GNN and BFGS is even more pronounced, with a p-value of 2.8e-07, signifying
-that GNN outperforms BFGS with very high statistical power. The p-values
-for the comparisons of GNN with the models GENETIC (p = 3.9e-05),
-NEAT (p = 5.5e-05), and RBF (p = 0.013) further strengthen the evidence
-of GNN’s superiority. While RBF appears to exhibit relatively better
-performance than the other models compared with GNN, the p-value of
-0.013 indicates that the difference is still statistically significant
+\textcolor{brown}{In Figure \ref{fig:statRegression}, the comparison
+between GNN and ADAM yields a p-value of 0.0011, indicating that GNN
+demonstrates significantly better performance than ADAM. Although
+this value is higher than the others, it remains statistically significant,
+underscoring GNN's superiority in terms of error rates. The difference
+between GNN and BFGS is even more pronounced, with a p-value of 2.8e-07,
+signifying that GNN outperforms BFGS with very high statistical power.
+The p-values for the comparisons of GNN with the models GENETIC (p
+= 3.9e-05), NEAT (p = 5.5e-05), and RBF (p = 0.013) further strengthen
+the evidence of GNN’s superiority. While RBF appears to exhibit relatively
+better performance than the other models compared with GNN, the p-value
+of 0.013 indicates that the difference is still statistically significant
 and supports the preference for GNN. These results confirm GNN's superiority
 in regression problems concerning its overall performance, suggesting
 that the lower error rates it achieves are not due to random factors
@@ -1326,41 +1508,42 @@ but reflect its effectiveness. This analysis highlights the importance
 of using statistical tools like the Wilcoxon Test to evaluate the
 performance of machine learning algorithms and emphasizes the need
 for a tailored model selection process, taking into account the specific
-characteristics of each problem.
+characteristics of each problem.}
 
 \section{Conclusions\label{sec:Conclusions}}
 
-The article highlights a novel methodology for training artificial
-neural networks using Backus-Naur Form grammars combined with Grammatical
-Evolution. This approach provides a structured framework for defining
-and optimizing neural network architectures, enhancing their adaptability
-and performance across various problem domains. The proposed three-phase
-process includes parameter specification, evolutionary optimization
-of parameter bounds, and final training with specialized optimization
-algorithms. The methodology demonstrates strong versatility and achieves
-high performance across diverse architectures such as recurrent neural
-networks and convolutional neural networks, handling both classification
-and regression tasks effectively. The use of Backus-Naur Form grammars
-constrains the parameter search space, reducing computational complexity
-and mitigating risks associated with local minima or suboptimal solutions.
-The experimental findings reveal that GNN outperforms traditional
-optimization methods, including ADAM, BFGS, and GENETIC, consistently
-achieving lower error rates. This result highlights the effectiveness
-of the proposed method in initializing and optimizing network parameters.
-GNN’s generalization capabilities and adaptability to different datasets
-further underscore its potential in real-world applications requiring
-precision and reliability. The results confirm that the lower error
-rates achieved by GNN are not due to random factors but reflect the
-robustness of the method. Future explorations could extend the methodology
-to more complex deep learning architectures, including transformers
-and graph neural networks, where the dimensionality and complexity
-of parameters are significantly higher. Dynamic and non-stationary
-environments such as real-time data streams and adaptive control systems
-present another promising area of application. 
+\textcolor{brown}{The article highlights a novel methodology for training
+artificial neural networks using Backus-Naur Form grammars combined
+with Grammatical Evolution. This approach provides a structured framework
+for defining and optimizing neural network architectures, enhancing
+their adaptability and performance across various problem domains.
+The proposed three-phase process includes parameter specification,
+evolutionary optimization of parameter bounds, and final training
+with specialized optimization algorithms. The methodology demonstrates
+strong versatility and achieves high performance across diverse architectures
+such as recurrent neural networks and convolutional neural networks,
+handling both classification and regression tasks effectively. The
+use of Backus-Naur Form grammars constrains the parameter search space,
+reducing computational complexity and mitigating risks associated
+with local minima or suboptimal solutions. The experimental findings
+reveal that GNN outperforms traditional optimization methods, including
+ADAM, BFGS, and GENETIC, consistently achieving lower error rates.
+This result highlights the effectiveness of the proposed method in
+initializing and optimizing network parameters. GNN’s generalization
+capabilities and adaptability to different datasets further underscore
+its potential in real-world applications requiring precision and reliability.
+The results confirm that the lower error rates achieved by GNN are
+not due to random factors but reflect the robustness of the method.
+Future explorations could extend the methodology to more complex deep
+learning architectures, including transformers and graph neural networks,
+where the dimensionality and complexity of parameters are significantly
+higher. Dynamic and non-stationary environments such as real-time
+data streams and adaptive control systems present another promising
+area of application. }
 
-Incorporating the methodology into neural architecture search frameworks
-could automate the discovery of optimal architectures, leveraging
-Backus-Naur Form grammars to balance exploration and exploitation
+\textcolor{brown}{Incorporating the methodology into neural architecture
+search frameworks could automate the discovery of optimal architectures,
+leveraging Backus-Naur Form grammars to balance exploration and exploitation
 efficiently. Multimodal data scenarios that combine textual, visual,
 and auditory inputs could also benefit from this approach by enabling
 hybrid architectures capable of processing diverse information types
@@ -1372,23 +1555,23 @@ or anomaly detection, could further refine the applicability and efficiency
 of the method. Combining the evolutionary optimization process with
 gradient-based techniques could provide a hybrid approach, enhancing
 convergence speed while maintaining flexibility in exploring the parameter
-space. 
+space. }
 
-Empirical studies across broader datasets and theoretical investigations
-into the convergence properties and computational complexity of the
-method would offer deeper insights into its strengths and limitations.
+\textcolor{brown}{Empirical studies across broader datasets and theoretical
+investigations into the convergence properties and computational complexity
+of the method would offer deeper insights into its strengths and limitations.
 The methodology represents a significant advancement in neural network
 training, offering robust adaptability and precision across diverse
 applications. Its potential for scalability, domain-specific customizations,
 and hybrid optimization approaches underscores its relevance for addressing
-increasingly complex and dynamic challenges in machine learning.
+increasingly complex and dynamic challenges in machine learning.}
 
 $ $
 
 \authorcontributions{V.C. and I.G.T. conducted the experiments, employing several datasets
-and provided the comparative experiments. D.T. and V.C. performed
-the statistical analysis and prepared the manuscript. All authors
-have read and agreed to the published version of the manuscript.}
+and provided the comparative experiments. V.C. performed the statistical
+analysis and prepared the manuscript. All authors have read and agreed
+to the published version of the manuscript.}
 
 \funding{This research received no external funding.}
 

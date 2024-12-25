@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.12.10)  21 DEC 2024 12:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022/Debian) (preloaded format=pdflatex 2024.12.23)  25 DEC 2024 18:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1014,7 +1014,7 @@ Package: seqsplit 2006/08/07 v0.1 Splitting long sequences (DNA, RNA, proteins,
 )
 \@float@every@algorithm=\toks59
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 201.
+h' as default language. on input line 202.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
@@ -1148,31 +1148,31 @@ Package cleveref Info: always capitalise cross-reference names on input line 78
 Package cleveref Info: no abbreviation of names on input line 7852.
 )
 LaTeX Font Info:    Trying to load font information for T1+ppl on input line 20
-1.
+2.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 ) (./grammarnn.aux)
 \openout1 = `grammarnn.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 202.
+LaTeX Font Info:    ... okay on input line 202.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1190,19 +1190,19 @@ LaTeX Font Info:    ... okay on input line 201.
 )
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 201.
-LaTeX Info: Redefining \microtypecontext on input line 201.
-Package microtype Info: Applying patch `item' on input line 201.
-Package microtype Info: Applying patch `toc' on input line 201.
-Package microtype Info: Applying patch `eqnum' on input line 201.
-Package microtype Info: Applying patch `footnote' on input line 201.
+(lastpage)             ! on input line 202.
+LaTeX Info: Redefining \microtypecontext on input line 202.
+Package microtype Info: Applying patch `item' on input line 202.
+Package microtype Info: Applying patch `toc' on input line 202.
+Package microtype Info: Applying patch `eqnum' on input line 202.
+Package microtype Info: Applying patch `footnote' on input line 202.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 201.
+LaTeX Info: Redefining \showhyphens on input line 202.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1215,7 +1215,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 201.
+or `english'. on input line 202.
 
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -1254,86 +1254,86 @@ Package newfloat Info: `float' package detected.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 201.
+Package hyperref Info: Link coloring ON on input line 202.
 (./grammarnn.out) (./grammarnn.out)
 \@outlinefile=\write4
 \openout4 = `grammarnn.out'.
 
 LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 2
-01.
+02.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 )
-Underfull \hbox (badness 3590) in paragraph at lines 201--201
+Underfull \hbox (badness 3590) in paragraph at lines 202--202
 \T1/ppl/m/n/7 (+20) Submitted to \T1/ppl/m/it/7 (+20) Jour-nal Not Spec-i-fied
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--201
+Underfull \hbox (badness 10000) in paragraph at lines 202--202
 \T1/ppl/m/n/7 (+20) un-der the terms and con-di-tions
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--201
+Underfull \hbox (badness 10000) in paragraph at lines 202--202
 \T1/ppl/m/n/7 (+20) of the Cre-ative Com-mons Attri-
  []
 
 
-Underfull \hbox (badness 8019) in paragraph at lines 201--201
+Underfull \hbox (badness 8019) in paragraph at lines 202--202
 \T1/ppl/m/n/7 (+20) bu-tion (CC BY) li-cense ([][]https://[][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--201
+Underfull \hbox (badness 10000) in paragraph at lines 202--202
 [][]\T1/ppl/m/n/7 (+20) creativecommons.org/licenses/by/[][]
  []
 
 LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 2
-01.
+02.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
 LaTeX Font Info:    Trying to load font information for OML+zplm on input line 
-201.
+202.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 
-201.
+202.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 
-201.
+202.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 201.
+(Font)              scaled to size 10.42007pt on input line 202.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 201.
+(Font)              scaled to size 7.91925pt on input line 202.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 201.
+(Font)              scaled to size 6.25204pt on input line 202.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 10.42007pt on input line 201.
+(Font)              scaled to size 10.42007pt on input line 202.
 
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.91925pt on input line 201.
+(Font)              scaled to size 7.91925pt on input line 202.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 201.
+(Font)              scaled to size 6.25204pt on input line 202.
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-201.
+202.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
@@ -1346,68 +1346,68 @@ Package microtype Info: Loading generic protrusion settings for font family
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-eur.cfg
 File: mt-eur.cfg 2006/07/31 v1.1 microtype config. file: AMS Euler Roman (RS)
 )
-LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 201.
+LaTeX Font Info:    Redeclaring symbol font `AMSb' on input line 202.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `normal'
-(Font)                  U/msb/m/n --> U/msb/m/n on input line 201.
+(Font)                  U/msb/m/n --> U/msb/m/n on input line 202.
 LaTeX Font Info:    Overwriting symbol font `AMSb' in version `bold'
-(Font)                  U/msb/m/n --> U/msb/m/n on input line 201.
+(Font)                  U/msb/m/n --> U/msb/m/n on input line 202.
 Package marginnote Info: Margin note 1.1 is on absolute page 1 on input line 20
-1.
-Package marginnote Info: right page because not two side mode on input line 201
+2.
+Package marginnote Info: right page because not two side mode on input line 202
 .
 
-Underfull \hbox (badness 3590) in paragraph at lines 201--201
+Underfull \hbox (badness 3590) in paragraph at lines 202--202
 \T1/ppl/m/n/7 (+20) Submitted to \T1/ppl/m/it/7 (+20) Jour-nal Not Spec-i-fied
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--201
+Underfull \hbox (badness 10000) in paragraph at lines 202--202
 \T1/ppl/m/n/7 (+20) un-der the terms and con-di-tions
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--201
+Underfull \hbox (badness 10000) in paragraph at lines 202--202
 \T1/ppl/m/n/7 (+20) of the Cre-ative Com-mons Attri-
  []
 
 
-Underfull \hbox (badness 8019) in paragraph at lines 201--201
+Underfull \hbox (badness 8019) in paragraph at lines 202--202
 \T1/ppl/m/n/7 (+20) bu-tion (CC BY) li-cense ([][]https://[][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 201--201
+Underfull \hbox (badness 10000) in paragraph at lines 202--202
 [][]\T1/ppl/m/n/7 (+20) creativecommons.org/licenses/by/[][]
  []
 
-Package marginnote Info: xpos seems to be 167.01753pt on input line 201.
+Package marginnote Info: xpos seems to be 167.01753pt on input line 202.
 Package epstopdf Info: Source file: <Definitions/logo-mdpi.eps>
-(epstopdf)                    date: 2024-12-10 08:06:38
+(epstopdf)                    date: 2024-12-25 09:39:16
 (epstopdf)                    size: 563678 bytes
 (epstopdf)             Output file: <Definitions/logo-mdpi-eps-converted-to.pdf
 >
-(epstopdf)                    date: 2024-12-10 08:06:38
+(epstopdf)                    date: 2024-12-25 09:39:16
 (epstopdf)                    size: 13161 bytes
 (epstopdf)             Command: <repstopdf --outfile=Definitions/logo-mdpi-eps-
 converted-to.pdf Definitions/logo-mdpi.eps>
-(epstopdf)             \includegraphics on input line 201.
+(epstopdf)             \includegraphics on input line 202.
 Package epstopdf Info: Output file is already uptodate.
 <Definitions/logo-mdpi-eps-converted-to.pdf, id=62, 74.2775pt x 49.18375pt>
 File: Definitions/logo-mdpi-eps-converted-to.pdf Graphic file (type pdf)
 <use Definitions/logo-mdpi-eps-converted-to.pdf>
 Package pdftex.def Info: Definitions/logo-mdpi-eps-converted-to.pdf  used on in
-put line 201.
+put line 202.
 (pdftex.def)             Requested size: 42.96877pt x 28.45274pt.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 201.
+(Font)              scaled to size 8.33606pt on input line 202.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 201.
+(Font)              scaled to size 5.21004pt on input line 202.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 201.
+(Font)              scaled to size 8.33606pt on input line 202.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 5.21004pt on input line 201.
+(Font)              scaled to size 5.21004pt on input line 202.
 LaTeX Font Info:    Trying to load font information for T1+cmss on input line 2
-01.
+02.
 (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmss.fd
 File: t1cmss.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
@@ -1437,19 +1437,10 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [2]
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 16.18796pt, for example:
-(fancyhdr)                \setlength{\headheight}{16.18796pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
-
-[3]
-<flow2.png, id=229, 344.7279pt x 298.4751pt>
+<flow2.png, id=210, 344.7279pt x 298.4751pt>
 File: flow2.png Graphic file (type png)
 <use flow2.png>
-Package pdftex.def Info: flow2.png  used on input line 392.
+Package pdftex.def Info: flow2.png  used on input line 396.
 (pdftex.def)             Requested size: 258.54529pt x 223.85577pt.
 
 
@@ -1460,9 +1451,18 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
+[3]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
+
 [4 <./flow2.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 4
-73.
+77.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )
@@ -1489,13 +1489,13 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [6]
-<flow1.png, id=286, 286.1892pt x 254.3904pt>
+<flow1.png, id=289, 286.1892pt x 254.3904pt>
 File: flow1.png Graphic file (type png)
 <use flow1.png>
-Package pdftex.def Info: flow1.png  used on input line 604.
+Package pdftex.def Info: flow1.png  used on input line 609.
 (pdftex.def)             Requested size: 214.64136pt x 190.79233pt.
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 619.
+put line 624.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1507,23 +1507,23 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [7 <./flow1.png>]
 Package epstopdf Info: Source file: <onepoint_crossover.eps>
-(epstopdf)                    date: 2024-12-10 08:06:38
+(epstopdf)                    date: 2024-12-25 09:39:16
 (epstopdf)                    size: 121541 bytes
 (epstopdf)             Output file: <onepoint_crossover-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-12-10 08:06:38
+(epstopdf)                    date: 2024-12-25 09:39:16
 (epstopdf)                    size: 23537 bytes
 (epstopdf)             Command: <repstopdf --outfile=onepoint_crossover-eps-con
 verted-to.pdf onepoint_crossover.eps>
-(epstopdf)             \includegraphics on input line 720.
+(epstopdf)             \includegraphics on input line 725.
 Package epstopdf Info: Output file is already uptodate.
-<onepoint_crossover-eps-converted-to.pdf, id=318, 817.0525pt x 271.0125pt>
+<onepoint_crossover-eps-converted-to.pdf, id=323, 817.0525pt x 271.0125pt>
 File: onepoint_crossover-eps-converted-to.pdf Graphic file (type pdf)
 <use onepoint_crossover-eps-converted-to.pdf>
 Package pdftex.def Info: onepoint_crossover-eps-converted-to.pdf  used on input
- line 720.
+ line 725.
 (pdftex.def)             Requested size: 408.52525pt x 135.5059pt.
 
-Overfull \hbox (14.17003pt too wide) in paragraph at lines 720--721
+Overfull \hbox (14.17003pt too wide) in paragraph at lines 725--726
  [][] 
  []
 
@@ -1545,24 +1545,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [9 <./onepoint_crossover-eps-converted-to.pdf>]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 848--848
-[]\T1/ppl/m/n/10 (-20) 10.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 850--850
-[]\T1/ppl/m/n/10 (-20) 11.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 852--852
-[]\T1/ppl/m/n/10 (-20) 12.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 853--853
-[]\T1/ppl/m/n/10 (-20) 13.  
- []
+<datagram.png, id=375, 562.9833pt x 644.6484pt>
+File: datagram.png Graphic file (type png)
+<use datagram.png>
+Package pdftex.def Info: datagram.png  used on input line 823.
+(pdftex.def)             Requested size: 281.49097pt x 322.32341pt.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1573,188 +1560,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [10]
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 855--855
-[]\T1/ppl/m/n/10 (-20) 14.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 857--857
-[]\T1/ppl/m/n/10 (-20) 15.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 859--859
-[]\T1/ppl/m/n/10 (-20) 16.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 861--861
-[]\T1/ppl/m/n/10 (-20) 17.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 863--863
-[]\T1/ppl/m/n/10 (-20) 18.  
- []
-
-
 Overfull \hbox (2.49998pt too wide) in paragraph at lines 865--865
-[]\T1/ppl/m/n/10 (-20) 19.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 867--867
-[]\T1/ppl/m/n/10 (-20) 20.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 869--869
-[]\T1/ppl/m/n/10 (-20) 21.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 871--871
-[]\T1/ppl/m/n/10 (-20) 22.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 873--873
-[]\T1/ppl/m/n/10 (-20) 23.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 874--874
-[]\T1/ppl/m/n/10 (-20) 24.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 876--876
-[]\T1/ppl/m/n/10 (-20) 25.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 877--877
-[]\T1/ppl/m/n/10 (-20) 26.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 878--878
-[]\T1/ppl/m/n/10 (-20) 27.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 880--880
-[]\T1/ppl/m/n/10 (-20) 28.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 881--881
-[]\T1/ppl/m/n/10 (-20) 29.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 882--882
-[]\T1/ppl/m/n/10 (-20) 30.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 883--883
-[]\T1/ppl/m/n/10 (-20) 31.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 885--885
-[]\T1/ppl/m/n/10 (-20) 32.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 886--886
-[]\T1/ppl/m/n/10 (-20) 33.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 887--887
-[]\T1/ppl/m/n/10 (-20) 34.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 889--889
-[]\T1/ppl/m/n/10 (-20) 35.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 890--890
-[]\T1/ppl/m/n/10 (-20) 36.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 893--893
-[]\T1/ppl/m/n/10 (-20) 37.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 915--915
 []\T1/ppl/m/n/10 (-20) 10.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 916--916
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 867--867
 []\T1/ppl/m/n/10 (-20) 11.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 918--918
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 869--869
 []\T1/ppl/m/n/10 (-20) 12.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 919--919
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 870--870
 []\T1/ppl/m/n/10 (-20) 13.  
  []
 
 
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 920--920
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 872--872
 []\T1/ppl/m/n/10 (-20) 14.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 921--921
-[]\T1/ppl/m/n/10 (-20) 15.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 923--923
-[]\T1/ppl/m/n/10 (-20) 16.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 925--925
-[]\T1/ppl/m/n/10 (-20) 17.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 926--926
-[]\T1/ppl/m/n/10 (-20) 18.  
- []
-
-
-Overfull \hbox (2.49998pt too wide) in paragraph at lines 928--928
-[]\T1/ppl/m/n/10 (-20) 19.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 929--929
-[]\T1/ppl/m/n/10 (-20) 20.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 931--931
-[]\T1/ppl/m/n/10 (-20) 21.  
- []
-
-
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 932--932
-[]\T1/ppl/m/n/10 (-20) 22.  
  []
 
 
@@ -1765,24 +1592,119 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[11]
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 934--934
+[11 <./datagram.png>]
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 874--874
+[]\T1/ppl/m/n/10 (-20) 15.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 876--876
+[]\T1/ppl/m/n/10 (-20) 16.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 878--878
+[]\T1/ppl/m/n/10 (-20) 17.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 880--880
+[]\T1/ppl/m/n/10 (-20) 18.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 882--882
+[]\T1/ppl/m/n/10 (-20) 19.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 884--884
+[]\T1/ppl/m/n/10 (-20) 20.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 886--886
+[]\T1/ppl/m/n/10 (-20) 21.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 888--888
+[]\T1/ppl/m/n/10 (-20) 22.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 890--890
 []\T1/ppl/m/n/10 (-20) 23.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 936--936
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 891--891
 []\T1/ppl/m/n/10 (-20) 24.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 937--937
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 893--893
 []\T1/ppl/m/n/10 (-20) 25.  
  []
 
 
-Overfull \hbox (2.99998pt too wide) in paragraph at lines 938--938
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 894--894
 []\T1/ppl/m/n/10 (-20) 26.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 895--895
+[]\T1/ppl/m/n/10 (-20) 27.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 897--897
+[]\T1/ppl/m/n/10 (-20) 28.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 898--898
+[]\T1/ppl/m/n/10 (-20) 29.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 899--899
+[]\T1/ppl/m/n/10 (-20) 30.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 900--900
+[]\T1/ppl/m/n/10 (-20) 31.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 902--902
+[]\T1/ppl/m/n/10 (-20) 32.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 903--903
+[]\T1/ppl/m/n/10 (-20) 33.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 904--904
+[]\T1/ppl/m/n/10 (-20) 34.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 906--906
+[]\T1/ppl/m/n/10 (-20) 35.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 907--907
+[]\T1/ppl/m/n/10 (-20) 36.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 910--910
+[]\T1/ppl/m/n/10 (-20) 37.  
  []
 
 
@@ -1803,6 +1725,90 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [13]
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 1029--1029
+[]\T1/ppl/m/n/10 (-20) 10.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 1030--1030
+[]\T1/ppl/m/n/10 (-20) 11.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 1032--1032
+[]\T1/ppl/m/n/10 (-20) 12.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 1033--1033
+[]\T1/ppl/m/n/10 (-20) 13.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 1034--1034
+[]\T1/ppl/m/n/10 (-20) 14.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 1035--1035
+[]\T1/ppl/m/n/10 (-20) 15.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 1037--1037
+[]\T1/ppl/m/n/10 (-20) 16.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 1039--1039
+[]\T1/ppl/m/n/10 (-20) 17.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 1040--1040
+[]\T1/ppl/m/n/10 (-20) 18.  
+ []
+
+
+Overfull \hbox (2.49998pt too wide) in paragraph at lines 1042--1042
+[]\T1/ppl/m/n/10 (-20) 19.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 1043--1043
+[]\T1/ppl/m/n/10 (-20) 20.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 1045--1045
+[]\T1/ppl/m/n/10 (-20) 21.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 1046--1046
+[]\T1/ppl/m/n/10 (-20) 22.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 1048--1048
+[]\T1/ppl/m/n/10 (-20) 23.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 1050--1050
+[]\T1/ppl/m/n/10 (-20) 24.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 1051--1051
+[]\T1/ppl/m/n/10 (-20) 25.  
+ []
+
+
+Overfull \hbox (2.99998pt too wide) in paragraph at lines 1052--1052
+[]\T1/ppl/m/n/10 (-20) 26.  
+ []
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1812,17 +1818,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [14]
-<stat1.png, id=588, 505.89pt x 505.89pt>
-File: stat1.png Graphic file (type png)
-<use stat1.png>
-Package pdftex.def Info: stat1.png  used on input line 1262.
-(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
-<stat2.png, id=589, 505.89pt x 505.89pt>
-File: stat2.png Graphic file (type png)
-<use stat2.png>
-Package pdftex.def Info: stat2.png  used on input line 1270.
-(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
-
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1840,7 +1835,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[16 <./stat1.png (PNG copy)> <./stat2.png>]
+[16]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1850,6 +1845,17 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
 [17]
+<stat1.png, id=608, 505.89pt x 505.89pt>
+File: stat1.png Graphic file (type png)
+<use stat1.png>
+Package pdftex.def Info: stat1.png  used on input line 1444.
+(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
+<stat2.png, id=609, 505.89pt x 505.89pt>
+File: stat2.png Graphic file (type png)
+<use stat2.png>
+Package pdftex.def Info: stat2.png  used on input line 1452.
+(pdftex.def)             Requested size: 252.94437pt x 252.94437pt.
+
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1867,7 +1873,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[19]
+[19 <./stat1.png (PNG copy)> <./stat2.png>]
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 16.18796pt, for example:
@@ -1885,7 +1891,34 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[21] 
+[21]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
+
+[22]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
+
+[23]
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 16.18796pt, for example:
+(fancyhdr)                \setlength{\headheight}{16.18796pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+
+(fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
+
+[24] 
 AED: lastpage setting LastPage
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1895,16 +1928,16 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-4.18796pt}.
 
-[22] (./grammarnn.aux)
+[25] (./grammarnn.aux)
 Package rerunfilecheck Info: File `grammarnn.out' has not changed.
 (rerunfilecheck)             Checksum: 83C7BB9E1FE2D358159A1620773B892A;1807.
  ) 
 Here is how much of TeX's memory you used:
- 34495 strings out of 477975
- 643671 string characters out of 5839280
- 1909330 words of memory out of 5000000
- 53192 multiletter control sequences out of 15000+600000
- 581360 words of font info for 438 fonts, out of 8000000 for 9000
+ 34517 strings out of 477975
+ 644071 string characters out of 5839280
+ 1910330 words of memory out of 5000000
+ 53208 multiletter control sequences out of 15000+600000
+ 581286 words of font info for 438 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
  123i,20n,120p,4340b,1075s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </home/sheridan/.texlive2022/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.
@@ -1919,10 +1952,10 @@ e1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
 mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/upl
 b8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on grammarnn.pdf (22 pages, 736796 bytes).
+Output written on grammarnn.pdf (25 pages, 976591 bytes).
 PDF statistics:
- 809 PDF objects out of 1000 (max. 8388607)
- 688 compressed objects within 7 object streams
- 336 named destinations out of 1000 (max. 500000)
- 90763 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 833 PDF objects out of 1000 (max. 8388607)
+ 706 compressed objects within 8 object streams
+ 342 named destinations out of 1000 (max. 500000)
+ 90768 words of extra memory for PDF output out of 106986 (max. 10000000)
 
