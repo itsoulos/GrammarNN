@@ -812,8 +812,6 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 The method proposed here is quite general and can be applied to other neural
  network architectures, such as recurrent neural networks 
 \begin_inset CommandInset citation
@@ -838,8 +836,6 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 Furthermore, from a technical point of view, the method can be applied to
  models that have a huge number of parameters without any technical limitation,
  however, it will be necessary to use large-sized chromosomes in the Grammatical
@@ -1129,9 +1125,7 @@ These neural networks have one input level, where the pattern is presented
 \end_inset
 
  processing nodes.
- 
-\color brown
-A representation of this neural networks is depicted in Figure 
+ A representation of this neural networks is depicted in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:nnStructure"
@@ -2153,15 +2147,11 @@ N\left(\overrightarrow{x},\overrightarrow{w}\right)=w_{1}\sigma\left(x_{1}w_{2}+
 
 \end_inset
 
-
-\color brown
 For this specific example, the following applies to each variable of the
  artificial neural network: 
 \end_layout
 
 \begin_layout Enumerate
-
-\color brown
 \begin_inset Formula $x_{1}\in[-2,2]$
 \end_inset
 
@@ -2169,8 +2159,6 @@ For this specific example, the following applies to each variable of the
 \end_layout
 
 \begin_layout Enumerate
-
-\color brown
 \begin_inset Formula $x_{2}\in[-4,4]$
 \end_inset
 
@@ -2178,8 +2166,6 @@ For this specific example, the following applies to each variable of the
 \end_layout
 
 \begin_layout Enumerate
-
-\color brown
 \begin_inset Formula $x_{3}\in[-2,2]$
 \end_inset
 
@@ -2187,8 +2173,6 @@ For this specific example, the following applies to each variable of the
 \end_layout
 
 \begin_layout Enumerate
-
-\color brown
 \begin_inset Formula $x_{4}\in[0,0]$
 \end_inset
 
@@ -2197,8 +2181,6 @@ For this specific example, the following applies to each variable of the
 \end_layout
 
 \begin_layout Enumerate
-
-\color brown
 \begin_inset Formula $x_{5}\in[-4,4]$
 \end_inset
 
@@ -2206,8 +2188,6 @@ For this specific example, the following applies to each variable of the
 \end_layout
 
 \begin_layout Enumerate
-
-\color brown
 \begin_inset Formula $x_{6}\in[-2,2]$
 \end_inset
 
@@ -2215,8 +2195,6 @@ For this specific example, the following applies to each variable of the
 \end_layout
 
 \begin_layout Enumerate
-
-\color brown
 \begin_inset Formula $x_{7}\in[-1,1]$
 \end_inset
 
@@ -2224,8 +2202,6 @@ For this specific example, the following applies to each variable of the
 \end_layout
 
 \begin_layout Enumerate
-
-\color brown
 \begin_inset Formula $x_{8}\in[-1,2]$
 \end_inset
 
@@ -2233,8 +2209,6 @@ For this specific example, the following applies to each variable of the
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 Furthermore, the method can significantly limit the value ranges of the
  artificial neural network parameters or even set some of them to zero.
  In this way, the method can indirectly construct the structure of the neural
@@ -3441,8 +3415,6 @@ literal "false"
 
 \end_deeper
 \begin_layout Standard
-
-\color brown
 The steps of the overall algorithm are outlined graphically in Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4114,8 +4086,6 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 The number of classes for each used dataset are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4127,8 +4097,6 @@ noprefix "false"
 \end_inset
 
 .
-\color inherit
-
 \begin_inset Float table
 placement H
 wide false
@@ -5273,10 +5241,10 @@ VE
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 The number of features for each regression dataset incorporated in the current
- work are shown in Table 
+ work are shown in Table
+\color brown
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:The-regression-datasets"
@@ -6240,7 +6208,6 @@ noprefix "false"
 \series bold
  
 \series default
-\color brown
 The classification error is defined as:
 \begin_inset Formula 
 \begin{equation}
@@ -6270,8 +6237,6 @@ E_{R}\left(M(x)\right)=\frac{\sum_{i=1}^{N}\left(M\left(x_{i}\right)-y_{i}\right
 
 \end_inset
 
-
-\color inherit
 The following applies to these tables:
 \end_layout
 
@@ -6319,8 +6284,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Enumerate
-
-\color brown
 The column NEAT defines the application of the NEAT method (NeuroEvolution
  of Augmenting Topologies ) 
 \begin_inset CommandInset citation
@@ -6347,8 +6310,6 @@ https://github.com/BiagioFesta/EvolutionNet
 \end_layout
 
 \begin_layout Enumerate
-
-\color brown
 The column RBF stands for the usage of a Radial Basis Function (RBF) network
  
 \begin_inset CommandInset citation
@@ -11260,9 +11221,7 @@ AVERAGE
 
 \end_inset
 
- 
-\color brown
-The statistical analysis of Table 
+ The statistical analysis of Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:expClass"
@@ -11318,8 +11277,6 @@ ics, performing well in certain datasets like BALANCE but falling short
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 The statistical analysis of Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11373,8 +11330,6 @@ e regression model, considering the specific characteristics of each dataset.
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 The statistical comparison between the used methods for the classification
  datasets is depicted in Figure 
 \begin_inset CommandInset ref
@@ -11397,8 +11352,6 @@ noprefix "false"
 \end_inset
 
 .
-
-\color inherit
  
 \begin_inset Float figure
 placement H
@@ -11489,8 +11442,6 @@ name "fig:statRegression"
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 The statistical analysis conducted using the Wilcoxon Test (Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11548,8 +11499,6 @@ noprefix "false"
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 In Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -11594,8 +11543,6 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 The article highlights a novel methodology for training artificial neural
  networks using Backus-Naur Form grammars combined with Grammatical Evolution.
  This approach provides a structured framework for defining and optimizing
@@ -11629,8 +11576,6 @@ l neural networks, handling both classification and regression tasks effectively
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 Incorporating the methodology into neural architecture search frameworks
  could automate the discovery of optimal architectures, leveraging Backus-Naur
  Form grammars to balance exploration and exploitation efficiently.
@@ -11650,8 +11595,6 @@ Incorporating the methodology into neural architecture search frameworks
 \end_layout
 
 \begin_layout Standard
-
-\color brown
 Empirical studies across broader datasets and theoretical investigations
  into the convergence properties and computational complexity of the method
  would offer deeper insights into its strengths and limitations.

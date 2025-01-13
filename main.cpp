@@ -194,7 +194,6 @@ void parseCmdLine(QStringList args)
         }
         if(foundParameter) continue;
         //check in genetic
-	printf("Check in genetic \n");
         ParameterList pg = gen->getParameterList();
         if(pg.contains(name))
         {

@@ -10,7 +10,7 @@ PROGRAM=./GrammarNN
 DATAFILE=$1
 
 ## MODEL: The name of the used model. Available values: Mlp, Rbf
-MODEL=Mlp
+MODEL=Rbf
 
 ## METHOD: The name of the used training method, when the Grammar Genetic finishes. 
 #          Avalaible values: Bfgs, Adam, Gradient, Lbfgs, Genetic, Pso
