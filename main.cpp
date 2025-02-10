@@ -266,6 +266,7 @@ void    loadDataFiles()
 void    runSecondPhase()
 {
     selectedModel->enableFastExp();
+    selectedModel->setParam("mlp_usebound","true");
     selectedModel->initModel();
     dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);
     gen->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
@@ -307,6 +308,7 @@ void    runThirdPhase()
         }
     }
 
+    selectedModel->setParam("mlp_usebound","false");
     for(int ik=1;ik<=gnn_iters;ik++)
     {
         //train model

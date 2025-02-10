@@ -101,6 +101,7 @@ void        IntervalDE::Solve()
                     left = xa[j].leftValue()+F*(xb[j].leftValue()-xc[j].leftValue());
                     right= xa[j].rightValue()+F*(xb[j].rightValue()-xc[j].rightValue());
                     trialx[j]=Interval(left,right);
+		    /*
 		    if(problem->randomDouble()<=0.01)
 		    {
             			Interval trialf = fitness(trialx);
@@ -110,7 +111,7 @@ void        IntervalDE::Solve()
                 			fitnessArray[i]=trialf;
             			}
 				else trialx[j]=agent[i][j];
-		    }
+		    }*/
                 }
             }
             Interval trialf = fitness(trialx);
@@ -130,6 +131,7 @@ void        IntervalDE::Solve()
                 y=fitnessArray[i];
             }
         }
+	if(iter%50==0)
         printf("BEST[%d]=[%lf %lf]\n",iter,y.leftValue(),y.rightValue());
     }
 }
