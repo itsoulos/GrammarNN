@@ -97,9 +97,20 @@ void        IntervalDE::Solve()
                 if(j==index || problem->randomDouble()<=CR)
                 {
                     double left,right;
+                	//F = -0.5 + 2.0 * rand()*1.0/RAND_MAX;
                     left = xa[j].leftValue()+F*(xb[j].leftValue()-xc[j].leftValue());
                     right= xa[j].rightValue()+F*(xb[j].rightValue()-xc[j].rightValue());
                     trialx[j]=Interval(left,right);
+		    if(problem->randomDouble()<=0.01)
+		    {
+            			Interval trialf = fitness(trialx);
+            			if(problem->lowerValue(trialf,fitnessArray[i]))
+            			{
+                			agent[i]=trialx;
+                			fitnessArray[i]=trialf;
+            			}
+				else trialx[j]=agent[i][j];
+		    }
                 }
             }
             Interval trialf = fitness(trialx);
