@@ -28,6 +28,7 @@ SOURCES += \
         GE/rule.cc \
         GE/symbol.cc \
         INTERVAL/interval.cpp \
+        INTERVAL/intervalde.cpp \
         INTERVAL/intervalproblem.cpp \
         INTERVAL/problem.cpp \
         METHODS/adam.cpp \
@@ -80,6 +81,7 @@ HEADERS += \
     GE/rule.h \
     GE/symbol.h \
     INTERVAL/interval.h \
+    INTERVAL/intervalde.h \
     INTERVAL/intervalproblem.h \
     INTERVAL/problem.h \
     METHODS/adam.h \

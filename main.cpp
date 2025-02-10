@@ -8,10 +8,12 @@
 # include <METHODS/gradientdescent.h>
 # include <METHODS/ipso.h>
 # include <METHODS/genetic.h>
+# include <INTERVAL/intervalde.h>
 # include <QDebug>
 
 
 GrammarGenetic *gen=NULL;
+IntervalDE *ide=NULL;
 QVector<Optimizer*> method;
 QStringList methodName;
 Model *selectedModel = NULL;
@@ -78,6 +80,7 @@ void init()
     loadMethods();
     loadModels();
     gen = new GrammarGenetic(200,200,NULL);
+    ide = new IntervalDE(NULL);
     makeMainParams();
 }
 
@@ -85,6 +88,8 @@ void done()
 {
     if(gen!=NULL)
         delete gen;
+    if(ide!=NULL)
+        delete ide;
     unloadMethods();
     unloadModels();
 }
@@ -264,9 +269,12 @@ void    runSecondPhase()
     selectedModel->initModel();
     dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);
     gen->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
-    gen->Solve();
+    ide->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
+    ide->Solve();
+    //gen->Solve();
     Interval yy;
-    gen->getBest(bestMargin,yy);
+    ide->getBest(bestMargin,yy);
+    //gen->getBest(bestMargin,yy);
     qDebug()<<"PHASE 2. Best interval located: "<<"[ "<<
               yy.leftValue()<<","<<yy.rightValue()<<"]";
     dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);

@@ -64,6 +64,7 @@ SOURCES       = CORE/parameter.cpp \
 		GE/rule.cc \
 		GE/symbol.cc \
 		INTERVAL/interval.cpp \
+		INTERVAL/intervalde.cpp \
 		INTERVAL/intervalproblem.cpp \
 		INTERVAL/problem.cpp \
 		METHODS/adam.cpp \
@@ -108,6 +109,7 @@ OBJECTS       = parameter.o \
 		rule.o \
 		symbol.o \
 		interval.o \
+		intervalde.o \
 		intervalproblem.o \
 		problem.o \
 		adam.o \
@@ -239,6 +241,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		GE/rule.h \
 		GE/symbol.h \
 		INTERVAL/interval.h \
+		INTERVAL/intervalde.h \
 		INTERVAL/intervalproblem.h \
 		INTERVAL/problem.h \
 		METHODS/adam.h \
@@ -281,6 +284,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		GE/rule.cc \
 		GE/symbol.cc \
 		INTERVAL/interval.cpp \
+		INTERVAL/intervalde.cpp \
 		INTERVAL/intervalproblem.cpp \
 		INTERVAL/problem.cpp \
 		METHODS/adam.cpp \
@@ -514,8 +518,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents CORE/parameter.h CORE/parameterlist.h GE/cprogram.h GE/doublestack.h GE/fparser.hh GE/fpconfig.hh GE/fptypes.hh GE/grammargenetic.h GE/integeranneal.h GE/program.h GE/rule.h GE/symbol.h INTERVAL/interval.h INTERVAL/intervalproblem.h INTERVAL/problem.h METHODS/adam.h METHODS/armijosearch.h METHODS/bfgs.h METHODS/collection.h METHODS/doublebox.h METHODS/editlogger.h METHODS/fibonaccisearch.h METHODS/filelogger.h METHODS/genetic.h METHODS/goldensearch.h METHODS/gradientdescent.h METHODS/ipso.h METHODS/lbfgs.h METHODS/linesearch.h METHODS/logger.h METHODS/mean.h METHODS/optimizer.h METHODS/similarity.h MLMODELS/dataset.h MLMODELS/mlpproblem.h MLMODELS/model.h MLMODELS/rbfproblem.h SAMPLER/kmeanssampler.h SAMPLER/maxwellsampler.h SAMPLER/neuralsampler.h SAMPLER/problemsampler.h SAMPLER/rbfsampler.h SAMPLER/triangularsampler.h SAMPLER/uniformsampler.h $(DISTDIR)/
-	$(COPY_FILE) --parents CORE/parameter.cpp CORE/parameterlist.cpp GE/cprogram.cc GE/doublestack.cc GE/fparser.cc GE/fpoptimizer.cc GE/grammargenetic.cpp GE/integeranneal.cpp GE/program.cc GE/rule.cc GE/symbol.cc INTERVAL/interval.cpp INTERVAL/intervalproblem.cpp INTERVAL/problem.cpp METHODS/adam.cpp METHODS/armijosearch.cpp METHODS/bfgs.cpp METHODS/collection.cpp METHODS/doublebox.cpp METHODS/editlogger.cpp METHODS/fibonaccisearch.cpp METHODS/filelogger.cpp METHODS/genetic.cpp METHODS/goldensearch.cpp METHODS/gradientdescent.cpp METHODS/ipso.cpp METHODS/lbfgs.cpp METHODS/linesearch.cpp METHODS/logger.cpp METHODS/mean.cpp METHODS/optimizer.cpp METHODS/similarity.cpp MLMODELS/dataset.cpp MLMODELS/mlpproblem.cpp MLMODELS/model.cpp MLMODELS/rbfproblem.cpp SAMPLER/kmeanssampler.cpp SAMPLER/maxwellsampler.cpp SAMPLER/neuralsampler.cpp SAMPLER/problemsampler.cpp SAMPLER/rbfsampler.cpp SAMPLER/triangularsampler.cpp SAMPLER/uniformsampler.cpp main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents CORE/parameter.h CORE/parameterlist.h GE/cprogram.h GE/doublestack.h GE/fparser.hh GE/fpconfig.hh GE/fptypes.hh GE/grammargenetic.h GE/integeranneal.h GE/program.h GE/rule.h GE/symbol.h INTERVAL/interval.h INTERVAL/intervalde.h INTERVAL/intervalproblem.h INTERVAL/problem.h METHODS/adam.h METHODS/armijosearch.h METHODS/bfgs.h METHODS/collection.h METHODS/doublebox.h METHODS/editlogger.h METHODS/fibonaccisearch.h METHODS/filelogger.h METHODS/genetic.h METHODS/goldensearch.h METHODS/gradientdescent.h METHODS/ipso.h METHODS/lbfgs.h METHODS/linesearch.h METHODS/logger.h METHODS/mean.h METHODS/optimizer.h METHODS/similarity.h MLMODELS/dataset.h MLMODELS/mlpproblem.h MLMODELS/model.h MLMODELS/rbfproblem.h SAMPLER/kmeanssampler.h SAMPLER/maxwellsampler.h SAMPLER/neuralsampler.h SAMPLER/problemsampler.h SAMPLER/rbfsampler.h SAMPLER/triangularsampler.h SAMPLER/uniformsampler.h $(DISTDIR)/
+	$(COPY_FILE) --parents CORE/parameter.cpp CORE/parameterlist.cpp GE/cprogram.cc GE/doublestack.cc GE/fparser.cc GE/fpoptimizer.cc GE/grammargenetic.cpp GE/integeranneal.cpp GE/program.cc GE/rule.cc GE/symbol.cc INTERVAL/interval.cpp INTERVAL/intervalde.cpp INTERVAL/intervalproblem.cpp INTERVAL/problem.cpp METHODS/adam.cpp METHODS/armijosearch.cpp METHODS/bfgs.cpp METHODS/collection.cpp METHODS/doublebox.cpp METHODS/editlogger.cpp METHODS/fibonaccisearch.cpp METHODS/filelogger.cpp METHODS/genetic.cpp METHODS/goldensearch.cpp METHODS/gradientdescent.cpp METHODS/ipso.cpp METHODS/lbfgs.cpp METHODS/linesearch.cpp METHODS/logger.cpp METHODS/mean.cpp METHODS/optimizer.cpp METHODS/similarity.cpp MLMODELS/dataset.cpp MLMODELS/mlpproblem.cpp MLMODELS/model.cpp MLMODELS/rbfproblem.cpp SAMPLER/kmeanssampler.cpp SAMPLER/maxwellsampler.cpp SAMPLER/neuralsampler.cpp SAMPLER/problemsampler.cpp SAMPLER/rbfsampler.cpp SAMPLER/triangularsampler.cpp SAMPLER/uniformsampler.cpp main.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -635,6 +639,18 @@ symbol.o: GE/symbol.cc GE/symbol.h
 
 interval.o: INTERVAL/interval.cpp INTERVAL/interval.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o interval.o INTERVAL/interval.cpp
+
+intervalde.o: INTERVAL/intervalde.cpp INTERVAL/intervalde.h \
+		INTERVAL/intervalproblem.h \
+		INTERVAL/interval.h \
+		GE/cprogram.h \
+		GE/symbol.h \
+		GE/rule.h \
+		GE/doublestack.h \
+		GE/fparser.hh \
+		CORE/parameterlist.h \
+		CORE/parameter.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o intervalde.o INTERVAL/intervalde.cpp
 
 intervalproblem.o: INTERVAL/intervalproblem.cpp INTERVAL/intervalproblem.h \
 		INTERVAL/interval.h
