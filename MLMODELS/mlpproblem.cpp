@@ -41,7 +41,6 @@ Data    MlpProblem::getSample()
 		  a = center - width/20;
 		  b = center + width/20;
 		  xx[i]=a+(b-a)*randomDouble();
-//		  printf("new value in %lf %lf \n",a,b);
           }
       }
       else
@@ -86,6 +85,7 @@ void    MlpProblem::initWeights()
 void    MlpProblem::initModel()
 {
     usebound_flag = getParam("mlp_usebound").getValue()=="false"?false:true;
+    printf("has bounds %d \n",usebound_flag);
     viollimit  = getParam("mlp_boundlimit").getValue().toDouble();
     initWeights();
 }
@@ -130,10 +130,11 @@ double MlpProblem::funmin(Data &x)
     if(usebound_flag)
     {
 
+
         resetViolationPercent(viollimit);
         double dv = getTrainError();
         double tt = getViolationPercent();
-        return dv*(1.0 + tt * tt);
+        return dv*(1.0 + 1.0 * tt * tt);
     }
     return getTrainError();
 
@@ -196,7 +197,7 @@ void	MlpProblem::resetViolationPercent(double limit)
 
 double  MlpProblem::getViolationPercent()
 {
-	return violcount*100.0/sigcount;
+	return violcount*1.0/sigcount;
 }
 
 /** einai i exodos tou neuronikou gia to protypo x**/

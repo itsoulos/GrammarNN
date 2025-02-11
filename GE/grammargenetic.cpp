@@ -45,7 +45,7 @@ void    GrammarGenetic::setProblem(IntervalProblem *p)
     generation = 0;
     drandDat.resize(10 * nsamples*problem->getDimension());
     for (unsigned i = 0; i < drandDat.size();i++) {
-        drandDat[i]=p->randomDouble();
+        drandDat[i]=problem->randomDouble();
     }
 }
 
@@ -112,9 +112,6 @@ Interval  GrammarGenetic::fitness(IDATA &genome)
 								   /*
         for(int i=0;i<(int)trialx.size();i++)
         {
-
-
-		
             trialx[i]=newMargin[i].leftValue()+
                     (newMargin[i].rightValue()-newMargin[i].leftValue())*drandDat[(k-1)*problem->getDimension()+i];
         }*/
@@ -228,7 +225,6 @@ void    GrammarGenetic::nextGeneration()
     select();
     crossover();
     ++generation;
-    if(generation%20==0)
     printf("Generation=%4d Best Value=[%20.10lg,%20.10lg]\n",
            generation,fitnessArray[0].leftValue(),
             fitnessArray[0].rightValue());
@@ -331,7 +327,7 @@ return;	*/
                 Interval fx=fitness(g);
                 if(problem->lowerValue(fx,fitnessArray[pos]))
         {
-            printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
+            //printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
             for(int j=0;j<genome_size;j++) chromosome[pos][j]=g[j];
             fitnessArray[pos]=fx;
         }
@@ -342,7 +338,7 @@ return;	*/
                     fx=fitness(g);
                     if(problem->lowerValue(fx,fitnessArray[pos]))
             {
-            printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
+            //printf("NEW MIN[%4d]=[%10.4lg,%10.4lg]\n",pos,fx.leftValue(),fx.rightValue());
                 for(int j=0;j<genome_size;j++) chromosome[pos][j]=g[j];
                 fitnessArray[pos]=fx;
             }

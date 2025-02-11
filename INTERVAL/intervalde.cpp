@@ -23,24 +23,25 @@ void        IntervalDE::setParam(QString name,QString value,QString help)
 Interval    IntervalDE::fitness(IntervalData &x)
 {
 
-    vector<Interval> oldMargin = problem->getMargins();
-    vector<Interval> newMargin = x;
 
     double miny=1e+100,maxy=1e+100;
     Data trialx;
     trialx.resize(problem->getDimension());
 
     problem->setModelSeed(1);
-    problem->setMargins(newMargin);
     for(int k=1;k<=nsamples;k++)
     {
 
-        trialx=problem->getSample();
-        double fx= problem->funmin(trialx);
+	
+        for(int i=0;i<(int)trialx.size();i++)
+        {
+            trialx[i]=x[i].leftValue()+
+                    (x[i].rightValue()-x[i].leftValue())*problem->randomDouble();
+        }
+        double fx= (problem->funmin(trialx));
         if(k==1 || fx>maxy) maxy=fx;
         if(k==1 || fx<miny) miny=fx;
     }
-    problem->setMargins(oldMargin);
     return Interval(miny,maxy);
 }
 
@@ -53,6 +54,10 @@ void        IntervalDE::Solve()
     agent.resize(NP);
     fitnessArray.resize(NP);
 
+    drandDat.resize(10 * nsamples*problem->getDimension());
+    for (unsigned i = 0; i < drandDat.size();i++) {
+        drandDat[i]=problem->randomDouble();
+    }
     //init
     IntervalData m  = problem->getMargins();
     for(int i=0;i<NP;i++)
@@ -69,7 +74,11 @@ void        IntervalDE::Solve()
             double r = mid+problem->randomDouble()*(right-mid);
             agent[i][j]=Interval(l,r);
         }
+    }
+    for(int i=0;i<NP;i++)
+    {
         fitnessArray[i]=fitness(agent[i]);
+//	printf("F[%d]=[%lf,%lf]\n",i,fitnessArray[i].leftValue(),fitnessArray[i].rightValue());
     }
     //run
     for(int iter=1;iter<=iters;iter++)
@@ -97,12 +106,15 @@ void        IntervalDE::Solve()
                 if(j==index || problem->randomDouble()<=CR)
                 {
                     double left,right;
-                	//F = -0.5 + 2.0 * rand()*1.0/RAND_MAX;
+                //	F = -0.5 + 2.0 * drand48();
                     left = xa[j].leftValue()+F*(xb[j].leftValue()-xc[j].leftValue());
                     right= xa[j].rightValue()+F*(xb[j].rightValue()-xc[j].rightValue());
+
+		    left = xa[j].leftValue() +drand48()*fabs(xb[j].leftValue()-xc[j].leftValue());
+		    right = xa[j].rightValue() -drand48()*fabs(xb[j].rightValue()-xc[j].rightValue());
                     trialx[j]=Interval(left,right);
-		    /*
-		    if(problem->randomDouble()<=0.01)
+		    
+		    /*if(problem->randomDouble()<=0.01)
 		    {
             			Interval trialf = fitness(trialx);
             			if(problem->lowerValue(trialf,fitnessArray[i]))

@@ -8,12 +8,10 @@
 # include <METHODS/gradientdescent.h>
 # include <METHODS/ipso.h>
 # include <METHODS/genetic.h>
-# include <INTERVAL/intervalde.h>
 # include <QDebug>
 
 
 GrammarGenetic *gen=NULL;
-IntervalDE *ide=NULL;
 QVector<Optimizer*> method;
 QStringList methodName;
 Model *selectedModel = NULL;
@@ -80,7 +78,6 @@ void init()
     loadMethods();
     loadModels();
     gen = new GrammarGenetic(200,200,NULL);
-    ide = new IntervalDE(NULL);
     makeMainParams();
 }
 
@@ -88,8 +85,6 @@ void done()
 {
     if(gen!=NULL)
         delete gen;
-    if(ide!=NULL)
-        delete ide;
     unloadMethods();
     unloadModels();
 }
@@ -199,6 +194,7 @@ void parseCmdLine(QStringList args)
         }
         if(foundParameter) continue;
         //check in genetic
+	printf("Check in genetic \n");
         ParameterList pg = gen->getParameterList();
         if(pg.contains(name))
         {
@@ -214,20 +210,20 @@ void parseCmdLine(QStringList args)
 
 void    runFirstPhase()
 {
-
     //phase 1. Run a small genetic algorithm to identify the most promising
     Genetic gd;
     gd.setParam("opt_debug","yes");
     gd.setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
+    selectedModel->setParam("mlp_usebound","true");
+    selectedModel->initModel();
     gd.solve();
     Data xx;
     xx.resize(dynamic_cast<IntervalProblem*>(selectedModel)->getDimension());
     double yy;
     gd.getBest(xx,yy);
     printf("PHASE 1. Best value=%20.10lg\n",yy);
-    
-    bestMargin.resize(dynamic_cast<IntervalProblem*>(selectedModel)->getDimension());
-    for(int i=0;i<(int)bestMargin.size();i++)
+    bestMargin.resize(xx.size());
+    for(int i=0;i<(int)xx.size();i++)
     {
         bestMargin[i]=Interval(-2.0 * fabs(xx[i]), 2.0*fabs(xx[i]));
     }
@@ -267,18 +263,13 @@ void    loadDataFiles()
 
 void    runSecondPhase()
 {
-	selectedModel->setParam("mlp_usebound","false");
-
     selectedModel->enableFastExp();
     selectedModel->initModel();
     dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);
-    //gen->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
-    ide->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
-    ide->Solve();
-    //gen->Solve();
+    gen->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
+    gen->Solve();
     Interval yy;
-    ide->getBest(bestMargin,yy);
-    //gen->getBest(bestMargin,yy);
+    gen->getBest(bestMargin,yy);
     qDebug()<<"PHASE 2. Best interval located: "<<"[ "<<
               yy.leftValue()<<","<<yy.rightValue()<<"]";
     dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);
@@ -298,7 +289,8 @@ void    runThirdPhase()
 {
     //evaluate the new margins
     selectedModel->disableFastExp();
-	selectedModel->setParam("mlp_usebound","false");
+    selectedModel->setParam("mlp_usebound","false");
+    selectedModel->initModel();
     gnn_iters = mainParamList.getParam("gnn_iters").getValue().toInt();
     selectedMethodName = mainParamList.getParam("gnn_method").getValue();
 
@@ -317,7 +309,6 @@ void    runThirdPhase()
         //train model
         selectedMethod->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
         selectedModel->initModel();
-    	dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);
         selectedMethod->solve();
         double tr=0.0,tt=0.0,tc=0.0;
         selectedModel->testModel(tr,tt,tc);

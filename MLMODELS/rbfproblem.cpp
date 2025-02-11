@@ -7,7 +7,7 @@ RbfProblem::RbfProblem()
     :IntervalProblem(1)
 {
     addParam(Parameter("rbf_nodes","10","Number of rbf nodes"));
-    addParam(Parameter("rbf_factor","3.0","Rbf Scale factor"));
+    addParam(Parameter("rbf_factor","5.0","Rbf Scale factor"));
     trainA.resize(0);
 }
 double  RbfProblem::getDerivative(Data &x,int pos)
