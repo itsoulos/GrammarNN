@@ -23,6 +23,7 @@ public:
     Interval    fitness(IntervalData &x);
     void        Solve();
     void        getBest(IntervalData &x,Interval &y);
+    double  getAdaptiveWeight(int iter);
     ~IntervalDE();
 };
 

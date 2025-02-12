@@ -10,6 +10,13 @@ IntervalDE::IntervalDE(IntervalProblem *p)
 }
 
 
+double  IntervalDE::getAdaptiveWeight(int iter)
+{
+	int de_maxiters = plist.getParam("ide_maxiters").getValue().toInt();
+    const double fmin = 0.2;
+    const double fmax = 0.9;
+    return fmax - (fmax - fmin )*(iter*1.0/de_maxiters)*(iter*1.0/de_maxiters);
+}
 void    IntervalDE::setProblem(IntervalProblem *p)
 {
     problem = p;
@@ -106,12 +113,14 @@ void        IntervalDE::Solve()
                 if(j==index || problem->randomDouble()<=CR)
                 {
                     double left,right;
-                //	F = -0.5 + 2.0 * drand48();
                     left = xa[j].leftValue()+F*(xb[j].leftValue()-xc[j].leftValue());
                     right= xa[j].rightValue()+F*(xb[j].rightValue()-xc[j].rightValue());
 
-		    left = xa[j].leftValue() +drand48()*fabs(xb[j].leftValue()-xc[j].leftValue());
-		    right = xa[j].rightValue() -drand48()*fabs(xb[j].rightValue()-xc[j].rightValue());
+		    F = getAdaptiveWeight(iter);
+		    double f1=F;//drand48();
+		    double f2=F;//drand48();
+		    left = xa[j].leftValue() +f1*fabs(xb[j].leftValue()-xc[j].leftValue());
+		    right = xa[j].rightValue() -f2*fabs(xb[j].rightValue()-xc[j].rightValue());
                     trialx[j]=Interval(left,right);
 		    
 		    /*if(problem->randomDouble()<=0.01)
