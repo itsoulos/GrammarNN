@@ -16,6 +16,7 @@ private:
     ParameterList plist;
     const int nsamples=50;
     Data drandDat;
+    Data ff;
 public:
     IntervalDE(IntervalProblem *p);
     void    setProblem(IntervalProblem *p);
@@ -24,6 +25,7 @@ public:
     void        Solve();
     void        getBest(IntervalData &x,Interval &y);
     double  getAdaptiveWeight(int iter);
+    void    calculateMigrantWeights();
     ~IntervalDE();
 };
 

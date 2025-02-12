@@ -51,6 +51,33 @@ Interval    IntervalDE::fitness(IntervalData &x)
     }
     return Interval(miny,maxy);
 }
+void IntervalDE::calculateMigrantWeights()
+{
+    double maxFitness=fitnessArray[0].leftValue();
+    double sumW = 0.0;
+
+    ff.resize(NP);
+    vector<double> weights;
+    weights.resize(NP);
+    for (int i = 0; i < NP; ++i)
+    {
+        if(fitnessArray[i].leftValue()>maxFitness)
+            maxFitness = fitnessArray[i].leftValue();
+    }
+
+    for (int i = 0; i < NP; ++i)
+    {
+        double d = maxFitness - fitnessArray[i].leftValue();
+        weights[i] = d;
+        sumW += d;
+    }
+
+
+    for (int i = 0; i < NP; ++i)
+    {
+        ff[i] = weights[i] / sumW;
+    }
+}
 
 void        IntervalDE::Solve()
 {
@@ -90,6 +117,7 @@ void        IntervalDE::Solve()
     //run
     for(int iter=1;iter<=iters;iter++)
     {
+	    calculateMigrantWeights();
         for(int i=0;i<NP;i++)
         {
             int a,b,c;
@@ -116,9 +144,9 @@ void        IntervalDE::Solve()
                     left = xa[j].leftValue()+F*(xb[j].leftValue()-xc[j].leftValue());
                     right= xa[j].rightValue()+F*(xb[j].rightValue()-xc[j].rightValue());
 
-		    F = getAdaptiveWeight(iter);
-		    double f1=F;//drand48();
-		    double f2=F;//drand48();
+		    //F = getAdaptiveWeight(iter);
+		    double f1=ff[i];//F;//drand48();
+		    double f2=ff[i];//F;//drand48();
 		    left = xa[j].leftValue() +f1*fabs(xb[j].leftValue()-xc[j].leftValue());
 		    right = xa[j].rightValue() -f2*fabs(xb[j].rightValue()-xc[j].rightValue());
                     trialx[j]=Interval(left,right);
