@@ -30,6 +30,7 @@ double average_train_error = 0.0;
 double average_test_error  = 0.0;
 double average_class_error = 0.0;
 int gnn_iters = 0;
+QString gnn_intervalmethod="intervalde";
 
 void    loadMethods()
 {
@@ -69,6 +70,9 @@ void    unloadModels()
 void makeMainParams()
 {
     mainParamList.addParam(Parameter("help","","Show help screen"));
+    QStringList m;
+    m<<"intervalde"<<"grammar";
+    mainParamList.addParam(Parameter("gnn_intervalmethod",m[0],m,"The used interval method"));
     mainParamList.addParam(Parameter("gnn_method",methodName[0],methodName,"Used Optimization method"));
     mainParamList.addParam(Parameter("gnn_model",modelName[0],modelName,"Model name. Values: mlp,rbf"));
     mainParamList.addParam(Parameter("gnn_seed",1,0,100,"Random Seed"));
@@ -206,6 +210,14 @@ void parseCmdLine(QStringList args)
             gen->setParam(name,value);
             foundParameter=true;
         }
+        //check in IntervalDE
+        pg = ide->getParameterList();
+        if(pg.contains(name))
+        {
+            pg.setParam(name,value);
+            ide->setParam(name,value);
+            foundParameter=true;
+        }
         if(!foundParameter)
             error(QString("Parameter %1 not found.").arg(name));
     }
@@ -267,18 +279,26 @@ void    loadDataFiles()
 
 void    runSecondPhase()
 {
+    gnn_intervalmethod = mainParamList.getParam("gnn_intervalmethod").getValue();
 	selectedModel->setParam("mlp_usebound","false");
 
     selectedModel->enableFastExp();
     selectedModel->initModel();
-    dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);
-    //gen->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
-    ide->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
-    ide->Solve();
-    //gen->Solve();
     Interval yy;
-    ide->getBest(bestMargin,yy);
-    //gen->getBest(bestMargin,yy);
+    dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);
+    if(gnn_intervalmethod=="grammar")
+    {
+        gen->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
+        gen->Solve();
+        gen->getBest(bestMargin,yy);
+    }
+    else
+    {
+        ide->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
+        ide->Solve();
+        ide->getBest(bestMargin,yy);
+    }
+
     qDebug()<<"PHASE 2. Best interval located: "<<"[ "<<
               yy.leftValue()<<","<<yy.rightValue()<<"]";
     dynamic_cast<IntervalProblem*>(selectedModel)->setMargins(bestMargin);
@@ -321,7 +341,7 @@ void    runThirdPhase()
         selectedMethod->solve();
         double tr=0.0,tt=0.0,tc=0.0;
         selectedModel->testModel(tr,tt,tc);
-	printf("OPT RUN[%d]= %lf %lf %lf \n",ik,tr,tt,tc);
+        printf("OPT RUN[%d]= %lf %lf %lf \n",ik,tr,tt,tc);
         average_train_error+=tr;
         average_test_error+=tt;
         average_class_error+=tc;

@@ -6,6 +6,9 @@ IntervalDE::IntervalDE(IntervalProblem *p)
     plist.addParam(Parameter("ide_np",200,10,500,"Number of agents"));
     plist.addParam(Parameter("ide_f",0.8,0.0,2.0,"Differential Weight"));
     plist.addParam(Parameter("ide_cr",0.9,0.0,1.0,"Crossover rate"));
+    QStringList m;
+    m<<"random"<<"fixed"<<"adapt"<<"migrant";
+    plist.addParam(Parameter("ide_weightmethod",m[0],m,"Used weight method"));
     plist.addParam(Parameter("ide_maxiters",500,10,2000,"Number of iterations"));
 }
 
@@ -79,11 +82,17 @@ void IntervalDE::calculateMigrantWeights()
     }
 }
 
+ParameterList IntervalDE::getParameterList() const
+{
+    return plist;
+}
+
 void        IntervalDE::Solve()
 {
     NP = plist.getParam("ide_np").getValue().toInt();
     F  = plist.getParam("ide_f").getValue().toDouble();
     CR = plist.getParam("ide_cr").getValue().toDouble();
+    QString method = plist.getParam("ide_weightmethod").getValue();
     const int iters = plist.getParam("ide_maxiters").getValue().toInt();
     agent.resize(NP);
     fitnessArray.resize(NP);
@@ -112,11 +121,11 @@ void        IntervalDE::Solve()
     for(int i=0;i<NP;i++)
     {
         fitnessArray[i]=fitness(agent[i]);
-//	printf("F[%d]=[%lf,%lf]\n",i,fitnessArray[i].leftValue(),fitnessArray[i].rightValue());
     }
     //run
     for(int iter=1;iter<=iters;iter++)
     {
+        if(method == "migrant")
 	    calculateMigrantWeights();
         for(int i=0;i<NP;i++)
         {
@@ -144,9 +153,32 @@ void        IntervalDE::Solve()
                     left = xa[j].leftValue()+F*(xb[j].leftValue()-xc[j].leftValue());
                     right= xa[j].rightValue()+F*(xb[j].rightValue()-xc[j].rightValue());
 
+
 		    //F = getAdaptiveWeight(iter);
-		    double f1=ff[i];//F;//drand48();
-		    double f2=ff[i];//F;//drand48();
+            double f1=F;
+            double f2=F;
+            if(method == "random")
+            {
+                f1 = drand48();
+                f2 = drand48();
+            }
+            else
+            if(method == "fixed")
+            {
+                f1 = F;
+                f2 = F;
+            }
+            else
+            if(method == "adapt")
+            {
+                f1 = getAdaptiveWeight(iter);
+                f2 = getAdaptiveWeight(iter);
+            }
+            else
+            {
+                f1 = ff[i];
+                f2 = ff[i];
+            }
 		    left = xa[j].leftValue() +f1*fabs(xb[j].leftValue()-xc[j].leftValue());
 		    right = xa[j].rightValue() -f2*fabs(xb[j].rightValue()-xc[j].rightValue());
                     trialx[j]=Interval(left,right);

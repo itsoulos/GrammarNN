@@ -9,6 +9,9 @@ PROGRAM=./GrammarNN
 ## DATAFILE: the name of the used dataset
 DATAFILE=$1
 
+## INTERVALMETHOD: The used interval method. Available values: grammar, intervalde
+INTERVALMETHOD=intervalde
+
 ## MODEL: The name of the used model. Available values: Mlp, Rbf
 MODEL=Mlp
 
@@ -52,7 +55,7 @@ fi
 ## gnn_seed:   The seed used in the random number generator.
 ## gnn_method: The optimization method used in the final phase of the simulation experiments to evaluate the bounds. 
 ## gnn_model:  The model used during the experiments
-MAINPARAMS="--gnn_iters=10 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL"
+MAINPARAMS="--gnn_intervalmethod=$INTERVALMETHOD --gnn_iters=10 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL"
 
 ### Grammar Genetic PARAMETERS
 ## ggen_count:  The number of chromosomes used in the Grammar Genetic process.
@@ -62,5 +65,13 @@ MAINPARAMS="--gnn_iters=10 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL"
 ## ggen_gens:   The maximum number of allowed generations for Grammar Genetic
 GENPARAMS="--ggen_count=500 --ggen_size=100 --ggen_srate=0.1 --ggen_mrate=0.05 --ggen_gens=200"
 
+### IntervalDE PARAMETERS
+## ide_np: 		The number of agents. Default 200
+## ide_f : 		The fixed value used for differential weight. Default 0.8
+## ide_cr: 		The crossover rate. Default 0.9
+## ide_weightmethod:    The weight method used. Available values: random, fixed, adapt, migrant. Default: random
+## ide_maxiters:	The maximum number of allowed iterations. Default 200.
+
+IDEPARAMS="--ide_np=200 --ide_f=0.8 --ide_cr=0.9 --ide_weightmethod=random --ide_maxiters=200"
 ## Execute the program
-$PROGRAM $GENPARAMS $MAINPARAMS $OPTPARAMS $MODELPARAMS
+$PROGRAM $GENPARAMS $IDEPARAMS $MAINPARAMS $OPTPARAMS $MODELPARAMS

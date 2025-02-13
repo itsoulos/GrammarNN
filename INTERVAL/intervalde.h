@@ -26,6 +26,8 @@ public:
     void        getBest(IntervalData &x,Interval &y);
     double  getAdaptiveWeight(int iter);
     void    calculateMigrantWeights();
+    ParameterList getParameterList() const;
+
     ~IntervalDE();
 };
 
