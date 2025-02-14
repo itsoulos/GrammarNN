@@ -1265,10 +1265,6 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -3457,10 +3453,6 @@ sideways false
 status collapsed
 
 \begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
@@ -4802,6 +4794,14 @@ AVERAGE
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Using different weight methods 
+\end_layout
+
+\begin_layout Subsubsection
+Experiment with the number of agents
 \end_layout
 
 \begin_layout Section
