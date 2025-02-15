@@ -323,6 +323,217 @@ Introduction
 \end_layout
 
 \begin_layout Standard
+One of the most widespread machine learning models with many applications
+ is artificial neural networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn1,nn2"
+literal "false"
+
+\end_inset
+
+.
+ Artificial neural networks are parametric models defined as 
+\begin_inset Formula $N\left(\overrightarrow{x},\overrightarrow{w}\right)$
+\end_inset
+
+, where the vector 
+\begin_inset Formula $\overrightarrow{x}$
+\end_inset
+
+ represents the input pattern for the neural network and the vector 
+\begin_inset Formula $\overrightarrow{w}$
+\end_inset
+
+ denotes the associated set of parameters that should be estimated by some
+ optimization procedure.
+ These optimization procedures usually minimize the so - called training
+ error, defined as:
+\begin_inset Formula 
+\begin{equation}
+E\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\sum_{i=1}^{M}\left(N\left(\overrightarrow{x}_{i},\overrightarrow{w}\right)-y_{i}\right)^{2}\label{eq:eq1}
+\end{equation}
+
+\end_inset
+
+The set 
+\begin_inset Formula $\left(\overrightarrow{x_{i}},y_{i}\right),\ i=1,...,M$
+\end_inset
+
+ stands for the training set of the dataset and the values 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+ are the expected outputs for each pattern 
+\begin_inset Formula $\overrightarrow{x_{i}}$
+\end_inset
+
+.
+ These models have been applied on wide series of applications from the
+ related literature, such as
+\series bold
+ 
+\series default
+image processing 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_image"
+literal "false"
+
+\end_inset
+
+, time series forecasting 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_timeseries"
+literal "false"
+
+\end_inset
+
+, credit card analysis 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_credit"
+literal "false"
+
+\end_inset
+
+, physics problems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnphysics1,nnphysics2"
+literal "false"
+
+\end_inset
+
+,
+\series bold
+ 
+\series default
+solar radiation prediction 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_solar"
+literal "false"
+
+\end_inset
+
+, agriculture problems 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnagr2"
+literal "false"
+
+\end_inset
+
+ etc.
+\end_layout
+
+\begin_layout Standard
+The equation 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ has been tackled by a variety of optimization and metaheuristic methods,
+ such as the Back Propagation algorithm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "bpnn1,bpnn2"
+literal "false"
+
+\end_inset
+
+, the RPROP method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rpropnn-1,rpropnn-2"
+literal "false"
+
+\end_inset
+
+, the Adam Optimizer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_adam"
+literal "false"
+
+\end_inset
+
+, the Levenberg Marquardt method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_leve"
+literal "false"
+
+\end_inset
+
+ etc.
+ Furthermore, global optimization techniques have been also applied to neural
+ network training.
+ Among them one can detect the Simulated Annealing approach 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_siman"
+literal "false"
+
+\end_inset
+
+, the Genetic Algorithm approach 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "geneticnn"
+literal "false"
+
+\end_inset
+
+, the Particle Swarm Optimization (PSO) method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "psonn"
+literal "false"
+
+\end_inset
+
+, the Ant Colony Optimization procedure 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "aco_nn"
+literal "false"
+
+\end_inset
+
+, the Gray Wolf Optimizer 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gwo_nn"
+literal "false"
+
+\end_inset
+
+, the Whale optimization technique 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "whale_nn"
+literal "false"
+
+\end_inset
+
+ etc.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(.....)
+\end_layout
+
+\begin_layout Standard
 The remaining of this article is organized as follows: in section 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -358,7 +569,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-Materials and Methods
+The proposed method
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Materials-and-Methods"
@@ -721,22 +932,6 @@ literal "false"
 \begin_layout Enumerate
 
 \series bold
-Page Blocks 
-\series default
-dataset 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "pageblocks"
-literal "false"
-
-\end_inset
-
-, which is incorporated for the detection of page layout in documents.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
 Parkinsons
 \series default
 , a dataset used to detect the presence of Parkinson's disease 
@@ -887,14 +1082,6 @@ literal "false"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Tae
-\series default
-, this dataset is related to evaluations of teaching performance.
 \end_layout
 
 \begin_layout Enumerate
@@ -5144,6 +5331,229 @@ AVERAGE
 
 \end_layout
 
+\begin_layout Standard
+The statistical analysis derived from Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ presents the error rates for various classification datasets using five
+ different machine learning models: ADAM, BFGS, GENETIC, RBF, and PROPOSED.
+ The analysis focuses on comparing the models in terms of their effectiveness,
+ with a lower error rate indicating better performance.
+ Initially, it is observed that the PROPOSED model achieves the lowest average
+ error rate (18.73%) compared to the other models, which have average error
+ rates of 34.23% (ADAM), 33.58% (BFGS), 26.13% (GENETIC), and 29.21% (RBF).
+ This highlights the overall superiority of the PROPOSED model.
+ Examining individual datasets, the PROPOSED model exhibits the lowest error
+ rate in many cases, such as "BALANCE" (7.79%), "DERMATOLOGY" (4.97%), "STUDENT"
+ (4.00%), "ZO_NF_S" (4.32%), "ZONF_S" (1.76%), and "ZOO" (7.00%).
+ Notably, its performance on "ZONF_S," with an error rate of only 1.76%,
+ demonstrates exceptional accuracy.
+ In other datasets, such as "CIRCULAR" and "HOUSEVOTES," the PROPOSED model
+ performs very close to the best result but does not outperform the others.
+ In some cases, such as "SEGMENT" and "WINE," it shows higher error rates,
+ indicating room for improvement with specific types of data.
+ In comparison, the ADAM model exhibits the highest overall deviation, making
+ it the least effective.
+ The RBF model also shows higher error rates compared to the PROPOSED model
+ in several datasets, such as "BALANCE" and "ZOO." Similarly, the BFGS model
+ fails to achieve low error rates in critical datasets such as "HEART" and
+ "STATHEART." The GENETIC model demonstrates intermediate performance, achieving
+ lower error rates than ADAM and BFGS but higher than the PROPOSED model.
+ In conclusion, the analysis confirms that the PROPOSED model is the most
+ reliable and consistent in most cases, achieving the lowest overall average
+ error rate.
+ 
+\end_layout
+
+\begin_layout Standard
+The statistical analysis of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ examines the absolute error values for various regression datasets using
+ five different machine learning models: ADAM, BFGS, GENETIC, RBF, and PROPOSED.
+ The analysis evaluates the models based on their performance, where lower
+ error values indicate better accuracy.
+ The PROPOSED model achieves the lowest average error (5.23) compared to
+ the other models, which have average errors of 22.46 (ADAM), 30.29 (BFGS),
+ 9.31 (GENETIC), and 10.02 (RBF).
+ This result underscores the superior performance of the PROPOSED model
+ overall.
+ Examining individual datasets, the PROPOSED model consistently achieves
+ the smallest error in several cases.
+ For instance, it outperforms other models in "AIRFOIL" (0.002), "BL" (0.006),
+ "CONCRETE" (0.006), "HO" (0.015), "LASER" (0.004), "LW" (0.011), "MORTGAGE"
+ (0.32), "PL" (0.022), and "PLASTIC" (2.16).
+ These results highlight the model's robustness across diverse datasets.
+ Notably, its performance on "AIRFOIL" with an error of 0.002 and "LASER"
+ with 0.004 demonstrate exceptional precision.
+ In some datasets, such as "SN" and "QUAKE," the PROPOSED model closely
+ matches the best-performing results but does not necessarily achieve the
+ lowest error.
+ In certain cases, like "FRIEDMAN" and "STOCK," while still competitive,
+ the model exhibits higher error values than some of its competitors.
+ Specifically, in "STOCK," the PROPOSED model records an error of 5.57, which
+ is higher than GENETIC's error of 3.88 but significantly lower than ADAM
+ and BFGS.
+ These cases indicate areas where further optimization of the PROPOSED model
+ may be beneficial.
+ Comparatively, the ADAM and BFGS models generally exhibit higher error
+ rates, with BFGS particularly underperforming on datasets such as "BASEBALL"
+ and "STOCK." The GENETIC model demonstrates strong performance, with its
+ average error being the second lowest (9.31).
+ However, its results are still consistently higher than the PROPOSED model
+ on key datasets like "MORTGAGE" and "HOUSING." Similarly, the RBF model,
+ while competitive in some cases, such as "TREASURY," has higher errors
+ in others, such as "AUTO" and "BL." In conclusion, the analysis confirms
+ that the PROPOSED model is the most effective and consistent across the
+ majority of regression datasets, achieving the lowest overall average error.
+ 
+\end_layout
+
+\begin_layout Standard
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, which pertains to classification datasets for various machine learning
+ models, the proposed method demonstrates highly significant differences
+ when compared to other methods.
+ Specifically, the p-values are as follows: PROPOSED vs ADAM: p=2.9e-11,
+ PROPOSED vs BFGS: p=1.3e-09, PROPOSED vs GENETIC: p=1.6e-08 and PROPOSED
+ vs RBF: p=8e-08.
+ These results highlight the statistical significance of the proposed method
+ in classification tasks.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison of the used methods for the classification datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, focusing on regression datasets for various machine learning models, the
+ proposed method again shows statistically significant differences when
+ compared to other methods.
+ The corresponding p-values are: PROPOSED vs ADAM: p=0.0001, PROPOSED vs
+ BFGS: p=4.1e-05, PROPOSED vs GENETIC: p=0.0022 and PROPOSED vs RBF: p=0.00073.
+ These results indicate the superiority of the proposed method across regression
+ datasets with notable levels of significance.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img2.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison between the used methods for the regression datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statRegression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Using different weight methods 
 \end_layout
@@ -7098,7 +7508,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -8225,6 +8635,235 @@ AVERAGE
 
 \end_inset
 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The statistical analysis of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experFClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ examines the percentage error rates across various classification datasets
+ using four different computations of the critical weight differential parameter
+ for the proposed machine learning model: RANDOM, FIXED, ADAPT, and MIGRANT.
+ The RANDOM computation exhibits the lowest overall average error rate (18.73%),
+ indicating superior performance compared to the other computations: FIXED
+ (19.12%), ADAPT (19.52%), and MIGRANT (20.62%).
+ This suggests that the RANDOM computation is the most reliable overall.
+ Analyzing individual datasets, the RANDOM computation achieves the best
+ error rates in several cases.
+ For instance, it records the lowest error rates for datasets such as "ALCOHOL"
+ (18.33%), "BALANCE" (7.79%), "CIRCULAR" (6.50%), "HOUSEVOTES" (6.09%), "PARKINSONS"
+ (12.79%), "POPFAILURES" (4.45%), and "WDBC" (6.73%).
+ These results highlight its effectiveness across a wide range of datasets.
+ Specifically, the 4.45% error rate for "POPFAILURES" stands out as one of
+ the lowest overall.
+ In certain datasets, the FIXED computation outperforms others, such as
+ in "Z_F_S" (7.00%) and "ZOO" (4.90%).
+ However, the difference from RANDOM is minimal.
+ The MIGRANT computation demonstrates the lowest error rates in only a few
+ cases, such as "CIRCULAR" (4.74%) and "WDBC" (4.18%), suggesting it may be
+ particularly effective for specific datasets.
+ Meanwhile, the ADAPT computation achieves lower error rates in a few scenarios
+ but generally remains less competitive.
+ In other datasets, such as "GLASS," "SPIRAL," and "SEGMENT," all computations
+ show high error rates, indicating these datasets are challenging to classify
+ regardless of the computation.
+ Nevertheless, the RANDOM computation remains consistently competitive even
+ with these difficult datasets, as observed in "STATHEART" and "ZONF_S."
+ In conclusion, the analysis reveals that the RANDOM computation is the
+ most effective overall, achieving the lowest average error rate and demonstrati
+ng superior performance across a broad range of datasets.
+ However, there are instances where other computations, such as FIXED and
+ MIGRANT, show specialized advantages.
+\end_layout
+
+\begin_layout Standard
+The statistical analysis of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experFRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ pertains to regression datasets, using four different calculations of the
+ critical parameter of differential weighting for the proposed machine learning
+ model: RANDOM, FIXED, ADAPT, and MIGRANT.
+ The RANDOM calculation exhibits the lowest average error (5.23), making
+ it the most efficient overall compared to FIXED (5.74), ADAPT (5.82), and
+ MIGRANT (5.27).
+ The small difference between RANDOM and MIGRANT suggests comparable performance
+ between these two approaches, with RANDOM maintaining a slight edge.
+ For individual datasets, the RANDOM calculation achieves the lowest error
+ values in several cases, such as the "AUTO" (12.78), "FRIEDMAN" (2.21), "HO"
+ (0.015), "MORTGAGE" (0.32), and "SN" (0.023) datasets.
+ These results demonstrate the effectiveness of the RANDOM calculation across
+ a wide range of datasets.
+ In the "FRIEDMAN" dataset, the error value of 2.21 is significantly lower
+ than the corresponding values of FIXED (2.79) and ADAPT (3.18), underscoring
+ its performance in this specific dataset.
+ The MIGRANT calculation demonstrates the best performance in certain datasets,
+ such as "AUTO" (11.46) and "STOCK" (4.41), where it outperforms RANDOM.
+ However, in other datasets, such as "PLASTIC" and "SN," it shows slightly
+ higher error rates, indicating limitations with specific data.
+ The FIXED calculation tends to have consistent but not top-performing results,
+ while ADAPT generally shows higher error values, making it less effective
+ overall.
+ In summary, the analysis highlights that the RANDOM calculation is the
+ most reliable and efficient, with the lowest average error and strong performan
+ce across various datasets.
+ However, the MIGRANT calculation exhibits competitive performance in specific
+ cases, while FIXED and ADAPT appear to require improvements to rival the
+ other calculations.
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statFClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ evaluates classification datasets for different differential weight computation
+s within the proposed machine learning model.
+ The p-values are as follows: RANDOM vs FIXED: p=0.43, RANDOM vs ADAPT: p=0.024,
+ RANDOM vs MIGRANT: p=0.0021, FIXED vs ADAPT p=0.12, FIXED vs MIGRANT: p=0.0033
+ and ADAPT vs MIGRANT: p=0.043.
+ These results suggest that some comparisons, such as RANDOM vs MIGRANT
+ and FIXED vs MIGRANT, show strong statistical significance, while others,
+ such as RANDOM vs FIXED, do not demonstrate significant differences.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img3.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison between the proposed variations of the differential
+ weight mechanisms.
+ The experiments were conducted on the classification datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statFClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statFRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ presents results for regression datasets using different differential weight
+ computations within the proposed model.
+ The observed p-values are: RANDOM vs FIXED: p=0.0066, RANDOM vs ADAPT: p=0.15,
+ RANDOM vs MIGRANT: p=0.66, FIXED vs ADAPT: p=0.64, FIXED vs MIGRANT: p=0.84
+ and ADAPT vs MIGRANT: p=0.47.
+ These findings indicate that most comparisons do not show significant differenc
+es, except for RANDOM vs FIXED, which demonstrates a notable level of significan
+ce.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img4.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the different variations of the weight calculation
+ mechanism.
+ The experiments were conducted using the proposed method on the regression
+ datasets.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statFRegression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
 
 \end_layout
 
@@ -9771,7 +10410,7 @@ AVERAGE
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -10700,6 +11339,222 @@ AVERAGE
 
 \end_layout
 
+\begin_layout Standard
+The statistical analysis of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experNPClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ pertains to classification datasets, utilizing three different values for
+ the critical parameter "NP" in the proposed machine learning model: NP=50,
+ NP=100, and NP=200.
+ The computation with NP=200 demonstrates the lowest average error rate
+ (18.73%), indicating the highest efficiency compared to NP=100 (19.94%) and
+ NP=50 (20.36%).
+ This suggests that a higher value of the NP parameter is generally associated
+ with better performance.
+ In individual datasets, the computation with NP=200 achieves the lowest
+ error rate in many cases, such as in "ALCOHOL" (18.33%), "AUSTRALIAN" (21.49%),
+ "BALANCE" (7.79%), "DERMATOLOGY" (4.97%), "ECOLI" (40.30%), and "HEART" (13.11%).
+ In some of these datasets, the difference between NP=200 and the other
+ two values is notable.
+ For instance, in the "DERMATOLOGY" dataset, the error rate with NP=200
+ (4.97%) is significantly lower than the corresponding values for NP=50 (9.89%)
+ and NP=100 (11.34%), highlighting the clear superiority of NP=200 for this
+ dataset.
+ However, there are also datasets where the differences are less pronounced.
+ For example, in "PHONEME," the error rates are relatively close across
+ all parameter values, with NP=200 showing the smallest error (18.10%).
+ In some other datasets, such as "HOUSEVOTES," NP=50 has a lower error rate
+ (3.91%) than the other two parameter values.
+ This indicates that in certain datasets, increasing the NP parameter does
+ not necessarily lead to improved performance.
+ Similarly, in the "Z_F_S" dataset, NP=100 achieves the lowest error rate
+ (6.73%), while NP=200 exhibits a higher rate (8.38%), suggesting that performance
+ may also depend on the characteristics of the data.
+ Despite these exceptions, NP=200 generally exhibits the best overall performanc
+e, achieving the lowest average error rate and delivering strong results
+ across a wide range of datasets.
+\end_layout
+
+\begin_layout Standard
+The analysis of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experNPRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ focuses on regression datasets, considering three distinct values for the
+ critical parameter "NP" in the proposed machine learning model: NP=50,
+ NP=100, and NP=200.
+ The parameter NP=200 achieves the lowest average error (5.23), making it
+ more effective than NP=100 (5.48) and NP=50 (5.92).
+ This suggests that higher NP values are generally associated with improved
+ performance.
+ In specific datasets, NP=200 stands out for its superior performance.
+ For instance, in "AIRFOIL" (0.002), "AUTO" (12.78), "BL" (0.006), "CONCRETE"
+ (0.006), "FRIEDMAN" (2.21), and "TREASURY" (0.68), the error values for NP=200
+ are the lowest.
+ In the "FRIEDMAN" dataset, NP=200 (2.21) significantly outperforms NP=50
+ (3.43) and NP=100 (2.83), demonstrating its effectiveness.
+ However, there are cases where other NP values show stronger performance.
+ For example, in the "BK" dataset, NP=100 achieves the lowest error (0.018),
+ while NP=200 (0.02) is slightly worse.
+ Similarly, in the "FY" dataset, NP=100 exhibits the best performance (0.041),
+ with NP=200 showing a higher error (0.067).
+ Additionally, in the "BASEBALL" dataset, NP=100 outperforms NP=200, recording
+ an error of 57.75 compared to 60.74.
+ These variations indicate that the effectiveness of the NP parameter can
+ depend on the characteristics of the dataset.
+ Overall, NP=200 demonstrates the best average performance, highlighting
+ its value in most cases.
+ While other NP values achieve lower error rates in some datasets, NP=200
+ stands out for its general reliability and efficiency.
+\end_layout
+
+\begin_layout Standard
+In Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statNPClass"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, focusing on classification datasets for different values of the critical
+ parameter "NP" within the proposed model, the p-values are: NP=50 vs NP=100:
+ p=0.17, NP=50 vs NP=200: p=0.117 and NP=100 vs NP=200: p=0.032.
+ These results indicate that only the comparison between NP=100 and NP=200
+ demonstrates statistical significance.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img5.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the experiments conducted on the classification
+ datasets using the proposed method and different values for the parameter
+ NP.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statNPClass"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:statNPRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ evaluates regression datasets for different values of the critical parameter
+ "NP" within the proposed model.
+ The respective p-values are: NP=50 vs NP=100: p=0.08, NP=50 vs NP=200: p=0.012
+ and NP=100 vs NP=200: p=0.025.
+ These results show that the comparisons NP=50 vs NP=200 and NP=100 vs NP=200
+ exhibit statistically significant differences, while the comparison NP=50
+ vs NP=100 does not.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img6.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Statistical comparison for the conducted experiments on the regression datasets
+ using the proposed method and different values of the parameter NP.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:statNPRegression"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Conclusions
 \begin_inset CommandInset label
@@ -10709,6 +11564,23 @@ name "sec:Conclusions"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+The proposed evolutionary method, based on differential evolution, demonstrates
+ exceptional effectiveness in optimizing the weights of artificial neural
+ networks, significantly reducing both training error and overfitting.
+ Compared to other popular methods, such as ADAM, BFGS, genetic algorithms,
+ and RBF, this approach showcases superior performance in classification
+ tasks (average error of 18.73%) and regression tasks (average error of 5.23%).
+ However, certain datasets, such as "SEGMENT" and "STOCK," exhibit higher
+ error rates, likely due to data complexity or inherent noise that challenges
+ the predictive accuracy of the model.
+ The random calculation of the F parameter and the use of a larger number
+ of agents (NP=200) appear to enhance system performance, although smaller
+ NP values yield better results in some instances.
+ This highlights the need for adaptive mechanisms to dynamically tune key
+ parameters during optimization.
 \end_layout
 
 \begin_layout Standard
@@ -10772,6 +11644,378 @@ Keep empty!
 
 \begin_layout References Title
 References
+\end_layout
+
+\begin_layout Bibliography
+\labelwidthstring 999
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn1"
+literal "true"
+
+\end_inset
+
+Abiodun, O.
+ I., Jantan, A., Omolara, A.
+ E., Dada, K.
+ V., Mohamed, N.
+ A., & Arshad, H.
+ (2018).
+ State-of-the-art in artificial neural network applications: A survey.
+ Heliyon, 4(11).
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn2"
+literal "true"
+
+\end_inset
+
+Suryadevara, S., & Yanamala, A.
+ K.
+ Y.
+ (2021).
+ A Comprehensive Overview of Artificial Neural Networks: Evolution, Architecture
+s, and Applications.
+ Revista de Inteligencia Artificial en Medicina, 12(1), 51-76.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_image"
+literal "false"
+
+\end_inset
+
+M.
+ Egmont-Petersen, D.
+ de Ridder, H.
+ Handels, Image processing with neural networks—a review, Pattern Recognition
+ 
+\series bold
+35
+\series default
+, pp.
+ 2279-2301, 2002.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_timeseries"
+literal "false"
+
+\end_inset
+
+G.Peter Zhang, Time series forecasting using a hybrid ARIMA and neural network
+ model, Neurocomputing 
+\series bold
+50
+\series default
+, pp.
+ 159-175, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_credit"
+literal "false"
+
+\end_inset
+
+Z.
+ Huang, H.
+ Chen, C.-Jung Hsu, W.-Hwa Chen, S.
+ Wu, Credit rating analysis with support vector machines and neural networks:
+ a market comparative study, Decision Support Systems 
+\series bold
+37
+\series default
+, pp.
+ 543-558, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnphysics1"
+literal "false"
+
+\end_inset
+
+P.
+ Baldi, K.
+ Cranmer, T.
+ Faucett et al, Parameterized neural networks for high-energy physics, Eur.
+ Phys.
+ J.
+ C 
+\series bold
+76
+\series default
+, 2016.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnphysics2"
+literal "true"
+
+\end_inset
+
+Baldi, P., Cranmer, K., Faucett, T., Sadowski, P., & Whiteson, D.
+ (2016).
+ Parameterized neural networks for high-energy physics.
+ The European Physical Journal C, 76(5), 1-7.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_solar"
+literal "false"
+
+\end_inset
+
+A.
+ Kumar Yadav, S.S.
+ Chandel, Solar radiation prediction using Artificial Neural Network techniques:
+ A review, Renewable and Sustainable Energy Reviews 
+\series bold
+33
+\series default
+, pp.
+ 772-781, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnagr2"
+literal "false"
+
+\end_inset
+
+A.
+ Escamilla-García, G.M.
+ Soto-Zarazúa, M.
+ Toledano-Ayala, E.
+ Rivas-Araiza, A.
+ Gastélum-Barrios, Abraham,Applications of Artificial Neural Networks in
+ Greenhouse Technology and Overview for Smart Agriculture Development, Applied
+ Sciences 
+\series bold
+10
+\series default
+, Article number 3835, 2020.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bpnn1"
+literal "false"
+
+\end_inset
+
+Vora, K., & Yagnik, S.
+ (2014).
+ A survey on backpropagation algorithms for feedforward neural networks.
+ International Journal of Engineering Development and Research, 1(3), 193-197.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "bpnn2"
+literal "false"
+
+\end_inset
+
+K.
+ Vora, S.
+ Yagnik, A survey on backpropagation algorithms for feedforward neural networks,
+ International Journal of Engineering Development and Research 
+\series bold
+1
+\series default
+, pp.
+ 193-197, 2014.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn-1"
+literal "false"
+
+\end_inset
+
+Pajchrowski, T., Zawirski, K., & Nowopolski, K.
+ (2014).
+ Neural speed controller trained online by means of modified RPROP algorithm.
+ IEEE transactions on industrial informatics, 11(2), 560-568.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "rpropnn-2"
+literal "false"
+
+\end_inset
+
+Hermanto, R.
+ P.
+ S., & Nugroho, A.
+ (2018).
+ Waiting-time estimation in bank customer queues using RPROP neural networks.
+ Procedia Computer Science, 135, 35-42.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_adam"
+literal "false"
+
+\end_inset
+
+D.
+ P.
+ Kingma, J.
+ L.
+ Ba, ADAM: a method for stochastic optimization, in: Proceedings of the
+ 3rd International Conference on Learning Representations (ICLR 2015), pp.
+ 1–15, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_leve"
+literal "false"
+
+\end_inset
+
+Lera, G., & Pinzolas, M.
+ (2002).
+ Neighborhood based Levenberg-Marquardt algorithm for neural network training.
+ IEEE transactions on neural networks, 13(5), 1200-1203.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_siman"
+literal "false"
+
+\end_inset
+
+C.L.
+ Kuo, E.E.
+ Kuruoglu, W.K.V.
+ Chan, Neural Network Structure Optimization by Simulated Annealing, Entropy
+ 
+\series bold
+24
+\series default
+, 348, 2022.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "geneticnn"
+literal "false"
+
+\end_inset
+
+Reynolds, J., Rezgui, Y., Kwan, A., & Piriou, S.
+ (2018).
+ A zone-level, building energy optimisation combining an artificial neural
+ network, a genetic algorithm, and model predictive control.
+ Energy, 151, 729-739.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "psonn"
+literal "false"
+
+\end_inset
+
+Das, G., Pattnaik, P.
+ K., & Padhy, S.
+ K.
+ (2014).
+ Artificial neural network trained by particle swarm optimization for non-linear
+ channel equalization.
+ Expert Systems with Applications, 41(7), 3491-3496.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "aco_nn"
+literal "false"
+
+\end_inset
+
+K.M.
+ Salama, A.M.
+ Abdelbar, Learning neural network structures with ant colony algorithms,
+ Swarm Intell 
+\series bold
+9
+\series default
+, pp.
+ 229–265, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gwo_nn"
+literal "false"
+
+\end_inset
+
+S.
+ Mirjalili, How effective is the Grey Wolf optimizer in training multi-layer
+ perceptrons, Appl Intell 
+\series bold
+43
+\series default
+, pp.
+ 150–161, 2015.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "whale_nn"
+literal "false"
+
+\end_inset
+
+I.
+ Aljarah, H.
+ Faris, S.
+ Mirjalili, Optimizing connection weights in neural networks using the whale
+ optimization algorithm, Soft Comput 
+\series bold
+22
+\series default
+, pp.
+ 1–15, 2018.
+ 
 \end_layout
 
 \begin_layout Bibliography
@@ -11209,27 +12453,6 @@ J.W.
  Johannes, Using the ADAP learning algorithm to forecast the onset of diabetes
  mellitus, In: Proceedings of the Symposium on Computer Applications and
  Medical Care IEEE Computer Society Press, pp.261-265, 1988.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "pageblocks"
-literal "false"
-
-\end_inset
-
-F.
- Esposito F., D.
- Malerba, G.
- Semeraro, Multistrategy Learning for Document Recognition, Applied Artificial
- Intelligence 
-\series bold
-8
-\series default
-, pp.
- 33-84, 1994.
- 
 \end_layout
 
 \begin_layout Bibliography
