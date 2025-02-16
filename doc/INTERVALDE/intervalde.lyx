@@ -747,15 +747,8 @@ The genetic algorithm of the first phase
 \end_layout
 
 \begin_layout Standard
-The form of neural network used here was also proposed in 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "nnc"
-literal "false"
-
-\end_inset
-
- and it is defined as follows:
+The neural network used in the current work is a network with one processing
+ level and it can be defined using the following equation:
 \begin_inset Formula 
 \begin{equation}
 N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1)}\sigma\left(\sum_{j=1}^{d}x_{j}w_{(d+2)i-(d+1)+j}+w_{(d+2)i}\right)\label{eq:nn}
@@ -763,33 +756,52 @@ N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1
 
 \end_inset
 
-In the previous equation the symbol 
+that have been proposed in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnc"
+literal "false"
+
+\end_inset
+
+.
+ In this equation the constant 
 \begin_inset Formula $H$
 \end_inset
 
- denotes the number of processing units and the value 
+ represents the number of processing units of the network and the constant
+ 
 \begin_inset Formula $d$
 \end_inset
 
- represents the the dimension of the input pattern 
+ stands for the dimension of the input pattern 
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
 .
- As a consequence the size of vector 
-\begin_inset Formula $\overrightarrow{w}$
-\end_inset
-
- is 
-\begin_inset Formula $n=(d+2)H$
+ Following the equation, one can derive that the total number of parameters
+ of the network is calculated as 
+\begin_inset Formula $n=\left(d+2\right)H$
 \end_inset
 
 .
+ The current work adopts neural networks of one processing layer (hidden
+ layer).
+ According to the the Hornik's theorem 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Hornik"
+literal "false"
+
+\end_inset
+
+ these networks can approximate any function with a sufficient number of
+ computing units in the hidden layer.
  The function
 \begin_inset Formula $\ \sigma(x)$
 \end_inset
 
- represents the sigmoid function defined as: 
+ denotes the sigmoid function with the following formula: 
 \end_layout
 
 \begin_layout Standard
@@ -800,9 +812,466 @@ In the previous equation the symbol
 
 \end_inset
 
+An example plot for this function is shown in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:examplePlot"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename sig.eps
+
+\end_inset
+
 
 \end_layout
 
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+An example plot of the sigmoid function.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:examplePlot"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+As is evident from this particular form, this function tends very quickly
+ to 1 as 
+\begin_inset Formula $x$
+\end_inset
+
+ goes to infinity and very quickly to 0 as the parameter 
+\begin_inset Formula $x$
+\end_inset
+
+ gets negative values.
+ This phenomenon has the effect of the artificial neuronal network to lose
+ its general abilities, as large changes in the values of the parameters
+ cause no substantial change in the response of the sigmoid function.
+ The function 
+\begin_inset Formula $B(a)$
+\end_inset
+
+ is used here to measure this effect and it is calculated using the algorithm
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:CalculationBound"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\series bold
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Calculating the quantity 
+\begin_inset Formula $B(N\left(\overrightarrow{x},\overrightarrow{w}\right),a)$
+\end_inset
+
+ with 
+\begin_inset Formula $a>0$
+\end_inset
+
+ for a a provided neural network 
+\begin_inset Formula $N(x,w).$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:CalculationBound"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Function
+\series default
+ 
+\begin_inset Formula $B(N\left(\overrightarrow{x},\overrightarrow{w}\right),a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Define 
+\begin_inset Formula $c=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For 
+\begin_inset Formula $i=1..H$
+\end_inset
+
+ Do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For 
+\begin_inset Formula $j=1..M$
+\end_inset
+
+ Do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Set 
+\begin_inset Formula $v=\sum_{k=1}^{d}\left(w_{(d+2)i-(d+i)+k}x_{jk}\right)+w_{(d+2)i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If 
+\begin_inset Formula $\left|v\right|>a$
+\end_inset
+
+ then 
+\begin_inset Formula $c=c+1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+EndFor
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Return 
+\begin_inset Formula $\frac{c}{H\star M}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+End Function
+\end_layout
+
+\end_inset
+
+
+\series default
+The function 
+\begin_inset Formula $B(N\left(\overrightarrow{x},\overrightarrow{w}\right),a)$
+\end_inset
+
+ is used to calculate the fitness value for the used genetic algorithm described
+ subsequently:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialization step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the number of chromosomes denoted as 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ and the maximum number of allowed generations 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $p_{s}$
+\end_inset
+
+ the selection rate and as 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+ the mutation rate.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ randomly the 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ chromosomes.
+ Each chromosome 
+\begin_inset Formula $g_{i},\ i=1,..,N_{c}$
+\end_inset
+
+ represents a neural network 
+\begin_inset Formula $N\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=0$
+\end_inset
+
+, the generation counter.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Fitness calculation step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ each chromosome 
+\begin_inset Formula $g_{i},\ i=1,..,N_{c}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $E\left(N\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)\right)=\sum_{j=1}^{M}\left(N\left(\overrightarrow{x_{j}},\overrightarrow{g_{i}}\right)-y_{j}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $b_{i}=B(N\left(\overrightarrow{x},\overrightarrow{g_{i}}\right),a)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{i}=E\left(N\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)\right)\times\left(1+\lambda b_{i}^{2}\right)$
+\end_inset
+
+ as the fitness value of chromosome 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+.
+ The value 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ has the property 
+\begin_inset Formula $\lambda>1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Genetic operations step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Copy
+\series default
+ the best 
+\begin_inset Formula $\left(1-p_{s}\right)\times N_{c}$
+\end_inset
+
+ chromosomes to the next generation.
+ The remaining will be substituted by individuals produced by crossover
+ and mutation.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+(....)
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Termination check step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=k+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $k<N_{g}$
+\end_inset
+
+ 
+\series bold
+goto
+\series default
+ fitness calculation step.
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 The bounding technique of the second phase 
 \end_layout
@@ -1633,11 +2102,7 @@ Experimental results
 placement H
 wide false
 sideways false
-status collapsed
-
-\begin_layout Plain Layout
-
-\end_layout
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -1817,7 +2282,7 @@ Selection rate
 \begin_inset Text
 
 \begin_layout Plain Layout
-0.1
+0.9
 \end_layout
 
 \end_inset
@@ -12661,6 +13126,40 @@ S.
 \series default
 , pp.
  735–757, 2018.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnc"
+literal "false"
+
+\end_inset
+
+I.G.
+ Tsoulos, D.
+ Gavrilis, E.
+ Glavas, Neural network construction and training using grammatical evolution,
+ Neurocomputing 
+\series bold
+72
+\series default
+, pp.
+ 269-277, 2008.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Hornik"
+literal "false"
+
+\end_inset
+
+Hornik, K., Stinchcombe, M., & White, H.
+ (1989).
+ Multilayer feedforward networks are universal approximators.
+ Neural networks, 2(5), 359-366.
 \end_layout
 
 \begin_layout Bibliography
