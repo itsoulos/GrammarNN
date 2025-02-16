@@ -592,8 +592,14 @@ literal "false"
 \end_inset
 
 .
- A series of methods has been proposed in the recent literature to tackle
- the overfitting problem, such as the weight sharing method 
+ A series of methods has been proposed 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+The overfitting problem has been studied by many researchers that have proposed
+ a series of methods to handle this problem, such as weight sharing 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nnsharing1,nnsharing2"
@@ -601,11 +607,7 @@ literal "true"
 
 \end_inset
 
-,
-\series bold
- 
-\series default
-pruning techniques 
+, pruning 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nnprunning1,nnprunning2"
@@ -613,7 +615,7 @@ literal "true"
 
 \end_inset
 
-, the incorporation of early stopping 
+, early stopping 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "nnearly1,nnearly2"
@@ -630,64 +632,27 @@ literal "false"
 \end_inset
 
  etc.
- Furthermore, it has been suggested by various researchers the usage of
- dynamic architectures to handle the overfitting problem 
+ Also, many researchers propose as a solution to the above problem the dynamic
+ creation of the architecture of artificial neural networks using programming
+ techniques.
+ For example the Genetic Algorithms were proposed to create dynamically
+ the optimal architecture of neural networks 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "nn_arch1,nn_arch2,nn_arch3"
+key "nn_arch1,nn_arch2"
 literal "false"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-This work proposes the adoption of a three-stage technique that will have
- two goals: the effective training of artificial neural networks and the
- avoidance of the phenomenon of overfitting.
- In the first phase, a genetic algorithm 
+ or the PSO method 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "gen_review"
-literal "false"
-
-\end_inset
-
- is used to detect an initial range of values for the parameters of the
- artificial neural network.
- This genetic algorithm uses a modified version of the artificial neural
- network's training error as a fitness function, in order to avoid the problem
- of overfitting.
- During the second phase of the proposed algorithm, a bounding technique
- which is based on the Differential Evolution algorithm 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "de_review"
-literal "false"
-
-\end_inset
-
- is used in order to efficiently identify promising ranges for the parameters
- of the neural networks.
- The Differential Evolution method was used at this stage of the proposed
- procedure as it has only a small number of parameters that the user must
- initialize, but also because it has been used with excellent success in
- a wide range of practical optimization applications 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "de_symmetry1,de_symmetry3,de_symmetry6,de_symmetry7"
+key "nn_arch3"
 literal "false"
 
 \end_inset
 
 .
- During the third phase, a genetic algorithm is applied to train efficiently
- the neural network using the bounds that have been produced in the second
- phase for the parameters of the model.
- The proposed method have been applied on a wide series of classification
- and regression datasets and comparison was performed against traditional
- techniques for the training of neural networks.
 \end_layout
 
 \begin_layout Standard
@@ -734,81 +699,6 @@ name "sec:Materials-and-Methods"
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-In this section, a detailed presentation and analysis of the three stages
- of the proposed technique for the effective training of artificial neural
- networks is provided.
-\end_layout
-
-\begin_layout Subsection
-The genetic algorithm of the first phase 
-\end_layout
-
-\begin_layout Standard
-The form of neural network used here was also proposed in 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "nnc"
-literal "false"
-
-\end_inset
-
- and it is defined as follows:
-\begin_inset Formula 
-\begin{equation}
-N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1)}\sigma\left(\sum_{j=1}^{d}x_{j}w_{(d+2)i-(d+1)+j}+w_{(d+2)i}\right)\label{eq:nn}
-\end{equation}
-
-\end_inset
-
-In the previous equation the symbol 
-\begin_inset Formula $H$
-\end_inset
-
- denotes the number of processing units and the value 
-\begin_inset Formula $d$
-\end_inset
-
- represents the the dimension of the input pattern 
-\begin_inset Formula $\overrightarrow{x}$
-\end_inset
-
-.
- As a consequence the size of vector 
-\begin_inset Formula $\overrightarrow{w}$
-\end_inset
-
- is 
-\begin_inset Formula $n=(d+2)H$
-\end_inset
-
-.
- The function
-\begin_inset Formula $\ \sigma(x)$
-\end_inset
-
- represents the sigmoid function defined as: 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-\sigma(x)=\frac{1}{1+\exp(-x)}\label{eq:sig}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
-The bounding technique of the second phase 
-\end_layout
-
-\begin_layout Subsection
-The final training method
 \end_layout
 
 \begin_layout Section
@@ -1378,8 +1268,8 @@ literal "false"
 \end_inset
 
 .
- From the original dataset the following cases were obtained: Z_F_S, ZO_NF_S
- and ZONF_S.
+ From the original dataset the following cases were obtained: Z_F_S, ZO_NF_S,
+ Z_O_N_F_S and ZONF_S.
 \end_layout
 
 \begin_layout Enumerate
@@ -1490,6 +1380,22 @@ literal "false"
 DEE
 \series default
 , a dataset with 6 features, used in the prediction of electricity prices.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+EU
+\series default
+, a dataset originated in the STATLIB website.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+FA
+\series default
+, that contains related to body fat.
 \end_layout
 
 \begin_layout Enumerate
@@ -11767,42 +11673,20 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-The proposed evolutionary method, based on differential evolution, proves
- to be highly effective in optimizing the weights of artificial neural networks,
- significantly reducing both training error and overfitting.
- Compared to other popular methods such as ADAM, BFGS, genetic algorithms,
- and RBF, the new approach demonstrates superior performance in classification
- tasks with an average error of 18.73% and regression tasks with an average
- error of 5.23%.
- Despite these positive results, certain datasets, such as "SEGMENT" and
- "STOCK," exhibit higher errors, likely due to data complexity or inherent
- noise that affects prediction accuracy.
- The random computation of parameter F and the use of a larger number of
- agents, such as NP=200, seem to enhance the system’s performance.
- However, smaller NP values yield better results in some cases, indicating
- the necessity for adaptive parameter tuning mechanisms during the optimization
- process.
- 
-\end_layout
-
-\begin_layout Standard
-Future research could focus on applying the method to more complex or high-dimen
-sional data, such as images, text, or time series, to evaluate its scalability
- and flexibility.
- Developing mechanisms for dynamic parameter tuning, such as F, CR, and
- NP, could eliminate the need for manual experimentation and enhance overall
- efficiency.
- Additionally, combining this evolutionary approach with other machine learning
- techniques, such as reinforcement learning or dynamic neural networks,
- may improve generalization and adaptability.
- Testing the method on different network architectures, such as recurrent
- neural networks (RNNs) or graph neural networks (GNNs), could provide valuable
- insights into its adaptability and flexibility across various contexts.
- Furthermore, a theoretical analysis of the algorithm’s convergence and
- stability could offer a deeper understanding of its strengths and limitations.
- Finally, focused studies on datasets where the method underperforms could
- identify specific factors, such as noise, class imbalance, or feature complexit
-y, and propose targeted optimizations to address these challenges effectively.
+The proposed evolutionary method, based on differential evolution, demonstrates
+ exceptional effectiveness in optimizing the weights of artificial neural
+ networks, significantly reducing both training error and overfitting.
+ Compared to other popular methods, such as ADAM, BFGS, genetic algorithms,
+ and RBF, this approach showcases superior performance in classification
+ tasks (average error of 18.73%) and regression tasks (average error of 5.23%).
+ However, certain datasets, such as "SEGMENT" and "STOCK," exhibit higher
+ error rates, likely due to data complexity or inherent noise that challenges
+ the predictive accuracy of the model.
+ The random calculation of the F parameter and the use of a larger number
+ of agents (NP=200) appear to enhance system performance, although smaller
+ NP values yield better results in some instances.
+ This highlights the need for adaptive mechanisms to dynamically tune key
+ parameters during optimization.
 \end_layout
 
 \begin_layout Standard
@@ -12547,120 +12431,6 @@ B.A.
  Vázquez, Designing Artificial Neural Networks Using Particle Swarm Optimization
  Algorithms, Computational Intelligence and Neuroscience, 369298, 2015.
  
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "gen_review"
-literal "false"
-
-\end_inset
-
-Lambora, A., Gupta, K., & Chopra, K.
- (2019, February).
- Genetic algorithm-A literature review.
- In 2019 international conference on machine learning, big data, cloud and
- parallel computing (COMITCon) (pp.
- 380-384).
- IEEE.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "de_review"
-literal "false"
-
-\end_inset
-
-Pant, M., Zaheer, H., Garcia-Hernandez, L., & Abraham, A.
- (2020).
- Differential Evolution: A review of more than two decades of research.
- Engineering Applications of Artificial Intelligence, 90, 103479.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "de_symmetry1"
-literal "false"
-
-\end_inset
-
-Y.H.
- Li, J.Q.
- Wang, X.J.
- Wang, Y.L.
- Zhao, X.H.
- Lu, D.L.
- Liu, Community Detection Based on Differential Evolution Using Social Spider
- Optimization, Symmetry 
-\series bold
-9
-\series default
-, 2017.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "de_symmetry3"
-literal "false"
-
-\end_inset
-
-W.
- Yang, E.M.
- Dilanga Siriwardane, R.
- Dong, Y.
- Li, J.
- Hu, Crystal structure prediction of materials with high symmetry using
- differential evolution, J.
- Phys.: Condens.
- Matter 
-\series bold
-33
-\series default
- 455902, 2021.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "de_symmetry6"
-literal "false"
-
-\end_inset
-
-C.Y.
- Lee, C.H.
- Hung, Feature Ranking and Differential Evolution for Feature Selection
- in Brushless DC Motor Fault Diagnosis , Symmetry 
-\series bold
-13
-\series default
-, 2021.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "de_symmetry7"
-literal "false"
-
-\end_inset
-
-S.
- Saha, R.
- Das, Exploring differential evolution and particle swarm optimization to
- develop some symmetry-based automatic clustering techniques: application
- to gene clustering, Neural Comput & Applic 
-\series bold
-30
-\series default
-, pp.
- 735–757, 2018.
 \end_layout
 
 \begin_layout Bibliography

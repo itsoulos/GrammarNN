@@ -525,12 +525,169 @@ literal "false"
 \end_inset
 
  etc.
+ Also,
+\series bold
+ 
+\series default
+Sexton et al proposed the incorporation of tabu search algorithm for neural
+ network training 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "tabunn"
+literal "false"
+
+\end_inset
+
+, Zhang et al suggested a hybrid algorithm that combines the PSO method
+ and the Back Propagation algorithm for efficient neural networks training
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_hybrid"
+literal "false"
+
+\end_inset
+
+.
+ Recently,
+\series bold
+ 
+\series default
+Zhao et al suggested the usage of a new Cascaded Forward Algorithm to train
+ artificial neural networks 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_cascade"
+literal "false"
+
+\end_inset
+
+.
+ Also, since in recent years there has been an explosive development and
+ use of parallel computing architectures, several researchers have proposed
+ their use for the efficient and rapid training of artificial neural networks
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_gpu1,nn_gpu2"
+literal "false"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
+However, although the above techniques are extremely effective in reducing
+ the training error of artificial neural networks, they often cause the
+ problem of overfitting, where the artificial neural network exhibits poor
+ results when applied to data that was not present during its training.
+ An overview of the overfitting problem can be found in the work of Ying
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_overfitting"
+literal "false"
 
+\end_inset
+
+.
+ A series of methods has been proposed in the recent literature to tackle
+ the overfitting problem, such as the weight sharing method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnsharing1,nnsharing2"
+literal "true"
+
+\end_inset
+
+,
 \series bold
-(.....)
+ 
+\series default
+pruning techniques 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nnprunning1,nnprunning2"
+literal "true"
+
+\end_inset
+
+, the incorporation of early stopping 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nnearly1,nnearly2"
+literal "true"
+
+\end_inset
+
+, weight decaying 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "nndecay1,nndecay2"
+literal "false"
+
+\end_inset
+
+ etc.
+ Furthermore, it has been suggested by various researchers the usage of
+ dynamic architectures to handle the overfitting problem 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_arch1,nn_arch2,nn_arch3"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This work proposes the adoption of a three-stage technique that will have
+ two goals: the effective training of artificial neural networks and the
+ avoidance of the phenomenon of overfitting.
+ In the first phase, a genetic algorithm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "gen_review"
+literal "false"
+
+\end_inset
+
+ is used to detect an initial range of values for the parameters of the
+ artificial neural network.
+ This genetic algorithm uses a modified version of the artificial neural
+ network's training error as a fitness function, in order to avoid the problem
+ of overfitting.
+ During the second phase of the proposed algorithm, a bounding technique
+ which is based on the Differential Evolution algorithm 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de_review"
+literal "false"
+
+\end_inset
+
+ is used in order to efficiently identify promising ranges for the parameters
+ of the neural networks.
+ The Differential Evolution method was used at this stage of the proposed
+ procedure as it has only a small number of parameters that the user must
+ initialize, but also because it has been used with excellent success in
+ a wide range of practical optimization applications 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "de_symmetry1,de_symmetry3,de_symmetry6,de_symmetry7"
+literal "false"
+
+\end_inset
+
+.
+ During the third phase, a genetic algorithm is applied to train efficiently
+ the neural network using the bounds that have been produced in the second
+ phase for the parameters of the model.
+ The proposed method have been applied on a wide series of classification
+ and regression datasets and comparison was performed against traditional
+ techniques for the training of neural networks.
 \end_layout
 
 \begin_layout Standard
@@ -569,7 +726,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-Materials and Methods
+The proposed method
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Materials-and-Methods"
@@ -577,6 +734,24 @@ name "sec:Materials-and-Methods"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+In this section, a detailed presentation and analysis of the three stages
+ of the proposed technique for the effective training of artificial neural
+ networks is provided.
+\end_layout
+
+\begin_layout Subsection
+The genetic algorithm of the first phase 
+\end_layout
+
+\begin_layout Subsection
+The bounding technique of the second phase 
+\end_layout
+
+\begin_layout Subsection
+The final training method
 \end_layout
 
 \begin_layout Section
@@ -1146,8 +1321,8 @@ literal "false"
 \end_inset
 
 .
- From the original dataset the following cases were obtained: Z_F_S, ZO_NF_S,
- Z_O_N_F_S and ZONF_S.
+ From the original dataset the following cases were obtained: Z_F_S, ZO_NF_S
+ and ZONF_S.
 \end_layout
 
 \begin_layout Enumerate
@@ -1263,22 +1438,6 @@ DEE
 \begin_layout Enumerate
 
 \series bold
-EU
-\series default
-, a dataset originated in the STATLIB website.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-FA
-\series default
-, that contains related to body fat.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
 Friedman
 \series default
 , a synthetic dataset used in various benchmarks 
@@ -1369,14 +1528,6 @@ PL
 \begin_layout Enumerate
 
 \series bold
-RealEstate, 
-\series default
-a dataset found in the STATLIB website with 5 features.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
 Quake
 \series default
 , a dataset used in earthquake measurements with 3 features.
@@ -1406,14 +1557,6 @@ Stock
 Treasury
 \series default
 , an economic dataset with 15 features.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-TZ
-\series default
-, derived from the STATLIB website and it has 60 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -11567,20 +11710,42 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-The proposed evolutionary method, based on differential evolution, demonstrates
- exceptional effectiveness in optimizing the weights of artificial neural
- networks, significantly reducing both training error and overfitting.
- Compared to other popular methods, such as ADAM, BFGS, genetic algorithms,
- and RBF, this approach showcases superior performance in classification
- tasks (average error of 18.73%) and regression tasks (average error of 5.23%).
- However, certain datasets, such as "SEGMENT" and "STOCK," exhibit higher
- error rates, likely due to data complexity or inherent noise that challenges
- the predictive accuracy of the model.
- The random calculation of the F parameter and the use of a larger number
- of agents (NP=200) appear to enhance system performance, although smaller
- NP values yield better results in some instances.
- This highlights the need for adaptive mechanisms to dynamically tune key
- parameters during optimization.
+The proposed evolutionary method, based on differential evolution, proves
+ to be highly effective in optimizing the weights of artificial neural networks,
+ significantly reducing both training error and overfitting.
+ Compared to other popular methods such as ADAM, BFGS, genetic algorithms,
+ and RBF, the new approach demonstrates superior performance in classification
+ tasks with an average error of 18.73% and regression tasks with an average
+ error of 5.23%.
+ Despite these positive results, certain datasets, such as "SEGMENT" and
+ "STOCK," exhibit higher errors, likely due to data complexity or inherent
+ noise that affects prediction accuracy.
+ The random computation of parameter F and the use of a larger number of
+ agents, such as NP=200, seem to enhance the system’s performance.
+ However, smaller NP values yield better results in some cases, indicating
+ the necessity for adaptive parameter tuning mechanisms during the optimization
+ process.
+ 
+\end_layout
+
+\begin_layout Standard
+Future research could focus on applying the method to more complex or high-dimen
+sional data, such as images, text, or time series, to evaluate its scalability
+ and flexibility.
+ Developing mechanisms for dynamic parameter tuning, such as F, CR, and
+ NP, could eliminate the need for manual experimentation and enhance overall
+ efficiency.
+ Additionally, combining this evolutionary approach with other machine learning
+ techniques, such as reinforcement learning or dynamic neural networks,
+ may improve generalization and adaptability.
+ Testing the method on different network architectures, such as recurrent
+ neural networks (RNNs) or graph neural networks (GNNs), could provide valuable
+ insights into its adaptability and flexibility across various contexts.
+ Furthermore, a theoretical analysis of the algorithm’s convergence and
+ stability could offer a deeper understanding of its strengths and limitations.
+ Finally, focused studies on datasets where the method underperforms could
+ identify specific factors, such as noise, class imbalance, or feature complexit
+y, and propose targeted optimizations to address these challenges effectively.
 \end_layout
 
 \begin_layout Standard
@@ -12016,6 +12181,429 @@ I.
 , pp.
  1–15, 2018.
  
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "tabunn"
+literal "false"
+
+\end_inset
+
+R.S.
+ Sexton, B.
+ Alidaee, R.E.
+ Dorsey, J.D.
+ Johnson, Global optimization for artificial neural networks: A tabu search
+ application.
+ European Journal of Operational Research 
+\series bold
+106
+\series default
+, pp.
+ 570-584, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_hybrid"
+literal "false"
+
+\end_inset
+
+J.-R.
+ Zhang, J.
+ Zhang, T.-M.
+ Lok, M.R.
+ Lyu, A hybrid particle swarm optimization–back-propagation algorithm for
+ feedforward neural network training, Applied Mathematics and Computation
+ 
+\series bold
+185
+\series default
+, pp.
+ 1026-1037, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_cascade"
+literal "false"
+
+\end_inset
+
+G.
+ Zhao, T.
+ Wang, Y.
+ Jin, C.
+ Lang, Y.
+ Li, H.
+ Ling, The Cascaded Forward algorithm for neural network training, Pattern
+ Recognition 
+\series bold
+161
+\series default
+, 111292, 2025.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_gpu1"
+literal "false"
+
+\end_inset
+
+K-Su Oh, K.
+ Jung, GPU implementation of neural networks, Pattern Recognition 
+\series bold
+37
+\series default
+, pp.
+ 1311-1314, 2004.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_gpu2"
+literal "false"
+
+\end_inset
+
+M.
+ Zhang, K.
+ Hibi, J.
+ Inoue, GPU-accelerated artificial neural network potential for molecular
+ dynamics simulation, Computer Physics Communications 
+\series bold
+285
+\series default
+, 108655, 2023.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_overfitting"
+literal "false"
+
+\end_inset
+
+Ying, X.
+ (2019, February).
+ An overview of overfitting and its solutions.
+ In Journal of physics: Conference series (Vol.
+ 1168, p.
+ 022022).
+ IOP Publishing.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnsharing1"
+literal "true"
+
+\end_inset
+
+S.J.
+ Nowlan and G.E.
+ Hinton, Simplifying neural networks by soft weight sharing, Neural Computation
+ 4, pp.
+ 473-493, 1992.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnsharing2"
+literal "false"
+
+\end_inset
+
+Nowlan, S.
+ J., & Hinton, G.
+ E.
+ (2018).
+ Simplifying neural networks by soft weight sharing.
+ In The mathematics of generalization (pp.
+ 373-394).
+ CRC Press.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnprunning1"
+literal "true"
+
+\end_inset
+
+S.J.
+ Hanson and L.Y.
+ Pratt, Comparing biases for minimal network construction with back propagation,
+ In D.S.
+ Touretzky (Ed.), Advances in Neural Information Processing Systems, Volume
+ 1, pp.
+ 177-185, San Mateo, CA: Morgan Kaufmann, 1989.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnprunning2"
+literal "false"
+
+\end_inset
+
+M.
+ Augasta and T.
+ Kathirvalavakumar, Pruning algorithms of neural networks — a comparative
+ study, Central European Journal of Computer Science, 2003.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnearly1"
+literal "false"
+
+\end_inset
+
+Lutz Prechelt, Automatic early stopping using cross validation: quantifying
+ the criteria, Neural Networks 
+\series bold
+11
+\series default
+, pp.
+ 761-767, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nnearly2"
+literal "false"
+
+\end_inset
+
+X.
+ Wu and J.
+ Liu, A New Early Stopping Algorithm for Improving Neural Network Generalization
+, 2009 Second International Conference on Intelligent Computation Technology
+ and Automation, Changsha, Hunan, 2009, pp.
+ 15-18.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nndecay1"
+literal "false"
+
+\end_inset
+
+N.
+ K.
+ Treadgold and T.
+ D.
+ Gedeon, Simulated annealing and weight decay in adaptive learning: the
+ SARPROP algorithm,IEEE Transactions on Neural Networks 
+\series bold
+9
+\series default
+, pp.
+ 662-668, 1998.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nndecay2"
+literal "false"
+
+\end_inset
+
+M.
+ Carvalho and T.
+ B.
+ Ludermir, Particle Swarm Optimization of Feed-Forward Neural Networks with
+ Weight Decay, 2006 Sixth International Conference on Hybrid Intelligent
+ Systems (HIS'06), Rio de Janeiro, Brazil, 2006, pp.
+ 5-5.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_arch1"
+literal "false"
+
+\end_inset
+
+J.
+ Arifovic, R.
+ Gençay, Using genetic algorithms to select architecture of a feedforward
+ artificial neural network, Physica A: Statistical Mechanics and its Application
+s 
+\series bold
+289
+\series default
+, pp.
+ 574-594, 2001.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_arch2"
+literal "false"
+
+\end_inset
+
+P.G.
+ Benardos, G.C.
+ Vosniakos, Optimizing feedforward artificial neural network architecture,
+ Engineering Applications of Artificial Intelligence 
+\series bold
+20
+\series default
+, pp.
+ 365-382, 2007.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "nn_arch3"
+literal "false"
+
+\end_inset
+
+B.A.
+ Garro, R.A.
+ Vázquez, Designing Artificial Neural Networks Using Particle Swarm Optimization
+ Algorithms, Computational Intelligence and Neuroscience, 369298, 2015.
+ 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "gen_review"
+literal "false"
+
+\end_inset
+
+Lambora, A., Gupta, K., & Chopra, K.
+ (2019, February).
+ Genetic algorithm-A literature review.
+ In 2019 international conference on machine learning, big data, cloud and
+ parallel computing (COMITCon) (pp.
+ 380-384).
+ IEEE.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_review"
+literal "false"
+
+\end_inset
+
+Pant, M., Zaheer, H., Garcia-Hernandez, L., & Abraham, A.
+ (2020).
+ Differential Evolution: A review of more than two decades of research.
+ Engineering Applications of Artificial Intelligence, 90, 103479.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_symmetry1"
+literal "false"
+
+\end_inset
+
+Y.H.
+ Li, J.Q.
+ Wang, X.J.
+ Wang, Y.L.
+ Zhao, X.H.
+ Lu, D.L.
+ Liu, Community Detection Based on Differential Evolution Using Social Spider
+ Optimization, Symmetry 
+\series bold
+9
+\series default
+, 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_symmetry3"
+literal "false"
+
+\end_inset
+
+W.
+ Yang, E.M.
+ Dilanga Siriwardane, R.
+ Dong, Y.
+ Li, J.
+ Hu, Crystal structure prediction of materials with high symmetry using
+ differential evolution, J.
+ Phys.: Condens.
+ Matter 
+\series bold
+33
+\series default
+ 455902, 2021.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_symmetry6"
+literal "false"
+
+\end_inset
+
+C.Y.
+ Lee, C.H.
+ Hung, Feature Ranking and Differential Evolution for Feature Selection
+ in Brushless DC Motor Fault Diagnosis , Symmetry 
+\series bold
+13
+\series default
+, 2021.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "de_symmetry7"
+literal "false"
+
+\end_inset
+
+S.
+ Saha, R.
+ Das, Exploring differential evolution and particle swarm optimization to
+ develop some symmetry-based automatic clustering techniques: application
+ to gene clustering, Neural Comput & Applic 
+\series bold
+30
+\series default
+, pp.
+ 735–757, 2018.
 \end_layout
 
 \begin_layout Bibliography
