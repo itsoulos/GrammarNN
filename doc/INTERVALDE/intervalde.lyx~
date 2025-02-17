@@ -2279,8 +2279,25 @@ Datasets
 \end_layout
 
 \begin_layout Standard
-The following classification datasets were incorporated in the conducted
+The following series of classification datasets was used in the conducted
  experiments:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Appendicitis
+\series default
+, which is medical dataset proposed in 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "appendicitis"
+literal "false"
+
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -2288,8 +2305,7 @@ The following classification datasets were incorporated in the conducted
 \series bold
 Alcohol
 \series default
-.
- This dataset is related to experiments on alcohol consumption 
+, which is related to experiments regarding alcohol consumption 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "alcohol"
@@ -2306,7 +2322,7 @@ literal "false"
 \series bold
 Australian
 \series default
-, related to economic risk in bank transactions 
+, which is related to various bank transactions
 \begin_inset CommandInset citation
 LatexCommand citep
 key "australian"
@@ -2320,17 +2336,17 @@ literal "false"
 \begin_layout Enumerate
 
 \series bold
-Bands
+Balance
 \series default
-, related to printing problems 
+ dataset 
 \begin_inset CommandInset citation
-LatexCommand citep
-key "bands"
+LatexCommand cite
+key "balance"
 literal "false"
 
 \end_inset
 
-, with two distinct classes.
+, which is used in various psychological experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -2338,7 +2354,7 @@ literal "false"
 \series bold
 Cleveland
 \series default
-, a medical dataset studied in many research papers 
+, which is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "cleveland1,cleveland2"
@@ -2355,7 +2371,8 @@ literal "false"
 \series bold
 Circular
 \series default
- dataset, which is an artificial dataset.
+ dataset, which is a dataset created artificially.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -2363,7 +2380,8 @@ Circular
 \series bold
 Dermatology
 \series default
-, a medical dataset related to dermatology problems 
+, a medical dataset with 6 classes which is related to dermatology problems
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "dermatology"
@@ -2371,7 +2389,7 @@ literal "false"
 
 \end_inset
 
- with 6 classes.
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2379,7 +2397,7 @@ literal "false"
 \series bold
 Ecoli
 \series default
-, that is related to issues about proteins 
+, which is used to problems regarding proteins 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ecoli"
@@ -2393,9 +2411,18 @@ literal "false"
 \begin_layout Enumerate
 
 \series bold
+Glass
+\series default
+ dataset, which is related to glass component analysis.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
 Haberman
 \series default
-, a medical dataset used in the detection of breast cancer.
+, a medical dataset for the detection of breast cancer.
  
 \end_layout
 
@@ -2436,17 +2463,7 @@ literal "false"
 \series bold
 HeartAttack
 \series default
-, a medical dataset related to the presence of heart diseases, with two
- classes.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Hepatitis
-\series default
-, a dataset used for to detect the presence of hepatitis.
- 
+, a medical dataset used for the detection of heart diseases.
 \end_layout
 
 \begin_layout Enumerate
@@ -2454,7 +2471,7 @@ Hepatitis
 \series bold
 Housevotes
 \series default
-, that uses data from the Congressional voting in USA 
+, that contains data about the Congressional voting in USA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housevotes"
@@ -2470,7 +2487,7 @@ literal "false"
 \series bold
 Ionosphere
 \series default
-, that used data from various measurements in the ionosphere 
+, that contains measurements about the ionosphere 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ion1,ion2"
@@ -2494,34 +2511,18 @@ literal "false"
 
 \end_inset
 
- with two classes.
+.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-Lymography
+Lymography 
 \series default
- 
+dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "lymography"
-literal "false"
-
-\end_inset
-
-, which is a dataset with four distinct classes.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Magic
-\series default
-, this dataset contains data from simulation regarding gamma particles 
-\begin_inset CommandInset citation
-LatexCommand citep
-key "magic"
 literal "false"
 
 \end_inset
@@ -2534,7 +2535,7 @@ literal "false"
 \series bold
 Mammographic
 \series default
-, a medical dataset used for the detection of  breast cancer 
+, a medical dataset related to breast cancer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "mammographic"
@@ -2550,7 +2551,7 @@ literal "false"
 \series bold
 Parkinsons
 \series default
-, a dataset used to detect the presence of Parkinson's disease 
+, a medical dataset related to Parkinson's disease 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "parkinsons1,parkinsons2"
@@ -2566,7 +2567,7 @@ literal "false"
 \series bold
 Pima
 \series default
-, a medical dataset that used to detect the presence of diabetes
+, a medical dataset related to the presence of diabetes
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pima"
@@ -2582,8 +2583,7 @@ literal "false"
 \series bold
 Phoneme
 \series default
-, where the purpose of this dataset is to distinguish between nasal and
- oral sounds.
+, used in sound experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -2591,7 +2591,7 @@ Phoneme
 \series bold
 Popfailures
 \series default
-, a dataset related to climate measurements 
+, a dataset that containsclimate measurements 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "popfailures"
@@ -2607,7 +2607,7 @@ literal "false"
 \series bold
 Regions2
 \series default
-, used detect issues in the liver from various liver biopsy images 
+, a medical dataset related to some liver biopsy images 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "regions2"
@@ -2621,18 +2621,9 @@ literal "false"
 \begin_layout Enumerate
 
 \series bold
-Ring
-\series default
-, a dataset related to some multivariate normal distributions.
- 
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
 Saheart
 \series default
-, used to detect the presence of some heart diseases.
+, which is a medical dataset related to some heart diseases.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "saheart"
@@ -2656,7 +2647,7 @@ literal "false"
 
 \end_inset
 
-, which is used for image processing .
+, used in various image processing cases.
 \end_layout
 
 \begin_layout Enumerate
@@ -2664,16 +2655,7 @@ literal "false"
 \series bold
 Statheart
 \series default
-, a medical dataset about heart diseases.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-Spambase
-\series default
-, a dataset used for the detection of spam emails.
- 
+, which is a medical dataset related to heart diseases.
 \end_layout
 
 \begin_layout Enumerate
@@ -2681,7 +2663,8 @@ Spambase
 \series bold
 Spiral
 \series default
-, which is an artificial dataset.
+, which is a dataset created artificially.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -2689,7 +2672,8 @@ Spiral
 \series bold
 Student
 \series default
-, a dataset related to some experiments in schools 
+, a dataset that contains measurements from experiments conducted in schools
+ 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "student"
@@ -2721,7 +2705,7 @@ literal "false"
 \series bold
 Wdbc
 \series default
-, a medical dataset related to the detection of breast cancer 
+, a medical dataset used to predict the presence of breast cancer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wdbc1,wdbc2"
@@ -2737,7 +2721,7 @@ literal "false"
 \series bold
 Wine
 \series default
-, a dataset related to the quality of wines 
+, a dataset used to predict the quality of wines 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "wine1,wine2"
@@ -2761,8 +2745,7 @@ literal "false"
 
 \end_inset
 
-.
- From the original dataset the following cases were obtained: Z_F_S, ZO_NF_S
+ and the following cases were studied from this dataset: Z_F_S, ZO_NF_S
  and ZONF_S.
 \end_layout
 
@@ -2771,7 +2754,7 @@ literal "false"
 \series bold
 Zoo
 \series default
-, that used to predict the class of some animals 
+, a dataset used to predict the class of some animals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "zoo"
@@ -2783,7 +2766,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Also the following regression datasets were used in the conducted experiments:
+Furthermore, the following list of regression datasets was incorporated
+ in the conducted experiments:
 \end_layout
 
 \begin_layout Enumerate
@@ -2791,7 +2775,7 @@ Also the following regression datasets were used in the conducted experiments:
 \series bold
 Abalone
 \series default
-, a dataset regarding the prediction of the age of abalones 
+, a dataset related to the estimation of the age of abalones 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "abalone"
@@ -2807,7 +2791,7 @@ literal "false"
 \series bold
 Airfoil
 \series default
-, a dataset derived from NASA 
+, a dataset provided by NASA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "airfoil"
@@ -2815,7 +2799,7 @@ literal "false"
 
 \end_inset
 
- with 5 features.
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -2823,7 +2807,7 @@ literal "false"
 \series bold
 Auto
 \series default
-, a dataset used for the prediction of fuel consumption in cars.
+, a dataset used for the estimation of fuel consumption in cars.
 \end_layout
 
 \begin_layout Enumerate
@@ -2831,8 +2815,8 @@ Auto
 \series bold
 BK
 \series default
-, related to basketball games.
- The dataset has 4 features.
+, which is used in basketball games.
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -2840,7 +2824,7 @@ BK
 \series bold
 BL
 \series default
-, a dataset used in some electricity experiments and it contains 7 features.
+, a dataset that contains measurements about electricity experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -2848,7 +2832,7 @@ BL
 \series bold
 Baseball
 \series default
-, a dataset with 16 features used for the estimation of the income of baseball
+, a dataset that contains data used in the estimation of the income of baseball
  players.
 \end_layout
 
@@ -2857,7 +2841,7 @@ Baseball
 \series bold
 Concrete
 \series default
-, a dataset with 8 features and it was used in civil engineering 
+, a dataset used in civil engineering 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "concrete"
@@ -2873,7 +2857,8 @@ literal "false"
 \series bold
 DEE
 \series default
-, a dataset with 6 features, used in the prediction of electricity prices.
+, a dataset that contains 6 features, which is used for the prediction of
+ electricity prices.
 \end_layout
 
 \begin_layout Enumerate
@@ -2881,7 +2866,7 @@ DEE
 \series bold
 Friedman
 \series default
-, a synthetic dataset used in various benchmarks 
+, an artificial dataset
 \begin_inset CommandInset citation
 LatexCommand citep
 key "friedman"
@@ -2897,7 +2882,7 @@ literal "false"
 \series bold
 FY, 
 \series default
-this dataset used to measure the longevity of fruit flies.
+this dataset used to estimate the longevity of fruit flies.
  
 \end_layout
 
@@ -2906,7 +2891,7 @@ this dataset used to measure the longevity of fruit flies.
 \series bold
 HO
 \series default
-, a dataset founded in the STATLIB repository with 13 features.
+, a dataset provided by the STATLIB repository with 13 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -2914,7 +2899,7 @@ HO
 \series bold
 Housing
 \series default
-, used to predict the price of houses 
+, which is used for the prediction of house prices 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housing"
@@ -2930,8 +2915,7 @@ literal "false"
 \series bold
 Laser
 \series default
-, which is a dataset with 4 features and it has been used in various laser
- experiments.
+, which is used in various laser experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -2939,7 +2923,7 @@ Laser
 \series bold
 LW
 \series default
-, a dataset with 9 features used to measure the weight of babes.
+, which is a dataset with 9 features used to measure the weight of babes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2947,7 +2931,7 @@ LW
 \series bold
 Mortgage
 \series default
-, an economic dataset with 15 features.
+, which is a dataset with 15 features related to the economy of USA.
 \end_layout
 
 \begin_layout Enumerate
@@ -2955,7 +2939,7 @@ Mortgage
 \series bold
 Plastic
 \series default
-, a dataset related to the detection of pressure on plastics.
+, a dataset related to the pressure in plastics.
 \end_layout
 
 \begin_layout Enumerate
@@ -2963,7 +2947,7 @@ Plastic
 \series bold
 PL
 \series default
-, a dataset with 2 features founded in the STATLIB repository.
+, a dataset provided by the STATLIB repository.
 \end_layout
 
 \begin_layout Enumerate
@@ -2971,7 +2955,7 @@ PL
 \series bold
 Quake
 \series default
-, a dataset used in earthquake measurements with 3 features.
+, a dataset with 3 features that contains measurements from earthquakes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2979,8 +2963,8 @@ Quake
 \series bold
 SN
 \series default
-, a dataset that provides experimental measurements related to trellising
- and pruning, with 11 features.
+, a dataset with 11 features, which is used in experiments related to trellising
+ and pruning,.
 \end_layout
 
 \begin_layout Enumerate
@@ -2988,8 +2972,7 @@ SN
 \series bold
 Stock
 \series default
-, a dataset with 9 features for the prediction of the prices of various
- stocks.
+, a dataset with 9 features used to predict the prices of various stocks.
 \end_layout
 
 \begin_layout Enumerate
@@ -2997,15 +2980,7 @@ Stock
 \series bold
 Treasury
 \series default
-, an economic dataset with 15 features.
-\end_layout
-
-\begin_layout Enumerate
-
-\series bold
-VE
-\series default
- dataset, derived from the STALIB repository.
+, which is a dataset with 15 features used in economic problems.
 \end_layout
 
 \begin_layout Subsection
@@ -3013,11 +2988,74 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
+The software used in the conducted experiments was coded in C++, using the
+ freely available Optimus programming tool, that can be downloaded from
+ 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/itsoulos/GlobalOptimus/
+\end_layout
+
+\end_inset
+
+( accessed on 17 February 2025 ).
+ Each experiment was conducted 30 times using different seed for the random
+ generator each time.
+ For the validation of the experimental results the ten - fold cross validation
+ method was used.
+ The average classification error as measured on the corresponding test
+ set is reported for the classification datasets.
+ This error is calculated using the following formula:
+\begin_inset Formula 
+\begin{equation}
+E_{C}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)\right)-y_{i}\right)}{N}
+\end{equation}
+
+\end_inset
+
+Also, the
+\series bold
+ 
+\series default
+average regression error is reported for the regression datasets, that can
+ be calculated as follows:
+\begin_inset Formula 
+\begin{equation}
+E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum_{i=1}^{N}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)-y_{i}\right)^{2}}{N}
+\end{equation}
+
+\end_inset
+
+All the experiments were performed on
+\series bold
+ 
+\series default
+an AMD Ryzen 5950X with 128GB of RAM and the used operating system was Debian
+ Linux.
+ The values used for the parameters of the proposed method are shown in
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:settings"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset Float table
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -3436,12 +3474,87 @@ Iterations
 
 \end_inset
 
+The following notation is used in the tables that contains the measurement
+ from the conducted experiments:
+\end_layout
+
+\begin_layout Enumerate
+The column DATASET contains the name of the used dataset.
+\end_layout
+
+\begin_layout Enumerate
+The column ADAM represents the experimental results from the application
+ of the ADAM optimization method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "nn_adam"
+literal "false"
+
+\end_inset
+
+ to a neural networks with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column BFGS denotes the incorporation of the BFGS optimization method
+ 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "powell"
+literal "false"
+
+\end_inset
+
+ to train an artificial neural network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column GENETIC represents the usage of a Genetic Algorithm with the
+ experimental settings of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:settings"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, used to train a neural network with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes.
+\end_layout
+
+\begin_layout Enumerate
+The column PROPOSED denotes the proposed method.
+\end_layout
+
+\begin_layout Enumerate
+The row AVERAGE is used to measure the average classification or regression
+ error for all dataset.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+(.....)
+\series default
 
 \begin_inset Float table
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -14201,6 +14314,20 @@ J.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "appendicitis"
+literal "false"
+
+\end_inset
+
+Weiss, Sholom M.
+ and Kulikowski, Casimir A., Computer Systems That Learn: Classification
+ and Prediction Methods from Statistics, Neural Nets, Machine Learning,
+ and Expert Systems, Morgan Kaufmann Publishers Inc, 1991.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 label "Tzimourta(2018)"
 key "alcohol"
 literal "false"
@@ -14237,21 +14364,21 @@ J.R.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-label "Evans(1994)"
-key "bands"
+key "balance"
 literal "false"
 
 \end_inset
 
-B.
- Evans, D.
- Fisher, Overcoming process delays with decision tree induction.
- IEEE Expert 
+T.
+ Shultz, D.
+ Mareschal, W.
+ Schmidt, Modeling Cognitive Development on Balance Scale Phenomena, Machine
+ Learning 
 \series bold
-9
+16
 \series default
 , pp.
- 60-66, 1994.
+ 59-88, 1994.
 \end_layout
 
 \begin_layout Bibliography
@@ -14495,21 +14622,6 @@ G.
  pp.
  31-45, 1987.
  
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "(2002)"
-key "magic"
-literal "false"
-
-\end_inset
-
-Heck, D., Knapp, J., Capdevielle, J.
- N., Schatz, G., & Thouw, T.
- (1998).
- CORSIKA: A Monte Carlo code to simulate extensive air showers.
 \end_layout
 
 \begin_layout Bibliography
@@ -14960,6 +15072,24 @@ D.
 \series default
 , pp.
  81-102, 1978.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "powell"
+literal "true"
+
+\end_inset
+
+M.J.D Powell, A Tolerant Algorithm for Linearly Constrained Optimization Calculati
+ons, Mathematical Programming 
+\series bold
+45
+\series default
+, pp.
+ 547-566, 1989.
+ 
 \end_layout
 
 \begin_layout Bibliography
