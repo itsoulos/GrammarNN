@@ -1691,11 +1691,19 @@ noprefix "false"
 \end_layout
 
 \begin_layout Enumerate
-If 
+
+\series bold
+If
+\series default
+ 
 \begin_inset Formula $d\left(t_{f},f_{i}\right)=\mbox{TRUE}$
 \end_inset
 
- then 
+ 
+\series bold
+then
+\series default
+ 
 \begin_inset Formula $a_{i}=t$
 \end_inset
 
@@ -1743,6 +1751,40 @@ If
  goto Main Step.
 \end_layout
 
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Final step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Obtain
+\series default
+ the best agent 
+\begin_inset Formula $a^{*}=\left[\overrightarrow{L_{a}^{*}},\overrightarrow{R_{a}^{*}}\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Return
+\series default
+ 
+\begin_inset Formula $a^{*}$
+\end_inset
+
+ as the best located interval.
+\end_layout
+
 \begin_layout Standard
 \begin_inset Separator plain
 \end_inset
@@ -1756,7 +1798,7 @@ If
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 
@@ -1916,6 +1958,243 @@ Return
 The final training method
 \end_layout
 
+\begin_layout Standard
+In the last phase of the proposed procedure, a genetic algorithm is applied
+ to train the artificial neural network.
+ The network is trained within the interval 
+\begin_inset Formula $a^{*}$
+\end_inset
+
+ identified in the second phase of the procedure.
+ The main steps of this genetic algorithm have as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialization step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $N_{c}$
+\end_inset
+
+ the number of chromosomes and as 
+\begin_inset Formula $N_{g}$
+\end_inset
+
+ the maximum number of allowed generations.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ as 
+\begin_inset Formula $p_{s}$
+\end_inset
+
+ the selection rate and as 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+ the mutation rate.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ each chromosome 
+\begin_inset Formula $g_{i},\ i=1,\ldots,N_{c}$
+\end_inset
+
+ inside the bounds 
+\begin_inset Formula $a^{*}=\left[\overrightarrow{L_{a}^{*}},\overrightarrow{R_{a}^{*}}\right]$
+\end_inset
+
+ of the second phase.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=0$
+\end_inset
+
+ as the generation number.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Fitness calculation step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{c}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Obtain
+\series default
+ the neural network 
+\begin_inset Formula $N_{i}=N\left(\overrightarrow{x},\overrightarrow{g_{i}}\right)$
+\end_inset
+
+ for each chromosome 
+\begin_inset Formula $\overrightarrow{g_{i}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{i}=\sum_{j=1}^{M}\left(N\left(\overrightarrow{x_{j}},\overrightarrow{g_{i}}\right)-y_{j}\right)^{2}$
+\end_inset
+
+ as the associated fitness value.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Genetic operations step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Perform
+\series default
+ selection, crossover and mutation using the same operations as in the first
+ phase of the proposed method.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Termination check step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=k+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $k\le N_{g}$
+\end_inset
+
+ goto Fitness Calculation Step.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Testing step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Obtain
+\series default
+ the best chromosome 
+\begin_inset Formula $\overrightarrow{g^{*}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the corresponding neural network 
+\begin_inset Formula $N\left(\overrightarrow{x},\overrightarrow{g^{*}}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Apply
+\series default
+ this neural network to the associated test set and report the results.
+\end_layout
+
+\end_deeper
 \begin_layout Section
 Results
 \begin_inset CommandInset label
@@ -1928,13 +2207,13 @@ name "sec:Results"
 \end_layout
 
 \begin_layout Standard
-The new training procedure for the construction of weights of neural networks
- was tested on a wide series of classification and regression datasets,
- found in the recent literature and in the following websites:
+The proposed method was tested for its efficiency on a series of classification
+ and regression problems, that were obtained from the following online databases
+:
 \end_layout
 
 \begin_layout Enumerate
-The UCI website, 
+The UCI database located in 
 \begin_inset Flex URL
 status open
 
@@ -1945,7 +2224,7 @@ https://archive.ics.uci.edu/
 
 \end_inset
 
-(accessed on 24 November 2024)
+(accessed on 17 February 2025)
 \begin_inset CommandInset citation
 LatexCommand citep
 key "uci"
@@ -1968,7 +2247,7 @@ https://sci2s.ugr.es/keel/datasets.php
 
 \end_inset
 
-(accessed on 24 November 2024)
+(accessed on 17 February 2025)
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Keel"
@@ -1991,7 +2270,7 @@ ftp://lib.stat.cmu.edu/datasets/index.html
 
 \end_inset
 
-(accessed on 24 November 2024).
+(accessed on 17 February 2025).
  
 \end_layout
 
