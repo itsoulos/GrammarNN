@@ -1223,16 +1223,46 @@ Copy
 \end_inset
 
  chromosomes to the next generation.
+ The remaining will be substituted by individuals produced by crossover
+ and mutation.
 \end_layout
 
 \begin_layout Enumerate
 
 \series bold
-(OK)
+Perform 
 \series default
-that will be copied intact to the next generation.
- The remaining will be substituted by individuals produced by crossover
- and mutation.
+the crossover procedure.
+ For every pair of constructed chromosomes 
+\begin_inset Formula $\left(\widetilde{z},\widetilde{w}\right)$
+\end_inset
+
+ two chromosomes are selected from the current population using tournament
+ selection.
+ The new chromosomes are created through the process suggested by Kaelo
+ et al 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "kaelo"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Perform
+\series default
+ the mutation procedure.
+ For every element of each chromosome alter this element randomly with probabili
+ty 
+\begin_inset Formula $p_{m}$
+\end_inset
+
+.
 \end_layout
 
 \end_deeper
@@ -1274,8 +1304,612 @@ goto
 \end_layout
 
 \end_deeper
+\begin_layout Enumerate
+
+\series bold
+Bound creation step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Obtain
+\series default
+ the best chromosome 
+\begin_inset Formula $g^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Create
+\series default
+ the vectors 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+and 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ as: 
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+L_{i}^{*} & = & -f\left|g_{i}^{*}\right|,\ i=1,\ldots,n\\
+R_{i}^{*} & = & f\left|g_{i}^{*}\right|,\ i=1,\ldots,n
+\end{array}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $f>1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Subsection
 The bounding technique of the second phase 
+\end_layout
+
+\begin_layout Standard
+During the second phase of the proposed algorithm, a systematic attempt
+ is made to identify the optimal value interval within the vectors 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ identified in the previous phase.
+ For this reason, an evolutionary technique that has its bases in the differenti
+al evolution technique is applied here.
+ In this phase, the agents that constitute the candidate solutions generated
+ by the differential evolution technique constitute ranges of values defined
+ as: 
+\begin_inset Formula $\left[\overrightarrow{L_{k}},\overrightarrow{R_{k}}\right]$
+\end_inset
+
+.
+ Also, the fitness value for each agent is defined as an interval 
+\begin_inset Formula $f=\left[f_{1},f_{2}\right].$
+\end_inset
+
+ In order to compare two intervals 
+\begin_inset Formula $a=\left[a_{1},a_{2}\right]$
+\end_inset
+
+ and 
+\begin_inset Formula $b=\left[b_{1},b_{2}\right]$
+\end_inset
+
+ the comparison operator 
+\begin_inset Formula $D(a,b)$
+\end_inset
+
+ is used with the following definition:
+\begin_inset Formula 
+\begin{equation}
+D(a,b)=\begin{cases}
+\mbox{TRUE}, & a_{1}<b_{1},\mbox{OR\ \ensuremath{\left(a_{1}=b_{1}\ \mbox{AND}\ a_{2}<b_{2}\right)}}\\
+\mbox{FALSE}, & \mbox{\mbox{OTHERWISE}}
+\end{cases}\label{eq:eqD}
+\end{equation}
+
+\end_inset
+
+The steps of the procedure used in the second phase have as follows:
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialization step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the number of agents NP.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the crossover probability CR.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the maximum number of iterations 
+\begin_inset Formula $N_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ the number of samples 
+\begin_inset Formula $N_{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Initialize
+\series default
+ each agent 
+\begin_inset Formula $a_{i}=$
+\end_inset
+
+
+\begin_inset Formula $\left[\overrightarrow{L_{i}},\overrightarrow{R_{i}}\right],\ i=1,\ldots,\mbox{NP}$
+\end_inset
+
+ randomly inside the vectors 
+\begin_inset Formula $L^{*}$
+\end_inset
+
+and 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ of the previous phase.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=0$
+\end_inset
+
+ as the iteration counter.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Fitness calculation step.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,\mbox{NP}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ the fitness 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ of agent 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ using the algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:fitnessCalculation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End
+\series default
+ 
+\series bold
+For
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Main step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,\mbox{NP}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Select
+\series default
+ randomly three distinct agents 
+\begin_inset Formula $a_{r1},a_{r2},a_{r3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Select
+\series default
+ randomly an integer value 
+\begin_inset Formula $R\in[0,n].$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Set 
+\begin_inset Formula $t=a_{i}$
+\end_inset
+
+ as the trial point .
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $j=1,\ldots,n$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $j=R$
+\end_inset
+
+ OR 
+\begin_inset Formula $r\le\mbox{CR}$
+\end_inset
+
+ set 
+\begin_inset Formula $t_{j}=a_{r1,j}+F_{r}\times\left(a_{r2,j}-a_{r3,j}\right)$
+\end_inset
+
+ where 
+\begin_inset Formula $r$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{r}$
+\end_inset
+
+ are random values in [0,1].
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $t_{f}$
+\end_inset
+
+ as the fitness of the trial set of intervals 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ This fitness value is calculated using the algorithm 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:fitnessCalculation"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $d\left(t_{f},f_{i}\right)=\mbox{TRUE}$
+\end_inset
+
+ then 
+\begin_inset Formula $a_{i}=t$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Termination check step
+\series default
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $k=k+1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $k\le N_{k}$
+\end_inset
+
+ goto Main Step.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Float algorithm
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fitness calculation for any agent 
+\begin_inset Formula $a=\left[\overrightarrow{L_{a}},\overrightarrow{R_{a}}\right]$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:fitnessCalculation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Take
+\series default
+ 
+\begin_inset Formula $N_{s}$
+\end_inset
+
+ random samples in 
+\begin_inset Formula $a$
+\end_inset
+
+ and form the set 
+\begin_inset Formula $S_{a}=\left\{ \overrightarrow{s_{1}},\overrightarrow{s_{2},}\ldots,\overrightarrow{s_{N_{s}}}\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{\mbox{min}}=\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Set
+\series default
+ 
+\begin_inset Formula $f_{\max}=-\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+For
+\series default
+ 
+\begin_inset Formula $i=1,\ldots,N_{s}$
+\end_inset
+
+ 
+\series bold
+do
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Calculate
+\series default
+ 
+\begin_inset Formula $E_{i}=\sum_{j=1}^{M}\left(N\left(\overrightarrow{x_{j}},\overrightarrow{s_{i}}\right)-y_{j}\right)^{2}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $E_{i}<f_{\mbox{min}}$
+\end_inset
+
+ set 
+\begin_inset Formula $f_{\mbox{min}}=E_{i}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+If
+\series default
+ 
+\begin_inset Formula $E_{i}>f_{\mbox{max}}$
+\end_inset
+
+ set 
+\begin_inset Formula $f_{\mbox{max}}=E_{i}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+End For
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Return
+\series default
+ as fitness value the quantity 
+\begin_inset Formula $f_{a}=\left[f_{\mbox{min}},f_{\mbox{max}}\right]$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2128,7 +2762,7 @@ name "tab:settings"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="10" columns="3">
+<lyxtabular version="3" rows="12" columns="3">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -2199,7 +2833,7 @@ Processing nodes
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $N_{g}$
+\begin_inset Formula $N_{c}$
 \end_inset
 
 
@@ -2231,7 +2865,7 @@ Chromosomes
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Formula $N_{c}$
+\begin_inset Formula $N_{g}$
 \end_inset
 
 
@@ -2317,6 +2951,38 @@ Mutation rate
 
 \begin_layout Plain Layout
 0.05
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $f$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Bounding value
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.0
 \end_layout
 
 \end_inset
@@ -2413,6 +3079,38 @@ Crossover probability
 
 \begin_layout Plain Layout
 0.9
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $N_{s}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of samples
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50
 \end_layout
 
 \end_inset
@@ -13162,6 +13860,25 @@ Hornik, K., Stinchcombe, M., & White, H.
  (1989).
  Multilayer feedforward networks are universal approximators.
  Neural networks, 2(5), 359-366.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "kaelo"
+literal "true"
+
+\end_inset
+
+P.
+ Kaelo, M.M.
+ Ali, Integrated crossover rules in real coded genetic algorithms, European
+ Journal of Operational Research 
+\series bold
+176
+\series default
+, pp.
+ 60-76, 2007.
 \end_layout
 
 \begin_layout Bibliography
