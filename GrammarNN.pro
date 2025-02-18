@@ -30,6 +30,7 @@ SOURCES += \
         INTERVAL/interval.cpp \
         INTERVAL/intervalde.cpp \
         INTERVAL/intervalproblem.cpp \
+        INTERVAL/intervalpso.cpp \
         INTERVAL/problem.cpp \
         METHODS/adam.cpp \
         METHODS/armijosearch.cpp \
@@ -83,6 +84,7 @@ HEADERS += \
     INTERVAL/interval.h \
     INTERVAL/intervalde.h \
     INTERVAL/intervalproblem.h \
+    INTERVAL/intervalpso.h \
     INTERVAL/problem.h \
     METHODS/adam.h \
     METHODS/armijosearch.h \

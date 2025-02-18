@@ -213,7 +213,7 @@ double  RbfProblem::getOutput(Data &x)
 {
     int nodes = weight.size();
     double sum = 0.0;
-    //if(error_flag) return 1e+100;
+    if(error_flag) return 1e+100;
     for(int i=0;i<nodes;i++)
     {
         double val = gaussian(x,centers[i],variances[i]);
@@ -424,6 +424,7 @@ void    RbfProblem::initModel()
             a=t;
         }
         if(b<0.001) b=0.001;
+
         m[icount++]=Interval(a,b);
     }
     for(int i=0;i<nodes;i++)

@@ -9,11 +9,11 @@ PROGRAM=./GrammarNN
 ## DATAFILE: the name of the used dataset
 DATAFILE=$1
 
-## INTERVALMETHOD: The used interval method. Available values: grammar, intervalde
-INTERVALMETHOD=intervalde
+## INTERVALMETHOD: The used interval method. Available values: grammar, intervalde, intervalpso
+INTERVALMETHOD=intervalpso
 
 ## MODEL: The name of the used model. Available values: Mlp, Rbf
-MODEL=Mlp
+MODEL=Rbf
 
 ## METHOD: The name of the used training method, when the Grammar Genetic finishes. 
 #          Avalaible values: Bfgs, Adam, Gradient, Lbfgs, Genetic, Pso
@@ -46,7 +46,7 @@ then
 ###RBF NETWORK PARAMS
 ## rbf_nodes: The number of processing nodes
 ## rbf_factor: The scale factor used for the margins
-	MODELPARAMS="--rbf_nodes=5 --rbf_factor=3 --model_trainfile=$DATAPATH/$1.train --model_testfile=$DATAPATH/$1.test"
+	MODELPARAMS="--rbf_nodes=10 --rbf_factor=2 --model_trainfile=$DATAPATH/$1.train --model_testfile=$DATAPATH/$1.test"
 fi
 
 
@@ -74,4 +74,4 @@ GENPARAMS="--ggen_count=500 --ggen_size=100 --ggen_srate=0.1 --ggen_mrate=0.05 -
 
 IDEPARAMS="--ide_np=200 --ide_f=0.8 --ide_cr=0.9 --ide_weightmethod=random --ide_maxiters=200"
 ## Execute the program
-$PROGRAM $GENPARAMS $IDEPARAMS $MAINPARAMS $OPTPARAMS $MODELPARAMS
+ $PROGRAM $GENPARAMS $IDEPARAMS $MAINPARAMS $OPTPARAMS $MODELPARAMS
