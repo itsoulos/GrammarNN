@@ -56,7 +56,7 @@ fi
 ## gnn_seed:   The seed used in the random number generator.
 ## gnn_method: The optimization method used in the final phase of the simulation experiments to evaluate the bounds. 
 ## gnn_model:  The model used during the experiments
-MAINPARAMS="--gnn_intervalmethod=$INTERVALMETHOD --gnn_firstphase=no --gnn_iters=10 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL"
+MAINPARAMS="--gnn_intervalmethod=$INTERVALMETHOD --gnn_firstphase=yes --gnn_iters=30 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL"
 
 ### Grammar Genetic PARAMETERS
 ## ggen_count:  The number of chromosomes used in the Grammar Genetic process.

@@ -6,9 +6,9 @@ IntervalAnneal::IntervalAnneal(IntervalProblem *p)
     neps = 50;
     alpha = 0.9;
     T0=1e+8;
-    plist.addParam(Parameter("isiman_t0",1e+10,1e+3,1e+10,"Initial temp"));
-    plist.addParam(Parameter("isiman_neps",100,10,200,"Number of random points"));
-    plist.addParam(Parameter("isiman_alpha",0.99,0.1,1.0,"Alpha value for temp"));
+    plist.addParam(Parameter("isiman_t0",1e+8,1e+3,1e+10,"Initial temp"));
+    plist.addParam(Parameter("isiman_neps",10,10,200,"Number of random points"));
+    plist.addParam(Parameter("isiman_alpha",0.995,0.1,1.0,"Alpha value for temp"));
 }
 
 void            IntervalAnneal::setProblem(IntervalProblem *p)
@@ -59,8 +59,8 @@ void            IntervalAnneal::Solve()
 
     do
     {
-        xpoint = bestx;
-        ypoint = besty;
+    //    xpoint = bestx;
+    //    ypoint = besty;
         for(int i=1;i<=neps;i++)
         {
             randomSample(trialx);
@@ -79,7 +79,7 @@ void            IntervalAnneal::Solve()
             else
             {
                 double r = drand48();
-                double ratio = exp(-(trialy.leftValue()-besty.leftValue())/T0);
+                double ratio = exp(-(trialy.leftValue()-ypoint.leftValue())/T0);
                 double xmin = ratio<1?ratio:1;
                 if(r<xmin)
                 {
