@@ -3545,11 +3545,28 @@ The row AVERAGE is used to measure the average classification or regression
 \end_layout
 
 \begin_layout Standard
+The table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experClass"
+plural "false"
+caps "false"
+noprefix "false"
 
-\series bold
-(.....)
-\series default
+\end_inset
 
+ is used to provide the experimental results for the classification datasets
+ and the table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:experRegression"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ provides the corresponding results for the regression datasets.
 \begin_inset Float table
 placement H
 wide false

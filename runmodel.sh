@@ -9,11 +9,11 @@ PROGRAM=./GrammarNN
 ## DATAFILE: the name of the used dataset
 DATAFILE=$1
 
-## INTERVALMETHOD: The used interval method. Available values: grammar, intervalde, intervalpso
-INTERVALMETHOD=intervalpso
+## INTERVALMETHOD: The used interval method. Available values: grammar, intervalde, intervalpso, intervalanneal
+INTERVALMETHOD=intervalanneal
 
 ## MODEL: The name of the used model. Available values: Mlp, Rbf
-MODEL=Rbf
+MODEL=Mlp
 
 ## METHOD: The name of the used training method, when the Grammar Genetic finishes. 
 #          Avalaible values: Bfgs, Adam, Gradient, Lbfgs, Genetic, Pso
@@ -52,10 +52,11 @@ fi
 
 ### MAIN PROGRAM PARAMETERS
 ## gnn_iters:  The number of iterations for simulation experiments.
+## gnn_firstphase: Enable or disable the first phase (yes,no)
 ## gnn_seed:   The seed used in the random number generator.
 ## gnn_method: The optimization method used in the final phase of the simulation experiments to evaluate the bounds. 
 ## gnn_model:  The model used during the experiments
-MAINPARAMS="--gnn_intervalmethod=$INTERVALMETHOD --gnn_iters=10 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL"
+MAINPARAMS="--gnn_intervalmethod=$INTERVALMETHOD --gnn_firstphase=no --gnn_iters=10 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL"
 
 ### Grammar Genetic PARAMETERS
 ## ggen_count:  The number of chromosomes used in the Grammar Genetic process.

@@ -3,7 +3,7 @@ Genetic::Genetic()
 {
     hasInitialized =false;
     addParam(Parameter("gen_count",200,10,2000,"Number of chromosomes"));
-    addParam(Parameter("gen_maxiters",200,10,2000,"Maximum number of generations"));
+    addParam(Parameter("gen_maxiters",500,10,2000,"Maximum number of generations"));
     addParam(Parameter("gen_srate",0.10,0.0,1.0,"Selection rate"));
     addParam(Parameter("gen_mrate",0.05,0.0,1.0,"Mutation rate"));
     addParam(Parameter("gen_lrate",0.000,0.0,1.0,"Localsearch rate"));

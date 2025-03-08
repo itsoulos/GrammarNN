@@ -10,12 +10,14 @@
 # include <METHODS/genetic.h>
 # include <INTERVAL/intervalde.h>
 # include <INTERVAL/intervalpso.h>
+# include <INTERVAL/intervalanneal.h>
 # include <QDebug>
 
 
 GrammarGenetic *gen=NULL;
 IntervalDE *ide=NULL;
 IntervalPso *ipso=NULL;
+IntervalAnneal *isiman=NULL;
 QVector<Optimizer*> method;
 QStringList methodName;
 Model *selectedModel = NULL;
@@ -73,8 +75,11 @@ void makeMainParams()
 {
     mainParamList.addParam(Parameter("help","","Show help screen"));
     QStringList m;
-    m<<"intervalde"<<"grammar"<<"intervalpso";
+    m<<"intervalde"<<"grammar"<<"intervalpso"<<"intervalanneal";
     mainParamList.addParam(Parameter("gnn_intervalmethod",m[0],m,"The used interval method"));
+    QStringList yesno;
+    yesno<<"yes"<<"no";
+    mainParamList.addParam(Parameter("gnn_firstphase",yesno[0],yesno,"Enable or disable first phase (yes,no)"));
     mainParamList.addParam(Parameter("gnn_method",methodName[0],methodName,"Used Optimization method"));
     mainParamList.addParam(Parameter("gnn_model",modelName[0],modelName,"Model name. Values: mlp,rbf"));
     mainParamList.addParam(Parameter("gnn_seed",1,0,100,"Random Seed"));
@@ -88,6 +93,7 @@ void init()
     gen = new GrammarGenetic(200,200,NULL);
     ide = new IntervalDE(NULL);
     ipso = new IntervalPso(NULL);
+    isiman = new IntervalAnneal(NULL);
     makeMainParams();
 }
 
@@ -99,6 +105,8 @@ void done()
         delete ide;
     if(ipso!=NULL)
         delete ipso;
+    if(isiman!=NULL)
+        delete isiman;
     unloadMethods();
     unloadModels();
 }
@@ -231,6 +239,15 @@ void parseCmdLine(QStringList args)
             ipso->setParam(name,value);
             foundParameter=true;
         }
+
+        //check in IntervalAnneal
+        pg = isiman->getParameterList();
+        if(pg.contains(name))
+        {
+            pg.setParam(name,value);
+            isiman->setParam(name,value);
+            foundParameter=true;
+        }
         if(!foundParameter)
             error(QString("Parameter %1 not found.").arg(name));
     }
@@ -243,13 +260,24 @@ void    runFirstPhase()
     xx.resize(dynamic_cast<IntervalProblem*>(selectedModel)->getDimension());
     bestMargin.resize(dynamic_cast<IntervalProblem*>(selectedModel)->getDimension());
 
-    /*
-    if(selectedModelName=="Rbf")
-    {
-        selectedModel->initModel();
-        bestMargin = dynamic_cast<RbfProblem*>(selectedModel)->getMargins();
-        return;
-    }*/
+   QString yesno = mainParamList.getParam("gnn_firstphase").getValue();
+   if(yesno=="no")
+   {
+
+       if(selectedModelName=="Rbf")
+        {
+            selectedModel->initModel();
+            bestMargin = dynamic_cast<RbfProblem*>(selectedModel)->getMargins();
+            return;
+        }
+       else
+       if(selectedModelName=="Mlp")
+       {
+           selectedModel->initModel();
+           bestMargin = dynamic_cast<MlpProblem*>(selectedModel)->getMargins();
+           return;
+       }
+   }
 
 
     //phase 1. Run a small genetic algorithm to identify the most promising
@@ -265,7 +293,9 @@ void    runFirstPhase()
     for(int i=0;i<(int)bestMargin.size();i++)
     {
         bestMargin[i]=Interval(-2.0 * fabs(xx[i]), 2.0*fabs(xx[i]));
+
     }
+
 
 
 }
@@ -325,11 +355,19 @@ void    runSecondPhase()
         ide->getBest(bestMargin,yy);
     }
     else
+    if(gnn_intervalmethod=="intervalpso")
     {
         ipso->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
         ipso->Solve();
         ipso->getBest(bestMargin,yy);
     }
+    else
+    {
+        isiman->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
+        isiman->Solve();
+        isiman->getBest(bestMargin,yy);
+    }
+
 
     qDebug()<<"PHASE 2. Best interval located: "<<"[ "<<
               yy.leftValue()<<","<<yy.rightValue()<<"]";

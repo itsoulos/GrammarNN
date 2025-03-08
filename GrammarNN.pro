@@ -28,6 +28,7 @@ SOURCES += \
         GE/rule.cc \
         GE/symbol.cc \
         INTERVAL/interval.cpp \
+        INTERVAL/intervalanneal.cpp \
         INTERVAL/intervalde.cpp \
         INTERVAL/intervalproblem.cpp \
         INTERVAL/intervalpso.cpp \
@@ -82,6 +83,7 @@ HEADERS += \
     GE/rule.h \
     GE/symbol.h \
     INTERVAL/interval.h \
+    INTERVAL/intervalanneal.h \
     INTERVAL/intervalde.h \
     INTERVAL/intervalproblem.h \
     INTERVAL/intervalpso.h \

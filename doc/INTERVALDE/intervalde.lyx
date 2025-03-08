@@ -13573,6 +13573,22 @@ Baldi, P., Cranmer, K., Faucett, T., Sadowski, P., & Whiteson, D.
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
+key "nnastro"
+literal "false"
+
+\end_inset
+
+Firth, A.
+ E., Lahav, O., & Somerville, R.
+ S.
+ (2003).
+ Estimating photometric redshifts with artificial neural networks.
+ Monthly Notices of the Royal Astronomical Society, 339(4), 1195-1202.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
 key "nn_solar"
 literal "false"
 
