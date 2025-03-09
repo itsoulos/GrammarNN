@@ -292,7 +292,8 @@ void    runFirstPhase()
     
     for(int i=0;i<(int)bestMargin.size();i++)
     {
-        bestMargin[i]=Interval(-2.0 * fabs(xx[i]), 2.0*fabs(xx[i]));
+        bestMargin[i]=Interval(-1.0 * fabs(xx[i]), 1.0*fabs(xx[i]));
+        bestMargin[i]=Interval(xx[i]-xx[i]/2.0, xx[i]+xx[i]/2);
 
     }
 

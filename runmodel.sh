@@ -40,7 +40,7 @@ then
 #  model_testfile:  The used testfile
 #  mlp_usebound:    Set it to true, in order to use the bounding techniques.
 #  mlp_boundlimit:  The value used when the usebound is active
-	MODELPARAMS="--mlp_nodes=10 --mlp_leftmargin=-10 --mlp_rightmargin=10 --mlp_initmethod=smallvalues --model_trainfile=$DATAPATH/$1.train --model_testfile=$DATAPATH/$1.test --mlp_usebound=true --mlp_boundlimit=10.0"
+	MODELPARAMS="--mlp_nodes=10 --mlp_leftmargin=-10 --mlp_rightmargin=10 --mlp_initmethod=smallvalues --model_trainfile=$DATAPATH/$1.train --model_testfile=$DATAPATH/$1.test --mlp_usebound=false --mlp_boundlimit=10.0"
 elif [ $MODEL = "Rbf" ]
 then
 ###RBF NETWORK PARAMS

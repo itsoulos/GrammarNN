@@ -7,7 +7,7 @@ IntervalAnneal::IntervalAnneal(IntervalProblem *p)
     alpha = 0.9;
     T0=1e+8;
     plist.addParam(Parameter("isiman_t0",1e+8,1e+3,1e+10,"Initial temp"));
-    plist.addParam(Parameter("isiman_neps",10,10,200,"Number of random points"));
+    plist.addParam(Parameter("isiman_neps",50,10,200,"Number of random points"));
     plist.addParam(Parameter("isiman_alpha",0.995,0.1,1.0,"Alpha value for temp"));
 }
 
@@ -42,6 +42,12 @@ Interval        IntervalAnneal::fitness(IntervalData &x)
     return Interval(minf,maxf);
 }
 
+void	 mcopy(IntervalData &a,IntervalData &b)
+{
+	for(int i=0;i<a.size();i++)
+		a[i]=Interval(b[i].leftValue(),b[i].rightValue());
+}
+
 void            IntervalAnneal::Solve()
 {
     T0 = plist.getParam("isiman_t0").getValue().toDouble();
@@ -51,29 +57,30 @@ void            IntervalAnneal::Solve()
     xpoint.resize(problem->getDimension());
     bestx.resize(problem->getDimension());
     xpoint = problem->getMargins();
-    bestx = xpoint;
     ypoint = fitness(xpoint);
     besty = ypoint;
-    IntervalData trialx = xpoint;
-    Interval trialy = ypoint;
+    mcopy(bestx,xpoint);
 
     do
     {
-    //    xpoint = bestx;
-    //    ypoint = besty;
+   //     xpoint = bestx;
+   //     ypoint = besty;
         for(int i=1;i<=neps;i++)
         {
+    		IntervalData trialx;
+		trialx.resize(problem->getDimension());
+    		Interval trialy;
             randomSample(trialx);
             trialy = fitness(trialx);
 
             if(problem->lowerValue(trialy,ypoint))
             {
                 ypoint = trialy;
-                xpoint = trialx;
+                mcopy(xpoint,trialx);
                 if(problem->lowerValue(ypoint,besty))
                 {
                     besty = ypoint;
-                    bestx = xpoint;
+                    mcopy(bestx,xpoint);
                 }
             }
             else
@@ -84,19 +91,19 @@ void            IntervalAnneal::Solve()
                 if(r<xmin)
                 {
                     ypoint = trialy;
-                    xpoint = trialx;
+                    mcopy(xpoint, trialx);
                 }
             }
         }
         reduceTemp();
         printf("TEMP: %20.10lg BESTY=[%20.10lg %20.10lg]\n",
-               T0,ypoint.leftValue(),ypoint.rightValue());
+               T0,besty.leftValue(),besty.rightValue());
     }while(T0>=1e-6);
 }
 
 void            IntervalAnneal::getBest(IntervalData &x,Interval &y)
 {
-    x = bestx;
+    mcopy(x ,bestx);
     y = besty;
 }
 
@@ -118,10 +125,13 @@ void  IntervalAnneal::randomSample(IntervalData &x)
     {
         double left =   xpoint[i].leftValue();
         double right=   xpoint[i].rightValue();
+	
         double mid =    left+(right-left)/2.0;
-        double percent = 0.01;
+        double percent = 0.0005;
         double a =      left+(mid-left)*drand48()*percent;
         double b =      right-(right-mid)*drand48()*percent;
+	
+//	printf("ab = %lf %lf \n",a,b);
         x[i]=Interval(a,b);
     }
 }
