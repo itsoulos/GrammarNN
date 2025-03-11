@@ -1,5 +1,5 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -128,7 +128,7 @@
 \end_preamble
 \options journal,article,submit,pdftex,moreauthors
 \use_default_options false
-\maintain_unincluded_children false
+\maintain_unincluded_children no
 \begin_local_layout
 #Adds an endnote inset, in addition to footnotes. You will need to add
 #\printendnotes in TeX-code where you want the endnotes to appear.
@@ -161,7 +161,9 @@ End
 \font_default_family default
 \use_non_tex_fonts false
 \font_sc false
-\font_osf false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
 \use_microtype false
@@ -195,7 +197,9 @@ End
 \suppress_date false
 \justification true
 \use_refstyle 0
+\use_formatted_ref 0
 \use_minted 0
+\use_lineno 0
 \index Index
 \shortcut idx
 \color #008000
@@ -211,23 +215,26 @@ End
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\tablestyle default
 \tracking_changes false
 \output_changes false
+\change_bars false
+\postpone_fragile_content false
 \html_math_output 0
 \html_css_as_file 0
 \html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
 \end_header
 
 \begin_body
 
 \begin_layout Title
-Introducing an evolutionary method to create the bounds of artificial neural
- networks
+Introducing an evolutionary method to create the bounds of artificial neural networks
 \end_layout
 
 \begin_layout Title Citation
-Introducing an evolutionary method to create the bounds of artificial neural
- networks
+Introducing an evolutionary method to create the bounds of artificial neural networks
 \end_layout
 
 \begin_layout Author
@@ -236,11 +243,13 @@ Ioannis G.
 \begin_inset Formula $^{1,*}$
 \end_inset
 
-, Vasileios Charilogis
+,
+ Vasileios Charilogis
 \begin_inset Formula $^{2}$
 \end_inset
 
-, Dimitrios Tsalikakis
+,
+ Dimitrios Tsalikakis
 \begin_inset Formula $^{3}$
 \end_inset
 
@@ -249,11 +258,17 @@ Ioannis G.
 
 \begin_layout Author Names for PDF
 Ioannis G.
- Tsoulos, Vasileios Charilogis, Dimitrios Tsalikakis
+ Tsoulos,
+ Vasileios Charilogis,
+ Dimitrios Tsalikakis
 \end_layout
 
 \begin_layout Author Names for Citation
-Tsoulos, I.G.; Charilogis, V.; Tsalikakis D.
+Tsoulos,
+ I.G.;
+ Charilogis,
+ V.;
+ Tsalikakis D.
 \end_layout
 
 \begin_layout Address
@@ -264,8 +279,10 @@ Tsoulos, I.G.; Charilogis, V.; Tsalikakis D.
 \begin_inset space \quad{}
 \end_inset
 
-Department of Informatics and Telecommunications, University of Ioannina,
- Greece; itsoulos@uoi.gr
+Department of Informatics and Telecommunications,
+ University of Ioannina,
+ Greece;
+ itsoulos@uoi.gr
 \begin_inset Newline newline
 \end_inset
 
@@ -277,8 +294,10 @@ Department of Informatics and Telecommunications, University of Ioannina,
 \begin_inset space \quad{}
 \end_inset
 
-Department of Informatics and Telecommunications, University of Ioannina,
- Greece; v.charilog@uoi.gr
+Department of Informatics and Telecommunications,
+ University of Ioannina,
+ Greece;
+ v.charilog@uoi.gr
 \begin_inset Newline newline
 \end_inset
 
@@ -286,36 +305,38 @@ Department of Informatics and Telecommunications, University of Ioannina,
 \begin_inset Formula $^{3}\quad$
 \end_inset
 
-Department of Engineering Informatics and Telecommunications, University
- of Western Macedonia, 50100 Kozani, Greece; tsalikakis@gmail.com
+Department of Engineering Informatics and Telecommunications,
+ University of Western Macedonia,
+ 50100 Kozani,
+ Greece;
+ tsalikakis@gmail.com
 \end_layout
 
 \begin_layout Corresponding Author
-Correspondence: itsoulos@uoi.gr
+Correspondence:
+ itsoulos@uoi.gr
 \end_layout
 
 \begin_layout Abstract
-Artificial neural networks are widely used in applications from various
- scientific fields and in a multitude of practical applications.
- In recent years, a multitude of scientific publications have been presented
- on the effective training of their parameters, but in many cases overfitting
- problems appear, where the artificial neural network shows poor results
- when used on data that was not present during training.
+Artificial neural networks are widely used in applications from various scientific fields and in a multitude of practical applications.
+ In recent years,
+ a multitude of scientific publications have been presented on the effective training of their parameters,
+ but in many cases overfitting problems appear,
+ where the artificial neural network shows poor results when used on data that was not present during training.
  This text proposes the incorporation of a three - stage evolutionary technique,
- which has its roots in the differential evolution technique, for the effective
- training of the parameters of artificial neural networks and the avoidance
- of the problem of overfitting.
- The new method effectively constructs the parameter value range of the
- artificial neural network, achieving both a reduction in training error
- and preventing the network from experiencing overfitting phenomena.
- This new technique was successfully applied to a wide range of problems
- from the relevant literature and the results were extremely promising.
- 
+ which has its roots in the differential evolution technique,
+ for the effective training of the parameters of artificial neural networks and the avoidance of the problem of overfitting.
+ The new method effectively constructs the parameter value range of the artificial neural network with one processing level and sigmoid outputs,
+ achieving both a reduction in training error and preventing the network from experiencing overfitting phenomena.
+ This new technique was successfully applied to a wide range of problems from the relevant literature and the results were extremely promising.
+ From the conducted experiments it appears that the proposed method reduces the average classification error at 30% compared to the genetic algorithm and the average regression error at 45% as compared to the genetic algorithm.
 \end_layout
 
 \begin_layout Keywords
-Neural networks; Evolutionary algorithms; Stochastic methods; Differential
- Evolution
+Neural networks;
+ Evolutionary algorithms;
+ Stochastic methods;
+ Differential Evolution
 \end_layout
 
 \begin_layout Section
@@ -323,8 +344,7 @@ Introduction
 \end_layout
 
 \begin_layout Standard
-One of the most widespread machine learning models with many applications
- is artificial neural networks 
+One of the most widespread machine learning models with many applications is artificial neural networks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn1,nn2"
@@ -337,7 +357,8 @@ literal "false"
 \begin_inset Formula $N\left(\overrightarrow{x},\overrightarrow{w}\right)$
 \end_inset
 
-, where the vector 
+,
+ where the vector 
 \begin_inset Formula $\overrightarrow{x}$
 \end_inset
 
@@ -345,10 +366,9 @@ literal "false"
 \begin_inset Formula $\overrightarrow{w}$
 \end_inset
 
- denotes the associated set of parameters that should be estimated by some
- optimization procedure.
- These optimization procedures usually minimize the so - called training
- error, defined as:
+ denotes the associated set of parameters that should be estimated by some optimization procedure.
+ These optimization procedures usually minimize the so - called training error,
+ defined as:
 \begin_inset Formula 
 \begin{equation}
 E\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\sum_{i=1}^{M}\left(N\left(\overrightarrow{x}_{i},\overrightarrow{w}\right)-y_{i}\right)^{2}\label{eq:eq1}
@@ -369,8 +389,8 @@ The set
 \end_inset
 
 .
- These models have been applied on wide series of applications from the
- related literature, such as
+ These models have been applied on wide series of applications from the related literature,
+ such as
 \series bold
  
 \series default
@@ -382,7 +402,8 @@ literal "false"
 
 \end_inset
 
-, time series forecasting 
+,
+ time series forecasting 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_timeseries"
@@ -390,7 +411,8 @@ literal "false"
 
 \end_inset
 
-, credit card analysis 
+,
+ credit card analysis 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_credit"
@@ -398,7 +420,8 @@ literal "false"
 
 \end_inset
 
-, physics problems 
+,
+ physics problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nnphysics1,nnphysics2"
@@ -407,6 +430,7 @@ literal "false"
 \end_inset
 
 ,
+
 \series bold
  
 \series default
@@ -418,7 +442,8 @@ literal "false"
 
 \end_inset
 
-, agriculture problems 
+,
+ agriculture problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nnagr2"
@@ -437,6 +462,7 @@ reference "eq:eq1"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -444,20 +470,22 @@ noprefix "false"
  such as the Back Propagation algorithm 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "bpnn1,bpnn2"
+key "bpnn1"
 literal "false"
 
 \end_inset
 
-, the RPROP method 
+,
+ the RPROP method 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "rpropnn-1,rpropnn-2"
+key "rpropnn-1"
 literal "false"
 
 \end_inset
 
-, the Adam Optimizer 
+,
+ the Adam Optimizer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_adam"
@@ -465,7 +493,8 @@ literal "false"
 
 \end_inset
 
-, the Levenberg Marquardt method 
+,
+ the Levenberg Marquardt method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_leve"
@@ -474,8 +503,8 @@ literal "false"
 \end_inset
 
  etc.
- Furthermore, global optimization techniques have been also applied to neural
- network training.
+ Furthermore,
+ global optimization techniques have been also applied to neural network training.
  Among them one can detect the Simulated Annealing approach 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -484,7 +513,8 @@ literal "false"
 
 \end_inset
 
-, the Genetic Algorithm approach 
+,
+ the Genetic Algorithm approach 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "geneticnn"
@@ -492,7 +522,8 @@ literal "false"
 
 \end_inset
 
-, the Particle Swarm Optimization (PSO) method 
+,
+ the Particle Swarm Optimization (PSO) method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "psonn"
@@ -500,7 +531,8 @@ literal "false"
 
 \end_inset
 
-, the Ant Colony Optimization procedure 
+,
+ the Ant Colony Optimization procedure 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "aco_nn"
@@ -508,7 +540,8 @@ literal "false"
 
 \end_inset
 
-, the Gray Wolf Optimizer 
+,
+ the Gray Wolf Optimizer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gwo_nn"
@@ -516,7 +549,8 @@ literal "false"
 
 \end_inset
 
-, the Whale optimization technique 
+,
+ the Whale optimization technique 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "whale_nn"
@@ -526,11 +560,11 @@ literal "false"
 
  etc.
  Also,
+
 \series bold
  
 \series default
-Sexton et al proposed the incorporation of tabu search algorithm for neural
- network training 
+Sexton et al proposed the incorporation of tabu search algorithm for neural network training 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "tabunn"
@@ -538,9 +572,8 @@ literal "false"
 
 \end_inset
 
-, Zhang et al suggested a hybrid algorithm that combines the PSO method
- and the Back Propagation algorithm for efficient neural networks training
- 
+,
+ Zhang et al suggested a hybrid algorithm that combines the PSO method and the Back Propagation algorithm for efficient neural networks training 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_hybrid"
@@ -550,11 +583,11 @@ literal "false"
 
 .
  Recently,
+
 \series bold
  
 \series default
-Zhao et al suggested the usage of a new Cascaded Forward Algorithm to train
- artificial neural networks 
+Zhao et al suggested the usage of a new Cascaded Forward Algorithm to train artificial neural networks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_cascade"
@@ -563,10 +596,9 @@ literal "false"
 \end_inset
 
 .
- Also, since in recent years there has been an explosive development and
- use of parallel computing architectures, several researchers have proposed
- their use for the efficient and rapid training of artificial neural networks
- 
+ Also,
+ since in recent years there has been an explosive development and use of parallel computing architectures,
+ several researchers have proposed their use for the efficient and rapid training of artificial neural networks 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_gpu1,nn_gpu2"
@@ -578,12 +610,11 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-However, although the above techniques are extremely effective in reducing
- the training error of artificial neural networks, they often cause the
- problem of overfitting, where the artificial neural network exhibits poor
- results when applied to data that was not present during its training.
- An overview of the overfitting problem can be found in the work of Ying
- 
+However,
+ although the above techniques are extremely effective in reducing the training error of artificial neural networks,
+ they often cause the problem of overfitting,
+ where the artificial neural network exhibits poor results when applied to data that was not present during its training.
+ An overview of the overfitting problem can be found in the work of Ying 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_overfitting"
@@ -592,46 +623,49 @@ literal "false"
 \end_inset
 
 .
- A series of methods has been proposed in the recent literature to tackle
- the overfitting problem, such as the weight sharing method 
+ A series of methods has been proposed in the recent literature to tackle the overfitting problem,
+ such as the weight sharing method 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "nnsharing1,nnsharing2"
+key "nnsharing1"
 literal "true"
 
 \end_inset
 
 ,
+
 \series bold
  
 \series default
 pruning techniques 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "nnprunning1,nnprunning2"
+key "nnprunning1"
 literal "true"
 
 \end_inset
 
-, the incorporation of early stopping 
+,
+ the incorporation of early stopping 
 \begin_inset CommandInset citation
-LatexCommand cite
-key "nnearly1,nnearly2"
+LatexCommand citep
+key "nnearly1"
 literal "true"
 
 \end_inset
 
-, weight decaying 
+,
+ weight decaying 
 \begin_inset CommandInset citation
-LatexCommand cite
-key "nndecay1,nndecay2"
+LatexCommand citep
+key "nndecay1"
 literal "false"
 
 \end_inset
 
  etc.
- Furthermore, it has been suggested by various researchers the usage of
- dynamic architectures to handle the overfitting problem 
+ Furthermore,
+ it has been suggested by various researchers the usage of dynamic architectures to handle the overfitting problem 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_arch1,nn_arch2,nn_arch3"
@@ -643,10 +677,10 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-This work proposes the adoption of a three-stage technique that will have
- two goals: the effective training of artificial neural networks and the
- avoidance of the phenomenon of overfitting.
- In the first phase, a genetic algorithm 
+This work proposes the adoption of a three-stage technique that will have two goals:
+ the effective training of artificial neural networks and the avoidance of the phenomenon of overfitting.
+ In the first phase,
+ a genetic algorithm 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "gen_review"
@@ -654,13 +688,11 @@ literal "false"
 
 \end_inset
 
- is used to detect an initial range of values for the parameters of the
- artificial neural network.
- This genetic algorithm uses a modified version of the artificial neural
- network's training error as a fitness function, in order to avoid the problem
- of overfitting.
- During the second phase of the proposed algorithm, a bounding technique
- which is based on the Differential Evolution algorithm 
+ is used to detect an initial range of values for the parameters of the artificial neural network.
+ This genetic algorithm uses a modified version of the artificial neural network's training error as a fitness function,
+ in order to avoid the problem of overfitting.
+ During the second phase of the proposed algorithm,
+ a bounding technique which is based on the Differential Evolution algorithm 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "de_review"
@@ -668,12 +700,9 @@ literal "false"
 
 \end_inset
 
- is used in order to efficiently identify promising ranges for the parameters
- of the neural networks.
- The Differential Evolution method was used at this stage of the proposed
- procedure as it has only a small number of parameters that the user must
- initialize, but also because it has been used with excellent success in
- a wide range of practical optimization applications 
+ is used in order to efficiently identify promising ranges for the parameters of the neural networks.
+ The Differential Evolution method was used at this stage of the proposed procedure as it has only a small number of parameters that the user must initialize,
+ but also because it has been used with excellent success in a wide range of practical optimization applications 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "de_symmetry1,de_symmetry3,de_symmetry6,de_symmetry7"
@@ -682,43 +711,45 @@ literal "false"
 \end_inset
 
 .
- During the third phase, a genetic algorithm is applied to train efficiently
- the neural network using the bounds that have been produced in the second
- phase for the parameters of the model.
- The proposed method have been applied on a wide series of classification
- and regression datasets and comparison was performed against traditional
- techniques for the training of neural networks.
+ During the third phase,
+ a genetic algorithm is applied to train efficiently the neural network using the bounds that have been produced in the second phase for the parameters of the model.
+ The proposed method have been applied on a wide series of classification and regression datasets and comparison was performed against traditional techniques for the training of neural networks.
 \end_layout
 
 \begin_layout Standard
-The remaining of this article is organized as follows: in section 
+The remaining of this article is organized as follows:
+ in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Materials-and-Methods"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- the proposed method is discussed in detail, in section 
+ the proposed method is discussed in detail,
+ in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Results"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- the used datasets as well as the conducted experiments are discussed and
- finally, in section 
+ the used datasets as well as the conducted experiments are discussed and finally,
+ in section 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Conclusions"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -726,7 +757,7 @@ noprefix "false"
 \end_layout
 
 \begin_layout Section
-The proposed method
+Materials and methods
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Materials-and-Methods"
@@ -737,9 +768,8 @@ name "sec:Materials-and-Methods"
 \end_layout
 
 \begin_layout Standard
-In this section, a detailed presentation and analysis of the three stages
- of the proposed technique for the effective training of artificial neural
- networks is provided.
+In this section,
+ a detailed presentation and analysis of the three stages of the proposed technique for the effective training of artificial neural networks is provided.
 \end_layout
 
 \begin_layout Subsection
@@ -747,8 +777,7 @@ The genetic algorithm of the first phase
 \end_layout
 
 \begin_layout Standard
-The neural network used in the current work is a network with one processing
- level and it can be defined using the following equation:
+The neural network used in the current work is a network with one processing level and it can be defined using the following equation:
 \begin_inset Formula 
 \begin{equation}
 N\left(\overrightarrow{x},\overrightarrow{w}\right)=\sum_{i=1}^{H}w_{(d+2)i-(d+1)}\sigma\left(\sum_{j=1}^{d}x_{j}w_{(d+2)i-(d+1)+j}+w_{(d+2)i}\right)\label{eq:nn}
@@ -769,8 +798,7 @@ literal "false"
 \begin_inset Formula $H$
 \end_inset
 
- represents the number of processing units of the network and the constant
- 
+ represents the number of processing units of the network and the constant 
 \begin_inset Formula $d$
 \end_inset
 
@@ -779,14 +807,13 @@ literal "false"
 \end_inset
 
 .
- Following the equation, one can derive that the total number of parameters
- of the network is calculated as 
+ Following the equation,
+ one can derive that the total number of parameters of the network is calculated as 
 \begin_inset Formula $n=\left(d+2\right)H$
 \end_inset
 
 .
- The current work adopts neural networks of one processing layer (hidden
- layer).
+ The current work adopts neural networks of one processing layer (hidden layer).
  According to the the Hornik's theorem 
 \begin_inset CommandInset citation
 LatexCommand citep
@@ -795,13 +822,13 @@ literal "false"
 
 \end_inset
 
- these networks can approximate any function with a sufficient number of
- computing units in the hidden layer.
+ these networks can approximate any function with a sufficient number of computing units in the hidden layer.
  The function
 \begin_inset Formula $\ \sigma(x)$
 \end_inset
 
- denotes the sigmoid function with the following formula: 
+ denotes the sigmoid function with the following formula:
+ 
 \end_layout
 
 \begin_layout Standard
@@ -819,6 +846,7 @@ reference "fig:examplePlot"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -828,6 +856,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -867,8 +896,8 @@ name "fig:examplePlot"
 
 \end_inset
 
-As is evident from this particular form, this function tends very quickly
- to 1 as 
+As is evident from this particular form,
+ this function tends very quickly to 1 as 
 \begin_inset Formula $x$
 \end_inset
 
@@ -877,21 +906,20 @@ As is evident from this particular form, this function tends very quickly
 \end_inset
 
  gets negative values.
- This phenomenon has the effect of the artificial neuronal network to lose
- its general abilities, as large changes in the values of the parameters
- cause no substantial change in the response of the sigmoid function.
+ This phenomenon has the effect of the artificial neuronal network to lose its general abilities,
+ as large changes in the values of the parameters cause no substantial change in the response of the sigmoid function.
  The function 
 \begin_inset Formula $B(a)$
 \end_inset
 
- is used here to measure this effect and it is calculated using the algorithm
- 
+ is used here to measure this effect and it is calculated using the algorithm 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "alg:CalculationBound"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -903,6 +931,7 @@ noprefix "false"
 \series bold
 \begin_inset Float algorithm
 placement H
+alignment document
 wide false
 sideways false
 status open
@@ -1044,8 +1073,7 @@ The function
 \begin_inset Formula $B(N\left(\overrightarrow{x},\overrightarrow{w}\right),a)$
 \end_inset
 
- is used to calculate the fitness value for the used genetic algorithm described
- subsequently:
+ is used to calculate the fitness value for the used genetic algorithm described subsequently:
 \end_layout
 
 \begin_layout Enumerate
@@ -1119,7 +1147,8 @@ Set
 \begin_inset Formula $k=0$
 \end_inset
 
-, the generation counter.
+,
+ the generation counter.
 \end_layout
 
 \end_deeper
@@ -1223,8 +1252,7 @@ Copy
 \end_inset
 
  chromosomes to the next generation.
- The remaining will be substituted by individuals produced by crossover
- and mutation.
+ The remaining will be substituted by individuals produced by crossover and mutation.
 \end_layout
 
 \begin_layout Enumerate
@@ -1237,10 +1265,8 @@ the crossover procedure.
 \begin_inset Formula $\left(\widetilde{z},\widetilde{w}\right)$
 \end_inset
 
- two chromosomes are selected from the current population using tournament
- selection.
- The new chromosomes are created through the process suggested by Kaelo
- et al 
+ two chromosomes are selected from the current population using tournament selection.
+ The new chromosomes are created through the process suggested by Kaelo et al 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "kaelo"
@@ -1257,8 +1283,7 @@ literal "false"
 Perform
 \series default
  the mutation procedure.
- For every element of each chromosome alter this element randomly with probabili
-ty 
+ For every element of each chromosome alter this element randomly with probability 
 \begin_inset Formula $p_{m}$
 \end_inset
 
@@ -1338,7 +1363,8 @@ and
 \begin_inset Formula $R^{*}$
 \end_inset
 
- as: 
+ as:
+ 
 \begin_inset Formula 
 \[
 \begin{array}{ccc}
@@ -1362,8 +1388,8 @@ The bounding technique of the second phase
 \end_layout
 
 \begin_layout Standard
-During the second phase of the proposed algorithm, a systematic attempt
- is made to identify the optimal value interval within the vectors 
+During the second phase of the proposed algorithm,
+ a systematic attempt is made to identify the optimal value interval within the vectors 
 \begin_inset Formula $L^{*}$
 \end_inset
 
@@ -1372,16 +1398,17 @@ During the second phase of the proposed algorithm, a systematic attempt
 \end_inset
 
  identified in the previous phase.
- For this reason, an evolutionary technique that has its bases in the differenti
-al evolution technique is applied here.
- In this phase, the agents that constitute the candidate solutions generated
- by the differential evolution technique constitute ranges of values defined
- as: 
+ For this reason,
+ an evolutionary technique that has its bases in the differential evolution technique is applied here.
+ In this phase,
+ the agents that constitute the candidate solutions generated by the differential evolution technique constitute ranges of values defined as:
+ 
 \begin_inset Formula $\left[\overrightarrow{L_{k}},\overrightarrow{R_{k}}\right]$
 \end_inset
 
 .
- Also, the fitness value for each agent is defined as an interval 
+ Also,
+ the fitness value for each agent is defined as an interval 
 \begin_inset Formula $f=\left[f_{1},f_{2}\right].$
 \end_inset
 
@@ -1539,6 +1566,7 @@ reference "alg:fitnessCalculation"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -1684,6 +1712,7 @@ reference "alg:fitnessCalculation"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -1796,6 +1825,7 @@ Return
 \begin_layout Standard
 \begin_inset Float algorithm
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -1959,8 +1989,8 @@ The final training method
 \end_layout
 
 \begin_layout Standard
-In the last phase of the proposed procedure, a genetic algorithm is applied
- to train the artificial neural network.
+In the last phase of the proposed procedure,
+ a genetic algorithm is applied to train the artificial neural network.
  The network is trained within the interval 
 \begin_inset Formula $a^{*}$
 \end_inset
@@ -2113,8 +2143,8 @@ Genetic operations step
 \series bold
 Perform
 \series default
- selection, crossover and mutation using the same operations as in the first
- phase of the proposed method.
+ selection,
+ crossover and mutation using the same operations as in the first phase of the proposed method.
 \end_layout
 
 \end_deeper
@@ -2195,21 +2225,82 @@ Apply
 \end_layout
 
 \end_deeper
-\begin_layout Section
-Results
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:Results"
-
+\begin_layout Standard
+\begin_inset Separator plain
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-The proposed method was tested for its efficiency on a series of classification
- and regression problems, that were obtained from the following online databases
-:
+The overall procedure is graphically outlined in the flowchart of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:flow"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename flowChart.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The flowchart of the proposed algorithm.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:flow"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+The used datasets
+\end_layout
+
+\begin_layout Standard
+The proposed method was tested for its efficiency on a series of classification and regression problems,
+ that were obtained from the following online databases:
 \end_layout
 
 \begin_layout Enumerate
@@ -2236,7 +2327,8 @@ literal "false"
 \end_layout
 
 \begin_layout Enumerate
-The Keel website, 
+The Keel website,
+ 
 \begin_inset Flex URL
 status open
 
@@ -2274,13 +2366,8 @@ ftp://lib.stat.cmu.edu/datasets/index.html
  
 \end_layout
 
-\begin_layout Subsection
-Datasets 
-\end_layout
-
 \begin_layout Standard
-The following series of classification datasets was used in the conducted
- experiments:
+The following series of classification datasets was used in the conducted experiments:
 \end_layout
 
 \begin_layout Enumerate
@@ -2288,7 +2375,8 @@ The following series of classification datasets was used in the conducted
 \series bold
 Appendicitis
 \series default
-, which is medical dataset proposed in 
+,
+ which is medical dataset proposed in 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "appendicitis"
@@ -2305,7 +2393,8 @@ literal "false"
 \series bold
 Alcohol
 \series default
-, which is related to experiments regarding alcohol consumption 
+,
+ which is related to experiments regarding alcohol consumption 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "alcohol"
@@ -2322,7 +2411,8 @@ literal "false"
 \series bold
 Australian
 \series default
-, which is related to various bank transactions
+,
+ which is related to various bank transactions
 \begin_inset CommandInset citation
 LatexCommand citep
 key "australian"
@@ -2346,7 +2436,8 @@ literal "false"
 
 \end_inset
 
-, which is used in various psychological experiments.
+,
+ which is used in various psychological experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -2354,10 +2445,11 @@ literal "false"
 \series bold
 Cleveland
 \series default
-, which is a medical dataset 
+,
+ which is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "cleveland1,cleveland2"
+key "cleveland1"
 literal "false"
 
 \end_inset
@@ -2371,7 +2463,8 @@ literal "false"
 \series bold
 Circular
 \series default
- dataset, which is a dataset created artificially.
+ dataset,
+ which is a dataset created artificially.
  
 \end_layout
 
@@ -2380,8 +2473,8 @@ Circular
 \series bold
 Dermatology
 \series default
-, a medical dataset with 6 classes which is related to dermatology problems
- 
+,
+ a medical dataset with 6 classes which is related to dermatology problems 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "dermatology"
@@ -2397,7 +2490,8 @@ literal "false"
 \series bold
 Ecoli
 \series default
-, which is used to problems regarding proteins 
+,
+ which is used to problems regarding proteins 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "ecoli"
@@ -2413,7 +2507,8 @@ literal "false"
 \series bold
 Glass
 \series default
- dataset, which is related to glass component analysis.
+ dataset,
+ which is related to glass component analysis.
  
 \end_layout
 
@@ -2422,7 +2517,8 @@ Glass
 \series bold
 Haberman
 \series default
-, a medical dataset for the detection of breast cancer.
+,
+ a medical dataset for the detection of breast cancer.
  
 \end_layout
 
@@ -2439,7 +2535,8 @@ literal "false"
 
 \end_inset
 
-, a dataset with 3 classes.
+,
+ a dataset with 3 classes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2447,7 +2544,8 @@ literal "false"
 \series bold
 Heart
 \series default
-, a medical dataset about heart diseases 
+,
+ a medical dataset about heart diseases 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "heart"
@@ -2463,7 +2561,8 @@ literal "false"
 \series bold
 HeartAttack
 \series default
-, a medical dataset used for the detection of heart diseases.
+,
+ a medical dataset used for the detection of heart diseases.
 \end_layout
 
 \begin_layout Enumerate
@@ -2471,7 +2570,8 @@ HeartAttack
 \series bold
 Housevotes
 \series default
-, that contains data about the Congressional voting in USA 
+,
+ that contains data about the Congressional voting in USA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housevotes"
@@ -2487,10 +2587,11 @@ literal "false"
 \series bold
 Ionosphere
 \series default
-, that contains measurements about the ionosphere 
+,
+ that contains measurements about the ionosphere 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "ion1,ion2"
+key "ion1"
 literal "false"
 
 \end_inset
@@ -2503,10 +2604,11 @@ literal "false"
 \series bold
 Liverdisorder
 \series default
-, which is a medical dataset 
+,
+ which is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "liver,liver1"
+key "liver"
 literal "false"
 
 \end_inset
@@ -2535,7 +2637,8 @@ literal "false"
 \series bold
 Mammographic
 \series default
-, a medical dataset related to breast cancer 
+,
+ a medical dataset related to breast cancer 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "mammographic"
@@ -2551,10 +2654,11 @@ literal "false"
 \series bold
 Parkinsons
 \series default
-, a medical dataset related to Parkinson's disease 
+,
+ a medical dataset related to Parkinson's disease 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "parkinsons1,parkinsons2"
+key "parkinsons1"
 literal "false"
 
 \end_inset
@@ -2567,7 +2671,8 @@ literal "false"
 \series bold
 Pima
 \series default
-, a medical dataset related to the presence of diabetes
+,
+ a medical dataset related to the presence of diabetes
 \begin_inset CommandInset citation
 LatexCommand citep
 key "pima"
@@ -2583,7 +2688,8 @@ literal "false"
 \series bold
 Phoneme
 \series default
-, used in sound experiments.
+,
+ used in sound experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -2591,7 +2697,8 @@ Phoneme
 \series bold
 Popfailures
 \series default
-, a dataset that containsclimate measurements 
+,
+ a dataset that containsclimate measurements 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "popfailures"
@@ -2607,7 +2714,8 @@ literal "false"
 \series bold
 Regions2
 \series default
-, a medical dataset related to some liver biopsy images 
+,
+ a medical dataset related to some liver biopsy images 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "regions2"
@@ -2623,7 +2731,8 @@ literal "false"
 \series bold
 Saheart
 \series default
-, which is a medical dataset related to some heart diseases.
+,
+ which is a medical dataset related to some heart diseases.
 \begin_inset CommandInset citation
 LatexCommand citep
 key "saheart"
@@ -2647,7 +2756,8 @@ literal "false"
 
 \end_inset
 
-, used in various image processing cases.
+,
+ used in various image processing cases.
 \end_layout
 
 \begin_layout Enumerate
@@ -2655,7 +2765,8 @@ literal "false"
 \series bold
 Statheart
 \series default
-, which is a medical dataset related to heart diseases.
+,
+ which is a medical dataset related to heart diseases.
 \end_layout
 
 \begin_layout Enumerate
@@ -2663,7 +2774,8 @@ Statheart
 \series bold
 Spiral
 \series default
-, which is a dataset created artificially.
+,
+ which is a dataset created artificially.
  
 \end_layout
 
@@ -2672,8 +2784,8 @@ Spiral
 \series bold
 Student
 \series default
-, a dataset that contains measurements from experiments conducted in schools
- 
+,
+ a dataset that contains measurements from experiments conducted in schools 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "student"
@@ -2689,7 +2801,8 @@ literal "false"
 \series bold
 Transfusion
 \series default
-, which is a medical dataset 
+,
+ which is a medical dataset 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "transfusion"
@@ -2705,10 +2818,11 @@ literal "false"
 \series bold
 Wdbc
 \series default
-, a medical dataset used to predict the presence of breast cancer 
+,
+ a medical dataset used to predict the presence of breast cancer 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "wdbc1,wdbc2"
+key "wdbc1"
 literal "false"
 
 \end_inset
@@ -2721,10 +2835,11 @@ literal "false"
 \series bold
 Wine
 \series default
-, a dataset used to predict the quality of wines 
+,
+ a dataset used to predict the quality of wines 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "wine1,wine2"
+key "wine1"
 literal "false"
 
 \end_inset
@@ -2737,16 +2852,18 @@ literal "false"
 \series bold
 EEG
 \series default
- dataset, which is a medical dataset related to EEG measurements
+ dataset,
+ which is a medical dataset related to EEG measurements
 \begin_inset CommandInset citation
 LatexCommand citep
-key "eeg1,eeg2"
+key "eeg1"
 literal "false"
 
 \end_inset
 
- and the following cases were studied from this dataset: Z_F_S, ZO_NF_S
- and ZONF_S.
+ and the following cases were studied from this dataset:
+ Z_F_S,
+ ZO_NF_S and ZONF_S.
 \end_layout
 
 \begin_layout Enumerate
@@ -2754,7 +2871,8 @@ literal "false"
 \series bold
 Zoo
 \series default
-, a dataset used to predict the class of some animals 
+,
+ a dataset used to predict the class of some animals 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "zoo"
@@ -2766,8 +2884,8 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-Furthermore, the following list of regression datasets was incorporated
- in the conducted experiments:
+Furthermore,
+ the following list of regression datasets was incorporated in the conducted experiments:
 \end_layout
 
 \begin_layout Enumerate
@@ -2775,7 +2893,8 @@ Furthermore, the following list of regression datasets was incorporated
 \series bold
 Abalone
 \series default
-, a dataset related to the estimation of the age of abalones 
+,
+ a dataset related to the estimation of the age of abalones 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "abalone"
@@ -2791,7 +2910,8 @@ literal "false"
 \series bold
 Airfoil
 \series default
-, a dataset provided by NASA 
+,
+ a dataset provided by NASA 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "airfoil"
@@ -2807,7 +2927,8 @@ literal "false"
 \series bold
 Auto
 \series default
-, a dataset used for the estimation of fuel consumption in cars.
+,
+ a dataset used for the estimation of fuel consumption in cars.
 \end_layout
 
 \begin_layout Enumerate
@@ -2815,7 +2936,8 @@ Auto
 \series bold
 BK
 \series default
-, which is used in basketball games.
+,
+ which is used in basketball games.
  
 \end_layout
 
@@ -2824,7 +2946,8 @@ BK
 \series bold
 BL
 \series default
-, a dataset that contains measurements about electricity experiments.
+,
+ a dataset that contains measurements about electricity experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -2832,8 +2955,8 @@ BL
 \series bold
 Baseball
 \series default
-, a dataset that contains data used in the estimation of the income of baseball
- players.
+,
+ a dataset that contains data used in the estimation of the income of baseball players.
 \end_layout
 
 \begin_layout Enumerate
@@ -2841,7 +2964,8 @@ Baseball
 \series bold
 Concrete
 \series default
-, a dataset used in civil engineering 
+,
+ a dataset used in civil engineering 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "concrete"
@@ -2857,8 +2981,9 @@ literal "false"
 \series bold
 DEE
 \series default
-, a dataset that contains 6 features, which is used for the prediction of
- electricity prices.
+,
+ a dataset that contains 6 features,
+ which is used for the prediction of electricity prices.
 \end_layout
 
 \begin_layout Enumerate
@@ -2866,7 +2991,8 @@ DEE
 \series bold
 Friedman
 \series default
-, an artificial dataset
+,
+ an artificial dataset
 \begin_inset CommandInset citation
 LatexCommand citep
 key "friedman"
@@ -2880,7 +3006,8 @@ literal "false"
 \begin_layout Enumerate
 
 \series bold
-FY, 
+FY,
+ 
 \series default
 this dataset used to estimate the longevity of fruit flies.
  
@@ -2891,7 +3018,8 @@ this dataset used to estimate the longevity of fruit flies.
 \series bold
 HO
 \series default
-, a dataset provided by the STATLIB repository with 13 features.
+,
+ a dataset provided by the STATLIB repository with 13 features.
 \end_layout
 
 \begin_layout Enumerate
@@ -2899,7 +3027,8 @@ HO
 \series bold
 Housing
 \series default
-, which is used for the prediction of house prices 
+,
+ which is used for the prediction of house prices 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "housing"
@@ -2915,7 +3044,8 @@ literal "false"
 \series bold
 Laser
 \series default
-, which is used in various laser experiments.
+,
+ which is used in various laser experiments.
 \end_layout
 
 \begin_layout Enumerate
@@ -2923,7 +3053,8 @@ Laser
 \series bold
 LW
 \series default
-, which is a dataset with 9 features used to measure the weight of babes.
+,
+ which is a dataset with 9 features used to measure the weight of babes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2931,7 +3062,8 @@ LW
 \series bold
 Mortgage
 \series default
-, which is a dataset with 15 features related to the economy of USA.
+,
+ which is a dataset with 15 features related to the economy of USA.
 \end_layout
 
 \begin_layout Enumerate
@@ -2939,7 +3071,8 @@ Mortgage
 \series bold
 Plastic
 \series default
-, a dataset related to the pressure in plastics.
+,
+ a dataset related to the pressure in plastics.
 \end_layout
 
 \begin_layout Enumerate
@@ -2947,7 +3080,8 @@ Plastic
 \series bold
 PL
 \series default
-, a dataset provided by the STATLIB repository.
+,
+ a dataset provided by the STATLIB repository.
 \end_layout
 
 \begin_layout Enumerate
@@ -2955,7 +3089,8 @@ PL
 \series bold
 Quake
 \series default
-, a dataset with 3 features that contains measurements from earthquakes.
+,
+ a dataset with 3 features that contains measurements from earthquakes.
 \end_layout
 
 \begin_layout Enumerate
@@ -2963,8 +3098,9 @@ Quake
 \series bold
 SN
 \series default
-, a dataset with 11 features, which is used in experiments related to trellising
- and pruning,.
+,
+ a dataset with 11 features,
+ which is used in experiments related to trellising and pruning,.
 \end_layout
 
 \begin_layout Enumerate
@@ -2972,7 +3108,8 @@ SN
 \series bold
 Stock
 \series default
-, a dataset with 9 features used to predict the prices of various stocks.
+,
+ a dataset with 9 features used to predict the prices of various stocks.
 \end_layout
 
 \begin_layout Enumerate
@@ -2980,7 +3117,19 @@ Stock
 \series bold
 Treasury
 \series default
-, which is a dataset with 15 features used in economic problems.
+,
+ which is a dataset with 15 features used in economic problems.
+\end_layout
+
+\begin_layout Section
+Results
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Results"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2988,9 +3137,9 @@ Experimental results
 \end_layout
 
 \begin_layout Standard
-The software used in the conducted experiments was coded in C++, using the
- freely available Optimus programming tool, that can be downloaded from
- 
+The software used in the conducted experiments was coded in C++,
+ using the freely available Optimus programming tool,
+ that can be downloaded from 
 \begin_inset Flex URL
 status open
 
@@ -3002,12 +3151,9 @@ https://github.com/itsoulos/GlobalOptimus/
 \end_inset
 
 ( accessed on 17 February 2025 ).
- Each experiment was conducted 30 times using different seed for the random
- generator each time.
- For the validation of the experimental results the ten - fold cross validation
- method was used.
- The average classification error as measured on the corresponding test
- set is reported for the classification datasets.
+ Each experiment was conducted 30 times using different seed for the random generator each time.
+ For the validation of the experimental results the ten - fold cross validation method was used.
+ The average classification error as measured on the corresponding test set is reported for the classification datasets.
  This error is calculated using the following formula:
 \begin_inset Formula 
 \begin{equation}
@@ -3016,12 +3162,23 @@ E_{C}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=100\times\
 
 \end_inset
 
-Also, the
+In this formula the function 
+\begin_inset Formula $\mbox{class}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)\right)$
+\end_inset
+
+ is used for the class obtained by the application of the neural network to pattern 
+\begin_inset Formula $\overrightarrow{x_{i}}$
+\end_inset
+
+.
+ The sum of the differences of the categories that the artificial neural network finds from the expected categories is divided by the number of patterns in the dataset.
+ Also,
+ the
 \series bold
  
 \series default
-average regression error is reported for the regression datasets, that can
- be calculated as follows:
+average regression error is reported for the regression datasets,
+ that can be calculated as follows:
 \begin_inset Formula 
 \begin{equation}
 E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum_{i=1}^{N}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)-y_{i}\right)^{2}}{N}
@@ -3029,20 +3186,20 @@ E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum
 
 \end_inset
 
-All the experiments were performed on
+In this formula the squared sum of the differences from the values produced by the neural networks with the expected outputs is divided by the sum of patterns in the dataset.
+ All the experiments were performed on
 \series bold
  
 \series default
-an AMD Ryzen 5950X with 128GB of RAM and the used operating system was Debian
- Linux.
- The values used for the parameters of the proposed method are shown in
- Table 
+an AMD Ryzen 5950X with 128GB of RAM and the used operating system was Debian Linux.
+ The values used for the parameters of the proposed method are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:settings"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -3053,6 +3210,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -3474,8 +3632,7 @@ Iterations
 
 \end_inset
 
-The following notation is used in the tables that contains the measurement
- from the conducted experiments:
+The following notation is used in the tables that contains the measurement from the conducted experiments:
 \end_layout
 
 \begin_layout Enumerate
@@ -3483,8 +3640,7 @@ The column DATASET contains the name of the used dataset.
 \end_layout
 
 \begin_layout Enumerate
-The column ADAM represents the experimental results from the application
- of the ADAM optimization method 
+The column ADAM represents the experimental results from the application of the ADAM optimization method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "nn_adam"
@@ -3497,11 +3653,27 @@ literal "false"
 \end_inset
 
  processing nodes.
+ The Adam optimizer is a combination of Momentum 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "momentum"
+literal "false"
+
+\end_inset
+
+ and RMSprop 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rmsprop"
+literal "false"
+
+\end_inset
+
+ techniques and it has been used successfully for neural network training in many research papers.
 \end_layout
 
 \begin_layout Enumerate
-The column BFGS denotes the incorporation of the BFGS optimization method
- 
+The column BFGS denotes the incorporation of the BFGS optimization method 
 \begin_inset CommandInset citation
 LatexCommand citep
 key "powell"
@@ -3514,21 +3686,23 @@ literal "false"
 \end_inset
 
  processing nodes.
+ The Broyden–Fletcher–Goldfarb–Shanno (BFGS) algorithm is a local optimization procedure that aims to discover a local minima of a multidimensional function.
 \end_layout
 
 \begin_layout Enumerate
-The column GENETIC represents the usage of a Genetic Algorithm with the
- experimental settings of Table 
+The column GENETIC represents the usage of a Genetic Algorithm with the experimental settings of Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:settings"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-, used to train a neural network with 
+,
+ used to train a neural network with 
 \begin_inset Formula $H=10$
 \end_inset
 
@@ -3536,12 +3710,48 @@ noprefix "false"
 \end_layout
 
 \begin_layout Enumerate
+The column RBF denotes the incorporation of a Radial Basis Function (RBF) network 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "rbf1"
+literal "false"
+
+\end_inset
+
+ with 
+\begin_inset Formula $H=10$
+\end_inset
+
+ processing nodes on the corresponding dataset.
+\end_layout
+
+\begin_layout Enumerate
+The column PRUNE represents the usage of OBS pruning method 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "prune"
+literal "false"
+
+\end_inset
+
+,
+ as implemented in the library Fast Compressed Neural Networks 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fcn"
+literal "true"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
 The column PROPOSED denotes the proposed method.
 \end_layout
 
 \begin_layout Enumerate
-The row AVERAGE is used to measure the average classification or regression
- error for all dataset.
+The row AVERAGE is used to measure the average classification or regression error for all dataset.
 \end_layout
 
 \begin_layout Standard
@@ -3552,23 +3762,25 @@ reference "tab:experClass"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- is used to provide the experimental results for the classification datasets
- and the table 
+ is used to provide the experimental results for the classification datasets and the table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:experRegression"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
  provides the corresponding results for the regression datasets.
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status open
@@ -3578,8 +3790,7 @@ status open
 
 \begin_layout Plain Layout
 Experimental results for the used classification datasets.
- The numbers in cells represent average classification error as measured
- on the corresponding test set.
+ The numbers in cells represent average classification error as measured on the corresponding test set.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experClass"
@@ -3597,8 +3808,9 @@ name "tab:experClass"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="38" columns="6">
+<lyxtabular version="3" rows="38" columns="7">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -3647,6 +3859,15 @@ GENETIC
 
 \begin_layout Plain Layout
 RBF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PRUNE
 \end_layout
 
 \end_inset
@@ -3707,6 +3928,15 @@ APPENDICITIS
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.97%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -3759,6 +3989,15 @@ ALCOHOL
 
 \begin_layout Plain Layout
 49.32%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.75%
 \end_layout
 
 \end_inset
@@ -3819,6 +4058,15 @@ AUSTRALIAN
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+43.66%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -3871,6 +4119,15 @@ BALANCE
 
 \begin_layout Plain Layout
 33.53%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.00%
 \end_layout
 
 \end_inset
@@ -3931,6 +4188,15 @@ CLEVELAND
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+51.48%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -3983,6 +4249,15 @@ CIRCULAR
 
 \begin_layout Plain Layout
 5.98%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.76%
 \end_layout
 
 \end_inset
@@ -4043,6 +4318,15 @@ DERMATOLOGY
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9.02%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -4095,6 +4379,15 @@ ECOLI
 
 \begin_layout Plain Layout
 59.48%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60.32%
 \end_layout
 
 \end_inset
@@ -4155,6 +4448,15 @@ GLASS
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+66.19%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -4207,6 +4509,15 @@ HABERMAN
 
 \begin_layout Plain Layout
 25.10%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.38%
 \end_layout
 
 \end_inset
@@ -4267,6 +4578,15 @@ HAYES-ROTH
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+45.44%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -4319,6 +4639,15 @@ HEART
 
 \begin_layout Plain Layout
 31.20%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+27.21%
 \end_layout
 
 \end_inset
@@ -4379,6 +4708,15 @@ HEARTATTACK
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.26%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -4431,6 +4769,15 @@ HOUSEVOTES
 
 \begin_layout Plain Layout
 6.13%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5.81%
 \end_layout
 
 \end_inset
@@ -4491,6 +4838,15 @@ IONOSPHERE
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11.32%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -4543,6 +4899,15 @@ LIVERDISORDER
 
 \begin_layout Plain Layout
 30.84%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49.72%
 \end_layout
 
 \end_inset
@@ -4603,6 +4968,15 @@ LYMOGRAPHY
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22.02%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -4655,6 +5029,15 @@ MAMMOGRAPHIC
 
 \begin_layout Plain Layout
 21.38%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+38.10%
 \end_layout
 
 \end_inset
@@ -4715,6 +5098,15 @@ PARKINSONS
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+22.12%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -4767,6 +5159,15 @@ PHONEME
 
 \begin_layout Plain Layout
 23.32%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.35%
 \end_layout
 
 \end_inset
@@ -4827,6 +5228,15 @@ PIMA
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+35.08%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -4879,6 +5289,15 @@ POPFAILURES
 
 \begin_layout Plain Layout
 7.04%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.79%
 \end_layout
 
 \end_inset
@@ -4939,6 +5358,15 @@ REGIONS2
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+34.26%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -4991,6 +5419,15 @@ SAHEART
 
 \begin_layout Plain Layout
 32.19%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+37.70%
 \end_layout
 
 \end_inset
@@ -5051,6 +5488,15 @@ SEGMENT
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+60.40%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -5103,6 +5549,15 @@ SONAR
 
 \begin_layout Plain Layout
 27.90%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.80%
 \end_layout
 
 \end_inset
@@ -5163,6 +5618,15 @@ SPIRAL
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+50.38%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -5215,6 +5679,15 @@ STATHEART
 
 \begin_layout Plain Layout
 31.36%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28.37%
 \end_layout
 
 \end_inset
@@ -5275,6 +5748,15 @@ STUDENT
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10.84%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -5327,6 +5809,15 @@ TRANSFUSION
 
 \begin_layout Plain Layout
 26.41%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29.35%
 \end_layout
 
 \end_inset
@@ -5387,6 +5878,15 @@ WDBC
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.48%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -5439,6 +5939,15 @@ WINE
 
 \begin_layout Plain Layout
 31.41%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+16.62%
 \end_layout
 
 \end_inset
@@ -5499,6 +6008,15 @@ Z_F_S
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.91%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -5551,6 +6069,15 @@ ZO_NF_S
 
 \begin_layout Plain Layout
 9.02%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+15.57%
 \end_layout
 
 \end_inset
@@ -5611,6 +6138,15 @@ ZONF_S
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.27%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -5663,6 +6199,15 @@ ZOO
 
 \begin_layout Plain Layout
 21.93%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.53%
 \end_layout
 
 \end_inset
@@ -5733,6 +6278,17 @@ AVERAGE
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+27.40%
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -5757,17 +6313,17 @@ AVERAGE
 
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
 Experimental results for the used regression datasets.
- Numbers in cells represent average regression error as calculated on the
- corresponding test set.
+ Numbers in cells represent average regression error as calculated on the corresponding test set.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experRegression"
@@ -5785,8 +6341,9 @@ name "tab:experRegression"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="23" columns="6">
+<lyxtabular version="3" rows="23" columns="7">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -5835,6 +6392,15 @@ GENETIC
 
 \begin_layout Plain Layout
 RBF
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PRUNE
 \end_layout
 
 \end_inset
@@ -5895,6 +6461,15 @@ ABALONE
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7.88
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -5947,6 +6522,15 @@ AIRFOIL
 
 \begin_layout Plain Layout
 0.27
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.002
 \end_layout
 
 \end_inset
@@ -6007,6 +6591,15 @@ AUTO
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+75.59
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -6059,6 +6652,15 @@ BK
 
 \begin_layout Plain Layout
 0.02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.027
 \end_layout
 
 \end_inset
@@ -6119,6 +6721,15 @@ BL
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.027
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -6171,6 +6782,15 @@ BASEBALL
 
 \begin_layout Plain Layout
 93.02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+94.50
 \end_layout
 
 \end_inset
@@ -6231,6 +6851,15 @@ CONCRETE
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.0077
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -6283,6 +6912,15 @@ DEE
 
 \begin_layout Plain Layout
 0.17
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.08
 \end_layout
 
 \end_inset
@@ -6343,6 +6981,15 @@ FRIEDMAN
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8.69
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -6399,6 +7046,15 @@ FY
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.042
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -6442,6 +7098,15 @@ HO
 
 \begin_layout Plain Layout
 2.78
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.03
 \end_layout
 
 \end_inset
@@ -6511,6 +7176,15 @@ HOUSING
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+52.25
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -6563,6 +7237,15 @@ LASER
 
 \begin_layout Plain Layout
 0.03
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.007
 \end_layout
 
 \end_inset
@@ -6623,6 +7306,15 @@ LW
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.02
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -6675,6 +7367,15 @@ MORTGAGE
 
 \begin_layout Plain Layout
 1.45
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.96
 \end_layout
 
 \end_inset
@@ -6735,6 +7436,15 @@ PL
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.032
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -6787,6 +7497,15 @@ PLASTIC
 
 \begin_layout Plain Layout
 8.62
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+17.33
 \end_layout
 
 \end_inset
@@ -6847,6 +7566,15 @@ QUAKE
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.04
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -6899,6 +7627,15 @@ SN
 
 \begin_layout Plain Layout
 0.027
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.032
 \end_layout
 
 \end_inset
@@ -6959,6 +7696,15 @@ STOCK
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+39.08
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -7011,6 +7757,15 @@ TREASURY
 
 \begin_layout Plain Layout
 2.02
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+13.76
 \end_layout
 
 \end_inset
@@ -7081,6 +7836,17 @@ AVERAGE
 
 \end_inset
 </cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+15.40
+\end_layout
+
+\end_inset
+</cell>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
 \begin_inset Text
 
@@ -7113,36 +7879,51 @@ reference "tab:experClass"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- presents the error rates for various classification datasets using five
- different machine learning models: ADAM, BFGS, GENETIC, RBF, and PROPOSED.
+ presents the error rates for various classification datasets using five different machine learning models:
+ ADAM,
+ BFGS,
+ GENETIC,
+ RBF,
+ and PROPOSED.
  The analysis focuses on comparing the models in terms of their effectiveness,
  with a lower error rate indicating better performance.
- Initially, it is observed that the PROPOSED model achieves the lowest average
- error rate (18.73%) compared to the other models, which have average error
- rates of 34.23% (ADAM), 33.58% (BFGS), 26.13% (GENETIC), and 29.21% (RBF).
+ Initially,
+ it is observed that the PROPOSED model achieves the lowest average error rate (18.73%) compared to the other models,
+ which have average error rates of 34.23% (ADAM),
+ 33.58% (BFGS),
+ 26.13% (GENETIC),
+ and 29.21% (RBF).
  This highlights the overall superiority of the PROPOSED model.
- Examining individual datasets, the PROPOSED model exhibits the lowest error
- rate in many cases, such as "BALANCE" (7.79%), "DERMATOLOGY" (4.97%), "STUDENT"
- (4.00%), "ZO_NF_S" (4.32%), "ZONF_S" (1.76%), and "ZOO" (7.00%).
- Notably, its performance on "ZONF_S," with an error rate of only 1.76%,
+ Examining individual datasets,
+ the PROPOSED model exhibits the lowest error rate in many cases,
+ such as "BALANCE" (7.79%),
+ "DERMATOLOGY" (4.97%),
+ "STUDENT" (4.00%),
+ "ZO_NF_S" (4.32%),
+ "ZONF_S" (1.76%),
+ and "ZOO" (7.00%).
+ Notably,
+ its performance on "ZONF_S," with an error rate of only 1.76%,
  demonstrates exceptional accuracy.
- In other datasets, such as "CIRCULAR" and "HOUSEVOTES," the PROPOSED model
- performs very close to the best result but does not outperform the others.
- In some cases, such as "SEGMENT" and "WINE," it shows higher error rates,
+ In other datasets,
+ such as "CIRCULAR" and "HOUSEVOTES," the PROPOSED model performs very close to the best result but does not outperform the others.
+ In some cases,
+ such as "SEGMENT" and "WINE," it shows higher error rates,
  indicating room for improvement with specific types of data.
- In comparison, the ADAM model exhibits the highest overall deviation, making
- it the least effective.
- The RBF model also shows higher error rates compared to the PROPOSED model
- in several datasets, such as "BALANCE" and "ZOO." Similarly, the BFGS model
- fails to achieve low error rates in critical datasets such as "HEART" and
- "STATHEART." The GENETIC model demonstrates intermediate performance, achieving
- lower error rates than ADAM and BFGS but higher than the PROPOSED model.
- In conclusion, the analysis confirms that the PROPOSED model is the most
- reliable and consistent in most cases, achieving the lowest overall average
- error rate.
+ In comparison,
+ the ADAM model exhibits the highest overall deviation,
+ making it the least effective.
+ The RBF model also shows higher error rates compared to the PROPOSED model in several datasets,
+ such as "BALANCE" and "ZOO." Similarly,
+ the BFGS model fails to achieve low error rates in critical datasets such as "HEART" and "STATHEART." The GENETIC model demonstrates intermediate performance,
+ achieving lower error rates than ADAM and BFGS but higher than the PROPOSED model.
+ In conclusion,
+ the analysis confirms that the PROPOSED model is the most reliable and consistent in most cases,
+ achieving the lowest overall average error rate.
  
 \end_layout
 
@@ -7154,46 +7935,60 @@ reference "tab:experRegression"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- examines the absolute error values for various regression datasets using
- five different machine learning models: ADAM, BFGS, GENETIC, RBF, and PROPOSED.
- The analysis evaluates the models based on their performance, where lower
- error values indicate better accuracy.
- The PROPOSED model achieves the lowest average error (5.23) compared to
- the other models, which have average errors of 22.46 (ADAM), 30.29 (BFGS),
- 9.31 (GENETIC), and 10.02 (RBF).
- This result underscores the superior performance of the PROPOSED model
- overall.
- Examining individual datasets, the PROPOSED model consistently achieves
- the smallest error in several cases.
- For instance, it outperforms other models in "AIRFOIL" (0.002), "BL" (0.006),
- "CONCRETE" (0.006), "HO" (0.015), "LASER" (0.004), "LW" (0.011), "MORTGAGE"
- (0.32), "PL" (0.022), and "PLASTIC" (2.16).
+ examines the absolute error values for various regression datasets using five different machine learning models:
+ ADAM,
+ BFGS,
+ GENETIC,
+ RBF,
+ and PROPOSED.
+ The analysis evaluates the models based on their performance,
+ where lower error values indicate better accuracy.
+ The PROPOSED model achieves the lowest average error (5.23) compared to the other models,
+ which have average errors of 22.46 (ADAM),
+ 30.29 (BFGS),
+ 9.31 (GENETIC),
+ and 10.02 (RBF).
+ This result underscores the superior performance of the PROPOSED model overall.
+ Examining individual datasets,
+ the PROPOSED model consistently achieves the smallest error in several cases.
+ For instance,
+ it outperforms other models in "AIRFOIL" (0.002),
+ "BL" (0.006),
+ "CONCRETE" (0.006),
+ "HO" (0.015),
+ "LASER" (0.004),
+ "LW" (0.011),
+ "MORTGAGE" (0.32),
+ "PL" (0.022),
+ and "PLASTIC" (2.16).
  These results highlight the model's robustness across diverse datasets.
- Notably, its performance on "AIRFOIL" with an error of 0.002 and "LASER"
- with 0.004 demonstrate exceptional precision.
- In some datasets, such as "SN" and "QUAKE," the PROPOSED model closely
- matches the best-performing results but does not necessarily achieve the
- lowest error.
- In certain cases, like "FRIEDMAN" and "STOCK," while still competitive,
+ Notably,
+ its performance on "AIRFOIL" with an error of 0.002 and "LASER" with 0.004 demonstrate exceptional precision.
+ In some datasets,
+ such as "SN" and "QUAKE," the PROPOSED model closely matches the best-performing results but does not necessarily achieve the lowest error.
+ In certain cases,
+ like "FRIEDMAN" and "STOCK," while still competitive,
  the model exhibits higher error values than some of its competitors.
- Specifically, in "STOCK," the PROPOSED model records an error of 5.57, which
- is higher than GENETIC's error of 3.88 but significantly lower than ADAM
- and BFGS.
- These cases indicate areas where further optimization of the PROPOSED model
- may be beneficial.
- Comparatively, the ADAM and BFGS models generally exhibit higher error
- rates, with BFGS particularly underperforming on datasets such as "BASEBALL"
- and "STOCK." The GENETIC model demonstrates strong performance, with its
- average error being the second lowest (9.31).
- However, its results are still consistently higher than the PROPOSED model
- on key datasets like "MORTGAGE" and "HOUSING." Similarly, the RBF model,
- while competitive in some cases, such as "TREASURY," has higher errors
- in others, such as "AUTO" and "BL." In conclusion, the analysis confirms
- that the PROPOSED model is the most effective and consistent across the
- majority of regression datasets, achieving the lowest overall average error.
+ Specifically,
+ in "STOCK," the PROPOSED model records an error of 5.57,
+ which is higher than GENETIC's error of 3.88 but significantly lower than ADAM and BFGS.
+ These cases indicate areas where further optimization of the PROPOSED model may be beneficial.
+ Comparatively,
+ the ADAM and BFGS models generally exhibit higher error rates,
+ with BFGS particularly underperforming on datasets such as "BASEBALL" and "STOCK." The GENETIC model demonstrates strong performance,
+ with its average error being the second lowest (9.31).
+ However,
+ its results are still consistently higher than the PROPOSED model on key datasets like "MORTGAGE" and "HOUSING." Similarly,
+ the RBF model,
+ while competitive in some cases,
+ such as "TREASURY," has higher errors in others,
+ such as "AUTO" and "BL." In conclusion,
+ the analysis confirms that the PROPOSED model is the most effective and consistent across the majority of regression datasets,
+ achieving the lowest overall average error.
  
 \end_layout
 
@@ -7205,23 +8000,30 @@ reference "fig:statClass"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-, which pertains to classification datasets for various machine learning
- models, the proposed method demonstrates highly significant differences
- when compared to other methods.
- Specifically, the p-values are as follows: PROPOSED vs ADAM: p=2.9e-11,
- PROPOSED vs BFGS: p=1.3e-09, PROPOSED vs GENETIC: p=1.6e-08 and PROPOSED
- vs RBF: p=8e-08.
- These results highlight the statistical significance of the proposed method
- in classification tasks.
+,
+ which pertains to classification datasets for various machine learning models,
+ the proposed method demonstrates highly significant differences when compared to other methods.
+ Specifically,
+ the p-values are as follows:
+ PROPOSED vs ADAM:
+ p=2.9e-11,
+ PROPOSED vs BFGS:
+ p=1.3e-09,
+ PROPOSED vs GENETIC:
+ p=1.6e-08 and PROPOSED vs RBF:
+ p=8e-08.
+ These results highlight the statistical significance of the proposed method in classification tasks.
  
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -7269,22 +8071,29 @@ reference "fig:statRegression"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-, focusing on regression datasets for various machine learning models, the
- proposed method again shows statistically significant differences when
- compared to other methods.
- The corresponding p-values are: PROPOSED vs ADAM: p=0.0001, PROPOSED vs
- BFGS: p=4.1e-05, PROPOSED vs GENETIC: p=0.0022 and PROPOSED vs RBF: p=0.00073.
- These results indicate the superiority of the proposed method across regression
- datasets with notable levels of significance.
+,
+ focusing on regression datasets for various machine learning models,
+ the proposed method again shows statistically significant differences when compared to other methods.
+ The corresponding p-values are:
+ PROPOSED vs ADAM:
+ p=0.0001,
+ PROPOSED vs BFGS:
+ p=4.1e-05,
+ PROPOSED vs GENETIC:
+ p=0.0022 and PROPOSED vs RBF:
+ p=0.00073.
+ These results indicate the superiority of the proposed method across regression datasets with notable levels of significance.
  
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -7337,10 +8146,10 @@ An additional experiment was executed where the parameter
 \begin_inset Formula $F$
 \end_inset
 
- of the differential evolution was altered using some well - known approaches
- from the relevant literature.
- In the following tables the following methods, as denoted in the experimental
- tables, were obtained for the calculation of the parameter 
+ of the differential evolution was altered using some well - known approaches from the relevant literature.
+ In the following tables the following methods,
+ as denoted in the experimental tables,
+ were obtained for the calculation of the parameter 
 \begin_inset Formula $F$
 \end_inset
 
@@ -7349,8 +8158,8 @@ An additional experiment was executed where the parameter
 
 \begin_layout Enumerate
 RANDOM.
- This method is used for the current approach, where the differential weight
- is a random number in 
+ This method is used for the current approach,
+ where the differential weight is a random number in 
 \begin_inset Formula $[0,1]$
 \end_inset
 
@@ -7363,13 +8172,15 @@ FIXED.
 \begin_inset Formula $F$
 \end_inset
 
- is used, as denoted in Table 
+ is used,
+ as denoted in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:settings"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -7411,14 +8222,14 @@ literal "false"
 \end_layout
 
 \begin_layout Standard
-The experimental results using the current method and the previously mentioned
- method for differential weight are listed in Tables 
+The experimental results using the current method and the previously mentioned method for differential weight are listed in Tables 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:experFClass"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -7429,6 +8240,7 @@ reference "tab:experFRegression"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -7438,6 +8250,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -7446,8 +8259,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results for the classification datasets and the proposed method
- using a series of differential weight mechanisms.
+Experimental results for the classification datasets and the proposed method using a series of differential weight mechanisms.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experFClass"
@@ -9280,6 +10092,7 @@ AVERAGE
 
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -9288,8 +10101,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results for the regression datasets and the proposed method
- using a variety of techniques for the calculation of differential weight.
+Experimental results for the regression datasets and the proposed method using a variety of techniques for the calculation of differential weight.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experFRegression"
@@ -10425,42 +11237,56 @@ reference "tab:experFClass"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- examines the percentage error rates across various classification datasets
- using four different computations of the critical weight differential parameter
- for the proposed machine learning model: RANDOM, FIXED, ADAPT, and MIGRANT.
+ examines the percentage error rates across various classification datasets using four different computations of the critical weight differential parameter for the proposed machine learning model:
+ RANDOM,
+ FIXED,
+ ADAPT,
+ and MIGRANT.
  The RANDOM computation exhibits the lowest overall average error rate (18.73%),
- indicating superior performance compared to the other computations: FIXED
- (19.12%), ADAPT (19.52%), and MIGRANT (20.62%).
+ indicating superior performance compared to the other computations:
+ FIXED (19.12%),
+ ADAPT (19.52%),
+ and MIGRANT (20.62%).
  This suggests that the RANDOM computation is the most reliable overall.
- Analyzing individual datasets, the RANDOM computation achieves the best
- error rates in several cases.
- For instance, it records the lowest error rates for datasets such as "ALCOHOL"
- (18.33%), "BALANCE" (7.79%), "CIRCULAR" (6.50%), "HOUSEVOTES" (6.09%), "PARKINSONS"
- (12.79%), "POPFAILURES" (4.45%), and "WDBC" (6.73%).
+ Analyzing individual datasets,
+ the RANDOM computation achieves the best error rates in several cases.
+ For instance,
+ it records the lowest error rates for datasets such as "ALCOHOL" (18.33%),
+ "BALANCE" (7.79%),
+ "CIRCULAR" (6.50%),
+ "HOUSEVOTES" (6.09%),
+ "PARKINSONS" (12.79%),
+ "POPFAILURES" (4.45%),
+ and "WDBC" (6.73%).
  These results highlight its effectiveness across a wide range of datasets.
- Specifically, the 4.45% error rate for "POPFAILURES" stands out as one of
- the lowest overall.
- In certain datasets, the FIXED computation outperforms others, such as
- in "Z_F_S" (7.00%) and "ZOO" (4.90%).
- However, the difference from RANDOM is minimal.
- The MIGRANT computation demonstrates the lowest error rates in only a few
- cases, such as "CIRCULAR" (4.74%) and "WDBC" (4.18%), suggesting it may be
- particularly effective for specific datasets.
- Meanwhile, the ADAPT computation achieves lower error rates in a few scenarios
- but generally remains less competitive.
- In other datasets, such as "GLASS," "SPIRAL," and "SEGMENT," all computations
- show high error rates, indicating these datasets are challenging to classify
- regardless of the computation.
- Nevertheless, the RANDOM computation remains consistently competitive even
- with these difficult datasets, as observed in "STATHEART" and "ZONF_S."
- In conclusion, the analysis reveals that the RANDOM computation is the
- most effective overall, achieving the lowest average error rate and demonstrati
-ng superior performance across a broad range of datasets.
- However, there are instances where other computations, such as FIXED and
- MIGRANT, show specialized advantages.
+ Specifically,
+ the 4.45% error rate for "POPFAILURES" stands out as one of the lowest overall.
+ In certain datasets,
+ the FIXED computation outperforms others,
+ such as in "Z_F_S" (7.00%) and "ZOO" (4.90%).
+ However,
+ the difference from RANDOM is minimal.
+ The MIGRANT computation demonstrates the lowest error rates in only a few cases,
+ such as "CIRCULAR" (4.74%) and "WDBC" (4.18%),
+ suggesting it may be particularly effective for specific datasets.
+ Meanwhile,
+ the ADAPT computation achieves lower error rates in a few scenarios but generally remains less competitive.
+ In other datasets,
+ such as "GLASS," "SPIRAL," and "SEGMENT," all computations show high error rates,
+ indicating these datasets are challenging to classify regardless of the computation.
+ Nevertheless,
+ the RANDOM computation remains consistently competitive even with these difficult datasets,
+ as observed in "STATHEART" and "ZONF_S." In conclusion,
+ the analysis reveals that the RANDOM computation is the most effective overall,
+ achieving the lowest average error rate and demonstrating superior performance across a broad range of datasets.
+ However,
+ there are instances where other computations,
+ such as FIXED and MIGRANT,
+ show specialized advantages.
 \end_layout
 
 \begin_layout Standard
@@ -10471,38 +11297,49 @@ reference "tab:experFRegression"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- pertains to regression datasets, using four different calculations of the
- critical parameter of differential weighting for the proposed machine learning
- model: RANDOM, FIXED, ADAPT, and MIGRANT.
- The RANDOM calculation exhibits the lowest average error (5.23), making
- it the most efficient overall compared to FIXED (5.74), ADAPT (5.82), and
- MIGRANT (5.27).
- The small difference between RANDOM and MIGRANT suggests comparable performance
- between these two approaches, with RANDOM maintaining a slight edge.
- For individual datasets, the RANDOM calculation achieves the lowest error
- values in several cases, such as the "AUTO" (12.78), "FRIEDMAN" (2.21), "HO"
- (0.015), "MORTGAGE" (0.32), and "SN" (0.023) datasets.
- These results demonstrate the effectiveness of the RANDOM calculation across
- a wide range of datasets.
- In the "FRIEDMAN" dataset, the error value of 2.21 is significantly lower
- than the corresponding values of FIXED (2.79) and ADAPT (3.18), underscoring
- its performance in this specific dataset.
+ pertains to regression datasets,
+ using four different calculations of the critical parameter of differential weighting for the proposed machine learning model:
+ RANDOM,
+ FIXED,
+ ADAPT,
+ and MIGRANT.
+ The RANDOM calculation exhibits the lowest average error (5.23),
+ making it the most efficient overall compared to FIXED (5.74),
+ ADAPT (5.82),
+ and MIGRANT (5.27).
+ The small difference between RANDOM and MIGRANT suggests comparable performance between these two approaches,
+ with RANDOM maintaining a slight edge.
+ For individual datasets,
+ the RANDOM calculation achieves the lowest error values in several cases,
+ such as the "AUTO" (12.78),
+ "FRIEDMAN" (2.21),
+ "HO" (0.015),
+ "MORTGAGE" (0.32),
+ and "SN" (0.023) datasets.
+ These results demonstrate the effectiveness of the RANDOM calculation across a wide range of datasets.
+ In the "FRIEDMAN" dataset,
+ the error value of 2.21 is significantly lower than the corresponding values of FIXED (2.79) and ADAPT (3.18),
+ underscoring its performance in this specific dataset.
  The MIGRANT calculation demonstrates the best performance in certain datasets,
- such as "AUTO" (11.46) and "STOCK" (4.41), where it outperforms RANDOM.
- However, in other datasets, such as "PLASTIC" and "SN," it shows slightly
- higher error rates, indicating limitations with specific data.
+ such as "AUTO" (11.46) and "STOCK" (4.41),
+ where it outperforms RANDOM.
+ However,
+ in other datasets,
+ such as "PLASTIC" and "SN," it shows slightly higher error rates,
+ indicating limitations with specific data.
  The FIXED calculation tends to have consistent but not top-performing results,
- while ADAPT generally shows higher error values, making it less effective
- overall.
- In summary, the analysis highlights that the RANDOM calculation is the
- most reliable and efficient, with the lowest average error and strong performan
-ce across various datasets.
- However, the MIGRANT calculation exhibits competitive performance in specific
- cases, while FIXED and ADAPT appear to require improvements to rival the
- other calculations.
+ while ADAPT generally shows higher error values,
+ making it less effective overall.
+ In summary,
+ the analysis highlights that the RANDOM calculation is the most reliable and efficient,
+ with the lowest average error and strong performance across various datasets.
+ However,
+ the MIGRANT calculation exhibits competitive performance in specific cases,
+ while FIXED and ADAPT appear to require improvements to rival the other calculations.
 \end_layout
 
 \begin_layout Standard
@@ -10513,23 +11350,35 @@ reference "fig:statFClass"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- evaluates classification datasets for different differential weight computation
-s within the proposed machine learning model.
- The p-values are as follows: RANDOM vs FIXED: p=0.43, RANDOM vs ADAPT: p=0.024,
- RANDOM vs MIGRANT: p=0.0021, FIXED vs ADAPT p=0.12, FIXED vs MIGRANT: p=0.0033
- and ADAPT vs MIGRANT: p=0.043.
- These results suggest that some comparisons, such as RANDOM vs MIGRANT
- and FIXED vs MIGRANT, show strong statistical significance, while others,
- such as RANDOM vs FIXED, do not demonstrate significant differences.
+ evaluates classification datasets for different differential weight computations within the proposed machine learning model.
+ The p-values are as follows:
+ RANDOM vs FIXED:
+ p=0.43,
+ RANDOM vs ADAPT:
+ p=0.024,
+ RANDOM vs MIGRANT:
+ p=0.0021,
+ FIXED vs ADAPT p=0.12,
+ FIXED vs MIGRANT:
+ p=0.0033 and ADAPT vs MIGRANT:
+ p=0.043.
+ These results suggest that some comparisons,
+ such as RANDOM vs MIGRANT and FIXED vs MIGRANT,
+ show strong statistical significance,
+ while others,
+ such as RANDOM vs FIXED,
+ do not demonstrate significant differences.
  
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -10549,8 +11398,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison between the proposed variations of the differential
- weight mechanisms.
+Statistical comparison between the proposed variations of the differential weight mechanisms.
  The experiments were conducted on the classification datasets.
 \begin_inset CommandInset label
 LatexCommand label
@@ -10583,23 +11431,33 @@ reference "fig:statFRegression"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- presents results for regression datasets using different differential weight
- computations within the proposed model.
- The observed p-values are: RANDOM vs FIXED: p=0.0066, RANDOM vs ADAPT: p=0.15,
- RANDOM vs MIGRANT: p=0.66, FIXED vs ADAPT: p=0.64, FIXED vs MIGRANT: p=0.84
- and ADAPT vs MIGRANT: p=0.47.
- These findings indicate that most comparisons do not show significant differenc
-es, except for RANDOM vs FIXED, which demonstrates a notable level of significan
-ce.
+ presents results for regression datasets using different differential weight computations within the proposed model.
+ The observed p-values are:
+ RANDOM vs FIXED:
+ p=0.0066,
+ RANDOM vs ADAPT:
+ p=0.15,
+ RANDOM vs MIGRANT:
+ p=0.66,
+ FIXED vs ADAPT:
+ p=0.64,
+ FIXED vs MIGRANT:
+ p=0.84 and ADAPT vs MIGRANT:
+ p=0.47.
+ These findings indicate that most comparisons do not show significant differences,
+ except for RANDOM vs FIXED,
+ which demonstrates a notable level of significance.
  
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -10619,10 +11477,8 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the different variations of the weight calculation
- mechanism.
- The experiments were conducted using the proposed method on the regression
- datasets.
+Statistical comparison for the different variations of the weight calculation mechanism.
+ The experiments were conducted using the proposed method on the regression datasets.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statFRegression"
@@ -10651,17 +11507,18 @@ Experiment with the number of agents
 \end_layout
 
 \begin_layout Standard
-An additional experiment was conducted using different values for the parameter
- NP, which represents the number of agents.
- In this experiment the parameter NP took the values 50, 100 and 200.
- The experimental results for the classification datasets are shown in Table
- 
+An additional experiment was conducted using different values for the parameter NP,
+ which represents the number of agents.
+ In this experiment the parameter NP took the values 50,
+ 100 and 200.
+ The experimental results for the classification datasets are shown in Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:experNPClass"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -10672,6 +11529,7 @@ reference "tab:experNPRegression"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
@@ -10681,6 +11539,7 @@ noprefix "false"
 \begin_layout Standard
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -10693,8 +11552,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results for the classification datasets and the proposed method
- using a variety of values for the parameter NP.
+Experimental results for the classification datasets and the proposed method using a variety of values for the parameter NP.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experNPClass"
@@ -12182,6 +13040,7 @@ AVERAGE
 
 \begin_inset Float table
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -12194,8 +13053,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Experimental results for the regression datasets using the proposed method
- and a variety of values for parameter NP.
+Experimental results for the regression datasets using the proposed method and a variety of values for parameter NP.
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:experNPRegression"
@@ -13121,39 +13979,49 @@ reference "tab:experNPClass"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- pertains to classification datasets, utilizing three different values for
- the critical parameter "NP" in the proposed machine learning model: NP=50,
- NP=100, and NP=200.
- The computation with NP=200 demonstrates the lowest average error rate
- (18.73%), indicating the highest efficiency compared to NP=100 (19.94%) and
- NP=50 (20.36%).
- This suggests that a higher value of the NP parameter is generally associated
- with better performance.
- In individual datasets, the computation with NP=200 achieves the lowest
- error rate in many cases, such as in "ALCOHOL" (18.33%), "AUSTRALIAN" (21.49%),
- "BALANCE" (7.79%), "DERMATOLOGY" (4.97%), "ECOLI" (40.30%), and "HEART" (13.11%).
- In some of these datasets, the difference between NP=200 and the other
- two values is notable.
- For instance, in the "DERMATOLOGY" dataset, the error rate with NP=200
- (4.97%) is significantly lower than the corresponding values for NP=50 (9.89%)
- and NP=100 (11.34%), highlighting the clear superiority of NP=200 for this
- dataset.
- However, there are also datasets where the differences are less pronounced.
- For example, in "PHONEME," the error rates are relatively close across
- all parameter values, with NP=200 showing the smallest error (18.10%).
- In some other datasets, such as "HOUSEVOTES," NP=50 has a lower error rate
- (3.91%) than the other two parameter values.
- This indicates that in certain datasets, increasing the NP parameter does
- not necessarily lead to improved performance.
- Similarly, in the "Z_F_S" dataset, NP=100 achieves the lowest error rate
- (6.73%), while NP=200 exhibits a higher rate (8.38%), suggesting that performance
- may also depend on the characteristics of the data.
- Despite these exceptions, NP=200 generally exhibits the best overall performanc
-e, achieving the lowest average error rate and delivering strong results
- across a wide range of datasets.
+ pertains to classification datasets,
+ utilizing three different values for the critical parameter "NP" in the proposed machine learning model:
+ NP=50,
+ NP=100,
+ and NP=200.
+ The computation with NP=200 demonstrates the lowest average error rate (18.73%),
+ indicating the highest efficiency compared to NP=100 (19.94%) and NP=50 (20.36%).
+ This suggests that a higher value of the NP parameter is generally associated with better performance.
+ In individual datasets,
+ the computation with NP=200 achieves the lowest error rate in many cases,
+ such as in "ALCOHOL" (18.33%),
+ "AUSTRALIAN" (21.49%),
+ "BALANCE" (7.79%),
+ "DERMATOLOGY" (4.97%),
+ "ECOLI" (40.30%),
+ and "HEART" (13.11%).
+ In some of these datasets,
+ the difference between NP=200 and the other two values is notable.
+ For instance,
+ in the "DERMATOLOGY" dataset,
+ the error rate with NP=200 (4.97%) is significantly lower than the corresponding values for NP=50 (9.89%) and NP=100 (11.34%),
+ highlighting the clear superiority of NP=200 for this dataset.
+ However,
+ there are also datasets where the differences are less pronounced.
+ For example,
+ in "PHONEME," the error rates are relatively close across all parameter values,
+ with NP=200 showing the smallest error (18.10%).
+ In some other datasets,
+ such as "HOUSEVOTES," NP=50 has a lower error rate (3.91%) than the other two parameter values.
+ This indicates that in certain datasets,
+ increasing the NP parameter does not necessarily lead to improved performance.
+ Similarly,
+ in the "Z_F_S" dataset,
+ NP=100 achieves the lowest error rate (6.73%),
+ while NP=200 exhibits a higher rate (8.38%),
+ suggesting that performance may also depend on the characteristics of the data.
+ Despite these exceptions,
+ NP=200 generally exhibits the best overall performance,
+ achieving the lowest average error rate and delivering strong results across a wide range of datasets.
 \end_layout
 
 \begin_layout Standard
@@ -13164,35 +14032,51 @@ reference "tab:experNPRegression"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- focuses on regression datasets, considering three distinct values for the
- critical parameter "NP" in the proposed machine learning model: NP=50,
- NP=100, and NP=200.
- The parameter NP=200 achieves the lowest average error (5.23), making it
- more effective than NP=100 (5.48) and NP=50 (5.92).
- This suggests that higher NP values are generally associated with improved
- performance.
- In specific datasets, NP=200 stands out for its superior performance.
- For instance, in "AIRFOIL" (0.002), "AUTO" (12.78), "BL" (0.006), "CONCRETE"
- (0.006), "FRIEDMAN" (2.21), and "TREASURY" (0.68), the error values for NP=200
- are the lowest.
- In the "FRIEDMAN" dataset, NP=200 (2.21) significantly outperforms NP=50
- (3.43) and NP=100 (2.83), demonstrating its effectiveness.
- However, there are cases where other NP values show stronger performance.
- For example, in the "BK" dataset, NP=100 achieves the lowest error (0.018),
+ focuses on regression datasets,
+ considering three distinct values for the critical parameter "NP" in the proposed machine learning model:
+ NP=50,
+ NP=100,
+ and NP=200.
+ The parameter NP=200 achieves the lowest average error (5.23),
+ making it more effective than NP=100 (5.48) and NP=50 (5.92).
+ This suggests that higher NP values are generally associated with improved performance.
+ In specific datasets,
+ NP=200 stands out for its superior performance.
+ For instance,
+ in "AIRFOIL" (0.002),
+ "AUTO" (12.78),
+ "BL" (0.006),
+ "CONCRETE" (0.006),
+ "FRIEDMAN" (2.21),
+ and "TREASURY" (0.68),
+ the error values for NP=200 are the lowest.
+ In the "FRIEDMAN" dataset,
+ NP=200 (2.21) significantly outperforms NP=50 (3.43) and NP=100 (2.83),
+ demonstrating its effectiveness.
+ However,
+ there are cases where other NP values show stronger performance.
+ For example,
+ in the "BK" dataset,
+ NP=100 achieves the lowest error (0.018),
  while NP=200 (0.02) is slightly worse.
- Similarly, in the "FY" dataset, NP=100 exhibits the best performance (0.041),
+ Similarly,
+ in the "FY" dataset,
+ NP=100 exhibits the best performance (0.041),
  with NP=200 showing a higher error (0.067).
- Additionally, in the "BASEBALL" dataset, NP=100 outperforms NP=200, recording
- an error of 57.75 compared to 60.74.
- These variations indicate that the effectiveness of the NP parameter can
- depend on the characteristics of the dataset.
- Overall, NP=200 demonstrates the best average performance, highlighting
- its value in most cases.
- While other NP values achieve lower error rates in some datasets, NP=200
- stands out for its general reliability and efficiency.
+ Additionally,
+ in the "BASEBALL" dataset,
+ NP=100 outperforms NP=200,
+ recording an error of 57.75 compared to 60.74.
+ These variations indicate that the effectiveness of the NP parameter can depend on the characteristics of the dataset.
+ Overall,
+ NP=200 demonstrates the best average performance,
+ highlighting its value in most cases.
+ While other NP values achieve lower error rates in some datasets,
+ NP=200 stands out for its general reliability and efficiency.
 \end_layout
 
 \begin_layout Standard
@@ -13203,20 +14087,26 @@ reference "fig:statNPClass"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
-, focusing on classification datasets for different values of the critical
- parameter "NP" within the proposed model, the p-values are: NP=50 vs NP=100:
- p=0.17, NP=50 vs NP=200: p=0.117 and NP=100 vs NP=200: p=0.032.
- These results indicate that only the comparison between NP=100 and NP=200
- demonstrates statistical significance.
+,
+ focusing on classification datasets for different values of the critical parameter "NP" within the proposed model,
+ the p-values are:
+ NP=50 vs NP=100:
+ p=0.17,
+ NP=50 vs NP=200:
+ p=0.117 and NP=100 vs NP=200:
+ p=0.032.
+ These results indicate that only the comparison between NP=100 and NP=200 demonstrates statistical significance.
  
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -13236,9 +14126,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the experiments conducted on the classification
- datasets using the proposed method and different values for the parameter
- NP.
+Statistical comparison for the experiments conducted on the classification datasets using the proposed method and different values for the parameter NP.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statNPClass"
@@ -13263,28 +14151,33 @@ name "fig:statNPClass"
 \end_layout
 
 \begin_layout Standard
-Finally, Figure 
+Finally,
+ Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statNPRegression"
 plural "false"
 caps "false"
 noprefix "false"
+nolink "false"
 
 \end_inset
 
- evaluates regression datasets for different values of the critical parameter
- "NP" within the proposed model.
- The respective p-values are: NP=50 vs NP=100: p=0.08, NP=50 vs NP=200: p=0.012
- and NP=100 vs NP=200: p=0.025.
- These results show that the comparisons NP=50 vs NP=200 and NP=100 vs NP=200
- exhibit statistically significant differences, while the comparison NP=50
- vs NP=100 does not.
+ evaluates regression datasets for different values of the critical parameter "NP" within the proposed model.
+ The respective p-values are:
+ NP=50 vs NP=100:
+ p=0.08,
+ NP=50 vs NP=200:
+ p=0.012 and NP=100 vs NP=200:
+ p=0.025.
+ These results show that the comparisons NP=50 vs NP=200 and NP=100 vs NP=200 exhibit statistically significant differences,
+ while the comparison NP=50 vs NP=100 does not.
 \end_layout
 
 \begin_layout Standard
 \begin_inset Float figure
 placement H
+alignment document
 wide false
 sideways false
 status collapsed
@@ -13304,8 +14197,7 @@ status collapsed
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Statistical comparison for the conducted experiments on the regression datasets
- using the proposed method and different values of the parameter NP.
+Statistical comparison for the conducted experiments on the regression datasets using the proposed method and different values of the parameter NP.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:statNPRegression"
@@ -13341,42 +14233,54 @@ name "sec:Conclusions"
 \end_layout
 
 \begin_layout Standard
-The proposed evolutionary method, based on differential evolution, proves
- to be highly effective in optimizing the weights of artificial neural networks,
+The proposed evolutionary method,
+ based on differential evolution,
+ proves to be highly effective in optimizing the weights of artificial neural networks,
  significantly reducing both training error and overfitting.
- Compared to other popular methods such as ADAM, BFGS, genetic algorithms,
- and RBF, the new approach demonstrates superior performance in classification
- tasks with an average error of 18.73% and regression tasks with an average
- error of 5.23%.
- Despite these positive results, certain datasets, such as "SEGMENT" and
- "STOCK," exhibit higher errors, likely due to data complexity or inherent
- noise that affects prediction accuracy.
- The random computation of parameter F and the use of a larger number of
- agents, such as NP=200, seem to enhance the system’s performance.
- However, smaller NP values yield better results in some cases, indicating
- the necessity for adaptive parameter tuning mechanisms during the optimization
- process.
+ Compared to other popular methods such as ADAM,
+ BFGS,
+ genetic algorithms,
+ and RBF,
+ the new approach demonstrates superior performance in classification tasks with an average error of 18.73% and regression tasks with an average error of 5.23%.
+ Despite these positive results,
+ certain datasets,
+ such as "SEGMENT" and "STOCK," exhibit higher errors,
+ likely due to data complexity or inherent noise that affects prediction accuracy.
+ The random computation of parameter F and the use of a larger number of agents,
+ such as NP=200,
+ seem to enhance the system’s performance.
+ However,
+ smaller NP values yield better results in some cases,
+ indicating the necessity for adaptive parameter tuning mechanisms during the optimization process.
  
 \end_layout
 
 \begin_layout Standard
-Future research could focus on applying the method to more complex or high-dimen
-sional data, such as images, text, or time series, to evaluate its scalability
- and flexibility.
- Developing mechanisms for dynamic parameter tuning, such as F, CR, and
- NP, could eliminate the need for manual experimentation and enhance overall
- efficiency.
- Additionally, combining this evolutionary approach with other machine learning
- techniques, such as reinforcement learning or dynamic neural networks,
+Future research could focus on applying the method to more complex or high-dimensional data,
+ such as images,
+ text,
+ or time series,
+ to evaluate its scalability and flexibility.
+ Developing mechanisms for dynamic parameter tuning,
+ such as F,
+ CR,
+ and NP,
+ could eliminate the need for manual experimentation and enhance overall efficiency.
+ Additionally,
+ combining this evolutionary approach with other machine learning techniques,
+ such as reinforcement learning or dynamic neural networks,
  may improve generalization and adaptability.
- Testing the method on different network architectures, such as recurrent
- neural networks (RNNs) or graph neural networks (GNNs), could provide valuable
- insights into its adaptability and flexibility across various contexts.
- Furthermore, a theoretical analysis of the algorithm’s convergence and
- stability could offer a deeper understanding of its strengths and limitations.
- Finally, focused studies on datasets where the method underperforms could
- identify specific factors, such as noise, class imbalance, or feature complexit
-y, and propose targeted optimizations to address these challenges effectively.
+ Testing the method on different network architectures,
+ such as recurrent neural networks (RNNs) or graph neural networks (GNNs),
+ could provide valuable insights into its adaptability and flexibility across various contexts.
+ Furthermore,
+ a theoretical analysis of the algorithm’s convergence and stability could offer a deeper understanding of its strengths and limitations.
+ Finally,
+ focused studies on datasets where the method underperforms could identify specific factors,
+ such as noise,
+ class imbalance,
+ or feature complexity,
+ and propose targeted optimizations to address these challenges effectively.
 \end_layout
 
 \begin_layout Standard
@@ -13389,8 +14293,8 @@ y, and propose targeted optimizations to address these challenges effectively.
 \begin_layout Author Contributions
 V.C.
  and I.G.T.
- conducted the experiments, employing several datasets and provided the
- comparative experiments.
+ conducted the experiments,
+ employing several datasets and provided the comparative experiments.
  D.T.
  and V.C.
  performed the statistical analysis and prepared the manuscript.
@@ -13414,11 +14318,11 @@ Not applicable.
 \end_layout
 
 \begin_layout Acknowledgments
-This research has been financed by the European Union : Next Generation
- EU through the Program Greece 2.0 National Recovery and Resilience Plan
- , under the call RESEARCH – CREATE – INNOVATE, project name “iCREW: Intelligent
- small craft simulator for advanced crew training using Virtual Reality
- techniques" (project code:TAEDK-06195).
+This research has been financed by the European Union :
+ Next Generation EU through the Program Greece 2.0 National Recovery and Resilience Plan ,
+ under the call RESEARCH – CREATE – INNOVATE,
+ project name “iCREW:
+ Intelligent small craft simulator for advanced crew training using Virtual Reality techniques" (project code:TAEDK-06195).
 \end_layout
 
 \begin_layout Conflicts of Interest
@@ -13451,14 +14355,27 @@ literal "true"
 
 \end_inset
 
-Abiodun, O.
- I., Jantan, A., Omolara, A.
- E., Dada, K.
- V., Mohamed, N.
- A., & Arshad, H.
+Abiodun,
+ O.
+ I.,
+ Jantan,
+ A.,
+ Omolara,
+ A.
+ E.,
+ Dada,
+ K.
+ V.,
+ Mohamed,
+ N.
+ A.,
+ & Arshad,
+ H.
  (2018).
- State-of-the-art in artificial neural network applications: A survey.
- Heliyon, 4(11).
+ State-of-the-art in artificial neural network applications:
+ A survey.
+ Heliyon,
+ 4(11).
 \end_layout
 
 \begin_layout Bibliography
@@ -13469,13 +14386,20 @@ literal "true"
 
 \end_inset
 
-Suryadevara, S., & Yanamala, A.
+Suryadevara,
+ S.,
+ & Yanamala,
+ A.
  K.
  Y.
  (2021).
- A Comprehensive Overview of Artificial Neural Networks: Evolution, Architecture
-s, and Applications.
- Revista de Inteligencia Artificial en Medicina, 12(1), 51-76.
+ A Comprehensive Overview of Artificial Neural Networks:
+ Evolution,
+ Architectures,
+ and Applications.
+ Revista de Inteligencia Artificial en Medicina,
+ 12(1),
+ 51-76.
 \end_layout
 
 \begin_layout Bibliography
@@ -13487,15 +14411,21 @@ literal "false"
 \end_inset
 
 M.
- Egmont-Petersen, D.
- de Ridder, H.
- Handels, Image processing with neural networks—a review, Pattern Recognition
- 
+ Egmont-Petersen,
+ D.
+ de Ridder,
+ H.
+ Handels,
+ Image processing with neural networks—
+a review,
+ Pattern Recognition 
 \series bold
 35
 \series default
-, pp.
- 2279-2301, 2002.
+,
+ pp.
+ 2279-2301,
+ 2002.
 \end_layout
 
 \begin_layout Bibliography
@@ -13506,13 +14436,16 @@ literal "false"
 
 \end_inset
 
-G.Peter Zhang, Time series forecasting using a hybrid ARIMA and neural network
- model, Neurocomputing 
+G.Peter Zhang,
+ Time series forecasting using a hybrid ARIMA and neural network model,
+ Neurocomputing 
 \series bold
 50
 \series default
-, pp.
- 159-175, 2003.
+,
+ pp.
+ 159-175,
+ 2003.
 \end_layout
 
 \begin_layout Bibliography
@@ -13524,15 +14457,23 @@ literal "false"
 \end_inset
 
 Z.
- Huang, H.
- Chen, C.-Jung Hsu, W.-Hwa Chen, S.
- Wu, Credit rating analysis with support vector machines and neural networks:
- a market comparative study, Decision Support Systems 
+ Huang,
+ H.
+ Chen,
+ C.-Jung Hsu,
+ W.-Hwa Chen,
+ S.
+ Wu,
+ Credit rating analysis with support vector machines and neural networks:
+ a market comparative study,
+ Decision Support Systems 
 \series bold
 37
 \series default
-, pp.
- 543-558, 2004.
+,
+ pp.
+ 543-558,
+ 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -13544,16 +14485,21 @@ literal "false"
 \end_inset
 
 P.
- Baldi, K.
- Cranmer, T.
- Faucett et al, Parameterized neural networks for high-energy physics, Eur.
+ Baldi,
+ K.
+ Cranmer,
+ T.
+ Faucett et al,
+ Parameterized neural networks for high-energy physics,
+ Eur.
  Phys.
  J.
  C 
 \series bold
 76
 \series default
-, 2016.
+,
+ 2016.
 \end_layout
 
 \begin_layout Bibliography
@@ -13564,10 +14510,21 @@ literal "true"
 
 \end_inset
 
-Baldi, P., Cranmer, K., Faucett, T., Sadowski, P., & Whiteson, D.
+Baldi,
+ P.,
+ Cranmer,
+ K.,
+ Faucett,
+ T.,
+ Sadowski,
+ P.,
+ & Whiteson,
+ D.
  (2016).
  Parameterized neural networks for high-energy physics.
- The European Physical Journal C, 76(5), 1-7.
+ The European Physical Journal C,
+ 76(5),
+ 1-7.
 \end_layout
 
 \begin_layout Bibliography
@@ -13578,12 +14535,19 @@ literal "false"
 
 \end_inset
 
-Firth, A.
- E., Lahav, O., & Somerville, R.
+Firth,
+ A.
+ E.,
+ Lahav,
+ O.,
+ & Somerville,
+ R.
  S.
  (2003).
  Estimating photometric redshifts with artificial neural networks.
- Monthly Notices of the Royal Astronomical Society, 339(4), 1195-1202.
+ Monthly Notices of the Royal Astronomical Society,
+ 339(4),
+ 1195-1202.
 \end_layout
 
 \begin_layout Bibliography
@@ -13595,14 +14559,19 @@ literal "false"
 \end_inset
 
 A.
- Kumar Yadav, S.S.
- Chandel, Solar radiation prediction using Artificial Neural Network techniques:
- A review, Renewable and Sustainable Energy Reviews 
+ Kumar Yadav,
+ S.S.
+ Chandel,
+ Solar radiation prediction using Artificial Neural Network techniques:
+ A review,
+ Renewable and Sustainable Energy Reviews 
 \series bold
 33
 \series default
-, pp.
- 772-781, 2014.
+,
+ pp.
+ 772-781,
+ 2014.
 \end_layout
 
 \begin_layout Bibliography
@@ -13614,17 +14583,23 @@ literal "false"
 \end_inset
 
 A.
- Escamilla-García, G.M.
- Soto-Zarazúa, M.
- Toledano-Ayala, E.
- Rivas-Araiza, A.
- Gastélum-Barrios, Abraham,Applications of Artificial Neural Networks in
- Greenhouse Technology and Overview for Smart Agriculture Development, Applied
- Sciences 
+ Escamilla-García,
+ G.M.
+ Soto-Zarazúa,
+ M.
+ Toledano-Ayala,
+ E.
+ Rivas-Araiza,
+ A.
+ Gastélum-Barrios,
+ Abraham,Applications of Artificial Neural Networks in Greenhouse Technology and Overview for Smart Agriculture Development,
+ Applied Sciences 
 \series bold
 10
 \series default
-, Article number 3835, 2020.
+,
+ Article number 3835,
+ 2020.
 \end_layout
 
 \begin_layout Bibliography
@@ -13635,29 +14610,15 @@ literal "false"
 
 \end_inset
 
-Vora, K., & Yagnik, S.
+Vora,
+ K.,
+ & Yagnik,
+ S.
  (2014).
  A survey on backpropagation algorithms for feedforward neural networks.
- International Journal of Engineering Development and Research, 1(3), 193-197.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "bpnn2"
-literal "false"
-
-\end_inset
-
-K.
- Vora, S.
- Yagnik, A survey on backpropagation algorithms for feedforward neural networks,
- International Journal of Engineering Development and Research 
-\series bold
-1
-\series default
-, pp.
- 193-197, 2014.
+ International Journal of Engineering Development and Research,
+ 1(3),
+ 193-197.
 \end_layout
 
 \begin_layout Bibliography
@@ -13668,26 +14629,17 @@ literal "false"
 
 \end_inset
 
-Pajchrowski, T., Zawirski, K., & Nowopolski, K.
+Pajchrowski,
+ T.,
+ Zawirski,
+ K.,
+ & Nowopolski,
+ K.
  (2014).
  Neural speed controller trained online by means of modified RPROP algorithm.
- IEEE transactions on industrial informatics, 11(2), 560-568.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "rpropnn-2"
-literal "false"
-
-\end_inset
-
-Hermanto, R.
- P.
- S., & Nugroho, A.
- (2018).
- Waiting-time estimation in bank customer queues using RPROP neural networks.
- Procedia Computer Science, 135, 35-42.
+ IEEE transactions on industrial informatics,
+ 11(2),
+ 560-568.
 \end_layout
 
 \begin_layout Bibliography
@@ -13700,11 +14652,17 @@ literal "false"
 
 D.
  P.
- Kingma, J.
+ Kingma,
+ J.
  L.
- Ba, ADAM: a method for stochastic optimization, in: Proceedings of the
- 3rd International Conference on Learning Representations (ICLR 2015), pp.
- 1–15, 2015.
+ Ba,
+ ADAM:
+ a method for stochastic optimization,
+ in:
+ Proceedings of the 3rd International Conference on Learning Representations (ICLR 2015),
+ pp.
+ 1–15,
+ 2015.
 \end_layout
 
 \begin_layout Bibliography
@@ -13715,10 +14673,15 @@ literal "false"
 
 \end_inset
 
-Lera, G., & Pinzolas, M.
+Lera,
+ G.,
+ & Pinzolas,
+ M.
  (2002).
  Neighborhood based Levenberg-Marquardt algorithm for neural network training.
- IEEE transactions on neural networks, 13(5), 1200-1203.
+ IEEE transactions on neural networks,
+ 13(5),
+ 1200-1203.
 \end_layout
 
 \begin_layout Bibliography
@@ -13730,14 +14693,19 @@ literal "false"
 \end_inset
 
 C.L.
- Kuo, E.E.
- Kuruoglu, W.K.V.
- Chan, Neural Network Structure Optimization by Simulated Annealing, Entropy
- 
+ Kuo,
+ E.E.
+ Kuruoglu,
+ W.K.V.
+ Chan,
+ Neural Network Structure Optimization by Simulated Annealing,
+ Entropy 
 \series bold
 24
 \series default
-, 348, 2022.
+,
+ 348,
+ 2022.
 \end_layout
 
 \begin_layout Bibliography
@@ -13748,11 +14716,22 @@ literal "false"
 
 \end_inset
 
-Reynolds, J., Rezgui, Y., Kwan, A., & Piriou, S.
+Reynolds,
+ J.,
+ Rezgui,
+ Y.,
+ Kwan,
+ A.,
+ & Piriou,
+ S.
  (2018).
- A zone-level, building energy optimisation combining an artificial neural
- network, a genetic algorithm, and model predictive control.
- Energy, 151, 729-739.
+ A zone-level,
+ building energy optimisation combining an artificial neural network,
+ a genetic algorithm,
+ and model predictive control.
+ Energy,
+ 151,
+ 729-739.
 \end_layout
 
 \begin_layout Bibliography
@@ -13763,13 +14742,19 @@ literal "false"
 
 \end_inset
 
-Das, G., Pattnaik, P.
- K., & Padhy, S.
+Das,
+ G.,
+ Pattnaik,
+ P.
+ K.,
+ & Padhy,
+ S.
  K.
  (2014).
- Artificial neural network trained by particle swarm optimization for non-linear
- channel equalization.
- Expert Systems with Applications, 41(7), 3491-3496.
+ Artificial neural network trained by particle swarm optimization for non-linear channel equalization.
+ Expert Systems with Applications,
+ 41(7),
+ 3491-3496.
 \end_layout
 
 \begin_layout Bibliography
@@ -13781,14 +14766,18 @@ literal "false"
 \end_inset
 
 K.M.
- Salama, A.M.
- Abdelbar, Learning neural network structures with ant colony algorithms,
+ Salama,
+ A.M.
+ Abdelbar,
+ Learning neural network structures with ant colony algorithms,
  Swarm Intell 
 \series bold
 9
 \series default
-, pp.
- 229–265, 2015.
+,
+ pp.
+ 229–265,
+ 2015.
 \end_layout
 
 \begin_layout Bibliography
@@ -13800,13 +14789,16 @@ literal "false"
 \end_inset
 
 S.
- Mirjalili, How effective is the Grey Wolf optimizer in training multi-layer
- perceptrons, Appl Intell 
+ Mirjalili,
+ How effective is the Grey Wolf optimizer in training multi-layer perceptrons,
+ Appl Intell 
 \series bold
 43
 \series default
-, pp.
- 150–161, 2015.
+,
+ pp.
+ 150–161,
+ 2015.
 \end_layout
 
 \begin_layout Bibliography
@@ -13818,15 +14810,20 @@ literal "false"
 \end_inset
 
 I.
- Aljarah, H.
- Faris, S.
- Mirjalili, Optimizing connection weights in neural networks using the whale
- optimization algorithm, Soft Comput 
+ Aljarah,
+ H.
+ Faris,
+ S.
+ Mirjalili,
+ Optimizing connection weights in neural networks using the whale optimization algorithm,
+ Soft Comput 
 \series bold
 22
 \series default
-, pp.
- 1–15, 2018.
+,
+ pp.
+ 1–15,
+ 2018.
  
 \end_layout
 
@@ -13839,17 +14836,23 @@ literal "false"
 \end_inset
 
 R.S.
- Sexton, B.
- Alidaee, R.E.
- Dorsey, J.D.
- Johnson, Global optimization for artificial neural networks: A tabu search
- application.
+ Sexton,
+ B.
+ Alidaee,
+ R.E.
+ Dorsey,
+ J.D.
+ Johnson,
+ Global optimization for artificial neural networks:
+ A tabu search application.
  European Journal of Operational Research 
 \series bold
 106
 \series default
-, pp.
- 570-584, 1998.
+,
+ pp.
+ 570-584,
+ 1998.
 \end_layout
 
 \begin_layout Bibliography
@@ -13861,17 +14864,22 @@ literal "false"
 \end_inset
 
 J.-R.
- Zhang, J.
- Zhang, T.-M.
- Lok, M.R.
- Lyu, A hybrid particle swarm optimization–back-propagation algorithm for
- feedforward neural network training, Applied Mathematics and Computation
- 
+ Zhang,
+ J.
+ Zhang,
+ T.-M.
+ Lok,
+ M.R.
+ Lyu,
+ A hybrid particle swarm optimization–back-propagation algorithm for feedforward neural network training,
+ Applied Mathematics and Computation 
 \series bold
 185
 \series default
-, pp.
- 1026-1037, 2007.
+,
+ pp.
+ 1026-1037,
+ 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -13883,17 +14891,25 @@ literal "false"
 \end_inset
 
 G.
- Zhao, T.
- Wang, Y.
- Jin, C.
- Lang, Y.
- Li, H.
- Ling, The Cascaded Forward algorithm for neural network training, Pattern
- Recognition 
+ Zhao,
+ T.
+ Wang,
+ Y.
+ Jin,
+ C.
+ Lang,
+ Y.
+ Li,
+ H.
+ Ling,
+ The Cascaded Forward algorithm for neural network training,
+ Pattern Recognition 
 \series bold
 161
 \series default
-, 111292, 2025.
+,
+ 111292,
+ 2025.
 \end_layout
 
 \begin_layout Bibliography
@@ -13904,13 +14920,18 @@ literal "false"
 
 \end_inset
 
-K-Su Oh, K.
- Jung, GPU implementation of neural networks, Pattern Recognition 
+K-Su Oh,
+ K.
+ Jung,
+ GPU implementation of neural networks,
+ Pattern Recognition 
 \series bold
 37
 \series default
-, pp.
- 1311-1314, 2004.
+,
+ pp.
+ 1311-1314,
+ 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -13922,14 +14943,19 @@ literal "false"
 \end_inset
 
 M.
- Zhang, K.
- Hibi, J.
- Inoue, GPU-accelerated artificial neural network potential for molecular
- dynamics simulation, Computer Physics Communications 
+ Zhang,
+ K.
+ Hibi,
+ J.
+ Inoue,
+ GPU-accelerated artificial neural network potential for molecular dynamics simulation,
+ Computer Physics Communications 
 \series bold
 285
 \series default
-, 108655, 2023.
+,
+ 108655,
+ 2023.
  
 \end_layout
 
@@ -13941,11 +14967,15 @@ literal "false"
 
 \end_inset
 
-Ying, X.
- (2019, February).
+Ying,
+ X.
+ (2019,
+ February).
  An overview of overfitting and its solutions.
- In Journal of physics: Conference series (Vol.
- 1168, p.
+ In Journal of physics:
+ Conference series (Vol.
+ 1168,
+ p.
  022022).
  IOP Publishing.
 \end_layout
@@ -13960,27 +14990,12 @@ literal "true"
 
 S.J.
  Nowlan and G.E.
- Hinton, Simplifying neural networks by soft weight sharing, Neural Computation
- 4, pp.
- 473-493, 1992.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "nnsharing2"
-literal "false"
-
-\end_inset
-
-Nowlan, S.
- J., & Hinton, G.
- E.
- (2018).
- Simplifying neural networks by soft weight sharing.
- In The mathematics of generalization (pp.
- 373-394).
- CRC Press.
+ Hinton,
+ Simplifying neural networks by soft weight sharing,
+ Neural Computation 4,
+ pp.
+ 473-493,
+ 1992.
 \end_layout
 
 \begin_layout Bibliography
@@ -13993,25 +15008,18 @@ literal "true"
 
 S.J.
  Hanson and L.Y.
- Pratt, Comparing biases for minimal network construction with back propagation,
+ Pratt,
+ Comparing biases for minimal network construction with back propagation,
  In D.S.
- Touretzky (Ed.), Advances in Neural Information Processing Systems, Volume
- 1, pp.
- 177-185, San Mateo, CA: Morgan Kaufmann, 1989.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "nnprunning2"
-literal "false"
-
-\end_inset
-
-M.
- Augasta and T.
- Kathirvalavakumar, Pruning algorithms of neural networks — a comparative
- study, Central European Journal of Computer Science, 2003.
+ Touretzky (Ed.),
+ Advances in Neural Information Processing Systems,
+ Volume 1,
+ pp.
+ 177-185,
+ San Mateo,
+ CA:
+ Morgan Kaufmann,
+ 1989.
 \end_layout
 
 \begin_layout Bibliography
@@ -14022,29 +15030,17 @@ literal "false"
 
 \end_inset
 
-Lutz Prechelt, Automatic early stopping using cross validation: quantifying
- the criteria, Neural Networks 
+Lutz Prechelt,
+ Automatic early stopping using cross validation:
+ quantifying the criteria,
+ Neural Networks 
 \series bold
 11
 \series default
-, pp.
- 761-767, 1998.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "nnearly2"
-literal "false"
-
-\end_inset
-
-X.
- Wu and J.
- Liu, A New Early Stopping Algorithm for Improving Neural Network Generalization
-, 2009 Second International Conference on Intelligent Computation Technology
- and Automation, Changsha, Hunan, 2009, pp.
- 15-18.
+,
+ pp.
+ 761-767,
+ 1998.
 \end_layout
 
 \begin_layout Bibliography
@@ -14059,30 +15055,16 @@ N.
  K.
  Treadgold and T.
  D.
- Gedeon, Simulated annealing and weight decay in adaptive learning: the
- SARPROP algorithm,IEEE Transactions on Neural Networks 
+ Gedeon,
+ Simulated annealing and weight decay in adaptive learning:
+ the SARPROP algorithm,IEEE Transactions on Neural Networks 
 \series bold
 9
 \series default
-, pp.
- 662-668, 1998.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "nndecay2"
-literal "false"
-
-\end_inset
-
-M.
- Carvalho and T.
- B.
- Ludermir, Particle Swarm Optimization of Feed-Forward Neural Networks with
- Weight Decay, 2006 Sixth International Conference on Hybrid Intelligent
- Systems (HIS'06), Rio de Janeiro, Brazil, 2006, pp.
- 5-5.
+,
+ pp.
+ 662-668,
+ 1998.
 \end_layout
 
 \begin_layout Bibliography
@@ -14094,15 +15076,19 @@ literal "false"
 \end_inset
 
 J.
- Arifovic, R.
- Gençay, Using genetic algorithms to select architecture of a feedforward
- artificial neural network, Physica A: Statistical Mechanics and its Application
-s 
+ Arifovic,
+ R.
+ Gençay,
+ Using genetic algorithms to select architecture of a feedforward artificial neural network,
+ Physica A:
+ Statistical Mechanics and its Applications 
 \series bold
 289
 \series default
-, pp.
- 574-594, 2001.
+,
+ pp.
+ 574-594,
+ 2001.
 \end_layout
 
 \begin_layout Bibliography
@@ -14114,14 +15100,18 @@ literal "false"
 \end_inset
 
 P.G.
- Benardos, G.C.
- Vosniakos, Optimizing feedforward artificial neural network architecture,
+ Benardos,
+ G.C.
+ Vosniakos,
+ Optimizing feedforward artificial neural network architecture,
  Engineering Applications of Artificial Intelligence 
 \series bold
 20
 \series default
-, pp.
- 365-382, 2007.
+,
+ pp.
+ 365-382,
+ 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -14133,9 +15123,13 @@ literal "false"
 \end_inset
 
 B.A.
- Garro, R.A.
- Vázquez, Designing Artificial Neural Networks Using Particle Swarm Optimization
- Algorithms, Computational Intelligence and Neuroscience, 369298, 2015.
+ Garro,
+ R.A.
+ Vázquez,
+ Designing Artificial Neural Networks Using Particle Swarm Optimization Algorithms,
+ Computational Intelligence and Neuroscience,
+ 369298,
+ 2015.
  
 \end_layout
 
@@ -14147,11 +15141,18 @@ literal "false"
 
 \end_inset
 
-Lambora, A., Gupta, K., & Chopra, K.
- (2019, February).
+Lambora,
+ A.,
+ Gupta,
+ K.,
+ & Chopra,
+ K.
+ (2019,
+ February).
  Genetic algorithm-A literature review.
- In 2019 international conference on machine learning, big data, cloud and
- parallel computing (COMITCon) (pp.
+ In 2019 international conference on machine learning,
+ big data,
+ cloud and parallel computing (COMITCon) (pp.
  380-384).
  IEEE.
 \end_layout
@@ -14164,10 +15165,20 @@ literal "false"
 
 \end_inset
 
-Pant, M., Zaheer, H., Garcia-Hernandez, L., & Abraham, A.
+Pant,
+ M.,
+ Zaheer,
+ H.,
+ Garcia-Hernandez,
+ L.,
+ & Abraham,
+ A.
  (2020).
- Differential Evolution: A review of more than two decades of research.
- Engineering Applications of Artificial Intelligence, 90, 103479.
+ Differential Evolution:
+ A review of more than two decades of research.
+ Engineering Applications of Artificial Intelligence,
+ 90,
+ 103479.
 \end_layout
 
 \begin_layout Bibliography
@@ -14179,17 +15190,24 @@ literal "false"
 \end_inset
 
 Y.H.
- Li, J.Q.
- Wang, X.J.
- Wang, Y.L.
- Zhao, X.H.
- Lu, D.L.
- Liu, Community Detection Based on Differential Evolution Using Social Spider
- Optimization, Symmetry 
+ Li,
+ J.Q.
+ Wang,
+ X.J.
+ Wang,
+ Y.L.
+ Zhao,
+ X.H.
+ Lu,
+ D.L.
+ Liu,
+ Community Detection Based on Differential Evolution Using Social Spider Optimization,
+ Symmetry 
 \series bold
 9
 \series default
-, 2017.
+,
+ 2017.
 \end_layout
 
 \begin_layout Bibliography
@@ -14201,18 +15219,25 @@ literal "false"
 \end_inset
 
 W.
- Yang, E.M.
- Dilanga Siriwardane, R.
- Dong, Y.
- Li, J.
- Hu, Crystal structure prediction of materials with high symmetry using
- differential evolution, J.
- Phys.: Condens.
+ Yang,
+ E.M.
+ Dilanga Siriwardane,
+ R.
+ Dong,
+ Y.
+ Li,
+ J.
+ Hu,
+ Crystal structure prediction of materials with high symmetry using differential evolution,
+ J.
+ Phys.:
+ Condens.
  Matter 
 \series bold
 33
 \series default
- 455902, 2021.
+ 455902,
+ 2021.
 \end_layout
 
 \begin_layout Bibliography
@@ -14224,13 +15249,16 @@ literal "false"
 \end_inset
 
 C.Y.
- Lee, C.H.
- Hung, Feature Ranking and Differential Evolution for Feature Selection
- in Brushless DC Motor Fault Diagnosis , Symmetry 
+ Lee,
+ C.H.
+ Hung,
+ Feature Ranking and Differential Evolution for Feature Selection in Brushless DC Motor Fault Diagnosis ,
+ Symmetry 
 \series bold
 13
 \series default
-, 2021.
+,
+ 2021.
 \end_layout
 
 \begin_layout Bibliography
@@ -14242,15 +15270,19 @@ literal "false"
 \end_inset
 
 S.
- Saha, R.
- Das, Exploring differential evolution and particle swarm optimization to
- develop some symmetry-based automatic clustering techniques: application
- to gene clustering, Neural Comput & Applic 
+ Saha,
+ R.
+ Das,
+ Exploring differential evolution and particle swarm optimization to develop some symmetry-based automatic clustering techniques:
+ application to gene clustering,
+ Neural Comput & Applic 
 \series bold
 30
 \series default
-, pp.
- 735–757, 2018.
+,
+ pp.
+ 735–757,
+ 2018.
 \end_layout
 
 \begin_layout Bibliography
@@ -14262,15 +15294,20 @@ literal "false"
 \end_inset
 
 I.G.
- Tsoulos, D.
- Gavrilis, E.
- Glavas, Neural network construction and training using grammatical evolution,
+ Tsoulos,
+ D.
+ Gavrilis,
+ E.
+ Glavas,
+ Neural network construction and training using grammatical evolution,
  Neurocomputing 
 \series bold
 72
 \series default
-, pp.
- 269-277, 2008.
+,
+ pp.
+ 269-277,
+ 2008.
 \end_layout
 
 \begin_layout Bibliography
@@ -14281,10 +15318,17 @@ literal "false"
 
 \end_inset
 
-Hornik, K., Stinchcombe, M., & White, H.
+Hornik,
+ K.,
+ Stinchcombe,
+ M.,
+ & White,
+ H.
  (1989).
  Multilayer feedforward networks are universal approximators.
- Neural networks, 2(5), 359-366.
+ Neural networks,
+ 2(5),
+ 359-366.
 \end_layout
 
 \begin_layout Bibliography
@@ -14296,14 +15340,18 @@ literal "true"
 \end_inset
 
 P.
- Kaelo, M.M.
- Ali, Integrated crossover rules in real coded genetic algorithms, European
- Journal of Operational Research 
+ Kaelo,
+ M.M.
+ Ali,
+ Integrated crossover rules in real coded genetic algorithms,
+ European Journal of Operational Research 
 \series bold
 176
 \series default
-, pp.
- 60-76, 2007.
+,
+ pp.
+ 60-76,
+ 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -14317,9 +15365,13 @@ literal "false"
 \end_inset
 
  M.
- Kelly, R.
- Longjohn, K.
- Nottingham, The UCI Machine Learning Repository, https://archive.ics.uci.edu.
+ Kelly,
+ R.
+ Longjohn,
+ K.
+ Nottingham,
+ The UCI Machine Learning Repository,
+ https://archive.ics.uci.edu.
 \end_layout
 
 \begin_layout Bibliography
@@ -14331,17 +15383,26 @@ literal "false"
 \end_inset
 
 J.
- Alcalá-Fdez, A.
- Fernandez, J.
- Luengo, J.
- Derrac, S.
- García, L.
- Sánchez, F.
+ Alcalá-Fdez,
+ A.
+ Fernandez,
+ J.
+ Luengo,
+ J.
+ Derrac,
+ S.
+ García,
+ L.
+ Sánchez,
+ F.
  Herrera.
- KEEL Data-Mining Software Tool: Data Set Repository, Integration of Algorithms
- and Experimental Analysis Framework.
- Journal of Multiple-Valued Logic and Soft Computing 17, pp.
- 255-287, 2011.
+ KEEL Data-Mining Software Tool:
+ Data Set Repository,
+ Integration of Algorithms and Experimental Analysis Framework.
+ Journal of Multiple-Valued Logic and Soft Computing 17,
+ pp.
+ 255-287,
+ 2011.
 \end_layout
 
 \begin_layout Bibliography
@@ -14352,10 +15413,17 @@ literal "false"
 
 \end_inset
 
-Weiss, Sholom M.
- and Kulikowski, Casimir A., Computer Systems That Learn: Classification
- and Prediction Methods from Statistics, Neural Nets, Machine Learning,
- and Expert Systems, Morgan Kaufmann Publishers Inc, 1991.
+Weiss,
+ Sholom M.
+ and Kulikowski,
+ Casimir A.,
+ Computer Systems That Learn:
+ Classification and Prediction Methods from Statistics,
+ Neural Nets,
+ Machine Learning,
+ and Expert Systems,
+ Morgan Kaufmann Publishers Inc,
+ 1991.
 \end_layout
 
 \begin_layout Bibliography
@@ -14367,11 +15435,22 @@ literal "false"
 
 \end_inset
 
-Tzimourta, K.D.; Tsoulos, I.; Bilero, I.T.; Tzallas, A.T.; Tsipouras, M.G.; Giannakeas,
+Tzimourta,
+ K.D.;
+ Tsoulos,
+ I.;
+ Bilero,
+ I.T.;
+ Tzallas,
+ A.T.;
+ Tsipouras,
+ M.G.;
+ Giannakeas,
  N.
- Direct Assessment of Alcohol Consumption in Mental State Using Brain Computer
- Interfaces and Grammatical Evolution.
- Inventions 2018, 3, 51.
+ Direct Assessment of Alcohol Consumption in Mental State Using Brain Computer Interfaces and Grammatical Evolution.
+ Inventions 2018,
+ 3,
+ 51.
 \end_layout
 
 \begin_layout Bibliography
@@ -14384,13 +15463,16 @@ literal "false"
 \end_inset
 
 J.R.
- Quinlan, Simplifying Decision Trees.
+ Quinlan,
+ Simplifying Decision Trees.
  International Journal of Man-Machine Studies 
 \series bold
 27
 \series default
-, pp.
- 221-234, 1987.
+,
+ pp.
+ 221-234,
+ 1987.
  
 \end_layout
 
@@ -14403,15 +15485,20 @@ literal "false"
 \end_inset
 
 T.
- Shultz, D.
- Mareschal, W.
- Schmidt, Modeling Cognitive Development on Balance Scale Phenomena, Machine
- Learning 
+ Shultz,
+ D.
+ Mareschal,
+ W.
+ Schmidt,
+ Modeling Cognitive Development on Balance Scale Phenomena,
+ Machine Learning 
 \series bold
 16
 \series default
-, pp.
- 59-88, 1994.
+,
+ pp.
+ 59-88,
+ 1994.
 \end_layout
 
 \begin_layout Bibliography
@@ -14425,32 +15512,16 @@ literal "false"
 
 Z.H.
  Zhou,Y.
- Jiang, NeC4.5: neural ensemble based C4.5," in IEEE Transactions on Knowledge
- and Data Engineering 
+ Jiang,
+ NeC4.5:
+ neural ensemble based C4.5," in IEEE Transactions on Knowledge and Data Engineering 
 \series bold
 16
 \series default
-, pp.
- 770-773, 2004.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "cleveland2"
-literal "false"
-
-\end_inset
-
-R.
- Setiono , W.K.
- Leow, FERNN: An Algorithm for Fast Extraction of Rules from Neural Networks,
- Applied Intelligence 
-\series bold
-12
-\series default
-, pp.
- 15-25, 2000.
+,
+ pp.
+ 770-773,
+ 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -14463,16 +15534,21 @@ literal "false"
 \end_inset
 
 G.
- Demiroz, H.A.
- Govenir, N.
- Ilter, Learning Differential Diagnosis of Eryhemato-Squamous Diseases using
- Voting Feature Intervals, Artificial Intelligence in Medicine.
+ Demiroz,
+ H.A.
+ Govenir,
+ N.
+ Ilter,
+ Learning Differential Diagnosis of Eryhemato-Squamous Diseases using Voting Feature Intervals,
+ Artificial Intelligence in Medicine.
  
 \series bold
 13
 \series default
-, pp.
- 147–165, 1998.
+,
+ pp.
+ 147–165,
+ 1998.
 \end_layout
 
 \begin_layout Bibliography
@@ -14485,14 +15561,18 @@ literal "false"
 \end_inset
 
 P.
- Horton, K.Nakai, A Probabilistic Classification System for Predicting the
- Cellular Localization Sites of Proteins, In: Proceedings of International
- Conference on Intelligent Systems for Molecular Biology 
+ Horton,
+ K.Nakai,
+ A Probabilistic Classification System for Predicting the Cellular Localization Sites of Proteins,
+ In:
+ Proceedings of International Conference on Intelligent Systems for Molecular Biology 
 \series bold
 4
 \series default
-, pp.
- 109-15, 1996.
+,
+ pp.
+ 109-15,
+ 1996.
 \end_layout
 
 \begin_layout Bibliography
@@ -14505,15 +15585,19 @@ literal "false"
 \end_inset
 
 B.
- Hayes-Roth, B., F.
+ Hayes-Roth,
+ B.,
+ F.
  Hayes-Roth.
  Concept learning and the recognition and classification of exemplars.
  Journal of Verbal Learning and Verbal Behavior 
 \series bold
 16
 \series default
-, pp.
- 321-338, 1977.
+,
+ pp.
+ 321-338,
+ 1977.
 \end_layout
 
 \begin_layout Bibliography
@@ -14526,15 +15610,20 @@ literal "false"
 \end_inset
 
 I.
- Kononenko, E.
- Šimec, M.
- Robnik-Šikonja, Overcoming the Myopia of Inductive Learning Algorithms
- with RELIEFF, Applied Intelligence 
+ Kononenko,
+ E.
+ Šimec,
+ M.
+ Robnik-Šikonja,
+ Overcoming the Myopia of Inductive Learning Algorithms with RELIEFF,
+ Applied Intelligence 
 \series bold
 7
 \series default
-, pp.
- 39–55, 1997
+,
+ pp.
+ 39–55,
+ 1997
 \end_layout
 
 \begin_layout Bibliography
@@ -14547,15 +15636,20 @@ literal "false"
 \end_inset
 
 R.M.
- French, N.
- Chater, Using noise to compute error surfaces in connectionist networks:
- a novel means of reducing catastrophic forgetting, Neural Comput.
+ French,
+ N.
+ Chater,
+ Using noise to compute error surfaces in connectionist networks:
+ a novel means of reducing catastrophic forgetting,
+ Neural Comput.
  
 \series bold
 14
 \series default
-, pp.
- 1755-1769, 2002.
+,
+ pp.
+ 1755-1769,
+ 2002.
 \end_layout
 
 \begin_layout Bibliography
@@ -14568,32 +15662,17 @@ literal "false"
 \end_inset
 
 J.G.
- Dy , C.E.
- Brodley, Feature Selection for Unsupervised Learning, The Journal of Machine
- Learning Research 
+ Dy ,
+ C.E.
+ Brodley,
+ Feature Selection for Unsupervised Learning,
+ The Journal of Machine Learning Research 
 \series bold
 5
 \series default
-, pp 845–889, 2004.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "ion2"
-literal "false"
-
-\end_inset
-
-S.
- J.
- Perantonis, V.
- Virvilis, Input Feature Extraction for Multilayered Perceptrons Using Supervise
-d Principal Component Analysis, Neural Processing Letters 
-\series bold
-10
-\series default
-, pp 243–252, 1999.
+,
+ pp 845–889,
+ 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -14606,35 +15685,20 @@ literal "false"
 \end_inset
 
  J.
- Garcke, M.
- Griebel, Classification with sparse grids using simplicial basis functions,
+ Garcke,
+ M.
+ Griebel,
+ Classification with sparse grids using simplicial basis functions,
  Intell.
  Data Anal.
  
 \series bold
 6
 \series default
-, pp.
- 483-502, 2002.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "liver1"
-literal "false"
-
-\end_inset
-
-J.
- Mcdermott, R.S.
- Forsyth, Diagnosing a disorder in a classification benchmark, Pattern Recogniti
-on Letters 
-\series bold
-73
-\series default
-, pp.
- 41-43, 2016.
+,
+ pp.
+ 483-502,
+ 2002.
 \end_layout
 
 \begin_layout Bibliography
@@ -14647,13 +15711,25 @@ literal "false"
 \end_inset
 
 G.
- Cestnik, I.
- Konenenko, I.
- Bratko, Assistant-86: A Knowledge-Elicitation Tool for Sophisticated Users.
- In: Bratko, I.
- and Lavrac, N., Eds., Progress in Machine Learning, Sigma Press, Wilmslow,
+ Cestnik,
+ I.
+ Konenenko,
+ I.
+ Bratko,
+ Assistant-86:
+ A Knowledge-Elicitation Tool for Sophisticated Users.
+ In:
+ Bratko,
+ I.
+ and Lavrac,
+ N.,
+ Eds.,
+ Progress in Machine Learning,
+ Sigma Press,
+ Wilmslow,
  pp.
- 31-45, 1987.
+ 31-45,
+ 1987.
  
 \end_layout
 
@@ -14667,16 +15743,21 @@ literal "false"
 \end_inset
 
 M.
- Elter, R.
- Schulz-Wendtland, T.
- Wittenberg, The prediction of breast cancer biopsy outcomes using two CAD
- approaches that both emphasize an intelligible decision process, Med Phys.
+ Elter,
+ R.
+ Schulz-Wendtland,
+ T.
+ Wittenberg,
+ The prediction of breast cancer biopsy outcomes using two CAD approaches that both emphasize an intelligible decision process,
+ Med Phys.
  
 \series bold
 34
 \series default
-, pp.
- 4164-72, 2007.
+,
+ pp.
+ 4164-72,
+ 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -14689,38 +15770,18 @@ literal "false"
 \end_inset
 
 M.A.
- Little, P.E.
- McSharry, S.J Roberts et al, Exploiting Nonlinear Recurrence and Fractal
- Scaling Properties for Voice Disorder Detection.
+ Little,
+ P.E.
+ McSharry,
+ S.J Roberts et al,
+ Exploiting Nonlinear Recurrence and Fractal Scaling Properties for Voice Disorder Detection.
  BioMed Eng OnLine 
 \series bold
 6
 \series default
-, 23, 2007.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "parkinsons2"
-literal "false"
-
-\end_inset
-
-M.A.
- Little, P.E.
- McSharry, E.J.
- Hunter, J.
- Spielman, L.O.
- Ramig, Suitability of dysphonia measurements for telemonitoring of Parkinson's
- disease.
- IEEE Trans Biomed Eng.
- 
-\series bold
-56
-\series default
-, pp.
- 1015-1022, 2009.
+,
+ 23,
+ 2007.
 \end_layout
 
 \begin_layout Bibliography
@@ -14733,13 +15794,20 @@ literal "false"
 \end_inset
 
 J.W.
- Smith, J.E.
- Everhart, W.C.
- Dickson, W.C.
- Knowler, R.S.
- Johannes, Using the ADAP learning algorithm to forecast the onset of diabetes
- mellitus, In: Proceedings of the Symposium on Computer Applications and
- Medical Care IEEE Computer Society Press, pp.261-265, 1988.
+ Smith,
+ J.E.
+ Everhart,
+ W.C.
+ Dickson,
+ W.C.
+ Knowler,
+ R.S.
+ Johannes,
+ Using the ADAP learning algorithm to forecast the onset of diabetes mellitus,
+ In:
+ Proceedings of the Symposium on Computer Applications and Medical Care IEEE Computer Society Press,
+ pp.261-265,
+ 1988.
 \end_layout
 
 \begin_layout Bibliography
@@ -14752,19 +15820,28 @@ literal "false"
 \end_inset
 
 D.D.
- Lucas, R.
- Klein, J.
- Tannahill, D.
- Ivanova, S.
- Brandon, D.
- Domyancic, Y.
- Zhang, Failure analysis of parameter-induced simulation crashes in climate
- models, Geoscientific Model Development 
+ Lucas,
+ R.
+ Klein,
+ J.
+ Tannahill,
+ D.
+ Ivanova,
+ S.
+ Brandon,
+ D.
+ Domyancic,
+ Y.
+ Zhang,
+ Failure analysis of parameter-induced simulation crashes in climate models,
+ Geoscientific Model Development 
 \series bold
 6
 \series default
-, pp.
- 1157-1171, 2013.
+,
+ pp.
+ 1157-1171,
+ 2013.
 \end_layout
 
 \begin_layout Bibliography
@@ -14777,21 +15854,32 @@ literal "false"
 \end_inset
 
 N.
- Giannakeas, M.G.
- Tsipouras, A.T.
- Tzallas, K.
- Kyriakidi, Z.E.
- Tsianou, P.
- Manousou, A.
- Hall, E.C.
- Karvounis, V.
- Tsianos, E.
- Tsianos, A clustering based method for collagen proportional area extraction
- in liver biopsy images (2015) Proceedings of the Annual International Conferenc
-e of the IEEE Engineering in Medicine and Biology Society, EMBS, 2015-November,
+ Giannakeas,
+ M.G.
+ Tsipouras,
+ A.T.
+ Tzallas,
+ K.
+ Kyriakidi,
+ Z.E.
+ Tsianou,
+ P.
+ Manousou,
+ A.
+ Hall,
+ E.C.
+ Karvounis,
+ V.
+ Tsianos,
+ E.
+ Tsianos,
+ A clustering based method for collagen proportional area extraction in liver biopsy images (2015) Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society,
+ EMBS,
+ 2015-November,
  art.
  no.
- 7319047, pp.
+ 7319047,
+ pp.
  3097-3100.
  
 \end_layout
@@ -14806,14 +15894,18 @@ literal "false"
 \end_inset
 
 T.
- Hastie, R.
- Tibshirani, Non-parametric logistic and proportional odds regression, JRSS-C
- (Applied Statistics) 
+ Hastie,
+ R.
+ Tibshirani,
+ Non-parametric logistic and proportional odds regression,
+ JRSS-C (Applied Statistics) 
 \series bold
 36
 \series default
-, pp.
- 260–276, 1987.
+,
+ pp.
+ 260–276,
+ 1987.
 \end_layout
 
 \begin_layout Bibliography
@@ -14825,16 +15917,22 @@ literal "false"
 \end_inset
 
 M.
- Dash, H.
- Liu, P.
- Scheuermann, K.
+ Dash,
+ H.
+ Liu,
+ P.
+ Scheuermann,
+ K.
  L.
- Tan, Fast hierarchical clustering and its validation, Data & Knowledge
- Engineering 
+ Tan,
+ Fast hierarchical clustering and its validation,
+ Data & Knowledge Engineering 
 \series bold
 44
 \series default
-, pp 109–138, 2003.
+,
+ pp 109–138,
+ 2003.
 \end_layout
 
 \begin_layout Bibliography
@@ -14847,13 +15945,15 @@ literal "false"
 \end_inset
 
 P.
- Cortez, A.
+ Cortez,
+ A.
  M.
- Gonçalves Silva, Using data mining to predict secondary school student
- performance, In Proceedings of 5th FUture BUsiness TEChnology Conference
- (FUBUTEC 2008) (pp.
+ Gonçalves Silva,
+ Using data mining to predict secondary school student performance,
+ In Proceedings of 5th FUture BUsiness TEChnology Conference (FUBUTEC 2008) (pp.
  5–12).
- EUROSIS-ETI, 2008.
+ EUROSIS-ETI,
+ 2008.
 \end_layout
 
 \begin_layout Bibliography
@@ -14865,13 +15965,18 @@ literal "false"
 
 \end_inset
 
-I-Cheng Yeh, King-Jang Yang, Tao-Ming Ting, Knowledge discovery on RFM model
- using Bernoulli sequence, Expert Systems with Applications 
+I-Cheng Yeh,
+ King-Jang Yang,
+ Tao-Ming Ting,
+ Knowledge discovery on RFM model using Bernoulli sequence,
+ Expert Systems with Applications 
 \series bold
 36
 \series default
-, pp.
- 5866-5871, 2009.
+,
+ pp.
+ 5866-5871,
+ 2009.
 \end_layout
 
 \begin_layout Bibliography
@@ -14883,28 +15988,16 @@ literal "false"
 
 \end_inset
 
-Jeyasingh, S., & Veluchamy, M.
+Jeyasingh,
+ S.,
+ & Veluchamy,
+ M.
  (2017).
- Modified bat algorithm for feature selection with the wisconsin diagnosis
- breast cancer (WDBC) dataset.
- Asian Pacific journal of cancer prevention: APJCP, 18(5), 1257.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-label "(2007)"
-key "wdbc2"
-literal "false"
-
-\end_inset
-
-Alshayeji, M.
- H., Ellethy, H., & Gupta, R.
- (2022).
- Computer-aided detection of breast cancer on the Wisconsin dataset: An
- artificial neural networks approach.
- Biomedical signal processing and control, 71, 103141.
+ Modified bat algorithm for feature selection with the wisconsin diagnosis breast cancer (WDBC) dataset.
+ Asian Pacific journal of cancer prevention:
+ APJCP,
+ 18(5),
+ 1257.
 \end_layout
 
 \begin_layout Bibliography
@@ -14917,38 +16010,30 @@ literal "false"
 \end_inset
 
 M.
- Raymer, T.E.
- Doom, L.A.
- Kuhn, W.F.
- Punch, Knowledge discovery in medical and biological datasets using a hybrid
- Bayes classifier/evolutionary algorithm.
- IEEE transactions on systems, man, and cybernetics.
- Part B, Cybernetics : a publication of the IEEE Systems, Man, and Cybernetics
- Society, 
+ Raymer,
+ T.E.
+ Doom,
+ L.A.
+ Kuhn,
+ W.F.
+ Punch,
+ Knowledge discovery in medical and biological datasets using a hybrid Bayes classifier/evolutionary algorithm.
+ IEEE transactions on systems,
+ man,
+ and cybernetics.
+ Part B,
+ Cybernetics :
+ a publication of the IEEE Systems,
+ Man,
+ and Cybernetics Society,
+ 
 \series bold
 33
 \series default
- , pp.
- 802-813, 2003.
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "wine2"
-literal "false"
-
-\end_inset
-
-P.
- Zhong, M.
- Fukushima, Regularized nonsmooth Newton method for multi-class support
- vector machines, Optimization Methods and Software 
-\series bold
-22
-\series default
-, pp.
- 225-236, 2007.
+ ,
+ pp.
+ 802-813,
+ 2003.
 \end_layout
 
 \begin_layout Bibliography
@@ -14962,38 +16047,27 @@ literal "false"
 
 R.
  G.
- Andrzejak, K.
- Lehnertz, F.Mormann, C.
- Rieke, P.
- David, and C.
+ Andrzejak,
+ K.
+ Lehnertz,
+ F.Mormann,
+ C.
+ Rieke,
+ P.
+ David,
+ and C.
  E.
- Elger, “Indications of nonlinear deterministic and finite-dimensional structure
-s in time series of brain electrical activity: dependence on recording region
- and brain state,” Physical Review E, vol.
- 64, no.
- 6, Article ID 061907, 8 pages, 2001.
- 
-\end_layout
-
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "eeg2"
-literal "true"
-
-\end_inset
-
-A.
- T.
- Tzallas, M.
- G.
- Tsipouras, and D.
- I.
- Fotiadis, “Automatic Seizure Detection Based on Time-Frequency Analysis
- and Artificial Neural Networks,” Computational Intelligence and Neuroscience,
+ Elger,
+ “Indications of nonlinear deterministic and finite-dimensional structures in time series of brain electrical activity:
+ dependence on recording region and brain state,” Physical Review E,
  vol.
- 2007, Article ID 80510, 13 pages, 2007.
- doi:10.1155/2007/80510
+ 64,
+ no.
+ 6,
+ Article ID 061907,
+ 8 pages,
+ 2001.
+ 
 \end_layout
 
 \begin_layout Bibliography
@@ -15006,14 +16080,18 @@ literal "false"
 \end_inset
 
 M.
- Koivisto, K.
- Sood, Exact Bayesian Structure Discovery in Bayesian Networks, The Journal
- of Machine Learning Research
+ Koivisto,
+ K.
+ Sood,
+ Exact Bayesian Structure Discovery in Bayesian Networks,
+ The Journal of Machine Learning Research
 \series bold
  5
 \series default
-, pp.
- 549–573, 2004.
+,
+ pp.
+ 549–573,
+ 2004.
 \end_layout
 
 \begin_layout Bibliography
@@ -15025,14 +16103,29 @@ literal "false"
 
 \end_inset
 
-Nash, W.J.; Sellers, T.L.; Talbot, S.R.; Cawthor, A.J.; Ford, W.B.
+Nash,
+ W.J.;
+ Sellers,
+ T.L.;
+ Talbot,
+ S.R.;
+ Cawthor,
+ A.J.;
+ Ford,
+ W.B.
  The Population Biology of Abalone (_Haliotis_ species) in Tasmania.
  I.
  Blacklip Abalone (_H.
- rubra_) from the North Coast and Islands of Bass Strait, Sea Fisheries
- Division; Technical Report No.
- 48; Department of Primary Industry and Fisheries, Tasmania: Hobart, Australia,
- 1994; ISSN 1034-3288
+ rubra_) from the North Coast and Islands of Bass Strait,
+ Sea Fisheries Division;
+ Technical Report No.
+ 48;
+ Department of Primary Industry and Fisheries,
+ Tasmania:
+ Hobart,
+ Australia,
+ 1994;
+ ISSN 1034-3288
 \end_layout
 
 \begin_layout Bibliography
@@ -15044,12 +16137,18 @@ literal "false"
 
 \end_inset
 
-Brooks, T.F.; Pope, D.S.; Marcolini, A.M.
+Brooks,
+ T.F.;
+ Pope,
+ D.S.;
+ Marcolini,
+ A.M.
  Airfoil Self-Noise and Prediction.
- Technical Report, NASA RP-1218.
+ Technical Report,
+ NASA RP-1218.
  July 1989.
- Available online: https://ntrs.nasa.gov/citations/19890016302 (accessed on
- 14 November 2024).
+ Available online:
+ https://ntrs.nasa.gov/citations/19890016302 (accessed on 14 November 2024).
 \end_layout
 
 \begin_layout Bibliography
@@ -15061,14 +16160,17 @@ literal "false"
 
 \end_inset
 
-I.Cheng Yeh, Modeling of strength of high performance concrete using artificial
- neural networks, Cement and Concrete Research.
+I.Cheng Yeh,
+ Modeling of strength of high performance concrete using artificial neural networks,
+ Cement and Concrete Research.
  
 \series bold
 28
 \series default
-, pp.
- 1797-1808, 1998.
+,
+ pp.
+ 1797-1808,
+ 1998.
  
 \end_layout
 
@@ -15080,9 +16182,13 @@ literal "false"
 
 \end_inset
 
-Friedman, J.
- (1991): Multivariate Adaptative Regression Splines.
- Annals of Statistics, 19:1, 1--141.
+Friedman,
+ J.
+ (1991):
+ Multivariate Adaptative Regression Splines.
+ Annals of Statistics,
+ 19:1,
+ 1--141.
  
 \end_layout
 
@@ -15097,14 +16203,65 @@ literal "false"
 
 D.
  Harrison and D.L.
- Rubinfeld, Hedonic prices and the demand for clean ai, J.
+ Rubinfeld,
+ Hedonic prices and the demand for clean ai,
+ J.
  Environ.
  Economics & Management 
 \series bold
 5
 \series default
-, pp.
- 81-102, 1978.
+,
+ pp.
+ 81-102,
+ 1978.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(1994)"
+key "momentum"
+literal "false"
+
+\end_inset
+
+Phansalkar,
+ V.
+ V.,
+ & Sastry,
+ P.
+ S.
+ (1994).
+ Analysis of the back-propagation algorithm with momentum.
+ IEEE Transactions on Neural Networks,
+ 5(3),
+ 505-506.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "(2019)"
+key "rmsprop"
+literal "false"
+
+\end_inset
+
+Zou,
+ F.,
+ Shen,
+ L.,
+ Jie,
+ Z.,
+ Zhang,
+ W.,
+ & Liu,
+ W.
+ (2019).
+ A sufficient condition for convergences of adam and rmsprop.
+ In Proceedings of the IEEE/CVF Conference on computer vision and pattern recognition (pp.
+ 11127-11135).
 \end_layout
 
 \begin_layout Bibliography
@@ -15115,13 +16272,16 @@ literal "true"
 
 \end_inset
 
-M.J.D Powell, A Tolerant Algorithm for Linearly Constrained Optimization Calculati
-ons, Mathematical Programming 
+M.J.D Powell,
+ A Tolerant Algorithm for Linearly Constrained Optimization Calculations,
+ Mathematical Programming 
 \series bold
 45
 \series default
-, pp.
- 547-566, 1989.
+,
+ pp.
+ 547-566,
+ 1989.
  
 \end_layout
 
@@ -15135,14 +16295,18 @@ literal "false"
 
 K.
  O.
- Stanley, R.
- Miikkulainen, Evolving Neural Networks through Augmenting Topologies, Evolution
-ary Computation 
+ Stanley,
+ R.
+ Miikkulainen,
+ Evolving Neural Networks through Augmenting Topologies,
+ Evolutionary Computation 
 \series bold
 10
 \series default
-, pp.
- 99-127, 2002.
+,
+ pp.
+ 99-127,
+ 2002.
 \end_layout
 
 \begin_layout Bibliography
@@ -15157,36 +16321,63 @@ literal "false"
 J.
  Park and I.
  W.
- Sandberg, Universal Approximation Using Radial-Basis-Function Networks,
+ Sandberg,
+ Universal Approximation Using Radial-Basis-Function Networks,
  Neural Computation 
 \series bold
 3
 \series default
-, pp.
- 246-257, 1991.
+,
+ pp.
+ 246-257,
+ 1991.
 \end_layout
 
 \begin_layout Bibliography
 \begin_inset CommandInset bibitem
 LatexCommand bibitem
-key "rbf2"
+label "(2019)"
+key "prune"
 literal "false"
 
 \end_inset
 
-G.A.
- Montazer, D.
- Giveki, M.
- Karami, H.
- Rastegar, Radial basis function neural networks: A review.
- Comput.
- Rev.
- J 
-\series bold
-1
-\series default
-, pp.
- 52-74, 2018.
+Zhu,
+ V.,
+ Lu,
+ Y.,
+ & Li,
+ Q.
+ (2006).
+ MW-OBS:
+ An improved pruning method for topology design of neural networks.
+ Tsinghua Science and Technology,
+ 11(4),
+ 307-312.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "fcn"
+literal "true"
+
+\end_inset
+
+Grzegorz Klima,
+ Fast Compressed Neural Networks,
+ available from 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://fcnn.sourceforge.net/
+\end_layout
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Bibliography
@@ -15198,16 +16389,20 @@ literal "false"
 \end_inset
 
 J.
- Cheng, G.
- Zhang, F.
- Neri, Enhancing distributed differential evolution with multicultural migration
- for global numerical optimization.
+ Cheng,
+ G.
+ Zhang,
+ F.
+ Neri,
+ Enhancing distributed differential evolution with multicultural migration for global numerical optimization.
  Information Sciences 
 \series bold
 247
 \series default
-, pp.
- 72-93, 2013.
+,
+ pp.
+ 72-93,
+ 2013.
 \end_layout
 
 \begin_layout Bibliography
@@ -15218,10 +16413,19 @@ literal "false"
 
 \end_inset
 
-Wu, K., Liu, Z., Ma, N., & Wang, D.
+Wu,
+ K.,
+ Liu,
+ Z.,
+ Ma,
+ N.,
+ & Wang,
+ D.
  (2022).
  A Dynamic Adaptive Weighted Differential Evolutionary Algorithm.
- Computational Intelligence and Neuroscience, 2022(1), 1318044.
+ Computational Intelligence and Neuroscience,
+ 2022(1),
+ 1318044.
 \end_layout
 
 \begin_layout End Whole Page

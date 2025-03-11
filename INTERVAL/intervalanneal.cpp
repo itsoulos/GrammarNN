@@ -127,7 +127,7 @@ void  IntervalAnneal::randomSample(IntervalData &x)
         double right=   xpoint[i].rightValue();
 	
         double mid =    left+(right-left)/2.0;
-        double percent = 0.0005;
+        double percent = 0.05;
         double a =      left+(mid-left)*drand48()*percent;
         double b =      right-(right-mid)*drand48()*percent;
 	
