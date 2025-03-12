@@ -73,6 +73,6 @@ GENPARAMS="--ggen_count=500 --ggen_size=100 --ggen_srate=0.1 --ggen_mrate=0.05 -
 ## ide_weightmethod:    The weight method used. Available values: random, fixed, adapt, migrant. Default: random
 ## ide_maxiters:	The maximum number of allowed iterations. Default 200.
 
-IDEPARAMS="--ide_np=200 --ide_f=0.8 --ide_cr=0.9 --ide_weightmethod=random --ide_maxiters=200"
+IDEPARAMS="--ide_np=200 --ide_f=0.8 --ide_cr=0.9 --ide_weightmethod=fixed --ide_maxiters=200"
 ## Execute the program
  $PROGRAM $GENPARAMS $IDEPARAMS $MAINPARAMS $OPTPARAMS $MODELPARAMS

@@ -156,17 +156,20 @@ Dataset     *Model::getTrainDataset()
 
 
 
-void	Model::printConfusionMatrix(vector<double> &T,vector<double> &O,
+int	Model::printConfusionMatrix(vector<double> &T,vector<double> &O,
                              vector<double> &precision,
                              vector<double> &recall)
 {
     int i,j;
 
+    int total_class = 0;
     int N=T.size();
     Data dclass = trainDataset->getClassVector();
     int nclass=dclass.size();
+    total_class = nclass;
     precision.resize(nclass);
     recall.resize(nclass);
+    int icount = 0;
     int **CM;
     //printf("** CONFUSION MATRIX ** Number of classes: %d\n",nclass);
     CM=new int*[nclass];
@@ -181,12 +184,18 @@ void	Model::printConfusionMatrix(vector<double> &T,vector<double> &O,
         double sum = 0.0;
         for(j=0;j<nclass;j++)
             sum+=CM[j][i];
+	if(sum==0.0)
+	{
+		total_class--;
+		continue;
+	}
 
-        precision[i]=CM[i][i]/sum;
+        precision[icount]=CM[i][i]/sum;
         sum = 0.0;
         for(j=0;j<nclass;j++)
             sum+=CM[i][j];
-        recall[i]=CM[i][i]/sum;
+        recall[icount]=CM[i][i]/sum;
+	icount++;
     }
     for(i=0;i<nclass;i++)
     {
@@ -198,6 +207,7 @@ void	Model::printConfusionMatrix(vector<double> &T,vector<double> &O,
         delete[] CM[i];
     }
     delete[] CM;
+    return total_class;
 }
 
 void    Model::getPrecisionAndRecall(double &precision,double &recall)
@@ -220,15 +230,15 @@ void    Model::getPrecisionAndRecall(double &precision,double &recall)
         T[i]=testDataset->estimateClassIndex(realOutput);
         O[i]=testDataset->estimateClassIndex(y);
     }
-    printConfusionMatrix(T,O,dprecision,drecall);
-    for(int i=0;i<(int)dclass.size();i++)
+    int d = printConfusionMatrix(T,O,dprecision,drecall);
+    for(int i=0;i<d;i++)
     {
         precision+=dprecision[i];
         recall+=drecall[i];
 
     }
-    precision/=dclass.size();
-    recall/=dclass.size();
+    precision/=d;
+    recall/=d;
 }
 
 Model::~Model()
