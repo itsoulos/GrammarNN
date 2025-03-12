@@ -18,6 +18,11 @@ Dataset::Dataset(IntervalProblem *p,int N)
     makeClassVector();
 }
 
+Data    Dataset::getClassVector() const
+{
+    return classVector;
+}
+
 void    Dataset::makeClassVector()
 {
     classVector.clear();
@@ -223,6 +228,22 @@ double  Dataset::estimateClass(double value)
     }
 
     return classVector[minIndex];
+}
+
+int     Dataset::estimateClassIndex(double value)
+{
+    int minIndex =0;
+    double minValue=fabs(classVector[0]-value);
+    for(int i=0;i<(int)classVector.size();i++)
+    {
+        if(fabs(classVector[i]-value)<minValue)
+        {
+            minValue = fabs(classVector[i]-value);
+            minIndex = i;
+        }
+    }
+    return minIndex;
+
 }
 
 Matrix Dataset::getAllXpoint() const

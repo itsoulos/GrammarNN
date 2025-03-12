@@ -110,6 +110,10 @@ public:
 
     void    enableFastExp();
     void    disableFastExp();
+    void	printConfusionMatrix(vector<double> &T,vector<double> &O,
+                                 vector<double> &precision,
+                                 vector<double> &recall);
+    void    getPrecisionAndRecall(double &precision,double &recall);
     virtual ~Model();
 };
 

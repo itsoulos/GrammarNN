@@ -10,7 +10,7 @@ PROGRAM=./GrammarNN
 DATAFILE=$1
 
 ## INTERVALMETHOD: The used interval method. Available values: grammar, intervalde, intervalpso, intervalanneal
-INTERVALMETHOD=intervalanneal
+INTERVALMETHOD=intervalde
 
 ## MODEL: The name of the used model. Available values: Mlp, Rbf
 MODEL=Mlp

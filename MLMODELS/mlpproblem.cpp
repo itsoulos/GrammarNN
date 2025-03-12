@@ -303,13 +303,17 @@ double	MlpProblem::getDerivative2(vector<double> xpoint,int pos)
 
 QJsonObject MlpProblem::done(Data &x)
 {
-    double tr=funmin(x);
+    funmin(x);
     QJsonObject xx;
     double tt=getTestError(testDataset);
     double tc=getClassTestError(testDataset);
+    double tp,tr;
+    getPrecisionAndRecall(tp,tr);
     xx["trainError"]=tr;
     xx["testError"]=tt;
     xx["classError"]=tc;
+    xx["precision"]=tp;
+    xx["recall"]=tr;
     return xx;
 
 }

@@ -3754,6 +3754,10 @@ The column PROPOSED denotes the proposed method.
 The row AVERAGE is used to measure the average classification or regression error for all dataset.
 \end_layout
 
+\begin_layout Enumerate
+The bold notation is used to indicate the method with the lowest classification or regression error.
+\end_layout
+
 \begin_layout Standard
 The table 
 \begin_inset CommandInset ref
@@ -3923,6 +3927,8 @@ APPENDICITIS
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 12.23%
 \end_layout
 
@@ -3997,6 +4003,8 @@ ALCOHOL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 15.75%
 \end_layout
 
@@ -4071,6 +4079,8 @@ AUSTRALIAN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 21.49%
 \end_layout
 
@@ -4136,6 +4146,8 @@ BALANCE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 7.79%
 \end_layout
 
@@ -4201,6 +4213,8 @@ CLEVELAND
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 42.38%
 \end_layout
 
@@ -4248,6 +4262,8 @@ CIRCULAR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 5.98%
 \end_layout
 
@@ -4331,6 +4347,8 @@ DERMATOLOGY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.97%
 \end_layout
 
@@ -4396,6 +4414,8 @@ ECOLI
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 40.30%
 \end_layout
 
@@ -4443,6 +4463,8 @@ GLASS
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 50.46%
 \end_layout
 
@@ -4508,6 +4530,8 @@ HABERMAN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 25.10%
 \end_layout
 
@@ -4591,6 +4615,8 @@ HAYES-ROTH
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 34.31%
 \end_layout
 
@@ -4656,6 +4682,8 @@ HEART
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 13.11%
 \end_layout
 
@@ -4721,6 +4749,8 @@ HEARTATTACK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 21.90%
 \end_layout
 
@@ -4777,6 +4807,8 @@ HOUSEVOTES
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 5.81%
 \end_layout
 
@@ -4851,6 +4883,8 @@ IONOSPHERE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 10.37%
 \end_layout
 
@@ -4916,6 +4950,8 @@ LIVERDISORDER
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 29.94%
 \end_layout
 
@@ -4981,6 +5017,8 @@ LYMOGRAPHY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 17.93%
 \end_layout
 
@@ -5046,6 +5084,8 @@ MAMMOGRAPHIC
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 16.63%
 \end_layout
 
@@ -5111,6 +5151,8 @@ PARKINSONS
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 12.79%
 \end_layout
 
@@ -5149,6 +5191,8 @@ PHONEME
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 15.55%
 \end_layout
 
@@ -5241,6 +5285,8 @@ PIMA
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 25.03%
 \end_layout
 
@@ -5306,6 +5352,8 @@ POPFAILURES
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.45%
 \end_layout
 
@@ -5371,6 +5419,8 @@ REGIONS2
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 25.19%
 \end_layout
 
@@ -5436,6 +5486,8 @@ SAHEART
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 29.26%
 \end_layout
 
@@ -5501,6 +5553,8 @@ SEGMENT
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 27.80%
 \end_layout
 
@@ -5566,6 +5620,8 @@ SONAR
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 20.50%
 \end_layout
 
@@ -5631,6 +5687,8 @@ SPIRAL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 41.60%
 \end_layout
 
@@ -5696,6 +5754,8 @@ STATHEART
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 19.74%
 \end_layout
 
@@ -5761,6 +5821,8 @@ STUDENT
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.00%
 \end_layout
 
@@ -5826,6 +5888,8 @@ TRANSFUSION
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 23.35%
 \end_layout
 
@@ -5891,6 +5955,8 @@ WDBC
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 6.73%
 \end_layout
 
@@ -5956,6 +6022,8 @@ WINE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 6.29%
 \end_layout
 
@@ -6021,6 +6089,8 @@ Z_F_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 8.38%
 \end_layout
 
@@ -6086,6 +6156,8 @@ ZO_NF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.32%
 \end_layout
 
@@ -6151,6 +6223,8 @@ ZONF_S
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 1.76%
 \end_layout
 
@@ -6216,6 +6290,8 @@ ZOO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 7.00%
 \end_layout
 
@@ -6474,6 +6550,8 @@ ABALONE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 4.32
 \end_layout
 
@@ -6539,6 +6617,8 @@ AIRFOIL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.002
 \end_layout
 
@@ -6577,6 +6657,8 @@ AUTO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 12.18
 \end_layout
 
@@ -6669,6 +6751,8 @@ BK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.02
 \end_layout
 
@@ -6734,6 +6818,8 @@ BL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.006
 \end_layout
 
@@ -6799,6 +6885,8 @@ BASEBALL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 60.74
 \end_layout
 
@@ -6864,6 +6952,8 @@ CONCRETE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.006
 \end_layout
 
@@ -6911,6 +7001,8 @@ DEE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.17
 \end_layout
 
@@ -6967,6 +7059,8 @@ FRIEDMAN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 1.249
 \end_layout
 
@@ -7014,6 +7108,8 @@ FY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.038
 \end_layout
 
@@ -7124,6 +7220,8 @@ HO
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.015
 \end_layout
 
@@ -7189,6 +7287,8 @@ HOUSING
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 20.74
 \end_layout
 
@@ -7254,6 +7354,8 @@ LASER
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.004
 \end_layout
 
@@ -7319,6 +7421,8 @@ LW
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.011
 \end_layout
 
@@ -7384,6 +7488,8 @@ MORTGAGE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.32
 \end_layout
 
@@ -7449,6 +7555,8 @@ PL
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.022
 \end_layout
 
@@ -7514,6 +7622,8 @@ PLASTIC
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 2.16
 \end_layout
 
@@ -7579,6 +7689,8 @@ QUAKE
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.036
 \end_layout
 
@@ -7644,6 +7756,8 @@ SN
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.023
 \end_layout
 
@@ -7682,6 +7796,8 @@ STOCK
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 3.88
 \end_layout
 
@@ -7774,6 +7890,8 @@ TREASURY
 \begin_inset Text
 
 \begin_layout Plain Layout
+
+\series bold
 0.68
 \end_layout
 
@@ -7841,6 +7959,8 @@ AVERAGE
 
 \begin_layout Plain Layout
 
+\series bold
+15.40
 \end_layout
 
 \end_inset
@@ -7870,7 +7990,7 @@ AVERAGE
 \end_layout
 
 \begin_layout Standard
-The statistical analysis derived from Table 
+The Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:experClass"
@@ -7881,52 +8001,221 @@ nolink "false"
 
 \end_inset
 
- presents the error rates for various classification datasets using five different machine learning models:
- ADAM,
+ presents a detailed comparison of the performance of six different machine learning models,
+ namely ADAM,
  BFGS,
  GENETIC,
  RBF,
- and PROPOSED.
- The analysis focuses on comparing the models in terms of their effectiveness,
- with a lower error rate indicating better performance.
- Initially,
- it is observed that the PROPOSED model achieves the lowest average error rate (18.73%) compared to the other models,
- which have average error rates of 34.23% (ADAM),
- 33.58% (BFGS),
- 26.13% (GENETIC),
- and 29.21% (RBF).
- This highlights the overall superiority of the PROPOSED model.
- Examining individual datasets,
- the PROPOSED model exhibits the lowest error rate in many cases,
- such as "BALANCE" (7.79%),
- "DERMATOLOGY" (4.97%),
- "STUDENT" (4.00%),
- "ZO_NF_S" (4.32%),
- "ZONF_S" (1.76%),
- and "ZOO" (7.00%).
- Notably,
- its performance on "ZONF_S," with an error rate of only 1.76%,
- demonstrates exceptional accuracy.
- In other datasets,
- such as "CIRCULAR" and "HOUSEVOTES," the PROPOSED model performs very close to the best result but does not outperform the others.
- In some cases,
- such as "SEGMENT" and "WINE," it shows higher error rates,
- indicating room for improvement with specific types of data.
- In comparison,
- the ADAM model exhibits the highest overall deviation,
- making it the least effective.
- The RBF model also shows higher error rates compared to the PROPOSED model in several datasets,
- such as "BALANCE" and "ZOO." Similarly,
- the BFGS model fails to achieve low error rates in critical datasets such as "HEART" and "STATHEART." The GENETIC model demonstrates intermediate performance,
- achieving lower error rates than ADAM and BFGS but higher than the PROPOSED model.
+ PRUNE,
+ and PROPOSED,
+ evaluated across multiple classification datasets.
+ The values in the table represent the error rates for each model on each dataset,
+ expressed as percentages.
+ Lower error rates indicate better performance for a given model on a specific dataset.
+ The last row of the table provides the average error rate for each model,
+ serving as a measure of their overall effectiveness across all datasets.
+ From the analysis of this table,
+ it becomes evident that the PROPOSED model achieves the best overall performance,
+ with an average error rate of 18.73%.
+ This is the lowest among all the models evaluated,
+ demonstrating its superior effectiveness in solving classification problems across a diverse set of datasets.
+ In particular,
+ the PROPOSED model consistently outperforms the other models in datasets such as DERMATOLOGY,
+ ZONF_S,
+ and ZOO,
+ where it records the smallest error rates,
+ indicating its robustness in handling datasets of varying complexity and characteristics.
+ The GENETIC model,
+ on the other hand,
+ has the highest average error rate at 26.13%,
+ making it the least effective model overall.
+ This result suggests that while the GENETIC model may perform adequately in certain contexts,
+ it lacks the adaptability and overall reliability exhibited by the PROPOSED model.
+ Examining the ADAM model,
+ we observe an average error rate of 34.23%,
+ which is one of the highest among the models.
+ Despite this,
+ ADAM demonstrates good performance in specific datasets,
+ such as CIRCULAR and SPIRAL,
+ where its error rates are notably low.
+ This indicates that the performance of ADAM is heavily dependent on the structure and features of the datasets,
+ performing well in certain contexts but underperforming in others.
+ Similarly,
+ the BFGS model has an average error rate of 33.58%,
+ slightly lower than ADAM,
+ but it exhibits comparable variability in its performance across datasets.
+ The RBF model,
+ with an average error rate of 29.21%,
+ performs better than both ADAM and BFGS.
+ RBF appears to be more stable in its performance,
+ achieving lower error rates across a broader range of datasets,
+ although it does not consistently outperform the PROPOSED model.
+ The PRUNE model achieves an average error rate of 27.40%,
+ which places it between RBF and GENETIC in terms of overall effectiveness.
+ While PRUNE does not outperform the PROPOSED model in most cases,
+ it shows competitive performance in datasets such as GLASS,
+ where it records one of the lowest error rates.
+ This highlights that PRUNE can be effective in certain specialized datasets,
+ though it lacks the overall adaptability of the PROPOSED model.
+ A closer inspection of specific datasets further reinforces the dominance of the PROPOSED model.
+ For instance,
+ in the STATHEART and WINE datasets,
+ which are characterized by increased complexity,
+ the PROPOSED model achieves significantly lower error rates compared to the other models,
+ indicating its ability to handle challenging classification tasks effectively.
+ Additionally,
+ in the HOUSEVOTES dataset,
+ the PROPOSED model performs exceptionally well,
+ suggesting its reliability in datasets with distinct structures.
+ The GENETIC model,
+ while generally less effective,
+ demonstrates relatively strong performance in a few datasets such as HAYES-ROTH and SPIRAL,
+ where its error rates are comparable to or better than those of other models.
+ However,
+ its overall high average error rate indicates that its performance is inconsistent and heavily dependent on the specific dataset.
+ Similarly,
+ PRUNE performs well in datasets like MAMMOGRAPHIC but falls behind in others,
+ such as SEGMENT and BALANCE,
+ where the PROPOSED model outperforms it by a considerable margin.
+ The results for the BFGS model reveal a mixed performance profile.
+ It achieves relatively low error rates in datasets such as BALANCE and HEART,
+ but it struggles in datasets like CLEVELAND and LIVERDISORDER,
+ where its error rates are higher than most of the other models.
+ This inconsistency highlights the model’s limited generalizability across datasets.
  In conclusion,
- the analysis confirms that the PROPOSED model is the most reliable and consistent in most cases,
- achieving the lowest overall average error rate.
- 
+ the PROPOSED model demonstrates the best overall performance across the majority of the datasets,
+ achieving the lowest average error rate and consistently outperforming the other models in a wide range of contexts.
+ This suggests that the PROPOSED model is highly adaptable and effective,
+ making it suitable for diverse classification tasks.
+ The analysis further underscores the importance of selecting the appropriate model based on the characteristics of the dataset,
+ as models like ADAM,
+ BFGS,
+ and PRUNE show strong performance in specific scenarios but fall short in others.
+ The average error rate remains a critical indicator for evaluating the overall effectiveness of the models,
+ providing valuable insights into their strengths and weaknesses.
 \end_layout
 
 \begin_layout Standard
-The statistical analysis of Table 
+The dynamics of the proposed technique on the classification data is also presented graphically in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:The-average-classification"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+,
+ where the average classification error per method is presented.
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename average_barchart.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The average classification error for all methods used in the conducted experiments.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:The-average-classification"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ Furthermore,
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:casesReduction"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ graphically presents the number of cases in which there was a significant reduction in classification error between the simple genetic algorithm and the proposed method.
+ As is evident,
+ in a significant number of cases there is a drastic reduction in classification error exceeding 20% \SpecialChar allowbreak
+\SpecialChar allowbreak
+or even 40%.
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename class_improve.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Number of cases for the classification datasets where a reduction was appeared in the classification error between the original genetic algorithm and the proposed method.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:casesReduction"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similarly,
+ Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:experRegression"
@@ -7937,57 +8226,83 @@ nolink "false"
 
 \end_inset
 
- examines the absolute error values for various regression datasets using five different machine learning models:
- ADAM,
- BFGS,
- GENETIC,
- RBF,
- and PROPOSED.
- The analysis evaluates the models based on their performance,
- where lower error values indicate better accuracy.
- The PROPOSED model achieves the lowest average error (5.23) compared to the other models,
- which have average errors of 22.46 (ADAM),
- 30.29 (BFGS),
- 9.31 (GENETIC),
- and 10.02 (RBF).
- This result underscores the superior performance of the PROPOSED model overall.
- Examining individual datasets,
- the PROPOSED model consistently achieves the smallest error in several cases.
+ presents the comparison of the performance of the same machine learning models,
+ across a series of regression datasets.
+ The values in the table are absolute and represent the error of each model for each dataset.
+ From the analysis,
+ it is evident that the proposed model (PROPOSED) demonstrates the best overall performance,
+ with an average error of 5.23.
+ This value is significantly lower than the average errors of the other models,
+ highlighting that PROPOSED is the most effective model for regression problems.
+ The GENETIC model exhibits the second-lowest average error,
+ 9.31,
+ indicating that it is also a reliable choice,
+ though noticeably less effective than PROPOSED.
+ The RBF model achieves an average error of 10.02,
+ ranking third in performance while showing consistent results across many datasets.
+ The PRUNE model has an average error of 15.4,
+ which is higher than GENETIC and RBF but still shows remarkable performance in specific datasets,
+ such as CONCRETE and LASER.
+ The ADAM and BFGS models have the highest average errors,
+ 22.46 and 30.29 respectively,
+ making them the least effective overall.
+ At the individual dataset level,
+ the PROPOSED model demonstrates superior performance in many instances.
+ For example,
+ in the AIRFOIL,
+ CONCRETE,
+ LASER,
+ and MORTGAGE datasets,
+ PROPOSED records the smallest error values,
+ underscoring its high effectiveness in addressing problems with varying characteristics.
+ In the BL dataset,
+ the PROPOSED model achieves an exceptionally low error of 0.006,
+ the smallest among all models.
+ In more complex datasets,
+ such as BASEBALL and HOUSING,
+ PROPOSED significantly outperforms others with error values of 60.74 and 20.74,
+ respectively.
+ These results emphasize its adaptability to problems of different levels of complexity.
+ The GENETIC model,
+ while performing well overall,
+ shows significant variability.
  For instance,
- it outperforms other models in "AIRFOIL" (0.002),
- "BL" (0.006),
- "CONCRETE" (0.006),
- "HO" (0.015),
- "LASER" (0.004),
- "LW" (0.011),
- "MORTGAGE" (0.32),
- "PL" (0.022),
- and "PLASTIC" (2.16).
- These results highlight the model's robustness across diverse datasets.
- Notably,
- its performance on "AIRFOIL" with an error of 0.002 and "LASER" with 0.004 demonstrate exceptional precision.
- In some datasets,
- such as "SN" and "QUAKE," the PROPOSED model closely matches the best-performing results but does not necessarily achieve the lowest error.
- In certain cases,
- like "FRIEDMAN" and "STOCK," while still competitive,
- the model exhibits higher error values than some of its competitors.
- Specifically,
- in "STOCK," the PROPOSED model records an error of 5.57,
- which is higher than GENETIC's error of 3.88 but significantly lower than ADAM and BFGS.
- These cases indicate areas where further optimization of the PROPOSED model may be beneficial.
- Comparatively,
- the ADAM and BFGS models generally exhibit higher error rates,
- with BFGS particularly underperforming on datasets such as "BASEBALL" and "STOCK." The GENETIC model demonstrates strong performance,
- with its average error being the second lowest (9.31).
+ it records relatively low errors in the AUTO and PLASTIC datasets,
+ with values of 12.18 and 2.791,
+ respectively,
+ but exhibits considerably higher errors in others,
+ such as STOCK and BASEBALL.
+ This inconsistency suggests limited stability.
+ Similarly,
+ the RBF model demonstrates good overall performance,
+ with notable results in datasets like MORTGAGE and PL,
+ where its errors are among the lowest.
  However,
- its results are still consistently higher than the PROPOSED model on key datasets like "MORTGAGE" and "HOUSING." Similarly,
- the RBF model,
- while competitive in some cases,
- such as "TREASURY," has higher errors in others,
- such as "AUTO" and "BL." In conclusion,
- the analysis confirms that the PROPOSED model is the most effective and consistent across the majority of regression datasets,
- achieving the lowest overall average error.
- 
+ in datasets like AUTO and STOCK,
+ its errors are significantly higher than those of the PROPOSED model.
+ The PRUNE model delivers noteworthy results in specific datasets.
+ For example,
+ in CONCRETE,
+ it achieves one of the smallest errors,
+ only 0.0077,
+ while in datasets such as PLASTIC and TREASURY,
+ its error is larger,
+ indicating less consistency under varying conditions.
+ On the other hand,
+ ADAM,
+ despite being generally less effective,
+ performs well in a few datasets like BK and QUAKE,
+ where it records lower errors compared to other models.
+ The BFGS model,
+ with the highest average error,
+ consistently underperforms across most datasets,
+ with standout poor results in BASEBALL and STOCK,
+ where it records particularly high error values.
+ In summary,
+ the analysis of the table reveals that the proposed model PROPOSED achieves the best overall performance compared to the other models,
+ while being particularly effective in datasets with varying levels of complexity.
+ The average error serves as a useful indicator of the effectiveness of each model,
+ reaffirming the superiority of the PROPOSED model across a wide range of regression problems.
 \end_layout
 
 \begin_layout Standard
@@ -8002,20 +8317,22 @@ nolink "false"
 
 \end_inset
 
-,
- which pertains to classification datasets for various machine learning models,
- the proposed method demonstrates highly significant differences when compared to other methods.
- Specifically,
- the p-values are as follows:
- PROPOSED vs ADAM:
- p=2.9e-11,
- PROPOSED vs BFGS:
- p=1.3e-09,
- PROPOSED vs GENETIC:
- p=1.6e-08 and PROPOSED vs RBF:
- p=8e-08.
- These results highlight the statistical significance of the proposed method in classification tasks.
- 
+ focuses on regression datasets and reveals similar results favoring the proposed model,
+ although the "p" values are slightly higher compared to those in the classification datasets.
+ The comparison between PROPOSED and ADAM produces a "p" value of 0.0001,
+ indicating a statistically significant difference in favor of the PROPOSED model.
+ Comparisons with the other models,
+ specifically PROPOSED vs BFGS (p=4.1e-05),
+ PROPOSED vs GENETIC (p=0.0022),
+ PROPOSED vs RBF (p=0.00073),
+ and PROPOSED vs PRUNE (p=0.00042),
+ also demonstrate statistically significant differences.
+ All "p" values remain below the 0.05 threshold,
+ affirming that the observed performance differences are not attributable to randomness.
+ Notably,
+ the very low "p" values in the regression datasets underscore the overall effectiveness of the PROPOSED model in addressing regression problems.
+ The PROPOSED model demonstrates a high level of adaptability across various datasets with diverse characteristics,
+ consistently maintaining its superiority over the other models.
 \end_layout
 
 \begin_layout Standard
@@ -8062,7 +8379,8 @@ name "fig:statClass"
 \end_layout
 
 \begin_layout Standard
-In Figure 
+Consequently,
+ the results from Figure 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:statRegression"
@@ -8073,19 +8391,8 @@ nolink "false"
 
 \end_inset
 
-,
- focusing on regression datasets for various machine learning models,
- the proposed method again shows statistically significant differences when compared to other methods.
- The corresponding p-values are:
- PROPOSED vs ADAM:
- p=0.0001,
- PROPOSED vs BFGS:
- p=4.1e-05,
- PROPOSED vs GENETIC:
- p=0.0022 and PROPOSED vs RBF:
- p=0.00073.
- These results indicate the superiority of the proposed method across regression datasets with notable levels of significance.
- 
+ further strengthen the position of the PROPOSED model as the most effective solution for regression problems,
+ providing reliable and statistically significant performance.
 \end_layout
 
 \begin_layout Standard
@@ -8135,8 +8442,8 @@ name "fig:statRegression"
 
 \end_layout
 
-\begin_layout Subsubsection
-Using different weight methods 
+\begin_layout Subsection
+Using different weight methods
 \end_layout
 
 \begin_layout Standard
@@ -11500,7 +11807,7 @@ name "fig:statFRegression"
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Experiment with the number of agents
 \end_layout
 

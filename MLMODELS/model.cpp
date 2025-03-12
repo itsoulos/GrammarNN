@@ -155,6 +155,82 @@ Dataset     *Model::getTrainDataset()
 }
 
 
+
+void	Model::printConfusionMatrix(vector<double> &T,vector<double> &O,
+                             vector<double> &precision,
+                             vector<double> &recall)
+{
+    int i,j;
+
+    int N=T.size();
+    Data dclass = trainDataset->getClassVector();
+    int nclass=dclass.size();
+    precision.resize(nclass);
+    recall.resize(nclass);
+    int **CM;
+    //printf("** CONFUSION MATRIX ** Number of classes: %d\n",nclass);
+    CM=new int*[nclass];
+    for(i=0;i<nclass;i++) CM[i]=new int[nclass];
+    for(i=0;i<nclass;i++)
+        for(j=0;j<nclass;j++) CM[i][j] = 0;
+
+    for(i=0;i<N;i++) CM[(int)T[i]][(int)O[i]]++;
+
+    for(i=0;i<nclass;i++)
+    {
+        double sum = 0.0;
+        for(j=0;j<nclass;j++)
+            sum+=CM[j][i];
+
+        precision[i]=CM[i][i]/sum;
+        sum = 0.0;
+        for(j=0;j<nclass;j++)
+            sum+=CM[i][j];
+        recall[i]=CM[i][i]/sum;
+    }
+    for(i=0;i<nclass;i++)
+    {
+        for(j=0;j<nclass;j++)
+        {
+            //printf("%4d ",CM[i][j]);
+        }
+        //printf("\n");
+        delete[] CM[i];
+    }
+    delete[] CM;
+}
+
+void    Model::getPrecisionAndRecall(double &precision,double &recall)
+{
+    vector<double> T;
+    vector<double> O;
+    vector<double> dprecision;
+    vector<double> drecall;
+    vector<double> dclass = trainDataset->getClassVector();
+    int tsize = testDataset->count();
+    T.resize(tsize);
+    O.resize(tsize);
+    precision = 0.0;
+    recall    = 0.0;
+    for(int i=0;i<tsize;i++)
+    {
+        Data pattern = testDataset->getXpoint(i);
+        double realOutput = testDataset->getYpoint(i);
+        double y = getOutput(pattern);
+        T[i]=testDataset->estimateClassIndex(realOutput);
+        O[i]=testDataset->estimateClassIndex(y);
+    }
+    printConfusionMatrix(T,O,dprecision,drecall);
+    for(int i=0;i<(int)dclass.size();i++)
+    {
+        precision+=dprecision[i];
+        recall+=drecall[i];
+
+    }
+    precision/=dclass.size();
+    recall/=dclass.size();
+}
+
 Model::~Model()
 {
 if(noRemoveData) return;

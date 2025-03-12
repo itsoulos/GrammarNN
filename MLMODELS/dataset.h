@@ -33,7 +33,9 @@ public:
     void    getPoint(int pos,Data &x,double y);
     double  getClass(int pos);
     double  estimateClass(double value);
-    Matrix getAllXpoint() const;
+    int     estimateClassIndex(double value);
+    Matrix  getAllXpoint() const;
+    Data    getClassVector() const;
     ~Dataset();
 };
 

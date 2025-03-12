@@ -33,6 +33,8 @@ ParameterList mainParamList;
 double average_train_error = 0.0;
 double average_test_error  = 0.0;
 double average_class_error = 0.0;
+double average_precision = 0.0;
+double average_recall    = 0.0;
 int gnn_iters = 0;
 QString gnn_intervalmethod="intervalde";
 
@@ -383,6 +385,8 @@ void makeReport()
     qDebug()<<qSetRealNumberPrecision( 10 ) <<"Average training error: "<<average_train_error/gnn_iters;
     qDebug()<<qSetRealNumberPrecision( 10 ) <<"Average testing  error: "<<average_test_error/gnn_iters;
     qDebug()<<qSetRealNumberPrecision( 10 ) <<"Average class    error: "<<average_class_error/gnn_iters;
+    qDebug()<<qSetRealNumberPrecision( 10 ) <<"Average precision     : "<<average_precision/gnn_iters;
+    qDebug()<<qSetRealNumberPrecision( 10 ) <<"Average recall        : "<<average_recall/gnn_iters;
 }
 
 void    runThirdPhase()
@@ -416,6 +420,10 @@ void    runThirdPhase()
         average_train_error+=tr;
         average_test_error+=tt;
         average_class_error+=tc;
+        double precision = 0.0,recall=0.0;
+        selectedModel->getPrecisionAndRecall(precision,recall);
+        average_precision+=precision;
+        average_recall+=recall;
     }
     makeReport();
 }
