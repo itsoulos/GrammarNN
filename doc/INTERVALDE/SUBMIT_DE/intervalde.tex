@@ -1,4 +1,4 @@
-%% LyX 2.3.7 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.4.1 created this file.  For more info, see https://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[journal,article,submit,pdftex,moreauthors]{Definitions/mdpi}
 \usepackage[utf8]{inputenc}
@@ -46,16 +46,21 @@ proposes the incorporation of a three - stage evolutionary technique,
 which has its roots in the differential evolution technique, for the
 effective training of the parameters of artificial neural networks
 and the avoidance of the problem of overfitting. The new method effectively
-constructs the parameter value range of the artificial neural network,
-achieving both a reduction in training error and preventing the network
-from experiencing overfitting phenomena. This new technique was successfully
-applied to a wide range of problems from the relevant literature and
-the results were extremely promising. }
+constructs the parameter value range of the artificial neural network
+with one processing level and sigmoid outputs, achieving both a reduction
+in training error and preventing the network from experiencing overfitting
+phenomena. This new technique was successfully applied to a wide range
+of problems from the relevant literature and the results were extremely
+promising. From the conducted experiments it appears that the proposed
+method reduces the average classification error at 30\% compared to
+the genetic algorithm and the average regression error at 45\% as
+compared to the genetic algorithm.}
 
 
 \keyword{Neural networks; Evolutionary algorithms; Stochastic methods; Differential
 Evolution}
 
+\newcommand*\LyXZeroWidthSpace{\hspace{0pt}}
 \DeclareTextSymbolDefault{\textquotedbl}{T1}
 %% Because html converters don't know tabularnewline
 \providecommand{\tabularnewline}{\\}
@@ -215,38 +220,56 @@ etc.
 
 The equation \ref{eq:eq1} has been tackled by a variety of optimization
 and metaheuristic methods, such as the Back Propagation algorithm
-\citep{bpnn1,bpnn2}, the RPROP method \citep{rpropnn-1,rpropnn-2},
-the Adam Optimizer \citep{nn_adam}, the Levenberg Marquardt method
-\citep{nn_leve} etc. Furthermore, global optimization techniques
-have been also applied to neural network training. Among them one
-can detect the Simulated Annealing approach \citep{nn_siman}, the
-Genetic Algorithm approach \citep{geneticnn}, the Particle Swarm
-Optimization (PSO) method \citep{psonn}, the Ant Colony Optimization
-procedure \citep{aco_nn}, the Gray Wolf Optimizer \citep{gwo_nn},
-the Whale optimization technique \citep{whale_nn} etc. Also,\textbf{
-}Sexton et al proposed the incorporation of tabu search algorithm
-for neural network training \citep{tabunn}, Zhang et al suggested
-a hybrid algorithm that combines the PSO method and the Back Propagation
-algorithm for efficient neural networks training \citep{nn_hybrid}.
-Recently,\textbf{ }Zhao et al suggested the usage of a new Cascaded
-Forward Algorithm to train artificial neural networks \citep{nn_cascade}.
-Also, since in recent years there has been an explosive development
-and use of parallel computing architectures, several researchers have
-proposed their use for the efficient and rapid training of artificial
-neural networks \citep{nn_gpu1,nn_gpu2}.
+\citep{bpnn1}, the RPROP method \citep{rpropnn-1}, the Adam Optimizer
+\citep{nn_adam}, the Levenberg Marquardt method \citep{nn_leve}
+etc. Furthermore, global optimization techniques have been also applied
+to neural network training. Among them one can detect the Simulated
+Annealing approach \citep{nn_siman}, the Genetic Algorithm approach
+\citep{geneticnn}, the Particle Swarm Optimization (PSO) method \citep{psonn},
+the Ant Colony Optimization procedure \citep{aco_nn}, the Gray Wolf
+Optimizer \citep{gwo_nn}, the Whale optimization technique \citep{whale_nn}
+etc. Also,\textbf{ }Sexton et al proposed the incorporation of tabu
+search algorithm for neural network training \citep{tabunn}, Zhang
+et al suggested a hybrid algorithm that combines the PSO method and
+the Back Propagation algorithm for efficient neural networks training
+\citep{nn_hybrid}. Recently,\textbf{ }Zhao et al suggested the usage
+of a new Cascaded Forward Algorithm to train artificial neural networks
+\citep{nn_cascade}. Also, since in recent years there has been an
+explosive development and use of parallel computing architectures,
+several researchers have proposed their use for the efficient and
+rapid training of artificial neural networks \citep{nn_gpu1,nn_gpu2}.
+Most of these techniques require significant execution time to create
+the optimal topology of the artificial neural networks and in many
+cases the programmer must define the initial number of neurons to
+execute the above techniques.
 
 However, although the above techniques are extremely effective in
 reducing the training error of artificial neural networks, they often
 cause the problem of overfitting, where the artificial neural network
 exhibits poor results when applied to data that was not present during
-its training. An overview of the overfitting problem can be found
-in the work of Ying \citep{nn_overfitting}. A series of methods has
-been proposed in the recent literature to tackle the overfitting problem,
-such as the weight sharing method \citep{nnsharing1,nnsharing2},\textbf{
-}pruning techniques \citep{nnprunning1,nnprunning2}, the incorporation
-of early stopping \citep{nnearly1,nnearly2}, weight decaying \citep{nndecay1,nndecay2}
-etc. Furthermore, it has been suggested by various researchers the
-usage of dynamic architectures to handle the overfitting problem \citep{nn_arch1,nn_arch2,nn_arch3}
+its training. A series of methods has been proposed in the recent
+literature to tackle the overfitting problem, such as the weight sharing
+method \citep{nnsharing1}, pruning techniques \citep{nnprunning1},
+the incorporation of early stopping \citep{nnearly1}, weight decaying
+\citep{nndecay1}, the Dropout method \citep{Dropout}, the Sarprop
+method \citep{Sarprop}, positive correlation methods \citep{nnpos}
+etc. In addition, many researchers have proposed a series of works
+on the construction of the architecture of artificial neural networks.
+Among these methods one can find the incorporation of genetic algorithms\textbf{
+}\citep{nn_arch1,nn_arch2}, the application of the PSO method \citep{nn_arch3},
+application of reinforcement learning \citep{nn_arch4} etc.\textbf{
+}Moreover Islam et al. suggested a novel adaptive merging and growing
+technique for optimal design of the neural network architecture \citep{nn_arch5}.\textbf{
+}Recently, a technique was presented that utilizes the Grammatical
+Evolution \citep{ge1} for the efficient construction of the architecture
+of an artificial neural network as well as the calculation of the
+optimal values of the parameters \citep{nnc}. Liu et al proposed
+a method to identify the number of processing nodes in neural networks
+to avoid the overfitting problem \citep{nn_number_neurons}. Also,
+Piotrowski et al published a comparison of methods to avoid the overfitting
+problem, designed for the case of runoff modeling \citep{nn_over_runoff}.
+A systematic overview of the overfitting problem and possible solutions
+can be found in the recent work of Ying \citep{nn_overfitting_review}.
 
 This work proposes the adoption of a three-stage technique that will
 have two goals: the effective training of artificial neural networks
@@ -268,19 +291,44 @@ the neural network using the bounds that have been produced in the
 second phase for the parameters of the model. The proposed method
 have been applied on a wide series of classification and regression
 datasets and comparison was performed against traditional techniques
-for the training of neural networks.
-
+for the training of neural networks. The basic building blocks of
+the proposed technique are:
+\begin{enumerate}
+\item The use of a genetic algorithm that uses a modified version of the
+training error, in order to identify a range of values \LyXZeroWidthSpace\LyXZeroWidthSpace for
+the parameters where the phenomenon of overfitting is not observed.
+\item The use of an evolutionary process to identify the range of values
+\LyXZeroWidthSpace\LyXZeroWidthSpace for the parameters of the artificial
+neural network, where the smallest possible value for the training
+error appears.
+\item The use of an optimization technique to train the artificial neural
+network within the value range identified in the first two stages.
+\end{enumerate}
 The remaining of this article is organized as follows: in section
 \ref{sec:Materials-and-Methods} the proposed method is discussed
 in detail, in section \ref{sec:Results} the used datasets as well
 as the conducted experiments are discussed and finally, in section
 \ref{sec:Conclusions} some conclusions are presented.
 
-\section{The proposed method\label{sec:Materials-and-Methods}}
+\section{Materials and methods\protect\label{sec:Materials-and-Methods}}
 
 In this section, a detailed presentation and analysis of the three
 stages of the proposed technique for the effective training of artificial
-neural networks is provided.
+neural networks is provided. In the first phase, a genetic algorithm
+makes a first attempt to identify the range of values \LyXZeroWidthSpace\LyXZeroWidthSpace for
+the parameters of the artificial neural network, and in the second
+phase, an evolutionary technique systematically improves the range
+identified in the first phase. In the third phase of the technique,
+another genetic algorithm is used to optimize the network parameters
+within the discovered range of values. Genetic algorithms have been
+used extensively in the proposed method since they have been used
+widely in neural network training. For example,\textbf{ }Arifovic
+et al constructed the optimal architecture of neural networks using
+genetic algorithms \citep{ga_nn1}. Also, Leung et al suggested a
+novel genetic algorithm \citep{ga_nn2} for optimal neural network
+training. Recently, a work has been published by Ahmadizar et al that
+combines a genetic algorithm with grammatical evolution to train artificial
+neural networks \citep{ga_nn3}.
 
 \subsection{The genetic algorithm of the first phase }
 
@@ -309,7 +357,7 @@ An example plot for this function is shown in Figure \ref{fig:examplePlot}.
 \begin{centering}
 \includegraphics{sig}
 \par\end{centering}
-\caption{An example plot of the sigmoid function.\label{fig:examplePlot}}
+\caption{An example plot of the sigmoid function.\protect\label{fig:examplePlot}}
 
 \end{figure}
 As is evident from this particular form, this function tends very
@@ -321,10 +369,10 @@ change in the response of the sigmoid function. The function $B(a)$
 is used here to measure this effect and it is calculated using the
 algorithm \ref{alg:CalculationBound}.
 
-\textbf{}
+{\bfseries{}
 \begin{algorithm}[H]
 \textbf{\caption{Calculating the quantity $B(N\left(\protect\overrightarrow{x},\protect\overrightarrow{w}\right),a)$
-with $a>0$ for a a provided neural network $N(x,w).$\label{alg:CalculationBound}}
+with $a>0$ for a a provided neural network $N(x,w).$\protect\label{alg:CalculationBound}}
 }
 \begin{enumerate}
 \item \textbf{Function} $B(N\left(\overrightarrow{x},\overrightarrow{w}\right),a)$
@@ -343,7 +391,7 @@ with $a>0$ for a a provided neural network $N(x,w).$\label{alg:CalculationBound}
 \item \textbf{End Function}
 \end{enumerate}
 \end{algorithm}
-The function $B(N\left(\overrightarrow{x},\overrightarrow{w}\right),a)$
+}The function $B(N\left(\overrightarrow{x},\overrightarrow{w}\right),a)$
 is used to calculate the fitness value for the used genetic algorithm
 described subsequently:
 \begin{enumerate}
@@ -475,7 +523,7 @@ $a_{i}=t$.
 \end{enumerate}
 \begin{algorithm}[H]
 
-\caption{Fitness calculation for any agent $a=\left[\protect\overrightarrow{L_{a}},\protect\overrightarrow{R_{a}}\right]$.\label{alg:fitnessCalculation}}
+\caption{Fitness calculation for any agent $a=\left[\protect\overrightarrow{L_{a}},\protect\overrightarrow{R_{a}}\right]$.\protect\label{alg:fitnessCalculation}}
 
 \begin{enumerate}
 \item \textbf{Take} $N_{s}$ random samples in $a$ and form the set $S_{a}=\left\{ \overrightarrow{s_{1}},\overrightarrow{s_{2},}\ldots,\overrightarrow{s_{N_{s}}}\right\} $.
@@ -540,8 +588,20 @@ operations as in the first phase of the proposed method.
 report the results.
 \end{enumerate}
 \end{enumerate}
+%
+The overall procedure is graphically outlined in the flowchart of
+Figure \ref{fig:flow}.
 
-\section{Results\label{sec:Results}}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{flowChart}
+\par\end{centering}
+\caption{The flowchart of the proposed algorithm.\protect\label{fig:flow}}
+
+\end{figure}
+
+
+\subsection{The used datasets}
 
 The proposed method was tested for its efficiency on a series of classification
 and regression problems, that were obtained from the following online
@@ -554,9 +614,6 @@ on 17 February 2025)\citep{Keel}.
 \item The Statlib URL \url{ftp://lib.stat.cmu.edu/datasets/index.html }(accessed
 on 17 February 2025). 
 \end{enumerate}
-
-\subsection{Datasets }
-
 The following series of classification datasets was used in the conducted
 experiments:
 \begin{enumerate}
@@ -566,7 +623,7 @@ consumption \citep{alcohol}.
 \item \textbf{Australian}, which is related to various bank transactions\citep{australian}.
 \item \textbf{Balance} dataset \citep{balance}, which is used in various
 psychological experiments.
-\item \textbf{Cleveland}, which is a medical dataset \citep{cleveland1,cleveland2}. 
+\item \textbf{Cleveland}, which is a medical dataset \citep{cleveland1}. 
 \item \textbf{Circular} dataset, which is a dataset created artificially. 
 \item \textbf{Dermatology}, a medical dataset with 6 classes which is related
 to dermatology problems \citep{dermatology}.
@@ -582,13 +639,13 @@ heart diseases.
 \item \textbf{Housevotes}, that contains data about the Congressional voting
 in USA \citep{housevotes}.
 \item \textbf{Ionosphere}, that contains measurements about the ionosphere
-\citep{ion1,ion2}.
-\item \textbf{Liverdisorder}, which is a medical dataset \citep{liver,liver1}.
+\citep{ion1}.
+\item \textbf{Liverdisorder}, which is a medical dataset \citep{liver}.
 \item \textbf{Lymography }dataset \citep{lymography}.
 \item \textbf{Mammographic}, a medical dataset related to breast cancer
 \citep{mammographic}.
 \item \textbf{Parkinsons}, a medical dataset related to Parkinson's disease
-\citep{parkinsons1,parkinsons2}.
+\citep{parkinsons1}.
 \item \textbf{Pima}, a medical dataset related to the presence of diabetes\citep{pima}.
 \item \textbf{Phoneme}, used in sound experiments.
 \item \textbf{Popfailures}, a dataset that containsclimate measurements
@@ -605,9 +662,9 @@ cases.
 conducted in schools \citep{student}.
 \item \textbf{Transfusion}, which is a medical dataset \citep{transfusion}.
 \item \textbf{Wdbc}, a medical dataset used to predict the presence of breast
-cancer \citep{wdbc1,wdbc2}.
-\item \textbf{Wine}, a dataset used to predict the quality of wines \citep{wine1,wine2}.
-\item \textbf{EEG} dataset, which is a medical dataset related to EEG measurements\citep{eeg1,eeg2}
+cancer \citep{wdbc1}.
+\item \textbf{Wine}, a dataset used to predict the quality of wines \citep{wine1}.
+\item \textbf{EEG} dataset, which is a medical dataset related to EEG measurements\citep{eeg1}
 and the following cases were studied from this dataset: Z\_F\_S, ZO\_NF\_S
 and ZONF\_S.
 \item \textbf{Zoo}, a dataset used to predict the class of some animals
@@ -653,6 +710,8 @@ of various stocks.
 problems.
 \end{enumerate}
 
+\section{Results\protect\label{sec:Results}}
+
 \subsection{Experimental results}
 
 The software used in the conducted experiments was coded in C++, using
@@ -667,18 +726,25 @@ calculated using the following formula:
 \begin{equation}
 E_{C}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=100\times\frac{\sum_{i=1}^{N}\left(\mbox{class}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)\right)-y_{i}\right)}{N}
 \end{equation}
-Also, the\textbf{ }average regression error is reported for the regression
+In this formula the function $\mbox{class}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)\right)$
+is used for the class obtained by the application of the neural network
+to pattern $\overrightarrow{x_{i}}$. The sum of the differences of
+the categories that the artificial neural network finds from the expected
+categories is divided by the number of patterns in the dataset. Also,
+the\textbf{ }average regression error is reported for the regression
 datasets, that can be calculated as follows:
 \begin{equation}
 E_{R}\left(N\left(\overrightarrow{x},\overrightarrow{w}\right)\right)=\frac{\sum_{i=1}^{N}\left(N\left(\overrightarrow{x_{i}},\overrightarrow{w}\right)-y_{i}\right)^{2}}{N}
 \end{equation}
-All the experiments were performed on\textbf{ }an AMD Ryzen 5950X
-with 128GB of RAM and the used operating system was Debian Linux.
-The values used for the parameters of the proposed method are shown
-in Table \ref{tab:settings}. 
+In this formula the squared sum of the differences from the values
+produced by the neural networks with the expected outputs is divided
+by the sum of patterns in the dataset. All the experiments were performed
+on\textbf{ }an AMD Ryzen 5950X with 128GB of RAM and the used operating
+system was Debian Linux. The values used for the parameters of the
+proposed method are shown in Table \ref{tab:settings}. 
 
 \begin{table}[H]
-\caption{The experimental settings used in the current algorithm.\label{tab:settings}}
+\caption{The experimental settings used in the current algorithm.\protect\label{tab:settings}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|}
@@ -716,16 +782,28 @@ from the conducted experiments:
 \item The column DATASET contains the name of the used dataset.
 \item The column ADAM represents the experimental results from the application
 of the ADAM optimization method \citep{nn_adam} to a neural networks
-with $H=10$ processing nodes.
+with $H=10$ processing nodes. The Adam optimizer is a combination
+of Momentum \citep{momentum} and RMSprop \citep{rmsprop} techniques
+and it has been used successfully for neural network training in many
+research papers.
 \item The column BFGS denotes the incorporation of the BFGS optimization
 method \citep{powell} to train an artificial neural network with
-$H=10$ processing nodes.
+$H=10$ processing nodes. The Broyden--Fletcher--Goldfarb--Shanno
+(BFGS) algorithm is a local optimization procedure that aims to discover
+a local minima of a multidimensional function.
 \item The column GENETIC represents the usage of a Genetic Algorithm with
 the experimental settings of Table \ref{tab:settings}, used to train
 a neural network with $H=10$ processing nodes.
+\item The column RBF denotes the incorporation of a Radial Basis Function
+(RBF) network \citep{rbf1} with $H=10$ processing nodes on the corresponding
+dataset.
+\item The column PRUNE represents the usage of OBS pruning method \citep{prune},
+as implemented in the library Fast Compressed Neural Networks \citep{fcn}.
 \item The column PROPOSED denotes the proposed method.
 \item The row AVERAGE is used to measure the average classification or regression
 error for all dataset.
+\item The bold notation is used to indicate the method with the lowest classification
+or regression error.
 \end{enumerate}
 The table \ref{tab:experClass} is used to provide the experimental
 results for the classification datasets and the table \ref{tab:experRegression}
@@ -733,258 +811,456 @@ provides the corresponding results for the regression datasets.
 \begin{table}[H]
 \caption{Experimental results for the used classification datasets. The numbers
 in cells represent average classification error as measured on the
-corresponding test set.\label{tab:experClass}}
+corresponding test set.\protect\label{tab:experClass}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-DATASET & ADAM & BFGS & GENETIC & RBF & PROPOSED\tabularnewline
+DATASET & ADAM & BFGS & GENETIC & RBF & PRUNE & PROPOSED\tabularnewline
 \hline 
 \hline 
-APPENDICITIS & 16.50\% & 18.00\% & 24.40\% & 12.23\% & 15.00\%\tabularnewline
+APPENDICITIS & 16.50\% & 18.00\% & 24.40\% & \textbf{12.23\%} & 15.97\% & 15.00\%\tabularnewline
 \hline 
-ALCOHOL & 57.78\% & 41.50\% & 39.57\% & 49.32\% & 18.33\%\tabularnewline
+ALCOHOL & 57.78\% & 41.50\% & 39.57\% & 49.32\% & \textbf{15.75\%} & 18.33\%\tabularnewline
 \hline 
-AUSTRALIAN & 35.65\% & 38.13\% & 32.21\% & 34.89\% & 21.49\%\tabularnewline
+AUSTRALIAN & 35.65\% & 38.13\% & 32.21\% & 34.89\% & 43.66\% & \textbf{21.49\%}\tabularnewline
 \hline 
-BALANCE & 12.27\% & 8.64\% & 8.97\% & 33.53\% & 7.79\%\tabularnewline
+BALANCE & 12.27\% & 8.64\% & 8.97\% & 33.53\% & 9.00\% & \textbf{7.79\%}\tabularnewline
 \hline 
-CLEVELAND & 67.55\% & 77.55\% & 51.60\% & 67.10\% & 42.38\%\tabularnewline
+CLEVELAND & 67.55\% & 77.55\% & 51.60\% & 67.10\% & 51.48\% & \textbf{42.38\%}\tabularnewline
 \hline 
-CIRCULAR & 19.95\% & 6.08\% & 5.99\% & 5.98\% & 6.50\%\tabularnewline
+CIRCULAR & 19.95\% & 6.08\% & 5.99\% & \textbf{5.98\%} & 12.76\% & 6.50\%\tabularnewline
 \hline 
-DERMATOLOGY & 26.14\% & 52.92\% & 30.58\% & 62.34\% & 4.97\%\tabularnewline
+DERMATOLOGY & 26.14\% & 52.92\% & 30.58\% & 62.34\% & 9.02\% & \textbf{4.97\%}\tabularnewline
 \hline 
-ECOLI & 64.43\% & 69.52\% & 54.67\% & 59.48\% & 40.30\%\tabularnewline
+ECOLI & 64.43\% & 69.52\% & 54.67\% & 59.48\% & 60.32\% & \textbf{40.30\%}\tabularnewline
 \hline 
-GLASS & 61.38\% & 54.67\% & 52.86\% & 50.46\% & 54.38\%\tabularnewline
+GLASS & 61.38\% & 54.67\% & 52.86\% & \textbf{50.46\%} & 66.19\% & 54.38\%\tabularnewline
 \hline 
-HABERMAN & 29.00\% & 29.34\% & 28.66\% & 25.10\% & 26.53\%\tabularnewline
+HABERMAN & 29.00\% & 29.34\% & 28.66\% & \textbf{25.10\%} & 29.38\% & 26.53\%\tabularnewline
 \hline 
-HAYES-ROTH & 59.70\% & 37.33\% & 56.18\% & 64.36\% & 34.31\%\tabularnewline
+HAYES-ROTH & 59.70\% & 37.33\% & 56.18\% & 64.36\% & 45.44\% & \textbf{34.31\%}\tabularnewline
 \hline 
-HEART & 38.53\% & 39.44\% & 28.34\% & 31.20\% & 13.11\%\tabularnewline
+HEART & 38.53\% & 39.44\% & 28.34\% & 31.20\% & 27.21\% & \textbf{13.11\%}\tabularnewline
 \hline 
-HEARTATTACK & 45.55\% & 46.67\% & 29.03\% & 29.00\% & 21.90\%\tabularnewline
+HEARTATTACK & 45.55\% & 46.67\% & 29.03\% & 29.00\% & 29.26\% & \textbf{21.90\%}\tabularnewline
 \hline 
-HOUSEVOTES & 7.48\% & 7.13\% & 6.62\% & 6.13\% & 6.09\%\tabularnewline
+HOUSEVOTES & 7.48\% & 7.13\% & 6.62\% & 6.13\% & \textbf{5.81\%} & 6.09\%\tabularnewline
 \hline 
-IONOSPHERE & 16.64\% & 15.29\% & 15.14\% & 16.22\% & 10.37\%\tabularnewline
+IONOSPHERE & 16.64\% & 15.29\% & 15.14\% & 16.22\% & 11.32\% & \textbf{10.37\%}\tabularnewline
 \hline 
-LIVERDISORDER & 41.53\% & 42.59\% & 31.11\% & 30.84\% & 29.94\%\tabularnewline
+LIVERDISORDER & 41.53\% & 42.59\% & 31.11\% & 30.84\% & 49.72\% & \textbf{29.94\%}\tabularnewline
 \hline 
-LYMOGRAPHY & 39.79\% & 35.43\% & 28.42\% & 25.50\% & 17.93\%\tabularnewline
+LYMOGRAPHY & 39.79\% & 35.43\% & 28.42\% & 25.50\% & 22.02\% & \textbf{17.93\%}\tabularnewline
 \hline 
-MAMMOGRAPHIC & 46.25\% & 17.24\% & 19.88\% & 21.38\% & 16.63\%\tabularnewline
+MAMMOGRAPHIC & 46.25\% & 17.24\% & 19.88\% & 21.38\% & 38.10\% & \textbf{16.63\%}\tabularnewline
 \hline 
-PARKINSONS & 24.06\% & 27.58\% & 18.05\% & 17.41\% & 12.79\%\tabularnewline
+PARKINSONS & 24.06\% & 27.58\% & 18.05\% & 17.41\% & 22.12\% & \textbf{12.79\%}\tabularnewline
 \hline 
-PHONEME & 29.43\% & 15.58\% & 15.55\% & 23.32\% & 18.10\%\tabularnewline
+PHONEME & 29.43\% & 15.58\% & \textbf{15.55\%} & 23.32\% & 29.35\% & 18.10\%\tabularnewline
 \hline 
-PIMA & 34.85\% & 35.59\% & 32.19\% & 25.78\% & 25.03\%\tabularnewline
+PIMA & 34.85\% & 35.59\% & 32.19\% & 25.78\% & 35.08\% & \textbf{25.03\%}\tabularnewline
 \hline 
-POPFAILURES & 5.18\% & 5.24\% & 5.94\% & 7.04\% & 4.45\%\tabularnewline
+POPFAILURES & 5.18\% & 5.24\% & 5.94\% & 7.04\% & 4.79\% & \textbf{4.45\%}\tabularnewline
 \hline 
-REGIONS2 & 29.85\% & 36.28\% & 29.39\% & 38.29\% & 25.19\%\tabularnewline
+REGIONS2 & 29.85\% & 36.28\% & 29.39\% & 38.29\% & 34.26\% & \textbf{25.19\%}\tabularnewline
 \hline 
-SAHEART & 34.04\% & 37.48\% & 34.86\% & 32.19\% & 29.26\%\tabularnewline
+SAHEART & 34.04\% & 37.48\% & 34.86\% & 32.19\% & 37.70\% & \textbf{29.26\%}\tabularnewline
 \hline 
-SEGMENT & 49.75\% & 68.97\% & 57.72\% & 59.68\% & 27.80\%\tabularnewline
+SEGMENT & 49.75\% & 68.97\% & 57.72\% & 59.68\% & 60.40\% & \textbf{27.80\%}\tabularnewline
 \hline 
-SONAR & 30.33\% & 25.85\% & 22.40\% & 27.90\% & 20.50\%\tabularnewline
+SONAR & 30.33\% & 25.85\% & 22.40\% & 27.90\% & 23.80\% & \textbf{20.50\%}\tabularnewline
 \hline 
-SPIRAL & 47.67\% & 47.99\% & 48.66\% & 44.87\% & 41.60\%\tabularnewline
+SPIRAL & 47.67\% & 47.99\% & 48.66\% & 44.87\% & 50.38\% & \textbf{41.60\%}\tabularnewline
 \hline 
-STATHEART & 44.04\% & 39.65\% & 27.25\% & 31.36\% & 19.74\%\tabularnewline
+STATHEART & 44.04\% & 39.65\% & 27.25\% & 31.36\% & 28.37\% & \textbf{19.74\%}\tabularnewline
 \hline 
-STUDENT & 5.13\% & 7.14\% & 5.61\% & 5.49\% & 4.00\%\tabularnewline
+STUDENT & 5.13\% & 7.14\% & 5.61\% & 5.49\% & 10.84\% & \textbf{4.00\%}\tabularnewline
 \hline 
-TRANSFUSION & 25.68\% & 25.84\% & 24.87\% & 26.41\% & 23.35\%\tabularnewline
+TRANSFUSION & 25.68\% & 25.84\% & 24.87\% & 26.41\% & 29.35\% & \textbf{23.35\%}\tabularnewline
 \hline 
-WDBC & 35.35\% & 29.91\% & 8.56\% & 7.27\% & 6.73\%\tabularnewline
+WDBC & 35.35\% & 29.91\% & 8.56\% & 7.27\% & 15.48\% & \textbf{6.73\%}\tabularnewline
 \hline 
-WINE & 29.40\% & 59.71\% & 19.20\% & 31.41\% & 6.29\%\tabularnewline
+WINE & 29.40\% & 59.71\% & 19.20\% & 31.41\% & 16.62\% & \textbf{6.29\%}\tabularnewline
 \hline 
-Z\_F\_S & 47.81\% & 39.37\% & 10.73\% & 13.16\% & 8.38\%\tabularnewline
+Z\_F\_S & 47.81\% & 39.37\% & 10.73\% & 13.16\% & 17.91\% & \textbf{8.38\%}\tabularnewline
 \hline 
-ZO\_NF\_S & 47.43\% & 43.04\% & 21.54\% & 9.02\% & 4.32\%\tabularnewline
+ZO\_NF\_S & 47.43\% & 43.04\% & 21.54\% & 9.02\% & 15.57\% & \textbf{4.32\%}\tabularnewline
 \hline 
-ZONF\_S & 11.99\% & 15.62\% & 4.36\% & 4.03\% & 1.76\%\tabularnewline
+ZONF\_S & 11.99\% & 15.62\% & 4.36\% & 4.03\% & 3.27\% & \textbf{1.76\%}\tabularnewline
 \hline 
-ZOO & 14.13\% & 10.70\% & 9.50\% & 21.93\% & 7.00\%\tabularnewline
+ZOO & 14.13\% & 10.70\% & 9.50\% & 21.93\% & 8.53\% & \textbf{7.00\%}\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{34.23\%} & \textbf{33.58\%} & \textbf{26.13\%} & \textbf{29.21\%} & \textbf{18.73\%}\tabularnewline
+\textbf{AVERAGE} & \textbf{34.23\%} & \textbf{33.58\%} & \textbf{26.13\%} & \textbf{29.21\%} & \textbf{27.40\%} & \textbf{18.73\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 \begin{table}[H]
 \caption{Experimental results for the used regression datasets. Numbers in
 cells represent average regression error as calculated on the corresponding
-test set.\label{tab:experRegression}}
+test set.\protect\label{tab:experRegression}}
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{|c|c|c|c|c|c|c|}
 \hline 
-DATASET & ADAM & BFGS & GENETIC & RBF & PROPOSED\tabularnewline
+DATASET & ADAM & BFGS & GENETIC & RBF & PRUNE & PROPOSED\tabularnewline
 \hline 
 \hline 
-ABALONE & 4.30 & 5.69 & 7.17 & 7.37 & 4.32\tabularnewline
+ABALONE & 4.30 & 5.69 & 7.17 & 7.37 & 7.88 & \textbf{4.32}\tabularnewline
 \hline 
-AIRFOIL & 0.005 & 0.003 & 0.003 & 0.27 & 0.002\tabularnewline
+AIRFOIL & 0.005 & 0.003 & 0.003 & 0.27 & 0.002 & \textbf{0.002}\tabularnewline
 \hline 
-AUTO & 70.84 & 60.97 & 12.18 & 17.87 & 12.78\tabularnewline
+AUTO & 70.84 & 60.97 & \textbf{12.18} & 17.87 & 75.59 & 12.78\tabularnewline
 \hline 
-BK & 0.0252 & 0.28 & 0.027 & 0.02 & 0.02\tabularnewline
+BK & 0.0252 & 0.28 & 0.027 & 0.02 & 0.027 & \textbf{0.02}\tabularnewline
 \hline 
-BL & 0.622 & 2.55 & 5.74 & 0.013 & 0.006\tabularnewline
+BL & 0.622 & 2.55 & 5.74 & 0.013 & 0.027 & \textbf{0.006}\tabularnewline
 \hline 
-BASEBALL & 77.90 & 119.63 & 103.60 & 93.02 & 60.74\tabularnewline
+BASEBALL & 77.90 & 119.63 & 103.60 & 93.02 & 94.50 & \textbf{60.74}\tabularnewline
 \hline 
-CONCRETE & 0.078 & 0.066 & 0.0099 & 0.011 & 0.006\tabularnewline
+CONCRETE & 0.078 & 0.066 & 0.0099 & 0.011 & 0.0077 & \textbf{0.006}\tabularnewline
 \hline 
-DEE & 0.63 & 2.36 & 1.013 & 0.17 & 0.19\tabularnewline
+DEE & 0.63 & 2.36 & 1.013 & \textbf{0.17} & 1.08 & 0.19\tabularnewline
 \hline 
-FRIEDMAN & 22.90 & 1.263 & 1.249 & 7.23 & 2.21\tabularnewline
+FRIEDMAN & 22.90 & 1.263 & \textbf{1.249} & 7.23 & 8.69 & 2.21\tabularnewline
 \hline 
-FY & 0.038 & 0.19 & 0.65 & 0.041 & 0.067\tabularnewline
+FY & \textbf{0.038} & 0.19 & 0.65 & 0.041 & 0.042 & 0.067\tabularnewline
 \hline 
-HO & 0.035 & 0.62 & 2.78 & 0.03 & 0.015\tabularnewline
+HO & 0.035 & 0.62 & 2.78 & 0.03 & 0.03 & \textbf{0.015}\tabularnewline
 \hline 
-HOUSING & 80.99 & 97.38 & 43.26 & 57.68 & 20.74\tabularnewline
+HOUSING & 80.99 & 97.38 & 43.26 & 57.68 & 52.25 & \textbf{20.74}\tabularnewline
 \hline 
-LASER & 0.03 & 0.015 & 0.59 & 0.03 & 0.004\tabularnewline
+LASER & 0.03 & 0.015 & 0.59 & 0.03 & 0.007 & \textbf{0.004}\tabularnewline
 \hline 
-LW & 0.028 & 2.98 & 1.90 & 0.03 & 0.011\tabularnewline
+LW & 0.028 & 2.98 & 1.90 & 0.03 & 0.02 & \textbf{0.011}\tabularnewline
 \hline 
-MORTGAGE & 9.24 & 8.23 & 2.41 & 1.45 & 0.32\tabularnewline
+MORTGAGE & 9.24 & 8.23 & 2.41 & 1.45 & 12.96 & \textbf{0.32}\tabularnewline
 \hline 
-PL & 0.117 & 0.29 & 0.29 & 2.118 & 0.022\tabularnewline
+PL & 0.117 & 0.29 & 0.29 & 2.118 & 0.032 & \textbf{0.022}\tabularnewline
 \hline 
-PLASTIC & 11.71 & 20.32 & 2.791 & 8.62 & 2.16\tabularnewline
+PLASTIC & 11.71 & 20.32 & 2.791 & 8.62 & 17.33 & \textbf{2.16}\tabularnewline
 \hline 
-QUAKE & 0.07 & 0.42 & 0.04 & 0.07 & 0.036\tabularnewline
+QUAKE & 0.07 & 0.42 & 0.04 & 0.07 & 0.04 & \textbf{0.036}\tabularnewline
 \hline 
-SN & 0.026 & 0.40 & 2.95 & 0.027 & 0.023\tabularnewline
+SN & 0.026 & 0.40 & 2.95 & 0.027 & 0.032 & \textbf{0.023}\tabularnewline
 \hline 
-STOCK & 180.89 & 302.43 & 3.88 & 12.23 & 5.57\tabularnewline
+STOCK & 180.89 & 302.43 & \textbf{3.88} & 12.23 & 39.08 & 5.57\tabularnewline
 \hline 
-TREASURY & 11.16 & 9.91 & 2.93 & 2.02 & 0.68\tabularnewline
+TREASURY & 11.16 & 9.91 & 2.93 & 2.02 & 13.76 & \textbf{0.68}\tabularnewline
 \hline 
-\textbf{AVERAGE} & \textbf{22.46} & \textbf{30.29} & \textbf{9.31} & \textbf{10.02} & \textbf{5.23}\tabularnewline
+\textbf{AVERAGE} & \textbf{22.46} & \textbf{30.29} & \textbf{9.31} & \textbf{10.02} & \textbf{15.40} & \textbf{5.23}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 
-The statistical analysis derived from Table \ref{tab:experClass}
-presents the error rates for various classification datasets using
-five different machine learning models: ADAM, BFGS, GENETIC, RBF,
-and PROPOSED. The analysis focuses on comparing the models in terms
-of their effectiveness, with a lower error rate indicating better
-performance. Initially, it is observed that the PROPOSED model achieves
-the lowest average error rate (18.73\%) compared to the other models,
-which have average error rates of 34.23\% (ADAM), 33.58\% (BFGS),
-26.13\% (GENETIC), and 29.21\% (RBF). This highlights the overall
-superiority of the PROPOSED model. Examining individual datasets,
-the PROPOSED model exhibits the lowest error rate in many cases, such
-as \textquotedbl BALANCE\textquotedbl{} (7.79\%), \textquotedbl DERMATOLOGY\textquotedbl{}
-(4.97\%), \textquotedbl STUDENT\textquotedbl{} (4.00\%), \textquotedbl ZO\_NF\_S\textquotedbl{}
-(4.32\%), \textquotedbl ZONF\_S\textquotedbl{} (1.76\%), and \textquotedbl ZOO\textquotedbl{}
-(7.00\%). Notably, its performance on \textquotedbl ZONF\_S,\textquotedbl{}
-with an error rate of only 1.76\%, demonstrates exceptional accuracy.
-In other datasets, such as \textquotedbl CIRCULAR\textquotedbl{}
-and \textquotedbl HOUSEVOTES,\textquotedbl{} the PROPOSED model performs
-very close to the best result but does not outperform the others.
-In some cases, such as \textquotedbl SEGMENT\textquotedbl{} and \textquotedbl WINE,\textquotedbl{}
-it shows higher error rates, indicating room for improvement with
-specific types of data. In comparison, the ADAM model exhibits the
-highest overall deviation, making it the least effective. The RBF
-model also shows higher error rates compared to the PROPOSED model
-in several datasets, such as \textquotedbl BALANCE\textquotedbl{}
-and \textquotedbl ZOO.\textquotedbl{} Similarly, the BFGS model fails
-to achieve low error rates in critical datasets such as \textquotedbl HEART\textquotedbl{}
-and \textquotedbl STATHEART.\textquotedbl{} The GENETIC model demonstrates
-intermediate performance, achieving lower error rates than ADAM and
-BFGS but higher than the PROPOSED model. In conclusion, the analysis
-confirms that the PROPOSED model is the most reliable and consistent
-in most cases, achieving the lowest overall average error rate. 
+The Table \ref{tab:experClass} presents a detailed comparison of
+the performance of six different machine learning models, namely ADAM,
+BFGS, GENETIC, RBF, PRUNE, and PROPOSED, evaluated across multiple
+classification datasets. The values in the table represent the error
+rates for each model on each dataset, expressed as percentages. Lower
+error rates indicate better performance for a given model on a specific
+dataset. The last row of the table provides the average error rate
+for each model, serving as a measure of their overall effectiveness
+across all datasets. From the analysis of this table, it becomes evident
+that the PROPOSED model achieves the best overall performance, with
+an average error rate of 18.73\%. This is the lowest among all the
+models evaluated, demonstrating its superior effectiveness in solving
+classification problems across a diverse set of datasets. In particular,
+the PROPOSED model consistently outperforms the other models in datasets
+such as DERMATOLOGY, ZONF\_S, and ZOO, where it records the smallest
+error rates, indicating its robustness in handling datasets of varying
+complexity and characteristics. The GENETIC model, on the other hand,
+has the highest average error rate at 26.13\%, making it the least
+effective model overall. This result suggests that while the GENETIC
+model may perform adequately in certain contexts, it lacks the adaptability
+and overall reliability exhibited by the PROPOSED model. Examining
+the ADAM model, we observe an average error rate of 34.23\%, which
+is one of the highest among the models. Despite this, ADAM demonstrates
+good performance in specific datasets, such as CIRCULAR and SPIRAL,
+where its error rates are notably low. This indicates that the performance
+of ADAM is heavily dependent on the structure and features of the
+datasets, performing well in certain contexts but underperforming
+in others. Similarly, the BFGS model has an average error rate of
+33.58\%, slightly lower than ADAM, but it exhibits comparable variability
+in its performance across datasets. The RBF model, with an average
+error rate of 29.21\%, performs better than both ADAM and BFGS. RBF
+appears to be more stable in its performance, achieving lower error
+rates across a broader range of datasets, although it does not consistently
+outperform the PROPOSED model. The PRUNE model achieves an average
+error rate of 27.40\%, which places it between RBF and GENETIC in
+terms of overall effectiveness. While PRUNE does not outperform the
+PROPOSED model in most cases, it shows competitive performance in
+datasets such as GLASS, where it records one of the lowest error rates.
+This highlights that PRUNE can be effective in certain specialized
+datasets, though it lacks the overall adaptability of the PROPOSED
+model. A closer inspection of specific datasets further reinforces
+the dominance of the PROPOSED model. For instance, in the STATHEART
+and WINE datasets, which are characterized by increased complexity,
+the PROPOSED model achieves significantly lower error rates compared
+to the other models, indicating its ability to handle challenging
+classification tasks effectively. Additionally, in the HOUSEVOTES
+dataset, the PROPOSED model performs exceptionally well, suggesting
+its reliability in datasets with distinct structures. The GENETIC
+model, while generally less effective, demonstrates relatively strong
+performance in a few datasets such as HAYES-ROTH and SPIRAL, where
+its error rates are comparable to or better than those of other models.
+However, its overall high average error rate indicates that its performance
+is inconsistent and heavily dependent on the specific dataset. Similarly,
+PRUNE performs well in datasets like MAMMOGRAPHIC but falls behind
+in others, such as SEGMENT and BALANCE, where the PROPOSED model outperforms
+it by a considerable margin. The results for the BFGS model reveal
+a mixed performance profile. It achieves relatively low error rates
+in datasets such as BALANCE and HEART, but it struggles in datasets
+like CLEVELAND and LIVERDISORDER, where its error rates are higher
+than most of the other models. This inconsistency highlights the model’s
+limited generalizability across datasets. In conclusion, the PROPOSED
+model demonstrates the best overall performance across the majority
+of the datasets, achieving the lowest average error rate and consistently
+outperforming the other models in a wide range of contexts. This suggests
+that the PROPOSED model is highly adaptable and effective, making
+it suitable for diverse classification tasks. The analysis further
+underscores the importance of selecting the appropriate model based
+on the characteristics of the dataset, as models like ADAM, BFGS,
+and PRUNE show strong performance in specific scenarios but fall short
+in others. The average error rate remains a critical indicator for
+evaluating the overall effectiveness of the models, providing valuable
+insights into their strengths and weaknesses.
 
-The statistical analysis of Table \ref{tab:experRegression} examines
-the absolute error values for various regression datasets using five
-different machine learning models: ADAM, BFGS, GENETIC, RBF, and PROPOSED.
-The analysis evaluates the models based on their performance, where
-lower error values indicate better accuracy. The PROPOSED model achieves
-the lowest average error (5.23) compared to the other models, which
-have average errors of 22.46 (ADAM), 30.29 (BFGS), 9.31 (GENETIC),
-and 10.02 (RBF). This result underscores the superior performance
-of the PROPOSED model overall. Examining individual datasets, the
-PROPOSED model consistently achieves the smallest error in several
-cases. For instance, it outperforms other models in \textquotedbl AIRFOIL\textquotedbl{}
-(0.002), \textquotedbl BL\textquotedbl{} (0.006), \textquotedbl CONCRETE\textquotedbl{}
-(0.006), \textquotedbl HO\textquotedbl{} (0.015), \textquotedbl LASER\textquotedbl{}
-(0.004), \textquotedbl LW\textquotedbl{} (0.011), \textquotedbl MORTGAGE\textquotedbl{}
-(0.32), \textquotedbl PL\textquotedbl{} (0.022), and \textquotedbl PLASTIC\textquotedbl{}
-(2.16). These results highlight the model's robustness across diverse
-datasets. Notably, its performance on \textquotedbl AIRFOIL\textquotedbl{}
-with an error of 0.002 and \textquotedbl LASER\textquotedbl{} with
-0.004 demonstrate exceptional precision. In some datasets, such as
-\textquotedbl SN\textquotedbl{} and \textquotedbl QUAKE,\textquotedbl{}
-the PROPOSED model closely matches the best-performing results but
-does not necessarily achieve the lowest error. In certain cases, like
-\textquotedbl FRIEDMAN\textquotedbl{} and \textquotedbl STOCK,\textquotedbl{}
-while still competitive, the model exhibits higher error values than
-some of its competitors. Specifically, in \textquotedbl STOCK,\textquotedbl{}
-the PROPOSED model records an error of 5.57, which is higher than
-GENETIC's error of 3.88 but significantly lower than ADAM and BFGS.
-These cases indicate areas where further optimization of the PROPOSED
-model may be beneficial. Comparatively, the ADAM and BFGS models generally
-exhibit higher error rates, with BFGS particularly underperforming
-on datasets such as \textquotedbl BASEBALL\textquotedbl{} and \textquotedbl STOCK.\textquotedbl{}
-The GENETIC model demonstrates strong performance, with its average
-error being the second lowest (9.31). However, its results are still
-consistently higher than the PROPOSED model on key datasets like \textquotedbl MORTGAGE\textquotedbl{}
-and \textquotedbl HOUSING.\textquotedbl{} Similarly, the RBF model,
-while competitive in some cases, such as \textquotedbl TREASURY,\textquotedbl{}
-has higher errors in others, such as \textquotedbl AUTO\textquotedbl{}
-and \textquotedbl BL.\textquotedbl{} In conclusion, the analysis
-confirms that the PROPOSED model is the most effective and consistent
-across the majority of regression datasets, achieving the lowest overall
-average error. 
+The dynamics of the proposed technique on the classification data
+is also presented graphically in Figure \ref{fig:The-average-classification},
+where the average classification error per method is presented.
+\begin{figure}[H]
+\includegraphics[scale=0.5]{average_barchart}
 
-In Figure \ref{fig:statClass}, which pertains to classification datasets
-for various machine learning models, the proposed method demonstrates
-highly significant differences when compared to other methods. Specifically,
-the p-values are as follows: PROPOSED vs ADAM: p=2.9e-11, PROPOSED
-vs BFGS: p=1.3e-09, PROPOSED vs GENETIC: p=1.6e-08 and PROPOSED vs
-RBF: p=8e-08. These results highlight the statistical significance
-of the proposed method in classification tasks. 
+\caption{The average classification error for all methods used in the conducted
+experiments.\protect\label{fig:The-average-classification}}
+
+\end{figure}
+ Furthermore, Figure \ref{fig:casesReduction} graphically presents
+the number of cases in which there was a significant reduction in
+classification error between the simple genetic algorithm and the
+proposed method. As is evident, in a significant number of cases there
+is a drastic reduction in classification error exceeding 20\% \LyXZeroWidthSpace\LyXZeroWidthSpace or
+even 40\%.
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.75]{class_improve}
+\par\end{centering}
+\caption{Number of cases for the classification datasets where a reduction
+was appeared in the classification error between the original genetic
+algorithm and the proposed method.\protect\label{fig:casesReduction}}
+
+\end{figure}
+. Also, a comparison for the factors of precision and recall between
+the original genetic algorithm and the proposed method is outlined
+in Table \ref{tab:precisionAndRecall} for the classification datasets.
+
+\begin{table}[H]
+\caption{Comparison of precision and recall between the original genetic algorithm
+and the proposed method.\protect\label{tab:precisionAndRecall}}
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+ & \multicolumn{2}{c|}{GENETIC} & \multicolumn{2}{c|}{\textbf{PROPOSED}}\tabularnewline
+\hline 
+\hline 
+\textbf{DATASET} & \textbf{PRECISION} & \textbf{RECALL} & \textbf{PRECISION} & \textbf{RECALL}\tabularnewline
+\hline 
+APPENDICITIS & 0.81 & 0.81 & 0.86 & 0.85\tabularnewline
+\hline 
+ALCOHOL & 0.58 & 0.61 & 0.83 & 0.83\tabularnewline
+\hline 
+AUSTRALIAN & 0.67 & 0.66 & 0.79 & 0.80\tabularnewline
+\hline 
+BALANCE & 0.83 & 0.88 & 0.86 & 0.92\tabularnewline
+\hline 
+CLEVELAND & 0.43 & 0.53 & 0.45 & 0.59\tabularnewline
+\hline 
+CIRCULAR & 0.91 & 0.91 & 0.94 & 0.94\tabularnewline
+\hline 
+DERMATOLOGY & 0.72 & 0.90 & 0.90 & 0.88\tabularnewline
+\hline 
+ECOLI & 0.41 & 0.44 & 0.54 & 0.59\tabularnewline
+\hline 
+GLASS & 0.47 & 0.58 & 0.48 & 0.52\tabularnewline
+\hline 
+HABERMAN & 0.61 & 0.59 & 0.62 & 0.61\tabularnewline
+\hline 
+HAYES ROTH & 0.40 & 0.47 & 0.70 & 0.65\tabularnewline
+\hline 
+HEART & 0.70 & 0.69 & 0.86 & 0.85\tabularnewline
+\hline 
+HEARTATTACK & 0.71 & 0.70 & 0.77 & 0.78\tabularnewline
+\hline 
+HOUSEVOTES & 0.91 & 0.92 & 0.95 & 0.96\tabularnewline
+\hline 
+IONOSPHERE & 0.85 & 0.87 & 0.90 & 0.86\tabularnewline
+\hline 
+LIVERDISORDER & 0.69 & 0.67 & 0.67 & 0.66\tabularnewline
+\hline 
+LYMOGRAPHY & 0.68 & 0.69 & 0.84 & 0.85\tabularnewline
+\hline 
+MAMMOGRAPHIC & 0.80 & 0.80 & 0.84 & 0.84\tabularnewline
+\hline 
+PARKINSONS & 0.79 & 0.68 & 0.86 & 0.76\tabularnewline
+\hline 
+PHONEME & 0.79 & 0.78 & 0.78 & 0.76\tabularnewline
+\hline 
+PIMA & 0.65 & 0.64 & 0.71 & 0.70\tabularnewline
+\hline 
+POPFAILURES & 0.80 & 0.84 & 0.84 & 0.83\tabularnewline
+\hline 
+REGIONS2 & 0.53 & 0.63 & 0.60 & 0.68\tabularnewline
+\hline 
+SAHEART & 0.62 & 0.66 & 0.66 & 0.63\tabularnewline
+\hline 
+SEGMENT & 0.53 & 0.50 & 0.67 & 0.67\tabularnewline
+\hline 
+SONAR & 0.80 & 0.78 & 0.78 & 0.76\tabularnewline
+\hline 
+SPIRAL & 0.55 & 0.55 & 0.56 & 0.56\tabularnewline
+\hline 
+STATHEART & 0.70 & 0.70 & 0.81 & 0.80\tabularnewline
+\hline 
+STUDENT & 0.96 & 0.96 & 0.96 & 0.96\tabularnewline
+\hline 
+TRANSFUSION & 0.69 & 0.68 & 0.68 & 0.63\tabularnewline
+\hline 
+WDBC & 0.92 & 0.90 & 0.94 & 0.93\tabularnewline
+\hline 
+WINE & 0.78 & 0.86 & 0.95 & 0.93\tabularnewline
+\hline 
+Z\_F\_S & 0.90 & 0.88 & 0.92 & 0.92\tabularnewline
+\hline 
+ZO\_NF\_S & 0.78 & 0.78 & 0.94 & 0.94\tabularnewline
+\hline 
+ZOO & 0.90 & 0.90 & 0.94 & 0.96\tabularnewline
+\hline 
+\textbf{AVERAGE} & \textbf{0.71} & \textbf{0.73} & \textbf{0.78} & \textbf{0.78}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+Similarly, Table \ref{tab:experRegression} presents the comparison
+of the performance of the same machine learning models, across a series
+of regression datasets. The values in the table are absolute and represent
+the error of each model for each dataset. From the analysis, it is
+evident that the proposed model (PROPOSED) demonstrates the best overall
+performance, with an average error of 5.23. This value is significantly
+lower than the average errors of the other models, highlighting that
+PROPOSED is the most effective model for regression problems. The
+GENETIC model exhibits the second-lowest average error, 9.31, indicating
+that it is also a reliable choice, though noticeably less effective
+than PROPOSED. The RBF model achieves an average error of 10.02, ranking
+third in performance while showing consistent results across many
+datasets. The PRUNE model has an average error of 15.4, which is higher
+than GENETIC and RBF but still shows remarkable performance in specific
+datasets, such as CONCRETE and LASER. The ADAM and BFGS models have
+the highest average errors, 22.46 and 30.29 respectively, making them
+the least effective overall. At the individual dataset level, the
+PROPOSED model demonstrates superior performance in many instances.
+For example, in the AIRFOIL, CONCRETE, LASER, and MORTGAGE datasets,
+PROPOSED records the smallest error values, underscoring its high
+effectiveness in addressing problems with varying characteristics.
+In the BL dataset, the PROPOSED model achieves an exceptionally low
+error of 0.006, the smallest among all models. In more complex datasets,
+such as BASEBALL and HOUSING, PROPOSED significantly outperforms others
+with error values of 60.74 and 20.74, respectively. These results
+emphasize its adaptability to problems of different levels of complexity.
+The GENETIC model, while performing well overall, shows significant
+variability. For instance, it records relatively low errors in the
+AUTO and PLASTIC datasets, with values of 12.18 and 2.791, respectively,
+but exhibits considerably higher errors in others, such as STOCK and
+BASEBALL. This inconsistency suggests limited stability. Similarly,
+the RBF model demonstrates good overall performance, with notable
+results in datasets like MORTGAGE and PL, where its errors are among
+the lowest. However, in datasets like AUTO and STOCK, its errors are
+significantly higher than those of the PROPOSED model. The PRUNE model
+delivers noteworthy results in specific datasets. For example, in
+CONCRETE, it achieves one of the smallest errors, only 0.0077, while
+in datasets such as PLASTIC and TREASURY, its error is larger, indicating
+less consistency under varying conditions. On the other hand, ADAM,
+despite being generally less effective, performs well in a few datasets
+like BK and QUAKE, where it records lower errors compared to other
+models. The BFGS model, with the highest average error, consistently
+underperforms across most datasets, with standout poor results in
+BASEBALL and STOCK, where it records particularly high error values.
+In summary, the analysis of the table reveals that the proposed model
+PROPOSED achieves the best overall performance compared to the other
+models, while being particularly effective in datasets with varying
+levels of complexity. The average error serves as a useful indicator
+of the effectiveness of each model, reaffirming the superiority of
+the PROPOSED model across a wide range of regression problems.
+
+In Figure \ref{fig:statClass} focuses on regression datasets and
+reveals similar results favoring the proposed model, although the
+\textquotedbl p\textquotedbl{} values are slightly higher compared
+to those in the classification datasets. The comparison between PROPOSED
+and ADAM produces a \textquotedbl p\textquotedbl{} value of 0.0001,
+indicating a statistically significant difference in favor of the
+PROPOSED model. Comparisons with the other models, specifically PROPOSED
+vs BFGS (p=4.1e-05), PROPOSED vs GENETIC (p=0.0022), PROPOSED vs RBF
+(p=0.00073), and PROPOSED vs PRUNE (p=0.00042), also demonstrate statistically
+significant differences. All \textquotedbl p\textquotedbl{} values
+remain below the 0.05 threshold, affirming that the observed performance
+differences are not attributable to randomness. Notably, the very
+low \textquotedbl p\textquotedbl{} values in the regression datasets
+underscore the overall effectiveness of the PROPOSED model in addressing
+regression problems. The PROPOSED model demonstrates a high level
+of adaptability across various datasets with diverse characteristics,
+consistently maintaining its superiority over the other models.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[scale=0.5]{img1}
 \par\end{centering}
 \caption{Statistical comparison of the used methods for the classification
-datasets.\label{fig:statClass}}
+datasets.\protect\label{fig:statClass}}
 \end{figure}
 
-In Figure \ref{fig:statRegression}, focusing on regression datasets
-for various machine learning models, the proposed method again shows
-statistically significant differences when compared to other methods.
-The corresponding p-values are: PROPOSED vs ADAM: p=0.0001, PROPOSED
-vs BFGS: p=4.1e-05, PROPOSED vs GENETIC: p=0.0022 and PROPOSED vs
-RBF: p=0.00073. These results indicate the superiority of the proposed
-method across regression datasets with notable levels of significance. 
+Consequently, the results from Figure \ref{fig:statRegression} further
+strengthen the position of the PROPOSED model as the most effective
+solution for regression problems, providing reliable and statistically
+significant performance.
 
 \begin{figure}[H]
 \begin{centering}
 \includegraphics[scale=0.5]{img2}
 \par\end{centering}
 \caption{Statistical comparison between the used methods for the regression
-datasets.\label{fig:statRegression}}
+datasets.\protect\label{fig:statRegression}}
 
+\end{figure}
+ Also, in the plot of Figure \ref{fig:comparisonDermatology}a comparison
+in terms of classification error is made between the simple genetic
+algorithm and the proposed one for the Dermatology dataset. Likewise,
+in Figure \ref{fig:comparisonHousing} a plot of the regression error
+is outlined for the genetic algorithm and the proposed method. For
+both cases, there is a significant improvement in terms of error values.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{dermatology_plot}
+\par\end{centering}
+\caption{A graphical comparison of the genetic algorithm and the proposed method
+for the Dermatology dataset. The horizontal axis denotes number of
+generations and the vertical classification error as measured on the
+test set.\protect\label{fig:comparisonDermatology}}
+
+\end{figure}
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{housing_plot}
+\par\end{centering}
+\caption{Comparison between the genetic algorithm and the proposed method for
+the Housing regression dataset.The horizontal axis denotes number
+of generations and the vertical regression error as measured on the
+test set.\protect\label{fig:comparisonHousing}}
 \end{figure}
 
 
-\subsubsection{Using different weight methods }
+\subsection{Using different weight methods}
 
 An additional experiment was executed where the parameter $F$ of
 the differential evolution was altered using some well - known approaches
@@ -1008,7 +1284,7 @@ the regression datasets respectively.
 
 \begin{table}[H]
 \caption{Experimental results for the classification datasets and the proposed
-method using a series of differential weight mechanisms.\label{tab:experFClass}}
+method using a series of differential weight mechanisms.\protect\label{tab:experFClass}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|}
@@ -1095,7 +1371,7 @@ ZOO & 7.00\% & 4.90\% & 9.00\% & 6.10\%\tabularnewline
 \begin{table}[H]
 \caption{Experimental results for the regression datasets and the proposed
 method using a variety of techniques for the calculation of differential
-weight.\label{tab:experFRegression}}
+weight.\protect\label{tab:experFRegression}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|}
@@ -1233,7 +1509,7 @@ others, such as RANDOM vs FIXED, do not demonstrate significant differences.
 \par\end{centering}
 \caption{Statistical comparison between the proposed variations of the differential
 weight mechanisms. The experiments were conducted on the classification
-datasets.\label{fig:statFClass}}
+datasets.\protect\label{fig:statFClass}}
 
 \end{figure}
 
@@ -1252,12 +1528,12 @@ significance.
 \par\end{centering}
 \caption{Statistical comparison for the different variations of the weight
 calculation mechanism. The experiments were conducted using the proposed
-method on the regression datasets.\label{fig:statFRegression}}
+method on the regression datasets.\protect\label{fig:statFRegression}}
 
 \end{figure}
 
 
-\subsubsection{Experiment with the number of agents}
+\subsection{Experiment with the number of agents}
 
 An additional experiment was conducted using different values for
 the parameter NP, which represents the number of agents. In this experiment
@@ -1268,7 +1544,7 @@ and for the regression datasets in Table \ref{tab:experNPRegression}.
 \begin{table}[H]
 
 \caption{Experimental results for the classification datasets and the proposed
-method using a variety of values for the parameter NP.\label{tab:experNPClass}}
+method using a variety of values for the parameter NP.\protect\label{tab:experNPClass}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
@@ -1355,7 +1631,7 @@ ZOO & 6.00\% & 6.00\% & 7.00\%\tabularnewline
 \begin{table}[H]
 
 \caption{Experimental results for the regression datasets using the proposed
-method and a variety of values for parameter NP.\label{tab:experNPRegression}}
+method and a variety of values for parameter NP.\protect\label{tab:experNPRegression}}
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
@@ -1483,7 +1759,7 @@ statistical significance.
 \par\end{centering}
 \caption{Statistical comparison for the experiments conducted on the classification
 datasets using the proposed method and different values for the parameter
-NP.\label{fig:statNPClass}}
+NP.\protect\label{fig:statNPClass}}
 
 \end{figure}
 
@@ -1501,44 +1777,133 @@ NP=50 vs NP=100 does not.
 \par\end{centering}
 \caption{Statistical comparison for the conducted experiments on the regression
 datasets using the proposed method and different values of the parameter
-NP.\label{fig:statNPRegression}}
+NP.\protect\label{fig:statNPRegression}}
 
 \end{figure}
 
 
-\section{Conclusions\label{sec:Conclusions}}
+\subsection{Discussion}
+
+This study introduces an innovative three-stage evolutionary method
+for training artificial neural networks (ANNs), with the primary goal
+of reducing both training error and overfitting. The results show
+that the proposed approach achieves a mean classification error of
+18.73\% and a mean regression error of 5.23, significantly outperforming
+conventional methods such as ADAM, BFGS, PRUNE, genetic algorithms,
+and radial basis function (RBF) networks. This improvement demonstrates
+that combining genetic algorithms with differential evolution to define
+optimal parameter bounds is an effective strategy for enhancing model
+generalization. Specifically, the use of a modified fitness function,
+which penalizes large deviations in weight values, appears to limit
+the networks' tendency to overfit training data. For example, in datasets
+like \textquotedbl DERMATOLOGY,\textquotedbl{} where the classification
+error drops to 4.97\%, the method maintains high accuracy even in
+cases of high variability.
+
+Compared to previous studies that focused on standalone techniques
+like genetic algorithm-based training or Adam optimizers, the current
+method introduces two critical innovations. First, differential evolution
+in the second stage enables systematic exploration of the parameter
+space to identify optimal value intervals for weights. Second, the
+multi-stage nature of the process initial boundary estimation, interval
+optimization, and final training provides a structured framework for
+managing problem complexity. These enhancements explain the significant
+reduction in mean error compared to prior methods, such as the decrease
+from 26.13\% to 18.73\% in classification and from 10.02 to 5.23 in
+regression.
+
+However, the method is not without limitations. A primary constraint
+is its high computational cost, stemming from the three-stage process
+and the large number of agents (NP=200) required to explore the parameter
+space. Additionally, the method’s performance heavily depends on hyperparameter
+tuning, such as crossover probability (CR). For instance, in datasets
+like \textquotedbl SEGMENT\textquotedbl{} (27.80\% error) or \textquotedbl STOCK\textquotedbl{}
+(5.57 error), the method shows relative weakness, likely due to data
+complexity or noise. Furthermore, the use of a single hidden layer
+(H=10) may be insufficient for high-dimensional problems, highlighting
+the need for more complex architectures.
+
+Error sources can be attributed to multiple factors. In medical datasets
+like \textquotedbl CLEVELAND\textquotedbl{} (42.38\% error), noise
+or class imbalance may affect accuracy. Additionally, random weight
+initialization in the first stage can lead to suboptimal solutions,
+while the network’s static architecture limits its ability to handle
+non-linear relationships. However, a clear trend emerges: increasing
+the number of agents (NP) improves performance, as seen in the reduction
+of mean classification error from 20.36\% (NP=50) to 18.73\% (NP=200).
+This suggests that broader parameter space exploration enhances generalization.
+
+\section{Conclusions\protect\label{sec:Conclusions}}
 
 The proposed evolutionary method, based on differential evolution,
-proves to be highly effective in optimizing the weights of artificial
-neural networks, significantly reducing both training error and overfitting.
-Compared to other popular methods such as ADAM, BFGS, genetic algorithms,
-and RBF, the new approach demonstrates superior performance in classification
-tasks with an average error of 18.73\% and regression tasks with an
-average error of 5.23\%. Despite these positive results, certain datasets,
-such as \textquotedbl SEGMENT\textquotedbl{} and \textquotedbl STOCK,\textquotedbl{}
-exhibit higher errors, likely due to data complexity or inherent noise
-that affects prediction accuracy. The random computation of parameter
-F and the use of a larger number of agents, such as NP=200, seem to
-enhance the system’s performance. However, smaller NP values yield
-better results in some cases, indicating the necessity for adaptive
-parameter tuning mechanisms during the optimization process. 
+proves highly effective in optimizing the weights of artificial neural
+networks, significantly reducing both training error and overfitting.
+Compared to other popular methods such as ADAM, BFGS, PRUNE genetic
+algorithms, and radial basis function (RBF) networks, the new approach
+demonstrates superior performance in classification tasks with a mean
+error of 18.73\% and regression tasks with a mean error of 5.23\%.
+Despite these positive results, certain datasets, such as \textquotedbl SEGMENT\textquotedbl{}
+and \textquotedbl STOCK,\textquotedbl{} exhibit higher errors, likely
+due to data complexity or inherent noise affecting prediction accuracy.
+The random computation of parameter F and the use of a larger number
+of agents (e.g., NP=200) enhance system performance. However, smaller
+NP values yield better results in some cases, highlighting the need
+for adaptive parameter tuning mechanisms during optimization.
 
-Future research could focus on applying the method to more complex
-or high-dimensional data, such as images, text, or time series, to
-evaluate its scalability and flexibility. Developing mechanisms for
-dynamic parameter tuning, such as F, CR, and NP, could eliminate the
-need for manual experimentation and enhance overall efficiency. Additionally,
-combining this evolutionary approach with other machine learning techniques,
-such as reinforcement learning or dynamic neural networks, may improve
-generalization and adaptability. Testing the method on different network
-architectures, such as recurrent neural networks (RNNs) or graph neural
-networks (GNNs), could provide valuable insights into its adaptability
-and flexibility across various contexts. Furthermore, a theoretical
-analysis of the algorithm’s convergence and stability could offer
-a deeper understanding of its strengths and limitations. Finally,
-focused studies on datasets where the method underperforms could identify
-specific factors, such as noise, class imbalance, or feature complexity,
-and propose targeted optimizations to address these challenges effectively.
+The significance of this research lies in the method’s ability to
+address two critical challenges in machine learning: reducing training
+error and controlling overfitting. By sequentially using genetic algorithms
+for initial boundary definition, differential evolution for interval
+optimization, and a final training phase, the method provides a structured
+framework that enhances model generalization. This makes it particularly
+useful in applications where reliability and interpretability are
+critical, such as medical diagnosis or industrial failure prediction.
+For example, the exceptional performance on the \textquotedbl DERMATOLOGY\textquotedbl{}
+dataset (4.97\% error) demonstrates its robustness even under high-variance
+conditions.
+
+However, the method operates within specific constraints. High computational
+costs, due to the three-stage process and large number of agents,
+limit its applicability in real-time or resource-constrained environments.
+Additionally, its performance heavily depends on manual hyperparameter
+tuning, such as crossover probability (CR). Furthermore, the use of
+simple architectures with a single hidden layer (H=10) restricts its
+ability to model complex relationships, as seen in underperformance
+on datasets like \textquotedbl SEGMENT\textquotedbl{} (27.80\% error).
+Noise in the data or class imbalance, as in \textquotedbl CLEVELAND\textquotedbl{}
+(42.38\% error), can worsen results, emphasizing the need for preprocessing
+or domain-specific adaptations.
+
+For future research, developing mechanisms for dynamic parameter tuning
+(e.g., automated selection of CR or NP) is essential to reduce reliance
+on manual experimentation. Applying the method to high-dimensional
+data, such as images or text, would evaluate its flexibility in domains
+like computer vision or natural language processing. Combining it
+with techniques like reinforcement learning or attention mechanisms
+could improve adaptability in dynamic environments. Finally, a theoretical
+analysis of the algorithm’s convergence and stability, alongside empirical
+studies on underperforming datasets, could isolate error sources (e.g.,
+noise sensitivity) and lead to optimizations.
+
+In practical terms, the method is highly relevant in domains where
+generalization and interpretability outweigh speed, such as healthcare
+or critical infrastructure systems. However, its current weaknesses
+necessitate cautious application in resource-limited or highly complex
+scenarios. With strategic improvements in dynamic tuning and integration
+with advanced architectures, the method could become a cornerstone
+tool for next-generation neural networks, balancing theoretical innovation
+and practical utility.
+
+A key problem of the new technique is the slow training times of artificial
+neural networks, since it is a three-stage technique. In each stage
+a separate stochastic technique must be applied. This means that the
+execution time will be increased compared to other techniques, such
+as the simple genetic algorithm. Of course, some individual parts
+of the process can be accelerated by using parallel computing techniques.
+Finally, although the method uses a genetic algorithm in its last
+stage to evaluate the parameter value ranges, other optimization techniques
+can be used in its place, such as the Differential Evolution technique
+and the PSO technique.
 
 $ $
 
@@ -1597,6 +1962,10 @@ neural networks for high-energy physics, Eur. Phys. J. C \textbf{76},
 P., \& Whiteson, D. (2016). Parameterized neural networks for high-energy
 physics. The European Physical Journal C, 76(5), 1-7.
 
+\bibitem{nnastro}Firth, A. E., Lahav, O., \& Somerville, R. S. (2003).
+Estimating photometric redshifts with artificial neural networks.
+Monthly Notices of the Royal Astronomical Society, 339(4), 1195-1202.
+
 \bibitem{nn_solar}A. Kumar Yadav, S.S. Chandel, Solar radiation prediction
 using Artificial Neural Network techniques: A review, Renewable and
 Sustainable Energy Reviews \textbf{33}, pp. 772-781, 2014.
@@ -1610,18 +1979,10 @@ Development, Applied Sciences \textbf{10}, Article number 3835, 2020.
 algorithms for feedforward neural networks. International Journal
 of Engineering Development and Research, 1(3), 193-197.
 
-\bibitem{bpnn2}K. Vora, S. Yagnik, A survey on backpropagation algorithms
-for feedforward neural networks, International Journal of Engineering
-Development and Research \textbf{1}, pp. 193-197, 2014.
-
 \bibitem{rpropnn-1}Pajchrowski, T., Zawirski, K., \& Nowopolski,
 K. (2014). Neural speed controller trained online by means of modified
 RPROP algorithm. IEEE transactions on industrial informatics, 11(2),
 560-568.
-
-\bibitem{rpropnn-2}Hermanto, R. P. S., \& Nugroho, A. (2018). Waiting-time
-estimation in bank customer queues using RPROP neural networks. Procedia
-Computer Science, 135, 35-42.
 
 \bibitem{nn_adam}D. P. Kingma, J. L. Ba, ADAM: a method for stochastic
 optimization, in: Proceedings of the 3rd International Conference
@@ -1678,44 +2039,35 @@ Pattern Recognition \textbf{37}, pp. 1311-1314, 2004.
 neural network potential for molecular dynamics simulation, Computer
 Physics Communications \textbf{285}, 108655, 2023. 
 
-\bibitem{nn_overfitting}Ying, X. (2019, February). An overview of
-overfitting and its solutions. In Journal of physics: Conference series
-(Vol. 1168, p. 022022). IOP Publishing.
-
 \bibitem{nnsharing1}S.J. Nowlan and G.E. Hinton, Simplifying neural
 networks by soft weight sharing, Neural Computation 4, pp. 473-493,
 1992.
-
-\bibitem{nnsharing2}Nowlan, S. J., \& Hinton, G. E. (2018). Simplifying
-neural networks by soft weight sharing. In The mathematics of generalization
-(pp. 373-394). CRC Press.
 
 \bibitem{nnprunning1}S.J. Hanson and L.Y. Pratt, Comparing biases
 for minimal network construction with back propagation, In D.S. Touretzky
 (Ed.), Advances in Neural Information Processing Systems, Volume 1,
 pp. 177-185, San Mateo, CA: Morgan Kaufmann, 1989.
 
-\bibitem{nnprunning2}M. Augasta and T. Kathirvalavakumar, Pruning
-algorithms of neural networks --- a comparative study, Central European
-Journal of Computer Science, 2003.
-
 \bibitem{nnearly1}Lutz Prechelt, Automatic early stopping using cross
 validation: quantifying the criteria, Neural Networks \textbf{11},
 pp. 761-767, 1998.
-
-\bibitem{nnearly2}X. Wu and J. Liu, A New Early Stopping Algorithm
-for Improving Neural Network Generalization, 2009 Second International
-Conference on Intelligent Computation Technology and Automation, Changsha,
-Hunan, 2009, pp. 15-18.
 
 \bibitem{nndecay1}N. K. Treadgold and T. D. Gedeon, Simulated annealing
 and weight decay in adaptive learning: the SARPROP algorithm,IEEE
 Transactions on Neural Networks \textbf{9}, pp. 662-668, 1998.
 
-\bibitem{nndecay2}M. Carvalho and T. B. Ludermir, Particle Swarm
-Optimization of Feed-Forward Neural Networks with Weight Decay, 2006
-Sixth International Conference on Hybrid Intelligent Systems (HIS'06),
-Rio de Janeiro, Brazil, 2006, pp. 5-5.
+\bibitem[(2014)]{Dropout}Nitish Srivastava, G E Hinton, Alex Krizhevsky,
+Ilya Sutskever, Ruslan R Salakhutdinov, Dropout: a simple way to prevent
+neural networks from overfitting, Journal of Machine Learning Research
+\textbf{15}, pp. 1929-1958, 2014.
+
+\bibitem[(2014)]{Sarprop}N.K. Treadgold, T.D. Gedeon, Simulated annealing
+and weight decay in adaptive learning: the SARPROP algorithm, IEEE
+Trans. on Neural Networks 9, pp. 662-668, 1998.
+
+\bibitem[(2014)]{nnpos}M.D. Shahjahan, M. Kazuyuki, Neural network
+training algorithm with possitive correlation, IEEE Trans. Inf \&
+Syst. \textbf{88}, pp. 2399-2409, 2005.
 
 \bibitem{nn_arch1}J. Arifovic, R. Gençay, Using genetic algorithms
 to select architecture of a feedforward artificial neural network,
@@ -1729,6 +2081,35 @@ Artificial Intelligence \textbf{20}, pp. 365-382, 2007.
 \bibitem{nn_arch3}B.A. Garro, R.A. Vázquez, Designing Artificial
 Neural Networks Using Particle Swarm Optimization Algorithms, Computational
 Intelligence and Neuroscience, 369298, 2015. 
+
+\bibitem[(2014)]{nn_arch4}B. Baker, O. Gupta, N. Naik, R. Raskar,
+Designing neural network architectures using reinforcement learning.
+arXiv preprint arXiv:1611.02167, 2016.
+
+\bibitem{nn_arch5}M. M. Islam, M. A. Sattar, M. F. Amin, X. Yao,
+K. Murase, A New Adaptive Merging and Growing Algorithm for Designing
+Artificial Neural Networks, IEEE Transactions on Systems, Man, and
+Cybernetics, Part B (Cybernetics) \textbf{39}, pp. 705-722, 2009. 
+
+\bibitem[(2014)]{ge1}M. O’Neill, C. Ryan, Grammatical evolution,
+IEEE Trans. Evol. Comput. \textbf{5,}pp. 349--358, 2001.
+
+\bibitem[(2014)]{nnc}I.G. Tsoulos, D. Gavrilis, E. Glavas, Neural
+network construction and training using grammatical evolution, Neurocomputing
+\textbf{72}, pp. 269-277, 2008.
+
+\bibitem[(2014)]{nn_number_neurons}Liu, Y., Starzyk, J. A., \& Zhu,
+Z. (2007). Optimizing number of hidden neurons in neural networks.
+EeC, 1(1), 6.
+
+\bibitem[(2014)]{nn_over_runoff}A.P. Piotrowski, J.J. Napiorkowski,
+A comparison of methods to avoid overfitting in neural networks training
+in the case of catchment runoff modelling, Journal of Hydrology \textbf{476},
+pp 97-111, 2013.
+
+\bibitem[(2014)]{nn_overfitting_review}Ying, X. (2019, February).
+An overview of overfitting and its solutions. In Journal of physics:
+Conference series (Vol. 1168, p. 022022). IOP Publishing.
 
 \bibitem{gen_review}Lambora, A., Gupta, K., \& Chopra, K. (2019,
 February). Genetic algorithm-A literature review. In 2019 international
@@ -1758,9 +2139,20 @@ and particle swarm optimization to develop some symmetry-based automatic
 clustering techniques: application to gene clustering, Neural Comput
 \& Applic \textbf{30}, pp. 735--757, 2018.
 
-\bibitem{nnc}I.G. Tsoulos, D. Gavrilis, E. Glavas, Neural network
-construction and training using grammatical evolution, Neurocomputing
-\textbf{72}, pp. 269-277, 2008.
+\bibitem[(2014)]{ga_nn1}J. Arifovic, R. Gençay, Using genetic algorithms
+to select architecture of a feedforward artificial neural network,
+Physica A: Statistical Mechanics and its Applications \textbf{289},
+pp. 574-594, 2001. 
+
+\bibitem[(2014)]{ga_nn2}F. H. F. Leung, H. K. Lam, S. H. Ling, P.
+K. S. Tam, Tuning of the structure and parameters of a neural network
+using an improved genetic algorithm, IEEE Transactions on Neural Networks
+\textbf{14}, pp. 79-88, 2003.
+
+\bibitem[(2014)]{ga_nn3}F. Ahmadizar, K. Soltanian, F. AkhlaghianTab,
+I. Tsoulos, Artificial neural network development by means of a novel
+combination of grammatical evolution and genetic algorithm, Engineering
+Applications of Artificial Intelligence \textbf{39}, pp. 1-13, 2015. 
 
 \bibitem{Hornik}Hornik, K., Stinchcombe, M., \& White, H. (1989).
 Multilayer feedforward networks are universal approximators. Neural
@@ -1801,10 +2193,6 @@ pp. 59-88, 1994.
 based C4.5,\textquotedbl{} in IEEE Transactions on Knowledge and Data
 Engineering \textbf{16}, pp. 770-773, 2004.
 
-\bibitem{cleveland2}R. Setiono , W.K. Leow, FERNN: An Algorithm for
-Fast Extraction of Rules from Neural Networks, Applied Intelligence
-\textbf{12}, pp. 15-25, 2000.
-
 \bibitem[(1998)]{dermatology}G. Demiroz, H.A. Govenir, N. Ilter,
 Learning Differential Diagnosis of Eryhemato-Squamous Diseases using
 Voting Feature Intervals, Artificial Intelligence in Medicine. \textbf{13},
@@ -1832,17 +2220,9 @@ reducing catastrophic forgetting, Neural Comput. \textbf{14}, pp.
 Unsupervised Learning, The Journal of Machine Learning Research \textbf{5},
 pp 845--889, 2004.
 
-\bibitem{ion2}S. J. Perantonis, V. Virvilis, Input Feature Extraction
-for Multilayered Perceptrons Using Supervised Principal Component
-Analysis, Neural Processing Letters \textbf{10}, pp 243--252, 1999.
-
 \bibitem[(2002)]{liver} J. Garcke, M. Griebel, Classification with
 sparse grids using simplicial basis functions, Intell. Data Anal.
 \textbf{6}, pp. 483-502, 2002.
-
-\bibitem{liver1}J. Mcdermott, R.S. Forsyth, Diagnosing a disorder
-in a classification benchmark, Pattern Recognition Letters \textbf{73},
-pp. 41-43, 2016.
 
 \bibitem[(2002)]{lymography}G. Cestnik, I. Konenenko, I. Bratko,
 Assistant-86: A Knowledge-Elicitation Tool for Sophisticated Users.
@@ -1857,11 +2237,6 @@ pp. 4164-72, 2007.
 \bibitem[(2007)]{parkinsons1}M.A. Little, P.E. McSharry, S.J Roberts
 et al, Exploiting Nonlinear Recurrence and Fractal Scaling Properties
 for Voice Disorder Detection. BioMed Eng OnLine \textbf{6}, 23, 2007.
-
-\bibitem{parkinsons2}M.A. Little, P.E. McSharry, E.J. Hunter, J.
-Spielman, L.O. Ramig, Suitability of dysphonia measurements for telemonitoring
-of Parkinson's disease. IEEE Trans Biomed Eng. \textbf{56}, pp. 1015-1022,
-2009.
 
 \bibitem[(2007)]{pima}J.W. Smith, J.E. Everhart, W.C. Dickson, W.C.
 Knowler, R.S. Johannes, Using the ADAP learning algorithm to forecast
@@ -1903,11 +2278,6 @@ bat algorithm for feature selection with the wisconsin diagnosis breast
 cancer (WDBC) dataset. Asian Pacific journal of cancer prevention:
 APJCP, 18(5), 1257.
 
-\bibitem[(2007)]{wdbc2}Alshayeji, M. H., Ellethy, H., \& Gupta, R.
-(2022). Computer-aided detection of breast cancer on the Wisconsin
-dataset: An artificial neural networks approach. Biomedical signal
-processing and control, 71, 103141.
-
 \bibitem[(2007)]{wine1}M. Raymer, T.E. Doom, L.A. Kuhn, W.F. Punch,
 Knowledge discovery in medical and biological datasets using a hybrid
 Bayes classifier/evolutionary algorithm. IEEE transactions on systems,
@@ -1915,20 +2285,11 @@ man, and cybernetics. Part B, Cybernetics : a publication of the IEEE
 Systems, Man, and Cybernetics Society, \textbf{33} , pp. 802-813,
 2003.
 
-\bibitem{wine2}P. Zhong, M. Fukushima, Regularized nonsmooth Newton
-method for multi-class support vector machines, Optimization Methods
-and Software \textbf{22}, pp. 225-236, 2007.
-
 \bibitem[(2007)]{eeg1}R. G. Andrzejak, K. Lehnertz, F.Mormann, C.
 Rieke, P. David, and C. E. Elger, “Indications of nonlinear deterministic
 and finite-dimensional structures in time series of brain electrical
 activity: dependence on recording region and brain state,” Physical
 Review E, vol. 64, no. 6, Article ID 061907, 8 pages, 2001. 
-
-\bibitem{eeg2}A. T. Tzallas, M. G. Tsipouras, and D. I. Fotiadis,
-“Automatic Seizure Detection Based on Time-Frequency Analysis and
-Artificial Neural Networks,” Computational Intelligence and Neuroscience,
-vol. 2007, Article ID 80510, 13 pages, 2007. doi:10.1155/2007/80510
 
 \bibitem[(2007)]{zoo}M. Koivisto, K. Sood, Exact Bayesian Structure
 Discovery in Bayesian Networks, The Journal of Machine Learning Research\textbf{
@@ -1957,6 +2318,15 @@ Splines. Annals of Statistics, 19:1, 1-{}-141.
 prices and the demand for clean ai, J. Environ. Economics \& Management
 \textbf{5}, pp. 81-102, 1978.
 
+\bibitem[(1994)]{momentum}Phansalkar, V. V., \& Sastry, P. S. (1994).
+Analysis of the back-propagation algorithm with momentum. IEEE Transactions
+on Neural Networks, 5(3), 505-506.
+
+\bibitem[(2019)]{rmsprop}Zou, F., Shen, L., Jie, Z., Zhang, W., \&
+Liu, W. (2019). A sufficient condition for convergences of adam and
+rmsprop. In Proceedings of the IEEE/CVF Conference on computer vision
+and pattern recognition (pp. 11127-11135).
+
 \bibitem{powell}M.J.D Powell, A Tolerant Algorithm for Linearly Constrained
 Optimization Calculations, Mathematical Programming \textbf{45}, pp.
 547-566, 1989. 
@@ -1969,9 +2339,12 @@ pp. 99-127, 2002.
 Using Radial-Basis-Function Networks, Neural Computation \textbf{3},
 pp. 246-257, 1991.
 
-\bibitem{rbf2}G.A. Montazer, D. Giveki, M. Karami, H. Rastegar, Radial
-basis function neural networks: A review. Comput. Rev. J \textbf{1},
-pp. 52-74, 2018.
+\bibitem[(2019)]{prune}Zhu, V., Lu, Y., \& Li, Q. (2006). MW-OBS:
+An improved pruning method for topology design of neural networks.
+Tsinghua Science and Technology, 11(4), 307-312.
+
+\bibitem{fcn}Grzegorz Klima, Fast Compressed Neural Networks, available
+from \url{http://fcnn.sourceforge.net/}.
 
 \bibitem{de_migrant}J. Cheng, G. Zhang, F. Neri, Enhancing distributed
 differential evolution with multicultural migration for global numerical
