@@ -715,8 +715,6 @@ literal "false"
  During the third phase,
  a genetic algorithm is applied to train efficiently the neural network using the bounds that have been produced in the second phase for the parameters of the model.
  The proposed method have been applied on a wide series of classification and regression datasets and comparison was performed against traditional techniques for the training of neural networks.
-
-\series bold
  The basic building blocks of the proposed technique are:
 \end_layout
 
@@ -3235,7 +3233,7 @@ placement H
 alignment document
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -10327,6 +10325,121 @@ name "fig:statRegression"
 \end_layout
 
 \begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+ Also,
+ in the plot of Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:comparisonDermatology"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+a comparison in terms of classification error is made between the simple genetic algorithm and the proposed one for the Dermatology dataset.
+ Likewise,
+ in Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:comparisonHousing"
+plural "false"
+caps "false"
+noprefix "false"
+nolink "false"
+
+\end_inset
+
+ a plot of the regression error is outlined for the genetic algorithm and the proposed method.
+ For both cases,
+ there is a significant improvement in terms of error values.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename dermatology_plot.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A graphical comparison of the genetic algorithm and the proposed method for the Dermatology dataset.
+ The horizontal axis denotes number of generations and the vertical classification error as measured on the test set.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:comparisonDermatology"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename housing_plot.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Comparison between the genetic algorithm and the proposed method for the Housing regression dataset.The horizontal axis denotes number of generations and the vertical regression error as measured on the test set.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:comparisonHousing"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
 
 \end_layout
 
