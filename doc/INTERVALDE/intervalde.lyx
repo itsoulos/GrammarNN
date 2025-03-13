@@ -607,6 +607,7 @@ literal "false"
 \end_inset
 
 .
+ Most of these techniques require significant execution time to create the optimal topology of the artificial neural networks and in many cases the programmer must define the initial number of neurons to execute the above techniques.
 \end_layout
 
 \begin_layout Standard
@@ -673,7 +674,7 @@ literal "false"
 
 \end_inset
 
-
+.
 \end_layout
 
 \begin_layout Standard
@@ -714,6 +715,25 @@ literal "false"
  During the third phase,
  a genetic algorithm is applied to train efficiently the neural network using the bounds that have been produced in the second phase for the parameters of the model.
  The proposed method have been applied on a wide series of classification and regression datasets and comparison was performed against traditional techniques for the training of neural networks.
+ The basic building blocks of the proposed technique are:
+\end_layout
+
+\begin_layout Enumerate
+The use of a genetic algorithm that uses a modified version of the training error,
+ in order to identify a range of values \SpecialChar allowbreak
+\SpecialChar allowbreak
+for the parameters where the phenomenon of overfitting is not observed.
+\end_layout
+
+\begin_layout Enumerate
+The use of an evolutionary process to identify the range of values \SpecialChar allowbreak
+\SpecialChar allowbreak
+for the parameters of the artificial neural network,
+ where the smallest possible value for the training error appears.
+\end_layout
+
+\begin_layout Enumerate
+The use of an optimization technique to train the artificial neural network within the value range identified in the first two stages.
 \end_layout
 
 \begin_layout Standard
@@ -16457,6 +16477,20 @@ Future research could focus on applying the method to more complex or high-dimen
  class imbalance,
  or feature complexity,
  and propose targeted optimizations to address these challenges effectively.
+\end_layout
+
+\begin_layout Standard
+A key problem of the new technique is the slow training times of artificial neural networks,
+ since it is a three-stage technique.
+ In each stage a separate stochastic technique must be applied.
+ This means that the execution time will be increased compared to other techniques,
+ such as the simple genetic algorithm.
+ Of course,
+ some individual parts of the process can be accelerated by using parallel computing techniques.
+ Finally,
+ although the method uses a genetic algorithm in its last stage to evaluate the parameter value ranges,
+ other optimization techniques can be used in its place,
+ such as the Differential Evolution technique and the PSO technique.
 \end_layout
 
 \begin_layout Standard
