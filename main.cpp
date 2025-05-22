@@ -77,7 +77,7 @@ void makeMainParams()
 {
     mainParamList.addParam(Parameter("help","","Show help screen"));
     QStringList m;
-    m<<"intervalde"<<"grammar"<<"intervalpso"<<"intervalanneal";
+    m<<"intervalde"<<"grammar"<<"intervalpso"<<"intervalanneal"<<"inone";
     mainParamList.addParam(Parameter("gnn_intervalmethod",m[0],m,"The used interval method"));
     QStringList yesno;
     yesno<<"yes"<<"no";
@@ -294,9 +294,7 @@ void    runFirstPhase()
     
     for(int i=0;i<(int)bestMargin.size();i++)
     {
-        bestMargin[i]=Interval(-1.0 * fabs(xx[i]), 1.0*fabs(xx[i]));
-        bestMargin[i]=Interval(xx[i]-xx[i]/2.0, xx[i]+xx[i]/2);
-
+        bestMargin[i]=Interval(-2.0 * fabs(xx[i]), 2.0*fabs(xx[i]));
     }
 
 
@@ -365,11 +363,16 @@ void    runSecondPhase()
         ipso->getBest(bestMargin,yy);
     }
     else
+    if(gnn_intervalmethod=="inone")
+    {
+        //nothing here
+    }
+   /* else
     {
         isiman->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
         isiman->Solve();
         isiman->getBest(bestMargin,yy);
-    }
+    }*/
 
 
     qDebug()<<"PHASE 2. Best interval located: "<<"[ "<<
