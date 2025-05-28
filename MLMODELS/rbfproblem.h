@@ -28,8 +28,14 @@ private:
     Data lastGaussianValues;
 
     bool error_flag=false;
+    int expCount = 0;
+    int violCount = 0;
+    double rbf_boundfactor=2.0;
+    bool   rbf_usebound=false;
 public:
     RbfProblem();
+    void    resetCounters();
+    double  getViolationPercent();
     double  getDerivative(Data &x,int pos);
     double  getSecondDerivative(Data &x,int pos);
     void    setParameters(Data &x);

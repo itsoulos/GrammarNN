@@ -8,13 +8,30 @@ RbfProblem::RbfProblem()
 {
     addParam(Parameter("rbf_nodes","10","Number of rbf nodes"));
     addParam(Parameter("rbf_factor","5.0","Rbf Scale factor"));
+    QStringList yesno;
+    yesno<<"false"<<"true";
+    addParam(Parameter("rbf_usebound",yesno[0],yesno,"Rbf bound usage flag"));
+    addParam(Parameter("rbf_boundfactor",2.0,1.0,100.0,"Rbf bound factor"));
     trainA.resize(0);
 }
+
+
+void    RbfProblem::resetCounters()
+{
+    expCount = 0;
+    violCount = 0;
+}
+
+double  RbfProblem::getViolationPercent()
+{
+    return violCount * 100.0/expCount;
+}
+
 double  RbfProblem::getDerivative(Data &x,int pos)
 {
 
     double sum = 0.0;
-    for(int i=0;i<weight.size();i++)
+    for(int i=0;i<(int)weight.size();i++)
     {
         double px = gaussianDerivative(x,centers[i],variances[i],pos);
         sum = sum + weight[i]*px;
@@ -39,7 +56,7 @@ double  RbfProblem::getSecondDerivative(Data &x,int pos)
 {
 
     double sum = 0.0;
-    for(int i=0;i<weight.size();i++)
+    for(int i=0;i<(int)weight.size();i++)
     {
         double px = gaussianSecondDerivative(x,centers[i],variances[i],pos);
         sum = sum + weight[i]*px;
@@ -51,6 +68,9 @@ double  RbfProblem::gaussian(Data &x,Data &center,double variance)
 {
     double arg = getDistance(x,center);
     double dv = (arg * arg)/(variance * variance);
+    expCount++;
+    double ff = rbf_boundfactor;
+    if(fabs(dv)>=ff) violCount++;
     if(fastExpFlag)
     {
         if(isnan(dv) || isinf(dv)) return 0.0;
@@ -131,8 +151,11 @@ void    RbfProblem::getCenterDerivative(int index,Data &x,Data &g)
 double  RbfProblem::funmin(Data &x)
 {
     setParameters(x);
+    resetCounters();
     double f =  getTrainError();
-    return f;
+    if(rbf_usebound)
+        return f*(1.0 +  getViolationPercent());
+    else return f;
 }
 
 void        RbfProblem::granal(Data &x,Data &g)
@@ -147,7 +170,7 @@ void        RbfProblem::granal(Data &x,Data &g)
     int nodes = weight.size();
     g1.resize(d );
     int tcount = trainDataset->count();
-    for(int i=0;i<tcount;i++)
+   /* for(int i=0;i<tcount;i++)
     {
         Data xx = trainDataset->getXpoint(i);
         double per=getOutput(xx)-trainDataset->getYpoint(i);
@@ -175,7 +198,7 @@ void        RbfProblem::granal(Data &x,Data &g)
     for(int j=0;j<x.size();j++) g[j]*=2.0;
 
     return ;
-
+*/
     Data g2;
     g2.resize(dimension);
     for(int i=0;i<dimension;i++)
@@ -433,6 +456,8 @@ void    RbfProblem::initModel()
     }
     setMargins(m);
 
+    rbf_usebound = getParam("rbf_usebound").getValue()=="true";
+    rbf_boundfactor = getParam(rbf_boundfactor).getValue().toDouble();
 }
 void    RbfProblem::init(QJsonObject &px)
 {

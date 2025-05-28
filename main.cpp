@@ -282,6 +282,11 @@ void    runFirstPhase()
    }
 
 
+   if(selectedModelName=="Rbf") {
+       selectedModel->initModel();
+       selectedModel->disableFastExp();
+   }
+
     //phase 1. Run a small genetic algorithm to identify the most promising
     Genetic gd;
     gd.setParam("opt_debug","yes");
@@ -337,6 +342,7 @@ void    runSecondPhase()
 {
     gnn_intervalmethod = mainParamList.getParam("gnn_intervalmethod").getValue();
 	selectedModel->setParam("mlp_usebound","false");
+    selectedModel->setParam("rbf_usebound","false");
 
     selectedModel->enableFastExp();
     selectedModel->initModel();

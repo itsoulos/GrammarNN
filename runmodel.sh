@@ -13,7 +13,7 @@ DATAFILE=$1
 INTERVALMETHOD=inone
 
 ## MODEL: The name of the used model. Available values: Mlp, Rbf
-MODEL=Mlp
+MODEL=Rbf
 
 ## METHOD: The name of the used training method, when the Grammar Genetic finishes. 
 #          Avalaible values: Bfgs, Adam, Gradient, Lbfgs, Genetic, Pso
@@ -23,12 +23,12 @@ METHOD=Genetic
 LOCAL=bfgs
 
 # SAMPLER: The used sampling methods. Available values: uniform, triangular,maxwell,kmeans
-SAMPLER=kmeans
+SAMPLER=uniform
 
 # TERMINATION: The termination method used. Available values: maxiters, doublebox, similarity
 TERMINATION=maxiters
 
-OPTPARAMS="--opt_debug=yes --opt_localsearch=$LOCAL --opt_sampler=$SAMPLER --opt_termination=$TERMINATION"
+OPTPARAMS="--opt_debug=yes --opt_localsearch=$LOCAL --opt_sampler=$SAMPLER --opt_termination=$TERMINATION --gen_lrate=0.000"
 if [ $MODEL = "Mlp" ]
 then
 ###NEURAL NETWORK PARAMS
@@ -46,7 +46,7 @@ then
 ###RBF NETWORK PARAMS
 ## rbf_nodes: The number of processing nodes
 ## rbf_factor: The scale factor used for the margins
-	MODELPARAMS="--rbf_nodes=10 --rbf_factor=2 --model_trainfile=$DATAPATH/$1.train --model_testfile=$DATAPATH/$1.test"
+	MODELPARAMS="--rbf_usebound=true --rbf_boundfactor=2.0 --rbf_nodes=10 --rbf_factor=2 --model_trainfile=$DATAPATH/$1.train --model_testfile=$DATAPATH/$1.test"
 fi
 
 
