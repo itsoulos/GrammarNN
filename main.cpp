@@ -35,6 +35,7 @@ double average_test_error  = 0.0;
 double average_class_error = 0.0;
 double average_precision = 0.0;
 double average_recall    = 0.0;
+bool   gnn_balanceclass = false;
 int gnn_iters = 0;
 QString gnn_intervalmethod="intervalde";
 
@@ -86,6 +87,8 @@ void makeMainParams()
     mainParamList.addParam(Parameter("gnn_model",modelName[0],modelName,"Model name. Values: mlp,rbf"));
     mainParamList.addParam(Parameter("gnn_seed",1,0,100,"Random Seed"));
     mainParamList.addParam(Parameter("gnn_iters",1,1,100,"Number of iterations"));
+
+    mainParamList.addParam(Parameter("gnn_balanceclass",yesno[0],yesno,"Enable or disable the usage of balanced classess"));
 }
 
 void init()
@@ -258,10 +261,11 @@ void parseCmdLine(QStringList args)
 
 void    runFirstPhase()
 {
+
     Data xx;
     xx.resize(dynamic_cast<IntervalProblem*>(selectedModel)->getDimension());
     bestMargin.resize(dynamic_cast<IntervalProblem*>(selectedModel)->getDimension());
-
+    gnn_balanceclass = mainParamList.getParam("gnn_balanceclass").getValue()=="yes";
    QString yesno = mainParamList.getParam("gnn_firstphase").getValue();
    if(yesno=="no")
    {
@@ -341,7 +345,7 @@ void    loadDataFiles()
 void    runSecondPhase()
 {
     gnn_intervalmethod = mainParamList.getParam("gnn_intervalmethod").getValue();
-	selectedModel->setParam("mlp_usebound","false");
+    selectedModel->setParam("mlp_usebound","false");
     selectedModel->setParam("rbf_usebound","false");
 
     selectedModel->enableFastExp();
@@ -360,6 +364,12 @@ void    runSecondPhase()
         ide->setProblem(dynamic_cast<IntervalProblem*>(selectedModel));
         ide->Solve();
         ide->getBest(bestMargin,yy);
+        for(int k=0;k<bestMargin.size();k++)
+        {
+            printf("FOUND MARGINS [%lf %lf]\n",
+                   bestMargin[k].leftValue(),
+                   bestMargin[k].rightValue());
+        }
     }
     else
     if(gnn_intervalmethod=="intervalpso")
@@ -400,6 +410,7 @@ void makeReport()
 
 void    runThirdPhase()
 {
+    gnn_balanceclass =false;
     //evaluate the new margins
     selectedModel->disableFastExp();
 	selectedModel->setParam("mlp_usebound","false");

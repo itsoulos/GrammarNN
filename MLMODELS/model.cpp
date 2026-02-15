@@ -92,6 +92,9 @@ void        Model::setTrainSet(Dataset *tr)
 
 double  Model::getTrainError()
 {
+    extern bool gnn_balanceclass;
+    if(gnn_balanceclass)
+        return getAverageClassError(trainDataset);
     double error = 0.0;
     int xallsize  = xall.size();
     for(int i=0;i<xallsize;i++)
@@ -126,6 +129,38 @@ double  Model::getTestError(Dataset *test)
         error+= (per-yy)*(per-yy);
     }
     return error;
+}
+
+double  Model::getAverageClassError(Dataset *test)
+{
+    vector<int> belong;
+    vector<int> failed;
+    int nclass = test->getClassVector().size();
+    belong.resize(nclass);
+    failed.resize(nclass);
+    for(int i=0;i<nclass;i++)
+    {
+        belong[i]=0;
+        failed[i]=0;
+    }
+    double sum =0.0;
+    for(int i=0;i<test->count();i++)
+    {
+        Data xx = test->getXpoint(i);
+        double yy = test->getYpoint(i);
+        double per = getOutput(xx);
+        int index1 = test->estimateClassIndex(yy);
+        int index2 = test->estimateClassIndex(per);
+        belong[index1]++;
+        if(index1!=index2)
+            failed[index1]++;
+    }
+    for(int i=0;i<nclass;i++)
+    {
+        double dv = failed[i]*100.0/belong[i];
+        sum+=dv;
+    }
+    return sum/nclass;
 }
 
 /** edo epistrefo to classification sfalma sto test set **/

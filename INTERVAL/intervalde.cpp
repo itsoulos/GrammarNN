@@ -212,7 +212,7 @@ void        IntervalDE::Solve()
                 y=fitnessArray[i];
             }
         }
-	if(iter%50==0)
+
         printf("BEST[%d]=[%lf %lf]\n",iter,y.leftValue(),y.rightValue());
     }
 }

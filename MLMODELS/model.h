@@ -108,6 +108,13 @@ public:
      */
     virtual     void  testModel(double &trainError,double &testError,double &classError);
 
+    /**
+     * @brief getAverageClassError
+     * @param test
+     * @return  the class error per clas for the dataset test.
+     */
+    double  getAverageClassError(Dataset *test);
+
     void    enableFastExp();
     void    disableFastExp();
     int		printConfusionMatrix(vector<double> &T,vector<double> &O,

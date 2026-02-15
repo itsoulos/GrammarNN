@@ -10,10 +10,10 @@ PROGRAM=./GrammarNN
 DATAFILE=$1
 
 ## INTERVALMETHOD: The used interval method. Available values: grammar, intervalde, intervalpso, intervalanneal, inone
-INTERVALMETHOD=inone
+INTERVALMETHOD=intervalde
 
 ## MODEL: The name of the used model. Available values: Mlp, Rbf
-MODEL=Rbf
+MODEL=Mlp
 
 ## METHOD: The name of the used training method, when the Grammar Genetic finishes. 
 #          Avalaible values: Bfgs, Adam, Gradient, Lbfgs, Genetic, Pso
@@ -28,7 +28,7 @@ SAMPLER=uniform
 # TERMINATION: The termination method used. Available values: maxiters, doublebox, similarity
 TERMINATION=maxiters
 
-OPTPARAMS="--opt_debug=yes --opt_localsearch=$LOCAL --opt_sampler=$SAMPLER --opt_termination=$TERMINATION --gen_lrate=0.000"
+OPTPARAMS="--opt_debug=yes --opt_localsearch=$LOCAL --opt_sampler=$SAMPLER --opt_termination=$TERMINATION --gen_lrate=0.00"
 if [ $MODEL = "Mlp" ]
 then
 ###NEURAL NETWORK PARAMS
@@ -56,7 +56,8 @@ fi
 ## gnn_seed:   The seed used in the random number generator.
 ## gnn_method: The optimization method used in the final phase of the simulation experiments to evaluate the bounds. 
 ## gnn_model:  The model used during the experiments
-MAINPARAMS="--gnn_intervalmethod=$INTERVALMETHOD --gnn_firstphase=no --gnn_iters=30 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL"
+## gnn_balanceclass: Enable or disable the usage of balanced classed in the first phase (yes/no)
+MAINPARAMS="--gnn_intervalmethod=$INTERVALMETHOD --gnn_firstphase=yes --gnn_iters=30 --gnn_seed=1 --gnn_method=$METHOD --gnn_model=$MODEL --gnn_balanceclass=yes"
 
 ### Grammar Genetic PARAMETERS
 ## ggen_count:  The number of chromosomes used in the Grammar Genetic process.

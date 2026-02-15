@@ -100,7 +100,7 @@ void        IntervalPso::Solve()
     {
         //calc inertia
         inertia = pso_wmin +(pso_wmax-pso_wmin)*(k+1.0)/pso_iterations;
-
+        inertia = 0.5 + drand48()/2.0;
         //calc velocity
         for(int i=0;i<pso_particles;i++)
         {
@@ -118,9 +118,9 @@ void        IntervalPso::Solve()
                         r2 * pso_c2 * (bestx[j]-particle[i][j]).width();
 
                 Interval oldVel = velocity[i][j];
-                velocity[i][j]=Interval(inertia * velocity[i][j].leftValue()+0.1*left,
+                velocity[i][j]=Interval(inertia * velocity[i][j].leftValue()+0.5*left,
                                         inertia * velocity[i][j].rightValue()-
-                                        0.1*right);
+                                        0.5*right);
                 //update positions
                 Interval oldData = particle[i][j];
                 particle[i][j]=particle[i][j]+velocity[i][j];
@@ -143,24 +143,15 @@ void        IntervalPso::Solve()
             {
                 bestParticle[i]=particle[i];
                 bestFitnessArray[i]=fitnessArray[i];
-              //  printf("new f[%d]=%lf %lf \n",i,
-              //        fitnessArray[i].leftValue(),
-              //         fitnessArray[i].rightValue());
                 if(problem->lowerValue(fitnessArray[i],besty))
                 {
                     besty = fitnessArray[i];
                     bestx = particle[i];
                 }
             }
-
-
-
         }
         printf("PSO. Iteration=%4d Best Value=[%10.5lf,%10.5lf]\n",
-
                k,besty.leftValue(),besty.rightValue());
-
-
     }
 }
 

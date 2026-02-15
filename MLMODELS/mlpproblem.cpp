@@ -85,7 +85,6 @@ void    MlpProblem::initWeights()
 void    MlpProblem::initModel()
 {
     usebound_flag = getParam("mlp_usebound").getValue()=="false"?false:true;
-    printf("has bounds %d \n",usebound_flag);
     viollimit  = getParam("mlp_boundlimit").getValue().toDouble();
     initWeights();
 }
